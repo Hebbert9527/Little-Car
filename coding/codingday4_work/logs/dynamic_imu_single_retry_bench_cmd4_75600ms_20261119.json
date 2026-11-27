@@ -1,0 +1,139 @@
+{
+  "log": "live_20261119_204527_981.bin",
+  "command": 4,
+  "first": {
+    "line": 243577,
+    "seq": 1511,
+    "ms": 75600,
+    "command": 4,
+    "state": "TRACKING",
+    "xy": [
+      0,
+      0
+    ],
+    "heading_mrad": 1571,
+    "target": [
+      -1000,
+      -1000
+    ],
+    "waypoint": 0,
+    "fault": 0
+  },
+  "terminal": {
+    "line": 244020,
+    "seq": 1631,
+    "ms": 81600,
+    "command": 4,
+    "state": "FAULT",
+    "xy": [
+      0,
+      2
+    ],
+    "heading_mrad": 1572,
+    "target": [
+      -1000,
+      -1000
+    ],
+    "waypoint": 0,
+    "fault": 8
+  },
+  "duration_s": 6.0,
+  "wheel_frames": 60,
+  "imu_failed": {
+    "first": [
+      75000,
+      0
+    ],
+    "last": [
+      82000,
+      0
+    ]
+  },
+  "i2c_timeout_recovery": {
+    "first": [
+      75000,
+      0,
+      0
+    ],
+    "last": [
+      82000,
+      0,
+      0
+    ]
+  },
+  "frame_counts": {
+    "N": 171,
+    "P": 169,
+    "I": 170,
+    "B": 8,
+    "S": 8,
+    "Q": 8,
+    "T": 8,
+    "A": 1,
+    "D": 60
+  },
+  "terminal_error_mm": 1415.6,
+  "post_stop_500ms": {
+    "line": 244054,
+    "seq": 1641,
+    "ms": 82100,
+    "command": 4,
+    "state": "FAULT",
+    "xy": [
+      0,
+      2
+    ],
+    "heading_mrad": 1572,
+    "target": [
+      -1000,
+      -1000
+    ],
+    "waypoint": 0,
+    "fault": 8
+  },
+  "wheel_summary": {
+    "wheel_samples": 60,
+    "request_sign_groups": [
+      {
+        "signs": [
+          -1,
+          1
+        ],
+        "first_ms": 75650,
+        "last_ms": 81550,
+        "samples": 60
+      }
+    ],
+    "last_sample": {
+      "line": 244017,
+      "ms": 81550,
+      "command": 4,
+      "request": [
+        -88,
+        88
+      ],
+      "target": [
+        -88,
+        88
+      ],
+      "measured": [
+        -87,
+        88
+      ],
+      "duty": [
+        -110,
+        87
+      ]
+    },
+    "measured_minmax_mmps": [
+      [
+        -118,
+        -16
+      ],
+      [
+        1,
+        134
+      ]
+    ]
+  }
+}

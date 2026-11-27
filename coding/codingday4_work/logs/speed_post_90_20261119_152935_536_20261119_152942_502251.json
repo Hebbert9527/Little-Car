@@ -1,0 +1,53 @@
+{
+  "time_beijing": "20261119_152942_502251",
+  "hex_sha256": "4c2e911d133560e343dfa5e2dfa1fef3545c5ee71bfaafd394f5fcd3b6ada673",
+  "elf_sha256": "29c46d3443f2589c3a0766d2c67627a4a930e96ad297bbe360d40523fe20271c",
+  "mismatches": 0,
+  "valid_hex_bytes": null,
+  "identity_source": "C:\\Users\\Lenovo\\Desktop\\ESD\\WEEK4\\coding\\coding\\codingday4_work\\logs\\speed_pre_90_20261119_152935_536_20261119_152935_867148.json",
+  "readings_sequential": true,
+  "diagnostic_address": "0x2000051c",
+  "diagnostic": {
+    "request": 0,
+    "state": 2,
+    "last_side": 3,
+    "start_ms": 33063,
+    "stop_ms": 38063,
+    "left_start": 0,
+    "left_stop": 11394,
+    "right_start": 0,
+    "right_stop": 11056,
+    "left_ccr_before_stop": 1270,
+    "right_ccr_before_stop": 1527,
+    "completed": 1
+  },
+  "fault": {
+    "W4FaultCode": 0,
+    "W4FaultDetail": 0
+  },
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "speed_summary": {
+    "target_rpm": 90.0,
+    "samples": 100,
+    "fault": 0,
+    "trace": "C:\\Users\\Lenovo\\Desktop\\ESD\\WEEK4\\coding\\coding\\codingday4_work\\logs\\speed_post_90_20261119_152935_536_20261119_152942_502251_speed.json",
+    "settled_samples": 41,
+    "kp": 0.0020000000949949026,
+    "ki": 0.00800000037997961,
+    "mean_left_rpm": 89.73488393644007,
+    "mean_right_rpm": 89.91235035221752,
+    "mean_left_pwm": 0.2860737064989602,
+    "mean_right_pwm": 0.3407843658109991,
+    "wheel_mismatch_percent": 0.19718490641938363,
+    "mean_absolute_mismatch_percent": 0.5697660782149814,
+    "left_rpm_sd": 0.8247816842019189,
+    "right_rpm_sd": 0.2935773930533304,
+    "final_left_rpm": 90.83568572998047,
+    "final_right_rpm": 90.29914855957031
+  }
+}

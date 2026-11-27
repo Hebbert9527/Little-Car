@@ -1,0 +1,57 @@
+{
+  "fresh": [
+    1
+  ],
+  "last_scan": [
+    151605
+  ],
+  "xTickCount": [
+    151666
+  ],
+  "xMinimumEverFreeBytesRemaining": [
+    9216
+  ],
+  "xFreeBytesRemaining": [
+    9216
+  ],
+  "w4_nav": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    151660,
+    0,
+    0,
+    1070119626,
+    1
+  ],
+  "W4Imu_Counters": [
+    15168,
+    14791,
+    377,
+    14791,
+    14772,
+    18,
+    0,
+    5,
+    0,
+    0,
+    200,
+    6,
+    12
+  ],
+  "W4FaultCode": [
+    0
+  ],
+  "map_cells": 11449,
+  "occupied_cells": 735,
+  "free_cells": 2642,
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ]
+}

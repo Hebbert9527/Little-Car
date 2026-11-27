@@ -1,0 +1,62 @@
+{
+  "trace_logs": [
+    "yaw_warm_return_trace_20261118_204058.json",
+    "yaw_warm_return_trace_20261118_204104.json",
+    "yaw_warm_return_trace_20261118_204111.json",
+    "yaw_warm_return_trace_20261118_204117.json",
+    "yaw_warm_return_trace_20261118_204123.json",
+    "yaw_warm_return_trace_20261118_204129.json",
+    "yaw_warm_return_trace_20261118_204136.json",
+    "yaw_warm_return_trace_20261118_204142.json",
+    "yaw_warm_return_trace_20261118_204148.json",
+    "yaw_warm_return_trace_20261118_204155.json"
+  ],
+  "final_logs": [
+    "yaw_warm_return_final_20261118_204234.json",
+    "yaw_warm_return_final_20261118_204237.json"
+  ],
+  "trace_sample_ms": [
+    199952,
+    206402,
+    212842,
+    219292,
+    225722,
+    232152,
+    238562,
+    244972,
+    251412,
+    257822
+  ],
+  "trace_heading_deg": [
+    92.87969905101475,
+    93.13604971094367,
+    93.36393214241198,
+    93.62188106660668,
+    93.88107991541949,
+    94.15557155778396,
+    94.41535097267624,
+    95.16661713986427,
+    96.25918785987785,
+    11.699498477432895
+  ],
+  "final_heading_deg": 14.726700643058722,
+  "origin_before_ccw_deg": 1.222728192219518,
+  "total_residual_from_origin_deg": 13.503972450839203,
+  "round_trip_interval_s": 160.89,
+  "gyro_bias_dps": -1.0005720853805542,
+  "final_stationary_z_mean_dps": -0.932213544845581,
+  "final_stationary_z_sd_dps": 0.045894239563300535,
+  "final_temperature_C": 28.438107898236964,
+  "final_encoder": {
+    "edge_count": 405,
+    "capture_count": 403,
+    "invalid_count": 1,
+    "overcapture_count": 0,
+    "overflow_count": 4589
+  },
+  "failed": 0,
+  "configurations": 1,
+  "all_valid_calibrated": true,
+  "all_pwm_zero": true,
+  "assessment": "Single slow CCW response was +89.902 degrees, but round-trip residual includes cumulative drift and manual alignment uncertainty. Whole yaw/navigation accuracy remains unaccepted; do not unlock motion. Right-wheel CPR and geometry measurements can proceed independently while motion remains locked."
+}

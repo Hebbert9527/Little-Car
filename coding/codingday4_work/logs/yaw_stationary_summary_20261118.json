@@ -1,0 +1,62 @@
+{
+  "logs": [
+    "yaw_stationary_20261118_202735.json",
+    "yaw_stationary_20261118_202741.json",
+    "yaw_stationary_20261118_202748.json",
+    "yaw_stationary_20261118_202754.json",
+    "yaw_stationary_20261118_202800.json",
+    "yaw_stationary_20261118_202806.json"
+  ],
+  "hex_sha256": "27a117bb36937fb5254d167c6b02764816f444621a70b6435401f51cc6d87725",
+  "elf_sha256": "6542bd06b852c1d7d80f88d092ee6a12e412797dc89443338b0a7a91d63d6f50",
+  "sample_ms": [
+    73202,
+    79662,
+    86102,
+    92532,
+    98962,
+    105392
+  ],
+  "heading_deg": [
+    0.9622744028684198,
+    1.0081520364714551,
+    1.0263280236265053,
+    1.0447370909869822,
+    1.092307437565417,
+    1.2249930402596116
+  ],
+  "duration_s": 32.19,
+  "endpoint_change_deg": 0.26271863739119183,
+  "sparse_heading_range_deg": 0.26271863739119183,
+  "endpoint_rate_dps": 0.00816149852100627,
+  "linear_fit_rate_dps": 0.007032236525970564,
+  "z_raw_sd_dps": [
+    0.05810612246315765,
+    0.06168776658316791,
+    0.0789121552897691,
+    0.062289654215183524,
+    0.05041018799026734,
+    0.06357581592634601
+  ],
+  "temperature_C": [
+    27.290853171706054,
+    27.29896486773482,
+    27.29279096981984,
+    27.284221514689474,
+    27.27459833613195,
+    27.246830054783672
+  ],
+  "all_valid_calibrated": true,
+  "calibration_samples": 200,
+  "xy_bias_warning": 1,
+  "failed": 0,
+  "fault": 0,
+  "motion_calibration_flags": 0,
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "note": "Six sparse live-heading observations over 32.19 seconds; frozen 500-sample windows are raw sensor statistics. This is a short stationary observation, not an absolute-yaw accuracy or long-term-drift certification."
+}

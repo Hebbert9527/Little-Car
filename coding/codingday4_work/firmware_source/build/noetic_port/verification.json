@@ -1,0 +1,127 @@
+{
+  "date": "2026-11-27",
+  "upstream": "https://github.com/StarDust-XCHH/NoeticMaze",
+  "commit": "f869723cec2ebecf77fdf6442a664b6b0ba5e7c4",
+  "cortex_passed": [
+    "imu",
+    "imu_recovery",
+    "imu_diagnostics",
+    "imu_xy_bias",
+    "imu_rotation",
+    "yaw_calibration",
+    "oled_disabled",
+    "oled32",
+    "oled64",
+    "navigation",
+    "navigation_dual",
+    "navigation_rear_forward",
+    "navigation_rear_no_straight_correction",
+    "navigation_maze",
+    "noetic_planner"
+  ],
+  "pc_tests_passed": 21,
+  "firmware_sources": 70,
+  "text_bytes": 103608,
+  "data_bytes": 908,
+  "bss_bytes": 111816,
+  "artifact_sha256": {
+    "Week4_Integrated.hex": "f1583f0917e4bfebad2d8e7f88f9b1996ef35ccaccf095ab650a4d96d4c6b79e",
+    "Week4_Integrated.elf": "6892766e2b96ac6bc316c272b6e2e2f450e7a43d52929795275e5a1ed0fe3804",
+    "Week4_Integrated.bin": "6b761013df16a3d3df06ae302bc95f06af439da0cc56064bfbc888fc945d81a1"
+  },
+  "protected_sha256": {
+    "week4/Src/w4_motor.c": "db34990b906bf9af0f71eb171c99ba4002b20733b9ca91c4f9ec8cdc4405d6cf",
+    "week4/Src/w4_calibration.c": "c4c80de4179978b27ef028f133d26edb8ab11786e79ea541b06a61a23288d1fb",
+    "week4/Src/w4_port_stm32.c": "a1bc0227ae6e6809b17cb3a5a675d0d140fb7d9e87a72783ca5c14a7a717b8c5",
+    "week4/Src/w4_common.c": "10ab40c1a97538edea40776fb4a171e9b2b81b22033eebaadc39526913b353b7",
+    "week4/Src/w4_wheel_speed.c": "061fb25b909232ca6ccffbe789f77355fcdb4c396d3fd7f178f219422f6d813a",
+    "week4/Inc/w4_contract.h": "bae68afee2a562743757f5b524726ce16ba6cef8a5bf6c2ff06ce04b77a7366a",
+    "Core/Src/main.c": "ebaa23b0ddb548432dc0ccaf34ebdf6ead28e891378ec5daebba98586c770183",
+    "Core/Src/week3_board.c": "31e7250018f32eef65c0e1b4afad9ff77de564b3c497395228879181aaad395a"
+  },
+  "unchanged_control_sections": {
+    "fixed_straight_duty": true,
+    "straight_correction": true,
+    "distance_control": true
+  },
+  "scenarios": [
+    {
+      "ticks": 500,
+      "x": -0.0004860989865846932,
+      "y": 0.609133243560791,
+      "min_clearance": 0.0,
+      "state": 3,
+      "fault": 0,
+      "replans": null,
+      "scenario": "open"
+    },
+    {
+      "ticks": 1050,
+      "x": -0.03905072808265686,
+      "y": 1.0385842323303223,
+      "min_clearance": 0.2938920259475708,
+      "state": 3,
+      "fault": 0,
+      "replans": null,
+      "scenario": "board"
+    },
+    {
+      "ticks": 1279,
+      "x": 0.03503727912902832,
+      "y": 1.6286503076553345,
+      "min_clearance": 0.31285402178764343,
+      "state": 3,
+      "fault": 0,
+      "replans": 0,
+      "scenario": "poles"
+    },
+    {
+      "ticks": 2817,
+      "x": -0.025043757632374763,
+      "y": 1.6436785459518433,
+      "min_clearance": 0.2770083546638489,
+      "state": 3,
+      "fault": 0,
+      "replans": 6,
+      "scenario": "maze"
+    },
+    {
+      "ticks": 1309,
+      "x": -0.026407258585095406,
+      "y": 1.599717140197754,
+      "min_clearance": 0.27454251050949097,
+      "state": 3,
+      "fault": 0,
+      "replans": 1,
+      "scenario": "dynamic"
+    }
+  ],
+  "flashed": true,
+  "physical_motion_test": false,
+  "flash_log": "flash_authorized_20261127.txt",
+  "readback": {
+    "bytes": 104516,
+    "mismatches": 0,
+    "hex_sha256": "f1583f0917e4bfebad2d8e7f88f9b1996ef35ccaccf095ab650a4d96d4c6b79e"
+  },
+  "startup": {
+    "nav_state": 0,
+    "nav_fault": 0,
+    "mcu_fault": 0,
+    "tick": 43848,
+    "pwm": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "imu": {
+      "valid": 1,
+      "calibrated": 1,
+      "xy_bias": 1,
+      "sample_ms": 43842,
+      "completed": 4246,
+      "failed": 6
+    }
+  }
+}

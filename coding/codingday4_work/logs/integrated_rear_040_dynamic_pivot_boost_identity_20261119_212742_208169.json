@@ -1,0 +1,19 @@
+{
+  "time_beijing": "20261119_212742_208169",
+  "build": "integration_dual_rear_040_dynamic_pivot_boost",
+  "hex_sha256": "ad6cf2fedbdcde56a586ab458b137db7da35869679a45560eb018b450737dcf2",
+  "elf_sha256": "d754dfbb37b849c7f27d3808cb5947f72bdd8989bae9fdf268ea49c7f27fa67e",
+  "valid_hex_bytes": 89956,
+  "mismatches": 0,
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "w4_nav": 0,
+  "W4FaultCode": 0,
+  "W4FaultDetail": 0,
+  "xTickCount": 845,
+  "navigation_fault": 0
+}

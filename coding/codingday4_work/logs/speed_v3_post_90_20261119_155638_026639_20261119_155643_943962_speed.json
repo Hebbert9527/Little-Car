@@ -1,0 +1,177 @@
+{
+  "target_rpm": 90.0,
+  "fault": 2,
+  "samples": [
+    {
+      "elapsed_ms": 50,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 100,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 150,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 200,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 250,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 300,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 350,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 400,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 450,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 500,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 550,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 600,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 650,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 700,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 750,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 800,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 850,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 900,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 950,
+      "left_delta": 0,
+      "right_delta": 0,
+      "left_rpm": 0.0,
+      "right_rpm": 0.0,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "time_beijing": "20261118_225828_793926",
+  "hex_sha256": "4f8575440c16a29e9f8cee3e130ba8acfcbdf73d026dc2e786ee1191fd1c34d3",
+  "elf_sha256": "faea53f1cc60012fd452bc5f262d75795169938df08942800862b63d74ef7604",
+  "valid_hex_bytes": 84688,
+  "mismatches": 0,
+  "flash_readback_sha256": "03d82ef89ab8173c87db0a921bbcb9ef8b54356206d649efbae76813b5e22439",
+  "sequential_live_reads": true,
+  "calibration_flags": [
+    0,
+    0,
+    0
+  ],
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "encoder_capture_count": 0,
+  "encoder_edge_count": 0,
+  "encoder_invalid_count": 0,
+  "encoder_overcapture_count": 0,
+  "W4FaultCode": 0,
+  "W4FaultDetail": 0,
+  "xTickCount": 21659
+}

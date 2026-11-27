@@ -1,0 +1,41 @@
+{
+  "flash_backup_sha256": "9486f2b8aa02cc99e128c871eab5231b6a93b70e1772acefe5bb34e0173e0074",
+  "flash_size": 524288,
+  "comparisons": [
+    {
+      "hex": "D:\\EMBEGGed\\week4codingday\\coding\\week4_flash_work(1)\\week4_flash_work\\source\\build\\integration\\Week4_Integrated.hex",
+      "sha256": "3feb5d53afb3cda0fdbea396a769f95efccd42c2f55bb00754debae1ef38c747",
+      "valid_bytes": 83504,
+      "mismatch_bytes": 0,
+      "first_differences": []
+    },
+    {
+      "hex": "D:\\EMBEGGed\\week4codingday\\coding\\week4_integrated(2)\\week4_integrated\\build\\integration\\Week4_Integrated.hex",
+      "sha256": "72f06caada2eac362703d6670c6557b851dd4b8fc775606baf81377e75af1d7a",
+      "valid_bytes": 83720,
+      "mismatch_bytes": 80412,
+      "first_differences": [
+        "0x8000004",
+        "0x8000005",
+        "0x8000008",
+        "0x8000009",
+        "0x800000c",
+        "0x800000d"
+      ]
+    },
+    {
+      "hex": "D:\\EMBEGGed\\week4codingday\\coding\\week4_integrated(2)\\week4_integrated\\firmware\\Week4_Integrated.hex",
+      "sha256": "72f06caada2eac362703d6670c6557b851dd4b8fc775606baf81377e75af1d7a",
+      "valid_bytes": 83720,
+      "mismatch_bytes": 80412,
+      "first_differences": [
+        "0x8000004",
+        "0x8000005",
+        "0x8000008",
+        "0x8000009",
+        "0x800000c",
+        "0x800000d"
+      ]
+    }
+  ]
+}

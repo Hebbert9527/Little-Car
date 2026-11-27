@@ -1,0 +1,30 @@
+{
+  "time_beijing": "20261119_153200_529865",
+  "identity": "logs\\cpr_recheck_safe_20261119_153147_183507.json",
+  "hex_sha256": "4c2e911d133560e343dfa5e2dfa1fef3545c5ee71bfaafd394f5fcd3b6ada673",
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "note": "Sequential register reads; signed delta requires a second sample and <32768 counts between reads.",
+  "right": {
+    "counter": 23407,
+    "cr1": "0x201",
+    "smcr": "0x3",
+    "ccmr1": "0xf1f1",
+    "ccer": "0x11",
+    "arr": 65535,
+    "encoder_mode_verified": true
+  },
+  "left": {
+    "counter": 23400,
+    "cr1": "0x211",
+    "smcr": "0x3",
+    "ccmr1": "0xf1f1",
+    "ccer": "0x11",
+    "arr": 65535,
+    "encoder_mode_verified": true
+  }
+}

@@ -1,0 +1,898 @@
+{
+  "log": "live_20261119_204527_981.bin",
+  "command": 7,
+  "first": {
+    "line": 207221,
+    "seq": 5580,
+    "ms": 279050,
+    "command": 7,
+    "state": "TRACKING",
+    "xy": [
+      0,
+      0
+    ],
+    "heading_mrad": 1574,
+    "target": [
+      -1000,
+      1000
+    ],
+    "waypoint": 0,
+    "fault": 0
+  },
+  "terminal": {
+    "line": 208338,
+    "seq": 5884,
+    "ms": 294250,
+    "command": 7,
+    "state": "ARRIVED",
+    "xy": [
+      -989,
+      1005
+    ],
+    "heading_mrad": 3077,
+    "target": [
+      -1000,
+      1000
+    ],
+    "waypoint": 39,
+    "fault": 0
+  },
+  "duration_s": 15.2,
+  "wheel_frames": 145,
+  "imu_failed": {
+    "first": [
+      278000,
+      3
+    ],
+    "last": [
+      295000,
+      3
+    ]
+  },
+  "i2c_timeout_recovery": {
+    "first": [
+      278000,
+      1,
+      1
+    ],
+    "last": [
+      295000,
+      1,
+      1
+    ]
+  },
+  "frame_counts": {
+    "N": 355,
+    "P": 354,
+    "I": 354,
+    "B": 18,
+    "S": 18,
+    "Q": 18,
+    "T": 18,
+    "A": 1,
+    "D": 145
+  },
+  "terminal_error_mm": 12.1,
+  "post_stop_500ms": {
+    "line": 208368,
+    "seq": 5894,
+    "ms": 294750,
+    "command": 7,
+    "state": "ARRIVED",
+    "xy": [
+      -989,
+      1005
+    ],
+    "heading_mrad": 3077,
+    "target": [
+      -1000,
+      1000
+    ],
+    "waypoint": 39,
+    "fault": 0
+  },
+  "corner": {
+    "first_pivot": {
+      "line": 207652,
+      "ms": 284950,
+      "command": 7,
+      "request": [
+        -88,
+        88
+      ],
+      "target": [
+        -88,
+        88
+      ],
+      "measured": [
+        -2,
+        0
+      ],
+      "duty": [
+        -400,
+        202
+      ]
+    },
+    "pose_at_first_pivot": {
+      "line": 207651,
+      "seq": 5698,
+      "ms": 284950,
+      "command": 7,
+      "state": "TRACKING",
+      "xy": [
+        6,
+        1002
+      ],
+      "heading_mrad": 1408,
+      "target": [
+        -1000,
+        1000
+      ],
+      "waypoint": 20,
+      "fault": 0
+    },
+    "first_leg_max_lateral_mm": 31,
+    "observed_turn_deg": 99.53,
+    "reached_second_leg": true
+  },
+  "second_leg": {
+    "first_forward": {
+      "line": 207840,
+      "seq": 5749,
+      "ms": 287500,
+      "command": 7,
+      "state": "TRACKING",
+      "xy": [
+        64,
+        952
+      ],
+      "heading_mrad": -3138,
+      "target": [
+        -1000,
+        1000
+      ],
+      "waypoint": 20,
+      "fault": 0
+    },
+    "max_mean_request_mmps": 180,
+    "max_mean_measured_mmps": 191.5,
+    "extra_opposed_request_frames": 3,
+    "max_deviation_from_route_y_mm": 48
+  },
+  "left_boost_frames": [
+    {
+      "line": 207699,
+      "ms": 285550,
+      "command": 7,
+      "request": [
+        -88,
+        88
+      ],
+      "target": [
+        -88,
+        88
+      ],
+      "measured": [
+        -27,
+        13
+      ],
+      "duty": [
+        -600,
+        269
+      ]
+    },
+    {
+      "line": 207706,
+      "ms": 285650,
+      "command": 7,
+      "request": [
+        -88,
+        88
+      ],
+      "target": [
+        -88,
+        88
+      ],
+      "measured": [
+        -106,
+        0
+      ],
+      "duty": [
+        -581,
+        204
+      ]
+    },
+    {
+      "line": 207713,
+      "ms": 285750,
+      "command": 7,
+      "request": [
+        -88,
+        88
+      ],
+      "target": [
+        -88,
+        88
+      ],
+      "measured": [
+        -168,
+        0
+      ],
+      "duty": [
+        -515,
+        224
+      ]
+    },
+    {
+      "line": 207720,
+      "ms": 285850,
+      "command": 7,
+      "request": [
+        -88,
+        88
+      ],
+      "target": [
+        -88,
+        88
+      ],
+      "measured": [
+        -194,
+        45
+      ],
+      "duty": [
+        -450,
+        213
+      ]
+    },
+    {
+      "line": 207769,
+      "ms": 286500,
+      "command": 7,
+      "request": [
+        -88,
+        88
+      ],
+      "target": [
+        -88,
+        88
+      ],
+      "measured": [
+        0,
+        53
+      ],
+      "duty": [
+        -433,
+        210
+      ]
+    },
+    {
+      "line": 207776,
+      "ms": 286600,
+      "command": 7,
+      "request": [
+        -88,
+        88
+      ],
+      "target": [
+        -88,
+        88
+      ],
+      "measured": [
+        -11,
+        63
+      ],
+      "duty": [
+        -533,
+        211
+      ]
+    },
+    {
+      "line": 207783,
+      "ms": 286700,
+      "command": 7,
+      "request": [
+        -88,
+        88
+      ],
+      "target": [
+        -88,
+        88
+      ],
+      "measured": [
+        -68,
+        57
+      ],
+      "duty": [
+        -600,
+        220
+      ]
+    },
+    {
+      "line": 207790,
+      "ms": 286800,
+      "command": 7,
+      "request": [
+        -88,
+        88
+      ],
+      "target": [
+        -88,
+        88
+      ],
+      "measured": [
+        -148,
+        48
+      ],
+      "duty": [
+        -548,
+        233
+      ]
+    },
+    {
+      "line": 207797,
+      "ms": 286900,
+      "command": 7,
+      "request": [
+        -88,
+        88
+      ],
+      "target": [
+        -88,
+        88
+      ],
+      "measured": [
+        -193,
+        36
+      ],
+      "duty": [
+        -483,
+        250
+      ]
+    },
+    {
+      "line": 207804,
+      "ms": 287000,
+      "command": 7,
+      "request": [
+        -67,
+        67
+      ],
+      "target": [
+        -67,
+        67
+      ],
+      "measured": [
+        -206,
+        23
+      ],
+      "duty": [
+        -418,
+        247
+      ]
+    }
+  ],
+  "left_pivot_pwm": {
+    "sample_count": 23,
+    "samples_at_60pct": 2,
+    "near_60pct_blocks": [
+      {
+        "first_ms": 285550,
+        "last_ms": 285550,
+        "samples": 1
+      },
+      {
+        "first_ms": 286700,
+        "last_ms": 286700,
+        "samples": 1
+      }
+    ],
+    "peak_reverse_wheel_mmps": 206,
+    "target_speed_reached_frames": 11,
+    "first_reaching_target": {
+      "line": 207706,
+      "ms": 285650,
+      "command": 7,
+      "request": [
+        -88,
+        88
+      ],
+      "target": [
+        -88,
+        88
+      ],
+      "measured": [
+        -106,
+        0
+      ],
+      "duty": [
+        -581,
+        204
+      ]
+    },
+    "samples": [
+      {
+        "line": 207652,
+        "ms": 284950,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -2,
+          0
+        ],
+        "duty": [
+          -400,
+          202
+        ]
+      },
+      {
+        "line": 207663,
+        "ms": 285050,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -22,
+          7
+        ],
+        "duty": [
+          -219,
+          217
+        ]
+      },
+      {
+        "line": 207670,
+        "ms": 285150,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -28,
+          44
+        ],
+        "duty": [
+          -230,
+          211
+        ]
+      },
+      {
+        "line": 207677,
+        "ms": 285250,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -16,
+          59
+        ],
+        "duty": [
+          -251,
+          210
+        ]
+      },
+      {
+        "line": 207684,
+        "ms": 285350,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          0,
+          50
+        ],
+        "duty": [
+          -400,
+          222
+        ]
+      },
+      {
+        "line": 207691,
+        "ms": 285450,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          0,
+          30
+        ],
+        "duty": [
+          -400,
+          244
+        ]
+      },
+      {
+        "line": 207699,
+        "ms": 285550,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -27,
+          13
+        ],
+        "duty": [
+          -600,
+          269
+        ]
+      },
+      {
+        "line": 207706,
+        "ms": 285650,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -106,
+          0
+        ],
+        "duty": [
+          -581,
+          204
+        ]
+      },
+      {
+        "line": 207713,
+        "ms": 285750,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -168,
+          0
+        ],
+        "duty": [
+          -515,
+          224
+        ]
+      },
+      {
+        "line": 207720,
+        "ms": 285850,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -194,
+          45
+        ],
+        "duty": [
+          -450,
+          213
+        ]
+      },
+      {
+        "line": 207727,
+        "ms": 285950,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -186,
+          51
+        ],
+        "duty": [
+          -385,
+          218
+        ]
+      },
+      {
+        "line": 207738,
+        "ms": 286050,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -159,
+          34
+        ],
+        "duty": [
+          -320,
+          237
+        ]
+      },
+      {
+        "line": 207748,
+        "ms": 286200,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -101,
+          10
+        ],
+        "duty": [
+          -223,
+          274
+        ]
+      },
+      {
+        "line": 207755,
+        "ms": 286300,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -60,
+          0
+        ],
+        "duty": [
+          -233,
+          208
+        ]
+      },
+      {
+        "line": 207762,
+        "ms": 286400,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -24,
+          1
+        ],
+        "duty": [
+          -333,
+          600
+        ]
+      },
+      {
+        "line": 207769,
+        "ms": 286500,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          0,
+          53
+        ],
+        "duty": [
+          -433,
+          210
+        ]
+      },
+      {
+        "line": 207776,
+        "ms": 286600,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -11,
+          63
+        ],
+        "duty": [
+          -533,
+          211
+        ]
+      },
+      {
+        "line": 207783,
+        "ms": 286700,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -68,
+          57
+        ],
+        "duty": [
+          -600,
+          220
+        ]
+      },
+      {
+        "line": 207790,
+        "ms": 286800,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -148,
+          48
+        ],
+        "duty": [
+          -548,
+          233
+        ]
+      },
+      {
+        "line": 207797,
+        "ms": 286900,
+        "command": 7,
+        "request": [
+          -88,
+          88
+        ],
+        "target": [
+          -88,
+          88
+        ],
+        "measured": [
+          -193,
+          36
+        ],
+        "duty": [
+          -483,
+          250
+        ]
+      },
+      {
+        "line": 207804,
+        "ms": 287000,
+        "command": 7,
+        "request": [
+          -67,
+          67
+        ],
+        "target": [
+          -67,
+          67
+        ],
+        "measured": [
+          -206,
+          23
+        ],
+        "duty": [
+          -418,
+          247
+        ]
+      },
+      {
+        "line": 207815,
+        "ms": 287100,
+        "command": 7,
+        "request": [
+          -42,
+          42
+        ],
+        "target": [
+          -42,
+          42
+        ],
+        "measured": [
+          -194,
+          9
+        ],
+        "duty": [
+          -353,
+          235
+        ]
+      },
+      {
+        "line": 207822,
+        "ms": 287200,
+        "command": 7,
+        "request": [
+          -35,
+          35
+        ],
+        "target": [
+          -35,
+          35
+        ],
+        "measured": [
+          -169,
+          0
+        ],
+        "duty": [
+          -288,
+          143
+        ]
+      }
+    ]
+  }
+}

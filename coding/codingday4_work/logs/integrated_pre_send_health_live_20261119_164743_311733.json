@@ -1,0 +1,80 @@
+{
+  "hex_sha256": "626d01344c33b9e718788d8f8fa3df73320bc2ffc04b2d4eed3823e7abaad552",
+  "elf_sha256": "a2c8afc10f355608310bab41adc9a8619722671ab96151ab2d435f7e5bb3addc",
+  "build": "integration_dual_calibrated",
+  "serial": "0674FF545155657067032031",
+  "kind": "live",
+  "sequential_live_reads": true,
+  "calibration_flags": [
+    1,
+    1,
+    1
+  ],
+  "diameter_left_m": 0.06800000369548798,
+  "diameter_right_m": 0.06800000369548798,
+  "track_m": 0.17499999701976776,
+  "cpr_left": 1559.449951171875,
+  "cpr_right": 1561.5999755859375,
+  "encoder_sign_left": 1,
+  "encoder_sign_right": 1,
+  "imu_sign": 1,
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "mcu_fault": 0,
+  "mcu_fault_detail": 0,
+  "os_tick_ms": 739141,
+  "nav": {
+    "state": 4,
+    "cmd_id": 0,
+    "target_x": 0.0,
+    "target_y": 1.0,
+    "waypoint": 0,
+    "fault": 0,
+    "stamp_ms": 739130,
+    "x": 0.0,
+    "y": 0.0,
+    "heading_rad": 1.536630392074585,
+    "pose_valid": 1
+  },
+  "imu": {
+    "heading_rad": -0.07521285861730576,
+    "gz_rad_s": 4.6631324948975816e-05,
+    "stamp_ms": 739132,
+    "valid": 1,
+    "calibrated": 1,
+    "xy_bias_warning": 1,
+    "timer_triggers": 73915,
+    "completed": 73839,
+    "failed": 3,
+    "coalesced": 72,
+    "calibration_rejected": 247,
+    "calibration_samples": 200
+  },
+  "oled": {
+    "status": 2,
+    "periods": 14783,
+    "missed_periods": 0,
+    "chunks_sent": 14780,
+    "io_failures": 0
+  },
+  "ble_tx": {
+    "lidar_point_frames": 14437,
+    "imu_frames": 13072,
+    "frames": 45250,
+    "errors": 0
+  },
+  "encoders": {
+    "left": {
+      "mode_x4": true,
+      "count": 0
+    },
+    "right": {
+      "mode_x4": true,
+      "count": 0
+    }
+  }
+}

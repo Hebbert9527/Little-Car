@@ -1,0 +1,11 @@
+{
+  "hex_sha256": "c1580aef6fe0df182e6f7b8c24274dae7b73007cd2d72f049738a525cca2b996",
+  "elf_sha256": "2d128d9450fa1198c19c30a09f34f2803b52469e3464255a55ef2b1b33db8854",
+  "build": "integration_dual_rear_040_dynamic_imu_single_retry",
+  "serial": "0674FF545155657067032031",
+  "hex": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\build\\integration_dual_rear_040_dynamic_imu_single_retry\\Week4_Integrated.hex",
+  "elf": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\build\\integration_dual_rear_040_dynamic_imu_single_retry\\Week4_Integrated.elf",
+  "log": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\flash_integration_dual_rear_040_dynamic_imu_single_retry_20261119_214813_934665.txt",
+  "verified": true,
+  "reset": true
+}

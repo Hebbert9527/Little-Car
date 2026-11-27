@@ -1,0 +1,12 @@
+build/
+Debug/
+Release/
+.runtime/
+logs/
+__pycache__/
+*.pyc
+member1/vendor/
+
+.venv/
+tests/**/build/
+tests/navigation/*.exe

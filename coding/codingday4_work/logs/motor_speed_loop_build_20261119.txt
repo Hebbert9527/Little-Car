@@ -1,0 +1,39 @@
+Core/Src/main.c:288:13: warning: 'MX_TIM3_Init' defined but not used [-Wunused-function]
+  288 | static void MX_TIM3_Init(void)
+      |             ^~~~~~~~~~~~
+In file included from Core/Src/main.c:82:
+Core/Src/app_motor.inc:22:13: warning: 'Motor_Process' defined but not used [-Wunused-function]
+   22 | static void Motor_Process(void)
+      |             ^~~~~~~~~~~~~
+In file included from Core/Src/main.c:81:
+Core/Src/app_buttons.inc:1:13: warning: 'Buttons_Process' defined but not used [-Wunused-function]
+    1 | static void Buttons_Process(void)
+      |             ^~~~~~~~~~~~~~~
+In file included from Core/Src/main.c:80:
+Core/Src/app_encoder.inc:84:13: warning: 'Encoder_Process' defined but not used [-Wunused-function]
+   84 | static void Encoder_Process(void)
+      |             ^~~~~~~~~~~~~~~
+In file included from Core/Src/main.c:79:
+Core/Src/app_swv.inc:15:13: warning: 'SWV_Process' defined but not used [-Wunused-function]
+   15 | static void SWV_Process(void)
+      |             ^~~~~~~~~~~
+Core/Src/app_swv.inc:1:13: warning: 'SWV_Init' defined but not used [-Wunused-function]
+    1 | static void SWV_Init(void)
+      |             ^~~~~~~~
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c: In function 'FLASH_MassErase':
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c:948:60: warning: unused parameter 'Banks' [-Wunused-parameter]
+  948 | static void FLASH_MassErase(uint8_t VoltageRange, uint32_t Banks)
+      |                                                   ~~~~~~~~~^~~~~
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c: In function 'FLASH_OB_EnableWRP':
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c:1027:74: warning: unused parameter 'Banks' [-Wunused-parameter]
+ 1027 | static HAL_StatusTypeDef FLASH_OB_EnableWRP(uint32_t WRPSector, uint32_t Banks)
+      |                                                                 ~~~~~~~~~^~~~~
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c: In function 'FLASH_OB_DisableWRP':
+Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c:1063:75: warning: unused parameter 'Banks' [-Wunused-parameter]
+ 1063 | static HAL_StatusTypeDef FLASH_OB_DisableWRP(uint32_t WRPSector, uint32_t Banks)
+      |                                                                  ~~~~~~~~~^~~~~
+   text	   data	    bss	    dec	    hex	filename
+
+  38884	    724	   8520	  48128	   bc00	build/motor_speed_loop/Week4_Integrated.elf
+
+Built 65 source files. Output: build/motor_speed_loop/Week4_Integrated.elf

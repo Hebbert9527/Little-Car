@@ -1,0 +1,30 @@
+{
+  "hex_sha256": "4afa2dd29f8b7bec8d047e9c5c583453321eebaf84ab900694cdd419bd7caa90",
+  "elf_sha256": "223ed3bacdd6760bab34ff40a54f232f055b99269bb21606eb20affb701ead40",
+  "build": "integration_dual_rear_040_dynamic_corner",
+  "serial": "0674FF545155657067032031",
+  "hex": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\build\\integration_dual_rear_040_dynamic_corner\\Week4_Integrated.hex",
+  "elf": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\build\\integration_dual_rear_040_dynamic_corner\\Week4_Integrated.elf",
+  "log": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\flash_integration_dual_rear_040_dynamic_corner_20261119_210224_750589.txt",
+  "verified": true,
+  "reset": true,
+  "checked_hex_bytes": 89540,
+  "mismatches": 0,
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "calibration_flags": [
+    1,
+    1,
+    1
+  ],
+  "nav_state": 0,
+  "mcu_fault": 0,
+  "tick_ms": 790,
+  "max_v_mps": 0.4,
+  "max_wheel_mps": 0.49,
+  "pwm_limit": 0.4
+}

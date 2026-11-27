@@ -1,0 +1,11 @@
+{
+  "hex_sha256": "70abd1203366060d224652a695be30d82a4800f37e0f7c38677095a706a690ac",
+  "elf_sha256": "0693822b60adda06682a523e22388d6981ea35e69fdc0b5894f5bc4649d6792d",
+  "build": "integration_dual_rear_040_corner_braking",
+  "serial": "0674FF545155657067032031",
+  "hex": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\build\\integration_dual_rear_040_corner_braking\\Week4_Integrated.hex",
+  "elf": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\build\\integration_dual_rear_040_corner_braking\\Week4_Integrated.elf",
+  "log": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\flash_integration_dual_rear_040_corner_braking_20261119_205744_030653.txt",
+  "verified": true,
+  "reset": true
+}

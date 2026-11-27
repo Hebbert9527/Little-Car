@@ -1,0 +1,351 @@
+{
+  "source": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\live_20261119_175346_685.bin",
+  "runs": [
+    {
+      "command_id": 13,
+      "phase": "before_caster_check",
+      "start_board_ms": 500000,
+      "end_board_ms": 505900,
+      "duration_s": 5.9,
+      "end_state": "ARRIVED",
+      "nav_fault": 0,
+      "wheel_samples": 59,
+      "forward_mm": 444.6,
+      "cross_left_positive_mm": -758.1,
+      "yaw_left_positive_deg": -90.53,
+      "geometric_left_minus_right_travel_mm": 276.5,
+      "odometry_within_30mm_2deg": false,
+      "cruise_1_to_4s": {
+        "samples": 30,
+        "mean_encoder_left_right_mmps": [
+          215.6,
+          152.83
+        ],
+        "mean_pwm_left_right_pct": [
+          30.55,
+          39.98
+        ],
+        "samples_400permille_left_right": [
+          0,
+          24
+        ]
+      },
+      "odometry_500ms_after_arrival_mm": {
+        "forward": 444.1,
+        "cross_left_positive": -799.1
+      }
+    },
+    {
+      "command_id": 14,
+      "phase": "before_caster_check",
+      "start_board_ms": 533700,
+      "end_board_ms": 539000,
+      "duration_s": 5.3,
+      "end_state": "ARRIVED",
+      "nav_fault": 0,
+      "wheel_samples": 53,
+      "forward_mm": 980.5,
+      "cross_left_positive_mm": -192.8,
+      "yaw_left_positive_deg": -11.52,
+      "geometric_left_minus_right_travel_mm": 35.2,
+      "odometry_within_30mm_2deg": false,
+      "cruise_1_to_4s": {
+        "samples": 30,
+        "mean_encoder_left_right_mmps": [
+          208.83,
+          199.5
+        ],
+        "mean_pwm_left_right_pct": [
+          33.44,
+          37.93
+        ],
+        "samples_400permille_left_right": [
+          0,
+          1
+        ]
+      },
+      "odometry_500ms_after_arrival_mm": {
+        "forward": 1026.1,
+        "cross_left_positive": -201.0
+      }
+    },
+    {
+      "command_id": 15,
+      "phase": "before_caster_check",
+      "start_board_ms": 541550,
+      "end_board_ms": 546850,
+      "duration_s": 5.3,
+      "end_state": "ARRIVED",
+      "nav_fault": 0,
+      "wheel_samples": 53,
+      "forward_mm": 1000.2,
+      "cross_left_positive_mm": 4.2,
+      "yaw_left_positive_deg": 1.09,
+      "geometric_left_minus_right_travel_mm": -3.3,
+      "odometry_within_30mm_2deg": true,
+      "cruise_1_to_4s": {
+        "samples": 31,
+        "mean_encoder_left_right_mmps": [
+          204.81,
+          205.16
+        ],
+        "mean_pwm_left_right_pct": [
+          35.75,
+          35.69
+        ],
+        "samples_400permille_left_right": [
+          0,
+          0
+        ]
+      },
+      "odometry_500ms_after_arrival_mm": {
+        "forward": 1046.5,
+        "cross_left_positive": 4.9
+      }
+    },
+    {
+      "command_id": 16,
+      "phase": "before_caster_check",
+      "start_board_ms": 551050,
+      "end_board_ms": 556350,
+      "duration_s": 5.3,
+      "end_state": "ARRIVED",
+      "nav_fault": 0,
+      "wheel_samples": 53,
+      "forward_mm": 999.8,
+      "cross_left_positive_mm": 35.6,
+      "yaw_left_positive_deg": 3.78,
+      "geometric_left_minus_right_travel_mm": -11.6,
+      "odometry_within_30mm_2deg": false,
+      "cruise_1_to_4s": {
+        "samples": 30,
+        "mean_encoder_left_right_mmps": [
+          205.3,
+          206.73
+        ],
+        "mean_pwm_left_right_pct": [
+          35.35,
+          35.05
+        ],
+        "samples_400permille_left_right": [
+          0,
+          0
+        ]
+      },
+      "odometry_500ms_after_arrival_mm": {
+        "forward": 1043.2,
+        "cross_left_positive": 38.7
+      }
+    },
+    {
+      "command_id": 17,
+      "phase": "after_caster_check",
+      "start_board_ms": 611750,
+      "end_board_ms": 617150,
+      "duration_s": 5.4,
+      "end_state": "ARRIVED",
+      "nav_fault": 0,
+      "wheel_samples": 54,
+      "forward_mm": 1002.5,
+      "cross_left_positive_mm": -98.8,
+      "yaw_left_positive_deg": -8.25,
+      "geometric_left_minus_right_travel_mm": 25.2,
+      "odometry_within_30mm_2deg": false,
+      "cruise_1_to_4s": {
+        "samples": 31,
+        "mean_encoder_left_right_mmps": [
+          205.55,
+          199.29
+        ],
+        "mean_pwm_left_right_pct": [
+          35.76,
+          38.48
+        ],
+        "samples_400permille_left_right": [
+          0,
+          0
+        ]
+      },
+      "odometry_500ms_after_arrival_mm": {
+        "forward": 1038.8,
+        "cross_left_positive": -104.2
+      }
+    },
+    {
+      "command_id": 18,
+      "phase": "after_caster_check",
+      "start_board_ms": 619500,
+      "end_board_ms": 624800,
+      "duration_s": 5.3,
+      "end_state": "ARRIVED",
+      "nav_fault": 0,
+      "wheel_samples": 53,
+      "forward_mm": 997.8,
+      "cross_left_positive_mm": -53.5,
+      "yaw_left_positive_deg": -4.81,
+      "geometric_left_minus_right_travel_mm": 14.7,
+      "odometry_within_30mm_2deg": false,
+      "cruise_1_to_4s": {
+        "samples": 30,
+        "mean_encoder_left_right_mmps": [
+          208,
+          204.57
+        ],
+        "mean_pwm_left_right_pct": [
+          34.8,
+          36.27
+        ],
+        "samples_400permille_left_right": [
+          0,
+          0
+        ]
+      },
+      "odometry_500ms_after_arrival_mm": {
+        "forward": 1040.4,
+        "cross_left_positive": -57.3
+      }
+    },
+    {
+      "command_id": 20,
+      "phase": "after_caster_check",
+      "start_board_ms": 628850,
+      "end_board_ms": 634250,
+      "duration_s": 5.4,
+      "end_state": "ARRIVED",
+      "nav_fault": 0,
+      "wheel_samples": 54,
+      "forward_mm": 1002.0,
+      "cross_left_positive_mm": 18.8,
+      "yaw_left_positive_deg": 1.43,
+      "geometric_left_minus_right_travel_mm": -4.4,
+      "odometry_within_30mm_2deg": true,
+      "cruise_1_to_4s": {
+        "samples": 30,
+        "mean_encoder_left_right_mmps": [
+          204.5,
+          204.1
+        ],
+        "mean_pwm_left_right_pct": [
+          35.72,
+          35.88
+        ],
+        "samples_400permille_left_right": [
+          1,
+          0
+        ]
+      },
+      "odometry_500ms_after_arrival_mm": {
+        "forward": 1049.0,
+        "cross_left_positive": 19.8
+      }
+    },
+    {
+      "command_id": 21,
+      "phase": "after_caster_check",
+      "start_board_ms": 637200,
+      "end_board_ms": 642550,
+      "duration_s": 5.35,
+      "end_state": "ARRIVED",
+      "nav_fault": 0,
+      "wheel_samples": 54,
+      "forward_mm": 1006.0,
+      "cross_left_positive_mm": -11.3,
+      "yaw_left_positive_deg": -1.15,
+      "geometric_left_minus_right_travel_mm": 3.5,
+      "odometry_within_30mm_2deg": true,
+      "cruise_1_to_4s": {
+        "samples": 31,
+        "mean_encoder_left_right_mmps": [
+          203.61,
+          202.16
+        ],
+        "mean_pwm_left_right_pct": [
+          35.76,
+          36.13
+        ],
+        "samples_400permille_left_right": [
+          0,
+          0
+        ]
+      },
+      "odometry_500ms_after_arrival_mm": {
+        "forward": 1052.0,
+        "cross_left_positive": -12.4
+      }
+    },
+    {
+      "command_id": 24,
+      "phase": "after_caster_check",
+      "start_board_ms": 762950,
+      "end_board_ms": 768350,
+      "duration_s": 5.4,
+      "end_state": "ARRIVED",
+      "nav_fault": 0,
+      "wheel_samples": 54,
+      "forward_mm": 1004.0,
+      "cross_left_positive_mm": -50.2,
+      "yaw_left_positive_deg": -4.64,
+      "geometric_left_minus_right_travel_mm": 14.2,
+      "odometry_within_30mm_2deg": false,
+      "cruise_1_to_4s": {
+        "samples": 31,
+        "mean_encoder_left_right_mmps": [
+          204.23,
+          201.26
+        ],
+        "mean_pwm_left_right_pct": [
+          36.05,
+          37.05
+        ],
+        "samples_400permille_left_right": [
+          0,
+          1
+        ]
+      },
+      "odometry_500ms_after_arrival_mm": {
+        "forward": 1046.0,
+        "cross_left_positive": -53.2
+      }
+    },
+    {
+      "command_id": 26,
+      "phase": "after_caster_check",
+      "start_board_ms": 941700,
+      "end_board_ms": 947150,
+      "duration_s": 5.45,
+      "end_state": "ARRIVED",
+      "nav_fault": 0,
+      "wheel_samples": 54,
+      "forward_mm": 995.1,
+      "cross_left_positive_mm": -93.2,
+      "yaw_left_positive_deg": -4.98,
+      "geometric_left_minus_right_travel_mm": 15.2,
+      "odometry_within_30mm_2deg": false,
+      "cruise_1_to_4s": {
+        "samples": 30,
+        "mean_encoder_left_right_mmps": [
+          204.97,
+          196.87
+        ],
+        "mean_pwm_left_right_pct": [
+          36.2,
+          38.93
+        ],
+        "samples_400permille_left_right": [
+          1,
+          2
+        ]
+      },
+      "odometry_500ms_after_arrival_mm": {
+        "forward": 1039.1,
+        "cross_left_positive": -96.2
+      }
+    }
+  ],
+  "body_cross_left_positive": true,
+  "physical_user_notes": {
+    "caster_anomaly_reported_before_cmd17": true,
+    "cmd24": "用户目视轻微右偏，未报尺测值",
+    "latest": "第26趟：用户用尺实测车尾中央万向轮横向偏移 12.5 cm；车载估算同趟停稳后相对起步方向右偏约 9.6 cm，参考点不同。第24趟用户目视轻微右偏。"
+  }
+}

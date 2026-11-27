@@ -1,0 +1,3 @@
+PASS navigation_maze
+PASS noetic_planner
+2 Cortex-M4 software regressions passed. Not hardware or RTOS timing tests.

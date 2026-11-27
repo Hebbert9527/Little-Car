@@ -1,0 +1,158 @@
+{
+  "source": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\live_20261119_175346_685.bin",
+  "capture": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\wheel_diag_ground_cmd3_20261119_1803.bin",
+  "command_id": 3,
+  "start_ms": 151350,
+  "arrived_ms": 191650,
+  "duration_s": 40.3,
+  "wheel_samples": 400,
+  "tracking_samples": 806,
+  "position_at_arrival_mm": [
+    38,
+    1430
+  ],
+  "arrival_fault": 0,
+  "maximum_lateral_mm": 107,
+  "peak_500ms_along_track_mps": 0.232,
+  "maximum_heading_offset_deg": 120.8,
+  "forward_before_y_1300mm": {
+    "samples": 68,
+    "mean_by_left_right": {
+      "nav_request_mmps": [
+        251.2,
+        301.3
+      ],
+      "pi_target_mmps": [
+        213.8,
+        319.6
+      ],
+      "encoder_mmps": [
+        180.5,
+        174.8
+      ],
+      "signed_duty_permille": [
+        352.6,
+        398.6
+      ]
+    },
+    "duty_at_or_above_400_by_left_right": [
+      15,
+      64
+    ]
+  },
+  "cruise_requested_mean_at_least_270_mmps": {
+    "samples": 55,
+    "mean_by_left_right": {
+      "nav_request_mmps": [
+        266.3,
+        316.6
+      ],
+      "pi_target_mmps": [
+        225.6,
+        335.6
+      ],
+      "encoder_mmps": [
+        199.0,
+        191.2
+      ],
+      "signed_duty_permille": [
+        361,
+        400
+      ]
+    },
+    "duty_at_or_above_400_by_left_right": [
+      11,
+      55
+    ]
+  },
+  "terminal_pivot_samples": 289,
+  "terminal_pivot_direction_flips_in_consecutive_samples": 27,
+  "flips_at_estimated_50mm_boundary_ms": [
+    [
+      173550,
+      173650
+    ],
+    [
+      174250,
+      174350
+    ],
+    [
+      175550,
+      175650
+    ],
+    [
+      176450,
+      176550
+    ],
+    [
+      176750,
+      176850
+    ],
+    [
+      177750,
+      177850
+    ],
+    [
+      178250,
+      178350
+    ],
+    [
+      179150,
+      179250
+    ],
+    [
+      179350,
+      179450
+    ],
+    [
+      180150,
+      180250
+    ],
+    [
+      180550,
+      180650
+    ],
+    [
+      183250,
+      183350
+    ],
+    [
+      184150,
+      184250
+    ],
+    [
+      184550,
+      184650
+    ],
+    [
+      185750,
+      185850
+    ],
+    [
+      186750,
+      186850
+    ],
+    [
+      187050,
+      187150
+    ],
+    [
+      187950,
+      188050
+    ],
+    [
+      188350,
+      188450
+    ],
+    [
+      188850,
+      188950
+    ],
+    [
+      189150,
+      189250
+    ]
+  ],
+  "stop_frame": "N,3850,192550,0,STOPPED,38,1430,1576,0,1400,27,0",
+  "normalizes_left_right_to_rear_forward": true
+}

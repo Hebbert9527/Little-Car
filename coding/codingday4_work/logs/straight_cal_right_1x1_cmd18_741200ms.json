@@ -1,0 +1,115 @@
+{
+  "log": "live_20261119_221608_755.bin",
+  "target_m": [
+    1,
+    1
+  ],
+  "cmd": 18,
+  "first": {
+    "ms": 741200,
+    "x_mm": 0,
+    "y_mm": 0,
+    "heading_deg": 90.01,
+    "wp": 0,
+    "state": "TRACKING",
+    "fault": 0
+  },
+  "terminal": {
+    "ms": 758200,
+    "x_mm": 994,
+    "y_mm": 1021,
+    "heading_deg": -4.35,
+    "wp": 39,
+    "state": "ARRIVED",
+    "fault": 0
+  },
+  "settled_500ms": {
+    "ms": 758700,
+    "x_mm": 994,
+    "y_mm": 1021,
+    "heading_deg": -4.35,
+    "wp": 39,
+    "state": "ARRIVED",
+    "fault": 0
+  },
+  "duration_s": 17.0,
+  "settled_goal_error_mm": 21.8,
+  "wheel_frames": 162,
+  "pivot_start": {
+    "ms": 747100,
+    "x_mm": 6,
+    "y_mm": 998,
+    "heading_deg": 94.48,
+    "wp": 20,
+    "state": "TRACKING",
+    "fault": 0
+  },
+  "first_peak_lateral_mm": 14,
+  "first_wheels": {
+    "samples": 55,
+    "mean_speed_mm_s": [
+      174.05,
+      175.73
+    ],
+    "mean_signed_pwm_pct": [
+      35.77,
+      37.91
+    ],
+    "peak_abs_pwm_pct": [
+      40.0,
+      60.0
+    ]
+  },
+  "second_start": {
+    "ms": 750400,
+    "x_mm": -5,
+    "y_mm": 983,
+    "heading_deg": -2.81,
+    "wp": 20,
+    "state": "TRACKING",
+    "fault": 0
+  },
+  "right_turn_deg": 97.29,
+  "pivot_wheels": {
+    "samples": 31,
+    "mean_speed_mm_s": [
+      35.35,
+      -47.65
+    ],
+    "mean_signed_pwm_pct": [
+      30.71,
+      -33.56
+    ],
+    "peak_abs_pwm_pct": [
+      40.0,
+      40.0
+    ]
+  },
+  "second_wheels": {
+    "samples": 76,
+    "mean_speed_mm_s": [
+      125.63,
+      130.24
+    ],
+    "mean_signed_pwm_pct": [
+      31.18,
+      35.18
+    ],
+    "peak_abs_pwm_pct": [
+      40.0,
+      40.0
+    ]
+  },
+  "second_peak_lateral_mm": 48,
+  "frame_counts": {
+    "I": 382,
+    "N": 382,
+    "P": 378,
+    "B": 19,
+    "S": 19,
+    "Q": 19,
+    "T": 19,
+    "A": 1,
+    "D": 162
+  }
+}

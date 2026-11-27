@@ -1,0 +1,6 @@
+{
+  "gz_bias_dps": -0.8133590221405029,
+  "hex_sha256": "27a117bb36937fb5254d167c6b02764816f444621a70b6435401f51cc6d87725",
+  "elf_sha256": "6542bd06b852c1d7d80f88d092ee6a12e412797dc89443338b0a7a91d63d6f50",
+  "note": "Read-only ELF-derived address, current verified firmware, before controlled warm reset."
+}

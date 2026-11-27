@@ -1,0 +1,13 @@
+{
+  "pid": 27752,
+  "time_beijing": "20261118_214018",
+  "log": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\logs\\gui_continuous_20261118_214018.bin",
+  "stderr": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\logs\\gui_continuous_20261118_214018_stderr.txt",
+  "stdout": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\logs\\gui_continuous_20261118_214018_stdout.txt",
+  "duration_s": 0,
+  "mode": "Continuous BLE GUI; assistant subscribes only, command controls remain enabled; no initial command",
+  "last_verified_beijing": "2026-11-18 21:48",
+  "observed_connected": true,
+  "point_cloud_visually_verified": true,
+  "keep_running_per_user": true
+}

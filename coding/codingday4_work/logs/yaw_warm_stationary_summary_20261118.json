@@ -1,0 +1,48 @@
+{
+  "logs": [
+    "yaw_warm_stationary_20261118_203803.json",
+    "yaw_warm_stationary_20261118_203809.json",
+    "yaw_warm_stationary_20261118_203816.json",
+    "yaw_warm_stationary_20261118_203822.json",
+    "yaw_warm_stationary_20261118_203828.json",
+    "yaw_warm_stationary_20261118_203835.json"
+  ],
+  "duration_s": 32.15,
+  "heading_deg": [
+    0.11908795003674244,
+    0.20635979836229446,
+    0.2791928669062775,
+    0.41997061626092436,
+    0.47120045013060496,
+    0.544884797700967
+  ],
+  "change_deg": 0.42579684766422454,
+  "endpoint_rate_dps": 0.013244069911795477,
+  "all_valid_calibrated": true,
+  "failures": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "configurations": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "temperature_C": [
+    28.439961603225058,
+    28.448714600742804,
+    28.460720174113426,
+    28.4897878770648,
+    28.50530488686652,
+    28.528803431163325
+  ],
+  "all_motion_locked_pwm_zero": true,
+  "note": "Same firmware, controlled warm MCU reset while robot held stationary; short drift observation only, temperature dependence and later I2C recovery remain unverified."
+}

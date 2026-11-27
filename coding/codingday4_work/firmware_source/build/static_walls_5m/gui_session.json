@@ -1,0 +1,14 @@
+{
+  "log": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\static_walls_reset_20261127.bin",
+  "command": [
+    "-B",
+    "-X",
+    "utf8",
+    "\"D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\pc\\monitor.py\"",
+    "--ble",
+    "C4:25:01:17:00:02",
+    "--log",
+    "\"D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\static_walls_reset_20261127.bin\""
+  ],
+  "pid": 18152
+}

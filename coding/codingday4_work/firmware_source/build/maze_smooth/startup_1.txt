@@ -1,0 +1,72 @@
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.18.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 0674FF545155657067032031
+ST-LINK FW  : V2J47M34
+Board       : --
+Voltage     : 3.22V
+SWD freq    : 4000 KHz
+Connect mode: Hot Plug
+Reset mode  : Software reset
+Device ID   : 0x421
+Revision ID : Rev A
+Device name : STM32F446xx
+Flash size  : 512 KBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : 0x90
+
+
+Reading 32-bit memory content
+  Size          : 44 Bytes
+  Address:      : 0x200019C4
+
+0x200019C4 : 00000000 00000000 00000000 00000000
+0x200019D4 : 00000000 00000000 000010D6 00000000
+0x200019E4 : 00000000 3FC91C3E 00000001
+
+
+
+Reading 32-bit memory content
+  Size          : 52 Bytes
+  Address:      : 0x20001D7C
+
+0x20001D7C : 000001B1 000001A6 0000000B 000001A6
+0x20001D8C : 000001A5 00000000 00000000 00000003
+0x20001D9C : 00000000 00000000 000000C8 00000000
+0x20001DAC : 0000000A
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x20001A98
+
+0x20001A98 : 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x200099F4
+
+0x200099F4 : 000010E2
+
+
+
+Reading 32-bit memory content
+  Size          : 8 Bytes
+  Address:      : 0x40000834
+
+0x40000834 : 00000000 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 8 Bytes
+  Address:      : 0x40001834
+
+0x40001834 : 00000000 00000000
+
+

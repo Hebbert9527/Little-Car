@@ -1,0 +1,24 @@
+{
+  "before": "yaw_ref_before_20261118_203306.json",
+  "after": "yaw_ref_ccw90_20261118_203410.json",
+  "reference": "User aligned robot heading with two perpendicular paper/book edges; manual reference, not an instrumented rotary stage.",
+  "before_deg": 143.13935919060845,
+  "after_deg": -139.7253984170043,
+  "ccw_delta_deg": 77.13524239238727,
+  "error_from_90_deg": -12.86475760761273,
+  "elapsed_s": 65.23,
+  "configurations": [
+    2,
+    2
+  ],
+  "imu_failures": [
+    3,
+    3
+  ],
+  "rejected_intervals": [
+    0,
+    0
+  ],
+  "max_sample_interval_ms": 10,
+  "status": "Angle validation not passed. Slow return trace in progress; do not change scale or unlock motion from this measurement."
+}

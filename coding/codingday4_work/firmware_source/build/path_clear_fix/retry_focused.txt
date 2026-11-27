@@ -1,0 +1,10 @@
+{"w4_nav": [1, 4, 0.0, 0.800000011920929, 0, 0, 3210, 0.0, 0.0, 1.570796251296997, 1], "maze_test_stage": [11], "test_pwm_l": [0.0], "test_pwm_r": [0.0], "offset_x": 0.0, "offset_y": 0.0, "route_len": 17, "previous_len": 9, "s_progress_s_m": 0.0, "route_index": 0, "route_number": 1, "last_ack": "A,4,WAIT,NO_ROUTE\n", "plan_failure": "GOAL_BLOCKED"}
+Traceback (most recent call last):
+  File "D:\EMBEGGed\week4codingday\coding\coding(1)\coding\codingday4_work\run_cortex_tests.py", line 129, in <module>
+    if __name__=="__main__":main()
+                            ^^^^^^
+  File "D:\EMBEGGed\week4codingday\coding\coding(1)\coding\codingday4_work\run_cortex_tests.py", line 125, in main
+    emulate(target, budget)
+  File "D:\EMBEGGed\week4codingday\coding\coding(1)\coding\codingday4_work\run_cortex_tests.py", line 67, in emulate
+    raise AssertionError(f"{path.name}: result/line={result} {cstring(symbols['test_file'])}: {cstring(symbols['test_expression'])}")
+AssertionError: navigation_maze.elf: result/line=322 tests/navigation/test_maze.c: w4_nav.state==W4_TRACKING

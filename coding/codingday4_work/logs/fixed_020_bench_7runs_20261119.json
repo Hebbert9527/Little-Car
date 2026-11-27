@@ -1,0 +1,118 @@
+{
+  "source": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\live_20261119_175346_685.bin",
+  "runs": [
+    {
+      "cmd_id": 1,
+      "distance_cmd_m": 0.3,
+      "duration_s": 1.45,
+      "samples": 15,
+      "mean_encoder_left_right_mmps": [
+        192.8,
+        182.9
+      ],
+      "mean_duty_left_right_permille": [
+        320.4,
+        317.2
+      ],
+      "wheel_odometry_displacement_m": 0.3083,
+      "nav_fault": 0
+    },
+    {
+      "cmd_id": 2,
+      "distance_cmd_m": 0.3,
+      "duration_s": 1.45,
+      "samples": 14,
+      "mean_encoder_left_right_mmps": [
+        196.4,
+        188.1
+      ],
+      "mean_duty_left_right_permille": [
+        321.7,
+        313.5
+      ],
+      "wheel_odometry_displacement_m": 0.3083,
+      "nav_fault": 0
+    },
+    {
+      "cmd_id": 3,
+      "distance_cmd_m": 0.3,
+      "duration_s": 1.45,
+      "samples": 15,
+      "mean_encoder_left_right_mmps": [
+        192.6,
+        185.9
+      ],
+      "mean_duty_left_right_permille": [
+        316.5,
+        305.9
+      ],
+      "wheel_odometry_displacement_m": 0.3103,
+      "nav_fault": 0
+    },
+    {
+      "cmd_id": 4,
+      "distance_cmd_m": 0.3,
+      "duration_s": 1.4,
+      "samples": 14,
+      "mean_encoder_left_right_mmps": [
+        190.7,
+        182.3
+      ],
+      "mean_duty_left_right_permille": [
+        320.8,
+        314.2
+      ],
+      "wheel_odometry_displacement_m": 0.3007,
+      "nav_fault": 0
+    },
+    {
+      "cmd_id": 5,
+      "distance_cmd_m": 0.3,
+      "duration_s": 1.4,
+      "samples": 14,
+      "mean_encoder_left_right_mmps": [
+        199.9,
+        193.4
+      ],
+      "mean_duty_left_right_permille": [
+        318.8,
+        306.6
+      ],
+      "wheel_odometry_displacement_m": 0.3029,
+      "nav_fault": 0
+    },
+    {
+      "cmd_id": 6,
+      "distance_cmd_m": 0.3,
+      "duration_s": 1.4,
+      "samples": 14,
+      "mean_encoder_left_right_mmps": [
+        188.4,
+        184.1
+      ],
+      "mean_duty_left_right_permille": [
+        328.9,
+        308.9
+      ],
+      "wheel_odometry_displacement_m": 0.301,
+      "nav_fault": 0
+    },
+    {
+      "cmd_id": 7,
+      "distance_cmd_m": 0.3,
+      "duration_s": 1.4,
+      "samples": 13,
+      "mean_encoder_left_right_mmps": [
+        207.6,
+        202.2
+      ],
+      "mean_duty_left_right_permille": [
+        317.9,
+        306.2
+      ],
+      "wheel_odometry_displacement_m": 0.3059,
+      "nav_fault": 0
+    }
+  ],
+  "raised_bench": true
+}

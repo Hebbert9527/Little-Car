@@ -1,0 +1,11 @@
+SAMPLING 5.1s samples=23 errors=0
+SAMPLING 10.3s samples=44 errors=0
+SAMPLING 15.3s samples=65 errors=0
+SAMPLING 20.6s samples=86 errors=0
+SAMPLING 25.7s samples=107 errors=0
+SAMPLING 30.8s samples=129 errors=0
+SAMPLING 36.0s samples=152 errors=0
+SAMPLING 41.0s samples=174 errors=0
+LOG D:\EMBEGGed\week4codingday\coding\codingday4_work\logs\gpio_left_turn_20261118_215703.json
+CANDIDATE_INPUTS {}
+KNOWN_ACTIVITY {"PA10": 86, "PB8": 32, "PB9": 52}

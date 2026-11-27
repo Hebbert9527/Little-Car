@@ -1,0 +1,16 @@
+{
+  "initial_commands": [],
+  "log": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\path_clear_fix_20261127.bin",
+  "command": [
+    "-B",
+    "-X",
+    "utf8",
+    "\"D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\pc\\monitor.py\"",
+    "--ble",
+    "C4:25:01:17:00:02",
+    "--log",
+    "\"D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\path_clear_fix_20261127.bin\""
+  ],
+  "default_axes": "X/Y -5..+5 m",
+  "pid": 44836
+}

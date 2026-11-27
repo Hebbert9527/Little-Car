@@ -1,0 +1,11 @@
+{
+  "hex_sha256": "d83a4b1adf861567f2cef77c9a0a60735ef11804e9bb6efc1af230b664f1589e",
+  "elf_sha256": "7dc4d920464ad2a5139fc376b9ab389513e6877b9dec9328728981bf4e3fa699",
+  "build": "integration_dual_rear_wheel_diag",
+  "serial": "0674FF545155657067032031",
+  "hex": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\build\\integration_dual_rear_wheel_diag\\Week4_Integrated.hex",
+  "elf": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\build\\integration_dual_rear_wheel_diag\\Week4_Integrated.elf",
+  "log": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\flash_integration_dual_rear_wheel_diag_20261119_180049_616340.txt",
+  "verified": true,
+  "reset": true
+}

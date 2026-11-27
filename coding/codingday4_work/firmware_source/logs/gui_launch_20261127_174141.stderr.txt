@@ -1,0 +1,6 @@
+BLE attempt 1: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 2: connecting to C4:25:01:17:00:02
+BLE attempt 2: subscribed
+C:\Users\Hebert\.cache\codex-runtimes\codex-primary-runtime\dependencies\python\Lib\tkinter\__init__.py:1968: UserWarning: Glyph 65292 (\N{FULLWIDTH COMMA}) missing from font(s) DejaVu Sans.
+  return self.func(*args)

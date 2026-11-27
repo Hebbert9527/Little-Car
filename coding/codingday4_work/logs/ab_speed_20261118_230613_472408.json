@@ -1,0 +1,3172 @@
+{
+  "time_beijing": "20261118_230613_472408",
+  "identity": "logs\\board_identity_20261118_225828_793926.json",
+  "hex_sha256": "4f8575440c16a29e9f8cee3e130ba8acfcbdf73d026dc2e786ee1191fd1c34d3",
+  "cpr_x4": {
+    "right": 1564.6,
+    "left": 1558.55
+  },
+  "samples": [
+    {
+      "monotonic_mid_s": 3307.39,
+      "read_duration_s": 0.40599999999994907,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 0.20299999999997453
+    },
+    {
+      "monotonic_mid_s": 3308.1795,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 0.992500000000291,
+      "interval_s": 0.7895000000003165,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3308.9449999999997,
+      "read_duration_s": 0.36000000000012733,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 1.7579999999998108,
+      "interval_s": 0.7654999999995198,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3309.6949999999997,
+      "read_duration_s": 0.36000000000012733,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 2.507999999999811,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3310.4449999999997,
+      "read_duration_s": 0.36000000000012733,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 3.257999999999811,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3311.2105,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 4.02350000000024,
+      "interval_s": 0.7655000000004293,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3311.9605,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 4.77350000000024,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3312.7185,
+      "read_duration_s": 0.375,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 5.531500000000051,
+      "interval_s": 0.7579999999998108,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3313.468,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 6.280999999999949,
+      "interval_s": 0.7494999999998981,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3314.218,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 7.030999999999949,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3314.968,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 7.780999999999949,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3315.718,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 8.530999999999949,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3316.4759999999997,
+      "read_duration_s": 0.36000000000012733,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 9.28899999999976,
+      "interval_s": 0.7579999999998108,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3317.234,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 10.047000000000025,
+      "interval_s": 0.7580000000002656,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3317.984,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 10.797000000000025,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3318.7574999999997,
+      "read_duration_s": 0.3910000000000764,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 11.57049999999981,
+      "interval_s": 0.7734999999997854,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3319.523,
+      "read_duration_s": 0.36000000000012733,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 12.33600000000024,
+      "interval_s": 0.7655000000004293,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3320.281,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 13.094000000000051,
+      "interval_s": 0.7579999999998108,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3321.023,
+      "read_duration_s": 0.36000000000012733,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 13.83600000000024,
+      "interval_s": 0.7420000000001892,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3321.781,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 14.594000000000051,
+      "interval_s": 0.7579999999998108,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3322.531,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 15.344000000000051,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3323.2884999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 16.10149999999976,
+      "interval_s": 0.757499999999709,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3324.0465,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 16.859500000000025,
+      "interval_s": 0.7580000000002656,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3324.7884999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 17.60149999999976,
+      "interval_s": 0.7419999999997344,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3325.5384999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 18.35149999999976,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3326.2965,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 19.109500000000025,
+      "interval_s": 0.7580000000002656,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3327.0465,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 19.859500000000025,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3327.7965,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 20.609500000000025,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3328.5465,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 21.359500000000025,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3329.2965,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 22.109500000000025,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3330.0545,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 22.86750000000029,
+      "interval_s": 0.7580000000002656,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3330.7965,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 23.609500000000025,
+      "interval_s": 0.7419999999997344,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3331.562,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 24.375,
+      "interval_s": 0.7654999999999745,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3332.312,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 25.125,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3333.062,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 25.875,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3333.812,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 26.625,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3334.562,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 27.375,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3335.2965,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 28.109500000000025,
+      "interval_s": 0.7345000000000255,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3336.0545,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 28.86750000000029,
+      "interval_s": 0.7580000000002656,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3336.8045,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 29.61750000000029,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3337.5699999999997,
+      "read_duration_s": 0.36000000000012733,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 30.38299999999981,
+      "interval_s": 0.7654999999995198,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3338.328,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 31.141000000000076,
+      "interval_s": 0.7580000000002656,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3339.078,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 31.891000000000076,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3339.828,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 32.641000000000076,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3340.578,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 33.391000000000076,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3341.328,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 34.141000000000076,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3342.0699999999997,
+      "read_duration_s": 0.32799999999997453,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 34.88299999999981,
+      "interval_s": 0.7419999999997344,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3342.8199999999997,
+      "read_duration_s": 0.36000000000012733,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 35.63299999999981,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3343.578,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 36.391000000000076,
+      "interval_s": 0.7580000000002656,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3344.3199999999997,
+      "read_duration_s": 0.36000000000012733,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 37.13299999999981,
+      "interval_s": 0.7419999999997344,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3345.078,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 37.891000000000076,
+      "interval_s": 0.7580000000002656,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3345.8355,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 38.64850000000024,
+      "interval_s": 0.7575000000001637,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3346.593,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 39.40599999999995,
+      "interval_s": 0.757499999999709,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3347.343,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 40.15599999999995,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3348.093,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 40.90599999999995,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3348.8509999999997,
+      "read_duration_s": 0.36000000000012733,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 41.66399999999976,
+      "interval_s": 0.7579999999998108,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3349.6009999999997,
+      "read_duration_s": 0.36000000000012733,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 42.41399999999976,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3350.359,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 43.172000000000025,
+      "interval_s": 0.7580000000002656,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3351.109,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 43.922000000000025,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3351.859,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 44.672000000000025,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3352.609,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65381
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 45.422000000000025,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3353.359,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65383
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 46.172000000000025,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 2
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.10265952327483881
+      }
+    },
+    {
+      "monotonic_mid_s": 3354.109,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65383
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 46.922000000000025,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3354.859,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 65383
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 47.672000000000025,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3355.6165,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 65383
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 48.42950000000019,
+      "interval_s": 0.7575000000001637,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3356.3824999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 65383
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 49.19549999999981,
+      "interval_s": 0.7659999999996217,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3357.1324999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 2
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 49.94549999999981,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 155
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 7.956113053800006
+      }
+    },
+    {
+      "monotonic_mid_s": 3357.8745,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 9,
+        "left": 276
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 50.6875,
+      "interval_s": 0.7420000000001892,
+      "delta": {
+        "right": 0,
+        "left": 274
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 14.215991935966306
+      }
+    },
+    {
+      "monotonic_mid_s": 3358.6324999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 632
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 51.44549999999981,
+      "interval_s": 0.7579999999998108,
+      "delta": {
+        "right": 0,
+        "left": 356
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 18.080536091285488
+      }
+    },
+    {
+      "monotonic_mid_s": 3359.3824999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 1127
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 52.19549999999981,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 495
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 25.4082320105226
+      }
+    },
+    {
+      "monotonic_mid_s": 3360.1324999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 9,
+        "left": 1460
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 52.94549999999981,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 333
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 17.092810625260658
+      }
+    },
+    {
+      "monotonic_mid_s": 3360.8819999999996,
+      "read_duration_s": 0.32799999999997453,
+      "counts": {
+        "right": 9,
+        "left": 1760
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 53.69499999999971,
+      "interval_s": 0.7494999999998981,
+      "delta": {
+        "right": 0,
+        "left": 300
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 15.409201292089305
+      }
+    },
+    {
+      "monotonic_mid_s": 3361.6245,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 9,
+        "left": 2081
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 54.4375,
+      "interval_s": 0.742500000000291,
+      "delta": {
+        "right": 0,
+        "left": 321
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 16.64328634909613
+      }
+    },
+    {
+      "monotonic_mid_s": 3362.3745,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 9,
+        "left": 2429
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 55.1875,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 348
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 17.86275704982195
+      }
+    },
+    {
+      "monotonic_mid_s": 3363.1405,
+      "read_duration_s": 0.375,
+      "counts": {
+        "right": 9,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 55.953500000000076,
+      "interval_s": 0.7660000000000764,
+      "delta": {
+        "right": 0,
+        "left": 2
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.10051519902887915
+      }
+    },
+    {
+      "monotonic_mid_s": 3363.906,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 56.71900000000005,
+      "interval_s": 0.7654999999999745,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3364.656,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 57.46900000000005,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3365.406,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 58.21900000000005,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3366.156,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 9,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 58.96900000000005,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3366.898,
+      "read_duration_s": 0.32799999999997453,
+      "counts": {
+        "right": 9,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 59.71100000000024,
+      "interval_s": 0.7420000000001892,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3367.64,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 8,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 60.452999999999975,
+      "interval_s": 0.7419999999997344,
+      "delta": {
+        "right": -1,
+        "left": 0
+      },
+      "rpm": {
+        "right": -0.051682560202448755,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3368.39,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 8,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 61.202999999999975,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3369.14,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 8,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 61.952999999999975,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3369.8819999999996,
+      "read_duration_s": 0.32799999999997453,
+      "counts": {
+        "right": 8,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 62.69499999999971,
+      "interval_s": 0.7419999999997344,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3370.6405,
+      "read_duration_s": 0.375,
+      "counts": {
+        "right": 8,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 63.453500000000076,
+      "interval_s": 0.7585000000003674,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3371.406,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 8,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 64.21900000000005,
+      "interval_s": 0.7654999999999745,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3372.156,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 8,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 64.96900000000005,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3372.898,
+      "read_duration_s": 0.32799999999997453,
+      "counts": {
+        "right": 8,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 65.71100000000024,
+      "interval_s": 0.7420000000001892,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3373.64,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 92,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 66.45299999999997,
+      "interval_s": 0.7419999999997344,
+      "delta": {
+        "right": 84,
+        "left": 0
+      },
+      "rpm": {
+        "right": 4.341335057005695,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3374.3824999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 336,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 67.19549999999981,
+      "interval_s": 0.7424999999998363,
+      "delta": {
+        "right": 244,
+        "left": 0
+      },
+      "rpm": {
+        "right": 12.602052740109974,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3375.1324999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 580,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 67.94549999999981,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 244,
+        "left": 0
+      },
+      "rpm": {
+        "right": 12.476032212706123,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3375.8745,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 850,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 68.6875,
+      "interval_s": 0.7420000000001892,
+      "delta": {
+        "right": 270,
+        "left": 0
+      },
+      "rpm": {
+        "right": 13.95429125465261,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3376.6324999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 1101,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 69.44549999999981,
+      "interval_s": 0.7579999999998108,
+      "delta": {
+        "right": 251,
+        "left": 0
+      },
+      "rpm": {
+        "right": 12.698500497656227,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3377.3745,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 1320,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 70.1875,
+      "interval_s": 0.7420000000001892,
+      "delta": {
+        "right": 219,
+        "left": 0
+      },
+      "rpm": {
+        "right": 11.31848068432934,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3378.117,
+      "read_duration_s": 0.32799999999997453,
+      "counts": {
+        "right": 1528,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 70.93000000000029,
+      "interval_s": 0.742500000000291,
+      "delta": {
+        "right": 208,
+        "left": 0
+      },
+      "rpm": {
+        "right": 10.742733483365857,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3378.859,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 1746,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 71.67200000000003,
+      "interval_s": 0.7419999999997344,
+      "delta": {
+        "right": 218,
+        "left": 0
+      },
+      "rpm": {
+        "right": 11.266798124133828,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3379.6165,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 1783,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 72.42950000000019,
+      "interval_s": 0.7575000000001637,
+      "delta": {
+        "right": 37,
+        "left": 0
+      },
+      "rpm": {
+        "right": 1.8731260829006122,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3380.3745,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 1783,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 73.1875,
+      "interval_s": 0.7579999999998108,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3381.1245,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 1783,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 73.9375,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3381.8745,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 1783,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 74.6875,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3382.6245,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 1783,
+        "left": 2431
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 75.4375,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3383.359,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 1888,
+        "left": 2489
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 76.17200000000003,
+      "interval_s": 0.7345000000000255,
+      "delta": {
+        "right": 105,
+        "left": 58
+      },
+      "rpm": {
+        "right": 5.482080688047926,
+        "left": 3.039951846463807
+      }
+    },
+    {
+      "monotonic_mid_s": 3384.1165,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 2047,
+        "left": 2665
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 76.92950000000019,
+      "interval_s": 0.7575000000001637,
+      "delta": {
+        "right": 159,
+        "left": 176
+      },
+      "rpm": {
+        "right": 8.049379653545872,
+        "left": 8.944592126914715
+      }
+    },
+    {
+      "monotonic_mid_s": 3384.8745,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 2348,
+        "left": 2901
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 77.6875,
+      "interval_s": 0.7579999999998108,
+      "delta": {
+        "right": 301,
+        "left": 236
+      },
+      "rpm": {
+        "right": 15.228082270097703,
+        "left": 11.985973363885886
+      }
+    },
+    {
+      "monotonic_mid_s": 3385.6245,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 2648,
+        "left": 3135
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 78.4375,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 300,
+        "left": 234
+      },
+      "rpm": {
+        "right": 15.339383868081299,
+        "left": 12.011164223156138
+      }
+    },
+    {
+      "monotonic_mid_s": 3386.3824999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 2862,
+        "left": 3271
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 79.19549999999981,
+      "interval_s": 0.7579999999998108,
+      "delta": {
+        "right": 214,
+        "left": 136
+      },
+      "rpm": {
+        "right": 10.82660998604953,
+        "left": 6.907171091052883
+      }
+    },
+    {
+      "monotonic_mid_s": 3387.1319999999996,
+      "read_duration_s": 0.32799999999997453,
+      "counts": {
+        "right": 2982,
+        "left": 3413
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 79.94499999999971,
+      "interval_s": 0.7494999999998981,
+      "delta": {
+        "right": 120,
+        "left": 142
+      },
+      "rpm": {
+        "right": 6.139846778418966,
+        "left": 7.293688611588937
+      }
+    },
+    {
+      "monotonic_mid_s": 3387.8745,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3189,
+        "left": 3603
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 80.6875,
+      "interval_s": 0.742500000000291,
+      "delta": {
+        "right": 207,
+        "left": 190
+      },
+      "rpm": {
+        "right": 10.691085726234292,
+        "left": 9.851166374854406
+      }
+    },
+    {
+      "monotonic_mid_s": 3388.6245,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3493,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 81.4375,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 304,
+        "left": 251
+      },
+      "rpm": {
+        "right": 15.543908986322384,
+        "left": 12.88377017099227
+      }
+    },
+    {
+      "monotonic_mid_s": 3389.3824999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 82.19549999999981,
+      "interval_s": 0.7579999999998108,
+      "delta": {
+        "right": -1,
+        "left": 0
+      },
+      "rpm": {
+        "right": -0.050591635448829574,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3390.1245,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 82.9375,
+      "interval_s": 0.7420000000001892,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3390.8745,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 83.6875,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3391.6245,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 84.4375,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3392.3745,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 85.1875,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3393.1245,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 85.9375,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3393.8745,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 86.6875,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3394.6324999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 87.44549999999981,
+      "interval_s": 0.7579999999998108,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3395.3824999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 88.19549999999981,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3396.1245,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 88.9375,
+      "interval_s": 0.7420000000001892,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3396.8824999999997,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 89.69549999999981,
+      "interval_s": 0.7579999999998108,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3397.6245,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 90.4375,
+      "interval_s": 0.7420000000001892,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3398.3745,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 91.1875,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3399.1245,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 91.9375,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3399.8745,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 92.6875,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3400.6165,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 93.42950000000019,
+      "interval_s": 0.7420000000001892,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3401.3665,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 94.17950000000019,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3402.1165,
+      "read_duration_s": 0.3589999999999236,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 94.92950000000019,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3402.8745,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 95.6875,
+      "interval_s": 0.7579999999998108,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3403.6245,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 96.4375,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3404.3745,
+      "read_duration_s": 0.3429999999998472,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 97.1875,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3405.109,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 97.92200000000003,
+      "interval_s": 0.7345000000000255,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    },
+    {
+      "monotonic_mid_s": 3405.859,
+      "read_duration_s": 0.34400000000005093,
+      "counts": {
+        "right": 3492,
+        "left": 3854
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "elapsed_s": 98.67200000000003,
+      "interval_s": 0.75,
+      "delta": {
+        "right": 0,
+        "left": 0
+      },
+      "rpm": {
+        "right": 0.0,
+        "left": 0.0
+      }
+    }
+  ],
+  "error": null,
+  "caution": "Signs are raw timer polarity. Windowed RPM is approximate; no motor power was commanded."
+}

@@ -1,0 +1,18 @@
+{
+  "repository": "https://github.com/StarDust-XCHH/NoeticMaze",
+  "commit": "f869723cec2ebecf77fdf6442a664b6b0ba5e7c4",
+  "sha256": {
+    "LICENSE": "c347551845d66b7d7c6c82c31ec6eea69b5f081bdfcd08669c75b21056125bd2",
+    "App/Planner/Inc/Cstar_map_core.h": "80483746816d358763a7c77e0cb5488401adecc8cca54507d39eea9ed9a4bd5d",
+    "App/Planner/Inc/path_smoother.h": "0e84d137d15f2269347033b841104752e6408e380ac7341a02220892e6cd3dde",
+    "App/Planner/Inc/planner_algo.h": "e27d322d69335da8101bfdd7e2d042671814850f1762dc095faee686bfe3ba8a",
+    "App/Planner/Inc/planner_config.h": "5db4611ee81ed95ff92dfde8d8521da7dab2f11db4a74abd44d93c549e4b1ae8",
+    "App/Planner/Inc/priority_queue.h": "cf0dfd65685ebc56eefd45403feddacdeb8d52ad5d3d7f6ba3069301ed784c8e",
+    "App/Planner/Src/path_smoother.c": "129a7a92fc736ceba49de874d1a352b0c91e87239fb0c1565f95fe1d0de776d1",
+    "App/Planner/Src/planner_algo.c": "2cff8d572c715c188f9e8b9baa561a8ddfb72011c893b0e6276fc9af789b738a",
+    "App/Planner/Src/planner_core.c": "5e8026d75c415426cdde358e8d73473b882eff50be50dbdff486857daf8be76d",
+    "App/Planner/Src/priority_queue.c": "de3b577614fea17e56bd254ee171809b34d3af9b427c4e2f0e1e31c55abc88a2",
+    "App/motor/Src/startMotion.c": "2ec5e48ad6f8d5b52f34ff60ecdd885794ae0a7ff34f8696445891487891823c",
+    "App/global/Inc/roboConifg.h": "d1fa871be7bfe98c10c11e287b6feea6e78e0083eb1b048aebfc8d87118417d2"
+  }
+}

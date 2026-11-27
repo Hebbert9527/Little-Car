@@ -1,0 +1,14 @@
+BLE attempt 1: connecting to C4:25:01:17:00:02
+BLE BleakError: Could not start notify on 0035: Unreachable
+BLE attempt 2: connecting to C4:25:01:17:00:02
+BLE attempt 2: subscribed
+BLE attempt 3: connecting to C4:25:01:17:00:02
+BLE attempt 3: subscribed
+C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1118-904-0_26.1118.904.0_x64__3k8sg7r9htsxt\dependencies\python\Lib\tkinter\__init__.py:1968: UserWarning: Glyph 65292 (\N{FULLWIDTH COMMA}) missing from font(s) DejaVu Sans.
+  return self.func(*args)
+C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1118-904-0_26.1118.904.0_x64__3k8sg7r9htsxt\dependencies\python\Lib\tkinter\__init__.py:1968: UserWarning: Glyph 65292 (\N{FULLWIDTH COMMA}) missing from font(s) DejaVu Sans.
+  return self.func(*args)
+C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1118-904-0_26.1118.904.0_x64__3k8sg7r9htsxt\dependencies\python\Lib\tkinter\__init__.py:1968: UserWarning: Glyph 65292 (\N{FULLWIDTH COMMA}) missing from font(s) DejaVu Sans.
+  return self.func(*args)
+C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1118-904-0_26.1118.904.0_x64__3k8sg7r9htsxt\dependencies\python\Lib\tkinter\__init__.py:1968: UserWarning: Glyph 65292 (\N{FULLWIDTH COMMA}) missing from font(s) DejaVu Sans.
+  return self.func(*args)

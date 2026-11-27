@@ -1,0 +1,130 @@
+{
+  "command_id": 6,
+  "requested_target_mm": [
+    500,
+    1000
+  ],
+  "first_nav": {
+    "line": 76879,
+    "seq": 5195,
+    "ms": 259800,
+    "state": "TRACKING",
+    "xy_mm": [
+      0,
+      0
+    ],
+    "heading_mrad": 1573,
+    "target_mm": [
+      500,
+      1000
+    ],
+    "waypoint": 0,
+    "fault": 0
+  },
+  "terminal_nav": {
+    "line": 78316,
+    "seq": 5584,
+    "ms": 279250,
+    "state": "FAULT",
+    "xy_mm": [
+      520,
+      907
+    ],
+    "heading_mrad": 395,
+    "target_mm": [
+      500,
+      1000
+    ],
+    "waypoint": 29,
+    "fault": 5
+  },
+  "duration_s": 19.45,
+  "wheel_frames": 190,
+  "absolute_terminal_error_mm": 95.1,
+  "peak_forward_mean_encoder_mps": 0.2285,
+  "corner": {
+    "planned_xy_mm": [
+      0,
+      1000
+    ],
+    "first_pivot_nav": {
+      "line": 77298,
+      "seq": 5309,
+      "ms": 265500,
+      "state": "TRACKING",
+      "xy_mm": [
+        6,
+        999
+      ],
+      "heading_mrad": 1481,
+      "target_mm": [
+        500,
+        1000
+      ],
+      "waypoint": 20,
+      "fault": 0
+    },
+    "signed_heading_change_deg_ccw_positive": -82.96,
+    "first_second_leg_forward_nav": {
+      "line": 77554,
+      "seq": 5379,
+      "ms": 269000,
+      "state": "TRACKING",
+      "xy_mm": [
+        19,
+        1002
+      ],
+      "heading_mrad": 33,
+      "target_mm": [
+        500,
+        1000
+      ],
+      "waypoint": 20,
+      "fault": 0
+    },
+    "first_leg_max_abs_cross_mm": 22,
+    "last_prior_different_xy_ms": 265350,
+    "low_motion_observed_approx_ms": 150,
+    "first_pivot_wheel_frame": [
+      265500,
+      88,
+      -88,
+      88,
+      -88,
+      7,
+      0,
+      400,
+      -210
+    ]
+  },
+  "post_stop_500ms_nav": {
+    "line": 78346,
+    "seq": 5594,
+    "ms": 279750,
+    "state": "FAULT",
+    "xy_mm": [
+      520,
+      907
+    ],
+    "heading_mrad": 395,
+    "target_mm": [
+      500,
+      1000
+    ],
+    "waypoint": 29,
+    "fault": 5
+  },
+  "second_leg_failure_evidence": {
+    "extra_pivot_requests_after_first_second_leg_drive": 63,
+    "terminal_missing_left_feedback_window_ms": [
+      278500,
+      279200
+    ],
+    "terminal_left_measured_mmps": 0,
+    "terminal_left_pwm_signed_permille": -400,
+    "terminal_right_measured_mmps_range": [
+      28,
+      51
+    ]
+  }
+}

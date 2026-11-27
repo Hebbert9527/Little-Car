@@ -1,0 +1,39 @@
+{
+  "time_beijing": "20261119_160835_331589",
+  "target_rpm": 90,
+  "duration_ms": 1000,
+  "pwm_after_stop": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "speed_fault": 2,
+  "mcu_fault": 0,
+  "settled_mismatch_percent": null,
+  "settled_absolute_difference_percent": null,
+  "samples": 19,
+  "identity": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\speed_v4_pre_90_20261119_160829_391585_20261119_160829_468208.json",
+  "post_state": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\speed_v4_post_90_20261119_160829_391585_20261119_160835_331589.json",
+  "trace": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\speed_v4_post_90_20261119_160829_391585_20261119_160835_331589_speed.json",
+  "left": {
+    "counts": 0,
+    "turns": 0.0,
+    "trial_mean_rpm": 0.0,
+    "first_feedback_ms": null,
+    "peak_logged_pwm_percent": 44.999998807907104,
+    "first_second_mean_rpm": 0.0,
+    "settled_mean_rpm": null,
+    "settled_mean_pwm_percent": null
+  },
+  "right": {
+    "counts": 1563,
+    "turns": 1.0008965163934427,
+    "trial_mean_rpm": 60.05379098360656,
+    "first_feedback_ms": 50,
+    "peak_logged_pwm_percent": 40.00000059604645,
+    "first_second_mean_rpm": 49.35058305765453,
+    "settled_mean_rpm": null,
+    "settled_mean_pwm_percent": null
+  }
+}

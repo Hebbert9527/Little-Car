@@ -1,0 +1,41 @@
+{
+  "time_beijing": "20261119_162102_419080",
+  "target_rpm": 90,
+  "duration_ms": 5001,
+  "pwm_after_stop": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "speed_fault": 0,
+  "mcu_fault": 0,
+  "settled_mismatch_percent": 1.059440261303245,
+  "settled_absolute_difference_percent": 2.1531881937166544,
+  "samples": 100,
+  "identity": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\speed_v7_pre_90_20261119_162056_492234_20261119_162056_564969.json",
+  "post_state": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\speed_v7_post_90_20261119_162056_492234_20261119_162102_419080.json",
+  "trace": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\speed_v7_post_90_20261119_162056_492234_20261119_162102_419080_speed.json",
+  "left": {
+    "counts": 11247,
+    "turns": 7.212158132674982,
+    "trial_mean_rpm": 86.52859187372503,
+    "first_feedback_ms": 50,
+    "peak_logged_pwm_percent": 40.00000059604645,
+    "first_second_mean_rpm": 54.770860189199446,
+    "settled_mean_rpm": 90.08888523753096,
+    "settled_mean_pwm_percent": 28.45407099258609
+  },
+  "right": {
+    "counts": 11255,
+    "turns": 7.20735143442623,
+    "trial_mean_rpm": 86.47092302850906,
+    "first_feedback_ms": 50,
+    "peak_logged_pwm_percent": 40.00000059604645,
+    "first_second_mean_rpm": 50.75375835299492,
+    "settled_mean_rpm": 89.13538900235804,
+    "settled_mean_pwm_percent": 32.213287600656834
+  },
+  "peak_turn_gap": 0.09834019777096684,
+  "stop_turn_gap": 0.004806698248751573
+}

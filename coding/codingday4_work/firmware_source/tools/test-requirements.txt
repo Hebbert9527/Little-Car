@@ -1,0 +1,2 @@
+# Standard-library PC tests need no packages.
+# Firmware host tests require a working host GCC; ARM firmware build requires ARM GCC.

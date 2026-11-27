@@ -1,0 +1,10 @@
+Coding Day 4 complete source project
+
+Open this directory in STM32CubeIDE, or see README_HARDWARE.md for command-line builds.
+See README_PC.md for PC monitor dependencies and launch instructions.
+The prebuilt HEX is included in firmware/Week4_Integrated.hex.
+Physical calibration is NOT confirmed: motion remains locked in this HEX.
+Default OLED assumption: SSD1306 128x64, address 0x3C.
+IMU/OLED share I2C1 PB8 SCL (CN10-3), PB9 SDA (CN10-5).
+
+Build outputs, virtual environment and caches are intentionally excluded.

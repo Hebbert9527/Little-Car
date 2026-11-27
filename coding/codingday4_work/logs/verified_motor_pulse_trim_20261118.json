@@ -1,0 +1,15 @@
+{
+  "time_beijing": "20261118_234423",
+  "serial": "0674FF545155657067032031",
+  "hex": "C:\\Users\\Lenovo\\Desktop\\ESD\\WEEK4\\coding\\coding\\codingday4_work\\firmware_source\\build\\motor_pulse_trim\\Week4_Integrated.hex",
+  "elf": "C:\\Users\\Lenovo\\Desktop\\ESD\\WEEK4\\coding\\coding\\codingday4_work\\firmware_source\\build\\motor_pulse_trim\\Week4_Integrated.elf",
+  "hex_sha256": "0ebaca0c145280e3f1a594a653b4b709572bdf1ab0433d4241c859f096b37a8b",
+  "elf_sha256": "6b72f0933f89de4ad3c89d697956ac5e055e2343e894bf41db678c8942171851",
+  "log": "C:\\Users\\Lenovo\\Desktop\\ESD\\WEEK4\\coding\\coding\\codingday4_work\\logs\\flash_motor_pulse_trim_20261118_234423.txt",
+  "verified": true,
+  "reset": true,
+  "motor_power_disconnected": true,
+  "max_pwm_percent": 40,
+  "bench_pulse_ms": 5000,
+  "straight_pulse_ms": 1500
+}

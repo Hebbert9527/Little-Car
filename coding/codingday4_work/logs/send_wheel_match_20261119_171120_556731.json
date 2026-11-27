@@ -1,0 +1,51 @@
+{
+  "samples": 111,
+  "tracking_samples": 27,
+  "trace": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\send_wheel_match_20261119_171120_556731.jsonl",
+  "duration_s": 9.166,
+  "count_delta": [
+    10055,
+    10029
+  ],
+  "turns": [
+    6.447786078425086,
+    6.422259221311476
+  ],
+  "rpm_whole_window": [
+    42.206760277711666,
+    42.03966324227455
+  ],
+  "forward_tracking_windows": 26,
+  "reverse_windows": [],
+  "reverse_pwm_samples": 0,
+  "near_equal_command_duration_s": 8.542,
+  "rpm_near_equal_command": [
+    44.27204300359274,
+    44.08514485800155
+  ],
+  "final_state": {
+    "tick": 129987,
+    "state": 3,
+    "waypoint": 27,
+    "nav_fault": 0,
+    "mcu_fault": 0,
+    "count": [
+      10055,
+      9874
+    ],
+    "requested_mps": [
+      0.0,
+      0.0
+    ],
+    "filtered_mps": [
+      0.0,
+      0.0
+    ],
+    "pwm": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

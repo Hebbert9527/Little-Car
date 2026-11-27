@@ -1,0 +1,29 @@
+TARGET_ADVERTISEMENT C4:25:01:17:00:02: None
+Traceback (most recent call last):
+  File "D:\EMBEGGed\week4codingday\coding\codingday4_work\firmware_source\.venv\Lib\site-packages\bleak\backends\winrt\client.py", line 441, in connect
+    self.services = await self._get_services(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\EMBEGGed\week4codingday\coding\codingday4_work\firmware_source\.venv\Lib\site-packages\bleak\backends\winrt\client.py", line 705, in _get_services
+    result = await FutureLike(
+             ^^^^^^^^^^^^^^^^^
+  File "D:\EMBEGGed\week4codingday\coding\codingday4_work\firmware_source\.venv\Lib\site-packages\bleak\backends\winrt\client.py", line 1250, in __await__
+    yield self  # This tells Task to wait for completion.
+    ^^^^^^^^^^
+  File "D:\EMBEGGed\week4codingday\coding\codingday4_work\firmware_source\.venv\Lib\site-packages\bleak\backends\winrt\client.py", line 1185, in result
+    raise asyncio.CancelledError
+asyncio.exceptions.CancelledError
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 7, in main
+  File "D:\EMBEGGed\week4codingday\coding\codingday4_work\firmware_source\.venv\Lib\site-packages\bleak\__init__.py", line 726, in __aenter__
+    await self.connect()
+  File "D:\EMBEGGed\week4codingday\coding\codingday4_work\firmware_source\.venv\Lib\site-packages\bleak\__init__.py", line 748, in connect
+    await self._backend.connect(self._pair_before_connect, **kwargs)
+  File "D:\EMBEGGed\week4codingday\coding\codingday4_work\firmware_source\.venv\Lib\site-packages\bleak\backends\winrt\client.py", line 397, in connect
+    async with async_timeout(timeout):
+               ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Program Files\WindowsApps\OpenAI.CodexPrimaryRuntime.v26-1117-835-0_26.1117.835.0_x64__3k8sg7r9htsxt\dependencies\python\Lib\asyncio\timeouts.py", line 115, in __aexit__
+    raise TimeoutError from exc_val
+TimeoutError

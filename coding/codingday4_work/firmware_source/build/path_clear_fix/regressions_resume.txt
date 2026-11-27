@@ -1,0 +1,23 @@
+PASS imu
+PASS imu_recovery
+PASS imu_diagnostics
+PASS imu_xy_bias
+PASS imu_rotation
+PASS yaw_calibration
+PASS oled_disabled
+PASS oled32
+PASS oled64
+PASS navigation
+PASS navigation_dual
+PASS navigation_rear_forward
+PASS navigation_rear_no_straight_correction
+{"w4_nav": [2, 67, 0.0, 0.800000011920929, 0, 0, 99030, 0.0, 0.0, 1.570796251296997, 1], "maze_test_tick": [1316], "maze_test_stage": [11], "test_pwm_l": [-0.011526399292051792], "test_pwm_r": [-0.010376335121691227], "offset_x": 0.0, "offset_y": 0.0, "route_len": 17, "previous_len": 9, "s_progress_s_m": 0.0, "route_index": 0, "route_number": 1}
+Traceback (most recent call last):
+  File "D:\EMBEGGed\week4codingday\coding\coding(1)\coding\codingday4_work\run_cortex_tests.py", line 123, in <module>
+    if __name__=="__main__":main()
+                            ^^^^^^
+  File "D:\EMBEGGed\week4codingday\coding\coding(1)\coding\codingday4_work\run_cortex_tests.py", line 119, in main
+    emulate(target, budget)
+  File "D:\EMBEGGed\week4codingday\coding\coding(1)\coding\codingday4_work\run_cortex_tests.py", line 62, in emulate
+    raise AssertionError(f"{path.name}: result/line={result} {cstring(symbols['test_file'])}: {cstring(symbols['test_expression'])}")
+AssertionError: navigation_maze.elf: result/line=305 tests/navigation/test_maze.c: strstr(test_ack,"MAZE_ACCEPTED")

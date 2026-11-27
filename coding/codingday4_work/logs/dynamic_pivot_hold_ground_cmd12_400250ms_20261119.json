@@ -1,0 +1,103 @@
+{
+  "log": "live_20261119_204527_981.bin",
+  "command": 12,
+  "first": {
+    "line": 215121,
+    "seq": 8004,
+    "ms": 400250,
+    "command": 12,
+    "state": "TRACKING",
+    "xy": [
+      0,
+      0
+    ],
+    "heading_mrad": 1568,
+    "target": [
+      -1000,
+      -1000
+    ],
+    "waypoint": 0,
+    "fault": 0
+  },
+  "terminal": {
+    "line": 215927,
+    "seq": 8223,
+    "ms": 411200,
+    "command": 12,
+    "state": "FAULT",
+    "xy": [
+      -111,
+      -938
+    ],
+    "heading_mrad": -1549,
+    "target": [
+      -1000,
+      -1000
+    ],
+    "waypoint": 18,
+    "fault": 1
+  },
+  "duration_s": 10.95,
+  "wheel_frames": 108,
+  "imu_failed": {
+    "first": [
+      399000,
+      3
+    ],
+    "last": [
+      412000,
+      4
+    ]
+  },
+  "i2c_timeout_recovery": {
+    "first": [
+      399000,
+      1,
+      1
+    ],
+    "last": [
+      412000,
+      1,
+      1
+    ]
+  },
+  "frame_counts": {
+    "N": 270,
+    "P": 266,
+    "I": 269,
+    "B": 14,
+    "S": 14,
+    "Q": 14,
+    "T": 14,
+    "A": 1,
+    "D": 108
+  },
+  "terminal_error_mm": 891.2,
+  "post_stop_500ms": {
+    "line": 215957,
+    "seq": 8233,
+    "ms": 411700,
+    "command": 12,
+    "state": "FAULT",
+    "xy": [
+      -111,
+      -938
+    ],
+    "heading_mrad": -1549,
+    "target": [
+      -1000,
+      -1000
+    ],
+    "waypoint": 18,
+    "fault": 1
+  },
+  "imu_frames_near_fault": [
+    "I,8052,411050,5861,479",
+    "I,8053,411100,5885,493",
+    "I,8054,411150,5914,509",
+    "I,8055,411200,5936,434",
+    "I,8056,411250,5941,-3",
+    "I,8057,411300,5943,-34",
+    "I,8058,411350,5944,154"
+  ]
+}

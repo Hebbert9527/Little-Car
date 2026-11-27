@@ -1,0 +1,220 @@
+BLE attempt 1: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 2: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 3: connecting to C4:25:01:17:00:02
+BLE attempt 3: subscribed
+BLE attempt 4: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 5: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 6: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 7: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 8: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 9: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 10: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 11: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 12: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 13: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 14: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 15: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 16: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 17: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 18: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 19: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 20: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 21: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 22: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 23: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 24: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 25: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 26: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 27: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 28: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 29: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 30: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 31: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 32: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 33: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 34: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 35: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 36: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 37: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 38: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 39: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 40: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 41: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 42: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 43: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 44: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 45: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 46: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 47: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 48: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 49: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 50: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 51: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 52: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 53: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 54: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 55: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 56: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 57: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 58: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 59: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 60: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 61: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 62: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 63: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 64: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 65: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 66: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 67: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 68: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 69: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 70: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 71: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 72: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 73: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 74: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 75: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 76: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 77: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 78: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 79: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 80: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 81: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 82: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 83: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 84: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 85: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 86: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 87: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 88: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 89: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 90: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 91: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 92: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 93: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 94: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 95: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 96: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 97: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 98: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 99: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 100: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 101: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 102: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 103: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 104: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 105: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 106: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 107: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 108: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 109: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 110: connecting to C4:25:01:17:00:02
+BLE attempt 110: subscribed

@@ -1,0 +1,101 @@
+--- D:\EMBEGGed\week4codingday\coding\coding(1)\coding\codingday4_work\firmware_source\build\maze_continuous\before\w4_control.c
++++ D:\EMBEGGed\week4codingday\coding\coding(1)\coding\codingday4_work\firmware_source\week4\Src\w4_control.c
+@@ -14,9 +14,6 @@
+ static bool arriving,missing,settling_goal,waypoint_corner,incoming_leg,stopping_at_corner;
+ typedef enum { ALIGNED, ALIGN_TURN, ALIGN_SETTLE } HeadingAlignment;
+ static HeadingAlignment alignment;
+-#ifdef W4_MAZE
+-static float maze_alignment_heading;
+-#endif
+ #ifdef W4_DUAL_ENCODER
+ static bool after_corner;
+ #endif
+@@ -261,9 +258,6 @@
+                    (wp.index>0&&fabsf(W4Wrap(next_heading-final_heading))>0.15f))
+                     begin_alignment(now);
+                 final_heading=next_heading;
+-#ifdef W4_MAZE
+-                if(maze) maze_alignment_heading=next_heading;
+-#endif
+             }
+             k=W4Port_Lock(); w4_nav.wp_index=wp.index; w4_nav.state=W4_TRACKING; W4Port_Unlock(k);
+             break;
+@@ -278,9 +272,6 @@
+     }
+     if(alignment!=ALIGNED) {
+         float heading=wp.index==W4_DISTANCE_WAYPOINT?straight_heading:final_heading;
+-#ifdef W4_MAZE
+-        if(maze) heading=maze_alignment_heading;
+-#endif
+         if(!align_heading(W4Wrap(heading-n.pose.theta_rad),vl,vr,dt,now,begin)) return;
+         starting_distance=true;
+     }
+@@ -418,15 +409,6 @@
+         if(settling_goal) desired=final_heading;
+     }
+     float error=W4Wrap(desired-n.pose.theta_rad);
+-#ifdef W4_MAZE
+-    if(maze && fabsf(error)>0.85f) {
+-        /* Latch one target through the pivot and its stopped dwell. Re-entry
+-           requires a large error, while alignment exits near three degrees. */
+-        maze_alignment_heading=desired;
+-        begin_alignment(now);
+-        return;
+-    }
+-#endif
+     if(settling_goal&&fabsf(error)<w4_config.heading_tol) {
+         W4Motor_Stop();
+         if(d>=tol) {
+@@ -460,8 +442,11 @@
+         0.0f:approach*forward_factor;
+ #ifdef W4_MAZE
+     if(maze) {
++        /* A 0.70 rad correction near a waypoint previously reduced the mean
++           request to 0.015 m/s, below loaded breakaway speed. Keep a usable
++           cruise request through the turn and retain the acceleration ramp. */
+         float turn_scale=fminf(1.0f,fmaxf(0.0f,(0.85f-fabsf(error))/0.65f));
+-        v=approach*turn_scale;
++        v=fmaxf(fminf(speed_limit,0.065f),approach*turn_scale);
+         v=forward_speed+fmaxf(-0.60f*dt,fminf(0.45f*dt,v-forward_speed));
+     } else
+ #endif
+--- D:\EMBEGGed\week4codingday\coding\coding(1)\coding\codingday4_work\firmware_source\build\maze_continuous\before\test_maze.c
++++ D:\EMBEGGed\week4codingday\coding\coding(1)\coding\codingday4_work\firmware_source\tests\navigation\test_maze.c
+@@ -141,18 +141,29 @@
+         previous_mean=mean;
+         if(tick%10==0) scan(false);
+     }
+-    /* A large error latches the alignment until a genuinely aligned, stopped
+-       dwell has completed, even if the error falls below the entry threshold. */
+-    place(0,0.1f,W4_PI/2-0.9f);
+-    test_ms+=10; W4Control_Step(test_ms);
+-    assert(test_pwm_l==0 && test_pwm_r==0);
+-    for(unsigned tick=0;tick<15;++tick) {
+-        place(0,0.1f,W4_PI/2-0.48f);
++    /* The former 0.85 rad threshold must not stop the moving chassis. */
++    for(unsigned tick=0;tick<30;++tick) {
++        float error=tick%2?0.90f:0.80f;
++        place(0,0.1f,W4_PI/2-error);
+         test_ms+=10; W4Control_Step(test_ms);
+         char line[160]; unsigned long ms,id; long left,right;
+         assert(W4Motor_FormatDiagnostics(line,sizeof line));
+         assert(sscanf(line,"D,%lu,WHEEL,%lu,%ld,%ld",&ms,&id,&left,&right)==4);
+-        assert(left<0 && right>0);
++        assert(left>0 && right>0);
++        assert((left+right)/2>=64);
++        if(tick%10==0) scan(false);
++    }
++    /* Ground commands 10/15 stopped 26-30 mm before the waypoint with 0.70 rad
++       heading error. Both old requests (2/29 mm/s) were below useful drive. */
++    for(unsigned tick=0;tick<40;++tick) {
++        float error=tick<20?0.70f:-0.70f;
++        place(0,tick<20?0.374f:0.370f,W4_PI/2-error);
++        test_ms+=10; W4Control_Step(test_ms);
++        char line[160]; unsigned long ms,id; long left,right;
++        assert(W4Motor_FormatDiagnostics(line,sizeof line));
++        assert(sscanf(line,"D,%lu,WHEEL,%lu,%ld,%ld",&ms,&id,&left,&right)==4);
++        assert((left+right)/2>=64);
++        assert(w4_nav.state==W4_TRACKING);
+         if(tick%10==0) scan(false);
+     }
+     send("STOP\n"); test_ms+=10; W4Control_Step(test_ms); W4Path_Poll();

@@ -1,0 +1,81 @@
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.18.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 0674FF545155657067032031
+ST-LINK FW  : V2J47M34
+Board       : --
+Voltage     : 3.22V
+SWD freq    : 4000 KHz
+Connect mode: Hot Plug
+Reset mode  : Software reset
+Device ID   : 0x421
+Revision ID : Rev A
+Device name : STM32F446xx
+Flash size  : 512 KBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : 0x90
+
+
+UPLOADING ...
+  File          : D:\EMBEGGed\week4codingday\coding\codingday4_work\logs\imu_diagnostic_window_20261118.bin
+  Size          : 172 Bytes
+  Address:      : 0x20001ADC
+Read progress:
+�������������������������������������������������� 0%
+�������������������������������������������������� 100%
+Data read successfully
+Time elapsed during read operation is: 00:00:00.001
+
+Reading 32-bit memory content
+  Size          : 68 Bytes
+  Address:      : 0x20001BB0
+
+0x20001BB0 : 00000000 00000000 000098A0 00000000
+0x20001BC0 : 00000F45 00000F3A 0000000B 00000F3A
+0x20001BD0 : 00000F39 00000000 00000000 00000003
+0x20001BE0 : 00000000 00000F39 00000000 00000000
+0x20001BF0 : 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 8 Bytes
+  Address:      : 0x200019F0
+
+0x200019F0 : 00000000 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x20000010
+
+0x20000010 : 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x200026FC
+
+0x200026FC : 000098AB
+
+
+
+Reading 32-bit memory content
+  Size          : 8 Bytes
+  Address:      : 0x40000834
+
+0x40000834 : 00000000 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 8 Bytes
+  Address:      : 0x40001834
+
+0x40001834 : 00000000 00000000
+
+

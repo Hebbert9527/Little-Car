@@ -1,0 +1,16 @@
+SAMPLING 5.1s samples=24 errors=0
+SAMPLING 10.2s samples=47 errors=0
+SAMPLING 15.3s samples=70 errors=0
+SAMPLING 20.4s samples=93 errors=0
+SAMPLING 25.5s samples=116 errors=0
+SAMPLING 30.6s samples=139 errors=0
+SAMPLING 35.7s samples=162 errors=0
+SAMPLING 40.9s samples=185 errors=0
+SAMPLING 45.9s samples=207 errors=0
+SAMPLING 51.1s samples=230 errors=0
+SAMPLING 56.2s samples=252 errors=0
+SAMPLING 61.4s samples=275 errors=0
+SAMPLING 66.5s samples=296 errors=0
+LOG D:\EMBEGGed\week4codingday\coding\codingday4_work\logs\gpio_left_confirm_20261118_215925.json
+CANDIDATE_INPUTS {}
+KNOWN_ACTIVITY {"PA10": 126, "PB8": 51, "PB9": 71, "PC10": 12}

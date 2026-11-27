@@ -1,0 +1,540 @@
+--- before/pc/monitor.py
++++ pc/monitor.py
+@@ -63,15 +63,46 @@
+                 for row,cells in self.rows.items() for col,c in enumerate(cells) if c=='#']
+ 
+ 
+-def map_display_status(nav, imu_fresh, map_time, now):
++PLANNER_REASONS={
++    'START_BLOCKED':'start within wall clearance',
++    'GOAL_BLOCKED':'target within wall clearance',
++    'NO_ROUTE':'no connected route',
++    'PLANNER_QUEUE_FULL':'planner queue capacity exceeded',
++    'PATH_TOO_LONG':'route exceeds buffer',
++    'PATH_COLLISION':'route failed clearance check',
++    'MAP_BOUNDS':'target outside map',
++    'INVALID_MAP_INPUT':'invalid planner input',
++    'NO_CLEAR_PATH':'no clear route (older firmware)',
++}
++
++
++def set_map_view(axes, half):
++    # Explicit edge ticks make the physical width visible, including +/-2.5m.
++    step=1 if half>=2 else .5
++    ticks=sorted(set([-half,half]+[float(i)*step for i in range(math.ceil(-half/step),math.floor(half/step)+1)]))
++    for ax in axes:
++        ax.set(xlim=(-half,half),ylim=(-half,half),xticks=ticks,yticks=ticks)
++    axes[0].set_xlabel(f'x / m | view {2*half:g} x {2*half:g} m')
++    axes[1].set_xlabel(f'World X / m (relative to C1) | view {2*half:g} x {2*half:g} m')
++
++
++def map_display_status(nav, imu_fresh, map_time, now, ack=None):
+     """A frozen map is historical evidence, never permission to navigate."""
+     age = None if map_time is None else max(0.0, now-map_time)
+     fault = nav is not None and nav.state == 'FAULT'
+     fresh = not fault and imu_fresh and age is not None and age < 1.0
+     if fault:
+-        reason = {1: 'sensor / pose invalid', 9: 'LiDAR scan stale',
+-                  10: 'no clear path', 11: 'path projection invalid'}.get(nav.fault, 'navigation stopped')
+-        return False, f'FAULT {nav.fault}: {reason} | map frozen'
++        reason = {1: 'sensor / pose invalid', 2: 'motion timed out',
++                  3: 'invalid waypoint', 4: 'path delivery timed out',
++                  5: 'wheel stalled / no encoder motion', 8: 'heading alignment timed out',
++                  9: 'LiDAR scan stale', 10: 'no clear path',
++                  11: 'path projection invalid'}.get(nav.fault, 'navigation stopped')
++        if nav.fault==10 and ack is not None and ack.cmd_id==nav.cmd_id:
++            reason=PLANNER_REASONS.get(ack.reason,reason)
++        scan='scan updating' if imu_fresh and age is not None and age<1 else 'saved walls retained'
++        return False, f'FAULT {nav.fault}: {reason} | {scan}'
++    if nav is not None and nav.state=='PLANNING' and ack is not None and ack.cmd_id==nav.cmd_id and ack.status=='WAIT':
++        return False, 'Replanning: '+PLANNER_REASONS.get(ack.reason,ack.reason)
+     if not imu_fresh:
+         return False, 'IMU unavailable | saved walls retained'
+     if age is None:
+@@ -248,6 +279,7 @@
+         ax.set_aspect('equal'); ax.grid(True)
+     radar.set_xlabel('World X / m (relative to C1)')
+     radar.set_ylabel('World Y / m (relative to C1)')
++    set_map_view((nav,radar),args.range_m)
+     ray_heading,=radar.plot([],[],'r-',lw=2)
+     walls=nav.scatter([],[],s=16,marker='s',color='.35',label='C1 occupied cells')
+     map_history=MapHistory()
+@@ -293,12 +325,13 @@
+     stop_button.on_clicked(lambda _:submit('STOP'))
+     reset.on_clicked(lambda _:submit('RESET'))
+     view_button=Button(fig.add_axes([.85,.94,.13,.035]),'View +/-5 m')
+-    full_view=False
++    full_view=args.range_m>=5
++    if full_view: view_button.label.set_text('View 5 x 5 m')
+     def toggle_view(_):
+         nonlocal full_view
+         full_view=not full_view
+-        half=5.5 if full_view else args.range_m
+-        for ax in (nav,radar): ax.set(xlim=(-half,half),ylim=(-half,half))
++        half=5.0 if full_view else 2.5
++        set_map_view((nav,radar),half)
+         view_button.label.set_text('View 5 x 5 m' if full_view else 'View +/-5 m')
+         fig.canvas.draw_idle()
+     view_button.on_clicked(toggle_view)
+@@ -342,6 +375,7 @@
+                 history.update(frame)
+             elif isinstance(frame,Ack):
+                 history.update(frame)
++                feedback.set_text(f'ACK {frame.cmd_id}: {frame.status} - '+PLANNER_REASONS.get(frame.reason,frame.reason))
+                 if frame.status=='OK' and frame.reason=='RESET_PENDING':
+                     map_history.reset_pending()
+                     feedback.set_text('RESET accepted: old walls cleared; rebuilding map')
+@@ -366,7 +400,7 @@
+             elif isinstance(frame,Imu): latest_imu,imu_time=frame,received
+         while points and now-points[0][0]>3: points.popleft()
+         imu_fresh=imu_time is not None and now-imu_time<0.8
+-        map_fresh, map_title = map_display_status(latest_nav, imu_fresh, map_history.scan_time, now)
++        map_fresh, map_title = map_display_status(latest_nav, imu_fresh, map_history.scan_time, now, receiver.latest_ack)
+         # Keep historical cells on sensor/transport failure; clear only on
+         # explicit RESET, reboot or a new map epoch (handled above).
+         walls.set_alpha(1.0)
+@@ -416,7 +450,7 @@
+     ap.add_argument('--ble-response',action='store_true',help='BLE write with response (module dependent)')
+     ap.add_argument('--log',help='append raw LF telemetry bytes')
+     ap.add_argument('--duration',type=float,default=0)
+-    ap.add_argument('--range-m',type=float,default=2.5,help='initial half-width in metres; default view is 5 x 5 m')
++    ap.add_argument('--range-m',type=float,default=5.0,help='initial half-width in metres; default X/Y axes run from -5 to +5 m')
+     ap.add_argument('--headless',action='store_true')
+     ap.add_argument('--command',action='append',default=[],help='send once after connection; may repeat')
+     args=ap.parse_args(argv)
+--- before/tests/navigation/test_maze.c
++++ tests/navigation/test_maze.c
+@@ -2,6 +2,7 @@
+ #include "w4_rtos.h"
+ #include "w4_integration.h"
+ #include "planner_config.h"
++#include "planner_algo.h"
+ extern char test_map[192];
+ #include <assert.h>
+ #include <math.h>
+@@ -14,6 +15,17 @@
+ extern float test_heading,test_gyro;
+ extern float test_pwm_l,test_pwm_r;
+ extern bool test_imu_valid;
++
++/* Link-time fault injection affects only this test binary. Real A* is used
++   for every successful retry and all closed-loop scenarios. */
++static unsigned planner_calls,forced_plan_failures;
++int __real_astar_plan(ServerMap *,Point2D,Point2D,Point2D *,int,bool,Point2D *);
++int __wrap_astar_plan(ServerMap *map,Point2D start,Point2D goal,
++                      Point2D *previous,int count,bool returning,Point2D *out) {
++    ++planner_calls;
++    if(forced_plan_failures) { --forced_plan_failures; return 0; }
++    return __real_astar_plan(map,start,goal,previous,count,returning,out);
++}
+ 
+ static void send(const char *s) {
+     while(*s) W4Bt_OnByteISR((uint8_t)*s++);
+@@ -214,7 +226,8 @@
+     reset_run();
+     for(unsigned i=0;i<4;++i) room_scan(true);
+     send("MAZE,0,0.55\n"); W4Path_Poll(); W4Path_Poll();
+-    assert(w4_nav.state==W4_FAULT && w4_nav.fault==10);
++    assert(w4_nav.state==W4_PLANNING && w4_nav.fault==0);
++    assert(strstr(test_ack,"WAIT,GOAL_BLOCKED"));
+     assert(test_pwm_l==0 && test_pwm_r==0);
+     reset_run(); scan(false); scan(false);
+     send("MAZE,0,0.8\n"); W4Path_Poll(); W4Path_Poll();
+@@ -258,6 +271,73 @@
+         W4Maze_Point((float)angle,6500,12,angle==0,test_ms);
+     W4Path_Poll();
+ }
++static void wait_with_scans(unsigned ticks) {
++    for(unsigned i=0;i<ticks;++i) {
++        test_ms+=10; W4Control_Step(test_ms);
++        if(i%10==0) open_scan();
++        W4Path_Poll();
++        assert(w4_nav.state==W4_PLANNING && w4_nav.fault==0);
++        assert(test_pwm_l==0 && test_pwm_r==0);
++    }
++}
++static void begin_waiting(void) {
++    forced_plan_failures=100;
++    reset_run(); open_scan(); open_scan();
++    send("MAZE,0,1.05\n"); W4Path_Poll(); W4Path_Poll();
++    assert(w4_nav.state==W4_PLANNING && strstr(test_ack,",WAIT,"));
++}
++static void test_retry_contract(void) {
++    begin_waiting();
++    unsigned id=w4_nav.cmd_id,calls=planner_calls;
++    /* A repeated poll and even a new scan inside 300 ms do not spin A*. */
++    for(unsigned i=0;i<20;++i) {
++        test_ms+=10; W4Control_Step(test_ms); open_scan(); W4Path_Poll();
++    }
++    assert(planner_calls==calls);
++    wait_with_scans(260); /* exceeds the old two-second path-delivery timeout */
++    assert(planner_calls>=calls+9 && planner_calls<=calls+10);
++    assert(w4_nav.cmd_id==id && w4_nav.target_y==1.05f);
++    forced_plan_failures=0;
++    for(unsigned i=0;i<35 && w4_nav.state!=W4_TRACKING;++i) {
++        test_ms+=10; W4Control_Step(test_ms); open_scan(); W4Path_Poll();
++    }
++    assert(w4_nav.state==W4_TRACKING && w4_nav.cmd_id==id);
++    assert(strstr(test_ack,"MAZE_ACCEPTED"));
++    assert(W4Maze_RouteCount()>=2);
++    /* A newly observed wall triggers the production stop/replan transition. */
++    forced_plan_failures=100;
++    for(unsigned i=0;i<60;++i) {
++        test_ms+=10; W4Control_Step(test_ms);
++        if(i%10==0) room_scan(true);
++        W4Path_Poll();
++    }
++    assert(w4_nav.state==W4_PLANNING && strstr(test_ack,",WAIT,"));
++    assert(test_pwm_l==0 && test_pwm_r==0);
++    forced_plan_failures=0;
++    for(unsigned i=0;i<40 && w4_nav.state!=W4_TRACKING;++i) {
++        test_ms+=10; W4Control_Step(test_ms);
++        if(i%10==0) room_scan(true);
++        W4Path_Poll();
++    }
++    assert(w4_nav.state==W4_TRACKING);
++    assert(strstr(test_ack,"MAZE_RESUMED") && w4_nav.cmd_id==id);
++
++    begin_waiting(); calls=planner_calls;
++    /* No new scan: no redundant search, then normal stale-scan protection. */
++    for(unsigned i=0;i<46;++i) { test_ms+=10; W4Control_Step(test_ms); W4Path_Poll(); }
++    assert(planner_calls==calls);
++    assert(w4_nav.state==W4_FAULT && w4_nav.fault==9);
++    assert(test_pwm_l==0 && test_pwm_r==0);
++    begin_waiting(); test_imu_valid=false;
++    test_ms+=10; W4Control_Step(test_ms);
++    assert(w4_nav.state==W4_FAULT && w4_nav.fault==1);
++    assert(test_pwm_l==0 && test_pwm_r==0); test_imu_valid=true;
++    begin_waiting(); send("STOP\n"); W4Control_Step(test_ms); W4Path_Poll();
++    forced_plan_failures=0;
++    for(unsigned i=0;i<40;++i) { test_ms+=10; W4Control_Step(test_ms); open_scan(); }
++    assert(w4_nav.state==W4_STOPPED && test_pwm_l==0 && test_pwm_r==0);
++}
++
+ static void test_five_metre_targets(void) {
+     const char *goals[]={"MAZE,0,5\n","MAZE,5,0\n","MAZE,-5,0\n","MAZE,0,-5\n",
+                          "MAZE,5,5\n","MAZE,-5,5\n","MAZE,5,-5\n","MAZE,-5,-5\n"};
+@@ -280,6 +360,10 @@
+     W4Calibration_Apply(); W4Nav_Init(); assert(W4HardwareReady());
+     send("MAZE,0,0.8\n"); W4Path_Poll(); W4Path_Poll();
+     assert(w4_nav.state==W4_FAULT && w4_nav.fault==9);
++#ifdef TEST_RETRY_ONLY
++    maze_test_stage=11; test_retry_contract();
++    return 0;
++#endif
+ #ifdef TEST_DYNAMIC_ONLY
+     maze_test_stage=7; drive_course(1,true);
+     return 0;
+@@ -294,6 +378,7 @@
+     maze_test_stage=8; test_planner_edges();
+     maze_test_stage=9; test_persistent_walls();
+     maze_test_stage=10; test_five_metre_targets();
++    maze_test_stage=11; test_retry_contract();
+     reset_run(); assert(!W4Maze_Fresh(test_ms));
+     return 0;
+ }
+--- before/tests/pc/test_monitor.py
++++ tests/pc/test_monitor.py
+@@ -185,3 +185,40 @@
+         history.clear()  # reboot permits an unrelated version
+         history.update(row(0),102)
+         self.assertEqual(len(history.occupied()),107)
++
++class FaultExplanationTests(unittest.TestCase):
++    def test_fault_ten_does_not_claim_live_map_is_frozen(self):
++        import monitor as m
++        nav=m.Navigation(1,100,3,'FAULT',0,0,1571,0,1300,0,10)
++        ack=m.Ack(3,'REJECTED','START_BLOCKED')
++        ready,title=m.map_display_status(nav,True,99.9,100,ack)
++        self.assertFalse(ready)
++        self.assertIn('start within wall clearance',title)
++        self.assertIn('scan updating',title)
++        self.assertNotIn('frozen',title)
++        title=m.map_display_status(nav,True,99.9,100,m.Ack(2,'REJECTED','GOAL_BLOCKED'))[1]
++        self.assertNotIn('target within',title)
++
++    def test_stall_is_not_reported_as_map_failure(self):
++        import monitor as m
++        nav=m.Navigation(1,100,9,'FAULT',-787,672,2249,0,1300,0,5)
++        title=m.map_display_status(nav,True,95,100)[1]
++        self.assertIn('wheel stalled',title)
++        self.assertIn('saved walls retained',title)
++
++
++class ReplanningStatusTests(unittest.TestCase):
++    def test_wait_and_resume_keep_command_identity(self):
++        import monitor as m
++        r=m.Receiver()
++        r.feed(b'N,1,100,9,PLANNING,0,0,1571,0,1300,0,0\nA,9,WAIT,NO_ROUTE\n')
++        fresh,text=m.map_display_status(r.latest_nav,True,99.9,100,r.latest_ack)
++        self.assertFalse(fresh)
++        self.assertIn('Replanning: no connected route',text)
++        r.feed(b'A,9,OK,MAZE_RESUMED\nN,2,150,9,TRACKING,0,0,1571,0,1300,0,0\n')
++        self.assertTrue(m.map_display_status(r.latest_nav,True,99.9,100,r.latest_ack)[0])
++        self.assertEqual(r.latest_nav.cmd_id,9)
++    def test_old_wait_ack_does_not_override_new_command(self):
++        import monitor as m
++        nav=m.Navigation(1,100,10,'PLANNING',0,0,1571,0,1300,0,0)
++        self.assertNotIn('Replanning',m.map_display_status(nav,True,99.9,100,m.Ack(9,'WAIT','NO_ROUTE'))[1])
+--- before/week4/Inc/planner_algo.h
++++ week4/Inc/planner_algo.h
+@@ -14,6 +14,9 @@
+ // 对外保留原始的物理碰撞检查接口
+ bool check_collision(ServerMap* map, Point2D pos, float radius, bool is_return);
+ 
++/* Last path-task failure; NULL means the last search succeeded. */
++const char *W4Planner_FailureReason(void);
++
+ // 核心规划器
+ int astar_plan(ServerMap* map, Point2D start, Point2D goal, Point2D* prev_path, int prev_path_len, bool is_return, Point2D* out_path);
+ 
+--- before/week4/Src/w4_control.c
++++ week4/Src/w4_control.c
+@@ -226,8 +226,8 @@
+         if(!maze_loaded) {
+             if(!W4Maze_LoadRoute(n.cmd_id,&n.pose)) {
+                 W4Motor_Stop();
+-                if(!missing) { missing=true; missing_since=now; }
+-                if(now-missing_since>2000U) fault(4);
++                /* MAZE planning may wait for new observations. Keep stopped;
++                   scan/IMU/STOP and the overall command timeout still apply. */
+                 return;
+             }
+             maze_loaded=true; missing=false; settling_goal=false;
+@@ -274,7 +274,7 @@
+             if(!isfinite(next.x_m)||!isfinite(next.y_m)) { fault(3); return; }
+             wp=next; have_wp=true; missing=false;
+             if(wp.index==W4_DISTANCE_WAYPOINT) {
+-                if(wp.y_m<0.0f||wp.y_m>2.0f) { fault(3); return; }
++                if(wp.y_m<0.0f||wp.y_m>5.0f) { fault(3); return; }
+                 distance_travelled=0.0f;
+                 starting_distance=true;
+                 if(wp.y_m>0.0f&&fabsf(W4Wrap(straight_heading-n.pose.theta_rad))>alignment_tolerance_rad)
+--- before/week4/Src/w4_maze.c
++++ week4/Src/w4_maze.c
+@@ -41,7 +41,10 @@
+ static Point2D raw_path[MAX_PATH_LEN],previous_path[MAX_PATH_LEN],route[MAX_PATH_LEN];
+ static unsigned previous_len,route_len;
+ static volatile bool route_ready;
+-static uint32_t plan_stamp;
++static uint32_t plan_stamp,last_plan_scan;
++static bool waiting_for_route;
++static uint32_t wait_report_stamp;
++static const char *plan_failure="NO_ROUTE";
+ static volatile unsigned route_index;
+ static Point2D track_aim;
+ static bool aim_valid;
+@@ -62,7 +65,7 @@
+ bool W4Maze_LegBlocked(void) { return blocked; }
+ bool W4Maze_FinalLeg(void) { return final_leg; }
+ void W4Maze_NextLeg(void) { route_ready=false; need_leg=true; }
+-void W4Maze_Begin(uint32_t id) { active=id; ack_pending=true; blocked=false; previous_len=0; route_number=0; W4Maze_NextLeg(); }
++void W4Maze_Begin(uint32_t id) { active=id; ack_pending=true; blocked=false; previous_len=0; route_number=0; waiting_for_route=false; plan_stamp=W4Port_Millis()-300U; last_plan_scan=UINT32_MAX; W4Maze_NextLeg(); }
+ /* Called by the control task when the odometry origin changes. */
+ void W4Maze_Reset(void) { ++epoch; active=0; fresh=false; route_ready=false; aim_valid=false; }
+ 
+@@ -237,7 +240,8 @@
+     Point2D start={x+planner_origin,y+planner_origin};
+     Point2D goal={gx+planner_origin,gy+planner_origin};
+     int count=astar_plan(&planner_map,start,goal,previous_path,(int)previous_len,false,raw_path);
+-    if(count<2 || !route_safe(raw_path,(unsigned)count)) return false;
++    if(count<2) { plan_failure=W4Planner_FailureReason(); return false; }
++    if(!route_safe(raw_path,(unsigned)count)) { plan_failure="PATH_COLLISION"; return false; }
+     memcpy(previous_path,raw_path,(size_t)count*sizeof(Point2D));
+     previous_len=(unsigned)count;
+     int smooth=double_smooth_path(&planner_map,raw_path,count,SAFE_SMOOTH_RAD,false,raw_path);
+@@ -249,7 +253,7 @@
+         length=(int)previous_len;
+         memcpy(route,previous_path,previous_len*sizeof(Point2D));
+     }
+-    if(length<2 || !route_safe(route,(unsigned)length)) return false;
++    if(length<2 || !route_safe(route,(unsigned)length)) { plan_failure="PATH_COLLISION"; return false; }
+     route_len=(unsigned)length;
+     route_offset_x=offset_x; route_offset_y=offset_y;
+     for(unsigned i=0;i<route_len;++i) {
+@@ -289,12 +293,15 @@
+         int steps=1+(int)ceilf(length/0.025f);
+         for(int j=0;j<=steps;++j) {
+             float f=(float)j/steps;
++            /* A distant obstacle must not stop a still-executable local leg. */
++            if(checked+f*length>0.60f) break;
+             int index=index_at(a.x+f*(b.x-a.x),a.y+f*(b.y-a.y));
+             if(index<0 || wall_at(index)) return true;
+             /* Unknown space may guide A*, but is never executable near the car. */
+             if(checked+f*length<0.28f && !free_cell(index)) return true;
+         }
+         checked+=length; a=b;
++        if(checked>=0.60f) break;
+     }
+     if(have_aim && !clear_line(pose->x_m+offset_x,pose->y_m+offset_y,
+                                 aim.x+offset_x,aim.y+offset_y)) return true;
+@@ -361,20 +368,36 @@
+     }
+     if(!W4Maze_Active(n->cmd_id)||n->state!=W4_PLANNING||!need_leg) return;
+     uint32_t now=W4Port_Millis();
+-    if(!ack_pending && now-plan_stamp<300U) return;
++    if(now-plan_stamp<300U || (waiting_for_route && last_plan_scan==last_scan)) return;
++    plan_stamp=now; last_plan_scan=last_scan;
+     bool valid=W4Maze_Fresh(now);
+     bool ok=valid && plan(n->pose.x_m+offset_x,n->pose.y_m+offset_y,
+-                         n->target_x,n->target_y);
++                         n->target_x+offset_x,n->target_y+offset_y);
+     key=W4Port_Lock();
+     if(valid && !W4Maze_Fresh(W4Port_Millis())) { valid=false; ok=false; }
+     if(!need_leg || w4_stop_pending || w4_nav.state!=W4_PLANNING ||
+        w4_nav.cmd_id!=n->cmd_id || epoch!=version) { W4Port_Unlock(key); return; }
+     if(!ok) {
+-        w4_nav.state=W4_FAULT; w4_nav.fault=valid?10:9; need_leg=false;
++        if(!valid) {
++            w4_nav.state=W4_FAULT; w4_nav.fault=9; need_leg=false;
++            W4Port_Unlock(key);
++            W4Ack(n->cmd_id,"REJECTED","SCAN_STALE");
++            return;
++        }
++        /* Keep the same goal and consume new scans while stopped. A temporary
++           obstruction is a planning wait, not a terminal navigation fault. */
++        bool report=!waiting_for_route || now-wait_report_stamp>=1000U;
++        waiting_for_route=true; route_ready=false;
++        w4_nav.state=W4_PLANNING; w4_nav.fault=0;
+         W4Port_Unlock(key);
+-        W4Ack(n->cmd_id,"REJECTED",valid?"NO_CLEAR_PATH":"SCAN_STALE");
++        if(report) {
++            wait_report_stamp=now;
++            W4Ack(n->cmd_id,"WAIT",plan_failure?plan_failure:"NO_ROUTE");
++        }
+         return;
+     }
++    bool resumed=waiting_for_route;
++    waiting_for_route=false;
+     final_leg=true; blocked=false; route_index=0; aim_valid=false;
+     route_ready=true; need_leg=false; plan_stamp=now; ++route_number;
+     W4Port_Unlock(key);
+@@ -383,5 +406,6 @@
+         (unsigned long)now,(unsigned long)n->cmd_id,route_number,route_len);
+     if(len>0 && len<(int)sizeof line) W4Telemetry_SubmitLine(line,(uint16_t)len);
+     if(ack_pending) { W4Ack(n->cmd_id,"OK","MAZE_ACCEPTED"); ack_pending=false; }
++    else if(resumed) W4Ack(n->cmd_id,"OK","MAZE_RESUMED");
+ }
+ #endif
+--- before/week4/Src/w4_noetic_planner_algo.c
++++ week4/Src/w4_noetic_planner_algo.c
+@@ -25,6 +25,9 @@
+ }
+ 
+ #define COLLISION_COST 0xFFFF
++static const char *failure_reason;
++const char *W4Planner_FailureReason(void) { return failure_reason; }
++static int failed(const char *reason) { failure_reason=reason; return 0; }
+ 
+ // ==========================================
+ // 算法引擎层
+@@ -88,10 +91,11 @@
+ 
+ // ---------------- A* 算法主干 ----------------
+ int astar_plan(ServerMap* map, Point2D start, Point2D goal, Point2D* prev_path, int prev_path_len, bool is_return, Point2D* out_path) {
++    failure_reason=NULL;
+     if(!map || !map->grid || !out_path || map->grid_size<=0 ||
+        map->grid_size>MAX_GRID_SIZE || !isfinite(map->res) || map->res<=0 ||
+        !isfinite(start.x)||!isfinite(start.y)||!isfinite(goal.x)||!isfinite(goal.y))
+-        return 0;
++        return failed("INVALID_MAP_INPUT");
+     float grid_res = map->res;
+     float inv_res = 1.0f / grid_res; // 全局使用浮点乘法
+ 
+@@ -102,11 +106,11 @@
+ 
+     if (start_grid_x < 0 || start_grid_x >= map->grid_size || start_grid_y < 0 || start_grid_y >= map->grid_size ||
+         goal_grid_x < 0 || goal_grid_x >= map->grid_size || goal_grid_y < 0 || goal_grid_y >= map->grid_size) {
+-        return 0;
+-    }
+-
+-    if (check_collision(map,start,PHYSICAL_RADIUS,is_return) ||
+-        check_collision(map,goal,PHYSICAL_RADIUS,is_return)) return 0;
++        return failed("MAP_BOUNDS");
++    }
++
++    if (check_collision(map,start,PHYSICAL_RADIUS,is_return)) return failed("START_BLOCKED");
++    if (check_collision(map,goal,PHYSICAL_RADIUS,is_return)) return failed("GOAL_BLOCKED");
+     int num_cells = map->grid_size * map->grid_size;
+ 
+     // 【核心优化 2】：利用 32 位总线宽度成倍加速 16 位数组的初始化
+@@ -153,7 +157,7 @@
+     int search_start_idx = search_start_x * map->grid_size + search_start_y;
+     s_g_score[search_start_idx] = 0;
+     if (!pq_push(&pq, search_start_idx, 0)) {
+-        return 0;
++        return failed("PLANNER_QUEUE_FULL");
+     }
+ 
+     int dx[8] = {0, 0, 1, -1, 1, 1, -1, -1};
+@@ -171,7 +175,7 @@
+             int cx = curr_x, cy = curr_y;
+ 
+             while(predecessor(cx * map->grid_size + cy) != 15) {
+-                if (path_len >= MAX_PATH_LEN - 1) return 0;
++                if (path_len >= MAX_PATH_LEN - 1) return failed("PATH_TOO_LONG");
+                 out_path[path_len].x = (cx + 0.5f) * grid_res;
+                 out_path[path_len].y = (cy + 0.5f) * grid_res;
+                 path_len++;
+@@ -226,16 +230,14 @@
+                 uint16_t h = 14 * min_d + 10 * (max_d - min_d);
+ 
+                 if (!pq_push(&pq, n_idx, (uint16_t)fminf(65535.0f, (float)tg + h + 1))) {
+-                    return 0;
++                    return failed("PLANNER_QUEUE_FULL");
+                 }
+             }
+         }
+     }
+ 
+-    if (pq.overflowed) {
+-        return 0;
+-    }
+-
++    if (pq.overflowed) return failed("PLANNER_QUEUE_FULL");
++    if (!path_len) return failed("NO_ROUTE");
+     return path_len;
+ }
+ 
+--- resume_before/run_cortex_tests.py
++++ run_cortex_tests.py
+@@ -54,6 +54,11 @@
+             if name in symbols: debug[name]=[struct.unpack("<ff",uc.mem_read(symbols[name]+8*i,8)) for i in range(count)]
+         for name in ["grid","wall","hit_scans"]:
+             if name in symbols: debug[name]=list(uc.mem_read(symbols[name],2401))
++        if "test_ack" in symbols:
++            debug["last_ack"]=bytes(uc.mem_read(symbols["test_ack"],96)).split(b"\0")[0].decode(errors="replace")
++        if "plan_failure" in symbols:
++            addr=struct.unpack("<I",uc.mem_read(symbols["plan_failure"],4))[0]
++            debug["plan_failure"]=bytes(uc.mem_read(addr,80)).split(b"\0")[0].decode(errors="replace") if addr else None
+         path.with_suffix(".debug.json").write_text(json.dumps(debug))
+         print(json.dumps({k:v for k,v in debug.items() if k not in ["grid","wall","hit_scans","route","previous_path"]}),flush=True)
+         def cstring(addr):
+@@ -106,6 +111,8 @@
+     for name,sources,defines,sensor in cases:
+         target=out/(name+".elf")
+         args=[str(GCC),"-mcpu=cortex-m4","-mthumb","-mfloat-abi=soft","-std=c11","-O2" if name in ("navigation_maze","noetic_planner") else "-O0","-g","-Wall","-Wextra","-Werror","-ffunction-sections","-fdata-sections","-nostartfiles","--specs=nano.specs","--specs=nosys.specs","-Tbuild/cortex_tests/test.ld","-Wl,--gc-sections",*defines]
++        if name=='navigation_maze': args.append('-Wl,--wrap=astar_plan')
++        if name=='navigation_maze' and os.environ.get('W4_TEST_RETRY_ONLY'): args.append('-DTEST_RETRY_ONLY')
+         if name=='navigation_maze' and os.environ.get('W4_TEST_DYNAMIC_ONLY'): args.append('-DTEST_DYNAMIC_ONLY')
+         if sensor:args += ["-include","tests/sensors/mock/stm32f4xx_hal.h","-Itests/sensors/mock"]
+         args += ["-Iweek4/Inc","-IMiddlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2",*sources,"build/cortex_tests/entry.c","-lm","-o",str(target)]
+@@ -116,7 +123,7 @@
+         # Dual navigation runs three full coordinate routes and loaded motor dynamics.
+         budget = 12_000_000_000 if name=="navigation_maze" else 300_000_000 if name=="noetic_planner" else 200_000_000 if name.startswith("navigation_") else 50_000_000
+         emulate(target, budget)
+-        print("PASS",name+(" (dynamic scenario only)" if name=="navigation_maze" and os.environ.get("W4_TEST_DYNAMIC_ONLY") else ""),flush=True)
++        print("PASS",name+(" (retry scenario only)" if name=="navigation_maze" and os.environ.get("W4_TEST_RETRY_ONLY") else " (dynamic scenario only)" if name=="navigation_maze" and os.environ.get("W4_TEST_DYNAMIC_ONLY") else ""),flush=True)
+     print(f"{len(cases)} Cortex-M4 software regressions passed. Not hardware or RTOS timing tests.",flush=True)
+ 
+ if __name__=="__main__":main()
+--- resume_before/tests/navigation/mock_port.c
++++ tests/navigation/mock_port.c
+@@ -61,6 +61,7 @@
+         if(n>=sizeof test_map) return false;
+         memcpy(test_map,p,n); test_map[n]=0; return true;
+     }
++    if(n<2 || p[0]!='A' || p[1]!=',') return true;
+     if(n>=sizeof test_ack) return false;
+     memcpy(test_ack,p,n); test_ack[n]=0; return true;
+ }

@@ -1,0 +1,10 @@
+BLE attempt 1: connecting to C4:25:01:17:00:02
+BLE BleakDeviceNotFoundError: Device with address C4:25:01:17:00:02 was not found.
+BLE attempt 2: connecting to C4:25:01:17:00:02
+BLE BleakError: disconnected
+BLE attempt 3: connecting to C4:25:01:17:00:02
+BLE BleakError: disconnected
+BLE attempt 4: connecting to C4:25:01:17:00:02
+BLE BleakError: Could not start notify on 0035: Unreachable
+BLE attempt 5: connecting to C4:25:01:17:00:02
+BLE attempt 5: subscribed

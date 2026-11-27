@@ -1,0 +1,56 @@
+HEX SHA256: 2fbd76d74446bd76ef534455a224eb0c7a9b7daff3df92bcd2885960e2b35ff5
+ELF SHA256: 8822848ddd2a599368f7a8093baaf5266c50986cc0a65a3531225804abab122b
+Geometry: diameter=0.068m track=0.175m cpr=391.15; W4_CALIBRATED remains undefined; motor power disconnected.
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.18.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 0674FF545155657067032031
+ST-LINK FW  : V2J47M34
+Board       : --
+Voltage     : 3.22V
+SWD freq    : 4000 KHz
+Connect mode: Under Reset
+Reset mode  : Hardware reset
+Device ID   : 0x421
+Revision ID : Rev A
+Device name : STM32F446xx
+Flash size  : 512 KBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : 0x90
+
+Opening and parsing file: Week4_Integrated.hex
+
+
+Memory Programming ...
+  File          : Week4_Integrated.hex
+  Size          : 83.30 KB 
+  Address       : 0x08000000 
+
+
+Erasing memory corresponding to segment 0:
+Erasing internal memory sectors [0 4]
+Download in Progress:
+�������������������������������������������������� 0%
+�������������������������������������������������� 100%
+
+File download complete
+Time elapsed during download operation: 00:00:02.288
+
+
+
+Verifying ...
+
+
+Read progress:
+�������������������������������������������������� 50%
+�������������������������������������������������� 100%
+
+Download verified successfully 
+
+
+
+MCU Reset
+
+Software reset is performed

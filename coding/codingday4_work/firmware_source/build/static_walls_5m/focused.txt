@@ -1,0 +1,12 @@
+{"w4_nav": [5, 3, 0.0, 1.649999976158142, 0, 10, 100, 0.0, 0.0, 1.570796251296997, 1], "maze_test_tick": [0], "test_pwm_l": [0.0], "test_pwm_r": [0.0], "offset_x": 0.0, "offset_y": 0.0, "route_len": 0, "previous_len": 0, "s_progress_s_m": 0.0, "route_index": 0, "route_number": 0}
+Traceback (most recent call last):
+  File "D:\EMBEGGed\week4codingday\coding\coding(1)\coding\codingday4_work\firmware_source\build\static_walls_5m\run_focused.py", line 7, in <module>
+    exec(compile(s,str(runner),'exec'),{'__file__':str(runner),'__name__':'__main__'})
+  File "D:\EMBEGGed\week4codingday\coding\coding(1)\coding\codingday4_work\run_cortex_tests.py", line 122, in <module>
+    if __name__=="__main__":main()
+                            ^^^^^^
+  File "D:\EMBEGGed\week4codingday\coding\coding(1)\coding\codingday4_work\run_cortex_tests.py", line 118, in main
+    emulate(target, budget)
+  File "D:\EMBEGGed\week4codingday\coding\coding(1)\coding\codingday4_work\run_cortex_tests.py", line 62, in emulate
+    raise AssertionError(f"{path.name}: result/line={result} {cstring(symbols['test_file'])}: {cstring(symbols['test_expression'])}")
+AssertionError: navigation_maze.elf: result/line=174 build/static_walls_5m/../../tests/navigation/test_maze.c: strstr(test_ack,"MAZE_ACCEPTED")

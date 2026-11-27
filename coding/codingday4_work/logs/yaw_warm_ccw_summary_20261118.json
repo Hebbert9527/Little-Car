@@ -1,0 +1,49 @@
+{
+  "logs": [
+    "yaw_warm_ccw_trace_20261118_203927.json",
+    "yaw_warm_ccw_trace_20261118_203934.json",
+    "yaw_warm_ccw_trace_20261118_203940.json",
+    "yaw_warm_ccw_trace_20261118_203946.json",
+    "yaw_warm_ccw_trace_20261118_203953.json",
+    "yaw_warm_ccw_trace_20261118_203959.json",
+    "yaw_warm_ccw_trace_20261118_204005.json",
+    "yaw_warm_ccw_trace_20261118_204012.json",
+    "yaw_warm_ccw_trace_20261118_204018.json",
+    "yaw_warm_ccw_trace_20261118_204024.json"
+  ],
+  "sample_ms": [
+    107642,
+    114082,
+    120552,
+    126992,
+    133432,
+    139872,
+    146292,
+    152742,
+    159192,
+    165642
+  ],
+  "heading_deg": [
+    1.0793363747230338,
+    1.0946215910335817,
+    1.135726416510659,
+    1.1820039363452572,
+    1.1835496935317957,
+    1.222728192219518,
+    18.750752696348634,
+    90.45147800861601,
+    90.77535874886884,
+    91.12481854756338
+  ],
+  "local_before_index": 5,
+  "local_after_index": 9,
+  "ccw_delta_deg": 89.90209035534386,
+  "error_from_90_deg": -0.09790964465614138,
+  "local_interval_s": 25.77,
+  "reference": "Two perpendicular paper/book edges, user-confirmed slow 3-5 second turn; manual angular reference.",
+  "all_valid_calibrated": true,
+  "failed": 0,
+  "configurations": 1,
+  "all_pwm_zero": true,
+  "note": "Warm stationary recalibration improved short-term drift; this slow manual 90-degree response is close to reference. It does not establish long-term drift or automatic recovery calibration quality."
+}

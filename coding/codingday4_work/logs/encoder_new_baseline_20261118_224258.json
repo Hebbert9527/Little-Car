@@ -1,0 +1,862 @@
+{
+  "time_beijing": "20261118_224258",
+  "duration_requested_s": 10.0,
+  "sample_span_s": 9.906999999999925,
+  "valid_samples": 26,
+  "errors": [],
+  "rcc_ahb1enr": "0x600007",
+  "enabled_sampled_ports": [
+    "A",
+    "B",
+    "C"
+  ],
+  "pins": {
+    "PA0": {
+      "mode": "analog",
+      "pull": 0,
+      "known_use": "ADC",
+      "candidate_input": false,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PA1": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PA2": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PA3": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 1,
+      "observed_level_changes": 0,
+      "low_samples": 0,
+      "high_samples": 26
+    },
+    "PA4": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PA5": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PA6": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": "E1B_proposed",
+      "candidate_input": false,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PA7": {
+      "mode": "alternate",
+      "pull": 0,
+      "known_use": "E1A_existing",
+      "candidate_input": false,
+      "initial_level": 1,
+      "observed_level_changes": 0,
+      "low_samples": 0,
+      "high_samples": 26
+    },
+    "PA8": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PA9": {
+      "mode": "alternate",
+      "pull": 1,
+      "known_use": "lidar_TX",
+      "candidate_input": false,
+      "initial_level": 1,
+      "observed_level_changes": 0,
+      "low_samples": 0,
+      "high_samples": 26
+    },
+    "PA10": {
+      "mode": "alternate",
+      "pull": 1,
+      "known_use": "lidar_RX",
+      "candidate_input": false,
+      "initial_level": 0,
+      "observed_level_changes": 11,
+      "low_samples": 9,
+      "high_samples": 17
+    },
+    "PA11": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PA12": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PA13": {
+      "mode": "alternate",
+      "pull": 1,
+      "known_use": "SWDIO",
+      "candidate_input": false,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PA14": {
+      "mode": "alternate",
+      "pull": 2,
+      "known_use": "SWCLK",
+      "candidate_input": false,
+      "initial_level": 1,
+      "observed_level_changes": 0,
+      "low_samples": 0,
+      "high_samples": 26
+    },
+    "PA15": {
+      "mode": "alternate",
+      "pull": 1,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 1,
+      "observed_level_changes": 0,
+      "low_samples": 0,
+      "high_samples": 26
+    },
+    "PB0": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PB1": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PB2": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PB3": {
+      "mode": "alternate",
+      "pull": 0,
+      "known_use": "SWO",
+      "candidate_input": false,
+      "initial_level": 1,
+      "observed_level_changes": 0,
+      "low_samples": 0,
+      "high_samples": 26
+    },
+    "PB4": {
+      "mode": "alternate",
+      "pull": 1,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 1,
+      "observed_level_changes": 0,
+      "low_samples": 0,
+      "high_samples": 26
+    },
+    "PB5": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PB6": {
+      "mode": "alternate",
+      "pull": 2,
+      "known_use": "right_PWM1",
+      "candidate_input": false,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PB7": {
+      "mode": "alternate",
+      "pull": 2,
+      "known_use": "right_PWM2",
+      "candidate_input": false,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PB8": {
+      "mode": "alternate",
+      "pull": 1,
+      "known_use": "I2C_SCL",
+      "candidate_input": false,
+      "initial_level": 1,
+      "observed_level_changes": 4,
+      "low_samples": 3,
+      "high_samples": 23
+    },
+    "PB9": {
+      "mode": "alternate",
+      "pull": 1,
+      "known_use": "I2C_SDA",
+      "candidate_input": false,
+      "initial_level": 1,
+      "observed_level_changes": 2,
+      "low_samples": 1,
+      "high_samples": 25
+    },
+    "PB10": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PB11": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PB12": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PB13": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PB14": {
+      "mode": "alternate",
+      "pull": 2,
+      "known_use": "left_PWM1",
+      "candidate_input": false,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PB15": {
+      "mode": "alternate",
+      "pull": 2,
+      "known_use": "left_PWM2",
+      "candidate_input": false,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PC0": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PC1": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PC2": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PC3": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PC4": {
+      "mode": "input",
+      "pull": 1,
+      "known_use": "key1",
+      "candidate_input": false,
+      "initial_level": 1,
+      "observed_level_changes": 0,
+      "low_samples": 0,
+      "high_samples": 26
+    },
+    "PC5": {
+      "mode": "input",
+      "pull": 1,
+      "known_use": "key2",
+      "candidate_input": false,
+      "initial_level": 1,
+      "observed_level_changes": 0,
+      "low_samples": 0,
+      "high_samples": 26
+    },
+    "PC6": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": "E2A_proposed",
+      "candidate_input": false,
+      "initial_level": 1,
+      "observed_level_changes": 0,
+      "low_samples": 0,
+      "high_samples": 26
+    },
+    "PC7": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": "E2B_proposed",
+      "candidate_input": false,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PC8": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PC9": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PC10": {
+      "mode": "alternate",
+      "pull": 1,
+      "known_use": "BLE_TX",
+      "candidate_input": false,
+      "initial_level": 1,
+      "observed_level_changes": 0,
+      "low_samples": 0,
+      "high_samples": 26
+    },
+    "PC11": {
+      "mode": "alternate",
+      "pull": 1,
+      "known_use": "BLE_RX",
+      "candidate_input": false,
+      "initial_level": 1,
+      "observed_level_changes": 0,
+      "low_samples": 0,
+      "high_samples": 26
+    },
+    "PC12": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PC13": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 1,
+      "observed_level_changes": 0,
+      "low_samples": 0,
+      "high_samples": 26
+    },
+    "PC14": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    },
+    "PC15": {
+      "mode": "input",
+      "pull": 0,
+      "known_use": null,
+      "candidate_input": true,
+      "initial_level": 0,
+      "observed_level_changes": 0,
+      "low_samples": 26,
+      "high_samples": 0
+    }
+  },
+  "samples": [
+    {
+      "elapsed_s": 0.359000000000151,
+      "idr": {
+        "A": 49800,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 0.75,
+      "idr": {
+        "A": 50824,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 1.1410000000000764,
+      "idr": {
+        "A": 50824,
+        "B": 280,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 1.5310000000001764,
+      "idr": {
+        "A": 50824,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 1.9220000000000255,
+      "idr": {
+        "A": 50824,
+        "B": 536,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 2.3120000000001255,
+      "idr": {
+        "A": 50824,
+        "B": 536,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 2.719000000000051,
+      "idr": {
+        "A": 50824,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 3.094000000000051,
+      "idr": {
+        "A": 49800,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 3.484000000000151,
+      "idr": {
+        "A": 50824,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 3.8910000000000764,
+      "idr": {
+        "A": 49800,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 4.281000000000176,
+      "idr": {
+        "A": 50824,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 4.6870000000001255,
+      "idr": {
+        "A": 50824,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 5.094000000000051,
+      "idr": {
+        "A": 50824,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 5.484000000000151,
+      "idr": {
+        "A": 50824,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 5.859000000000151,
+      "idr": {
+        "A": 49800,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 6.266000000000076,
+      "idr": {
+        "A": 49800,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 6.656000000000176,
+      "idr": {
+        "A": 49800,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 7.0470000000000255,
+      "idr": {
+        "A": 50824,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 7.4529999999999745,
+      "idr": {
+        "A": 50824,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 7.844000000000051,
+      "idr": {
+        "A": 50824,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 8.234000000000151,
+      "idr": {
+        "A": 49800,
+        "B": 536,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 8.656000000000176,
+      "idr": {
+        "A": 49800,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 9.062000000000126,
+      "idr": {
+        "A": 50824,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 9.452999999999975,
+      "idr": {
+        "A": 50824,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 9.875,
+      "idr": {
+        "A": 49800,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "elapsed_s": 10.266000000000076,
+      "idr": {
+        "A": 50824,
+        "B": 792,
+        "C": 11376
+      },
+      "pwm": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "caution": "Read-only live levels sampled sparsely; changes are not edge counts. No change cannot disprove a connection, especially analog/disabled/aliased inputs."
+}

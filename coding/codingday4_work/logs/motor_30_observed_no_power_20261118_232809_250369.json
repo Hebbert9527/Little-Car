@@ -1,0 +1,34 @@
+{
+  "time_beijing": "20261118_232809_250369",
+  "hex_sha256": "4c55ec5cdf99058552d5e1bbb8a82124ee4f13d07c36a197f25ce58dfb83253b",
+  "elf_sha256": "edcc6efe88347b2129832718bc758ba1259177d5233ca01c1bb9c8aaa2104f82",
+  "mismatches": 0,
+  "valid_hex_bytes": null,
+  "identity_source": "logs\\motor_30_identity_20261118_232614_432022.json",
+  "readings_sequential": true,
+  "diagnostic_address": "0x20000514",
+  "diagnostic": {
+    "request": 0,
+    "state": 2,
+    "last_side": 1,
+    "start_ms": 131101,
+    "stop_ms": 131601,
+    "left_start": 543,
+    "left_stop": 888,
+    "right_start": 0,
+    "right_stop": 0,
+    "left_ccr_before_stop": 1350,
+    "right_ccr_before_stop": 0,
+    "completed": 2
+  },
+  "fault": {
+    "W4FaultCode": 0,
+    "W4FaultDetail": 0
+  },
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ]
+}

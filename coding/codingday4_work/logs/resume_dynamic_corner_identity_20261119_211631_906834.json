@@ -1,0 +1,14 @@
+{
+  "time_beijing": "20261119_211631_906834",
+  "build": "integration_dual_rear_040_dynamic_corner",
+  "hex_sha256": "4afa2dd29f8b7bec8d047e9c5c583453321eebaf84ab900694cdd419bd7caa90",
+  "elf_sha256": "223ed3bacdd6760bab34ff40a54f232f055b99269bb21606eb20affb701ead40",
+  "valid_hex_bytes": 89540,
+  "mismatches": 0,
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ]
+}

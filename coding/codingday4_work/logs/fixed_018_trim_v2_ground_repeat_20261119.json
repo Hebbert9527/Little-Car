@@ -1,0 +1,267 @@
+{
+  "source": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\live_20261119_175346_685.bin",
+  "firmware": "integration_dual_rear_fixed_018_trim_v2",
+  "same_boot": true,
+  "distance_command_m": 1,
+  "runs": [
+    {
+      "cmd_id": 3,
+      "start_ms": 126650,
+      "end_ms": 132450,
+      "duration_s": 5.8,
+      "end_state": "ARRIVED",
+      "fault": 0,
+      "wheel_frames": 57,
+      "start_pose": [
+        0,
+        0,
+        1570
+      ],
+      "targets_mmps_left_right": [
+        180,
+        180
+      ],
+      "mean_speed_1_to_4s_mmps_left_right": [
+        186.93,
+        186.13
+      ],
+      "left_minus_right_mmps": 0.8,
+      "mean_pwm_1_to_4s_percent_left_right": [
+        34.32,
+        34.39
+      ],
+      "odom_at_arrival": {
+        "along_mm": 1002.0,
+        "cross_left_positive_mm": -5.2,
+        "yaw_left_positive_deg": -0.57
+      },
+      "odom_500_ms_after_arrival": {
+        "along_mm": 1041.0,
+        "cross_left_positive_mm": -6.2,
+        "yaw_left_positive_deg": -0.86
+      }
+    },
+    {
+      "cmd_id": 5,
+      "start_ms": 183450,
+      "end_ms": 189250,
+      "duration_s": 5.8,
+      "end_state": "ARRIVED",
+      "fault": 0,
+      "wheel_frames": 58,
+      "start_pose": [
+        0,
+        0,
+        1548
+      ],
+      "targets_mmps_left_right": [
+        180,
+        180
+      ],
+      "mean_speed_1_to_4s_mmps_left_right": [
+        188.87,
+        184.26
+      ],
+      "left_minus_right_mmps": 4.61,
+      "mean_pwm_1_to_4s_percent_left_right": [
+        33.24,
+        35.63
+      ],
+      "odom_at_arrival": {
+        "along_mm": 1002.8,
+        "cross_left_positive_mm": -67.2,
+        "yaw_left_positive_deg": -3.84
+      },
+      "odom_500_ms_after_arrival": {
+        "along_mm": 1036.9,
+        "cross_left_positive_mm": -69.4,
+        "yaw_left_positive_deg": -3.72
+      }
+    },
+    {
+      "cmd_id": 7,
+      "start_ms": 199100,
+      "end_ms": 205400,
+      "duration_s": 6.3,
+      "end_state": "ARRIVED",
+      "fault": 0,
+      "wheel_frames": 63,
+      "start_pose": [
+        0,
+        0,
+        1571
+      ],
+      "targets_mmps_left_right": [
+        180,
+        180
+      ],
+      "mean_speed_1_to_4s_mmps_left_right": [
+        186.16,
+        187.97
+      ],
+      "left_minus_right_mmps": -1.81,
+      "mean_pwm_1_to_4s_percent_left_right": [
+        34.68,
+        33.82
+      ],
+      "odom_at_arrival": {
+        "along_mm": 999.0,
+        "cross_left_positive_mm": 31.8,
+        "yaw_left_positive_deg": -21.26
+      },
+      "odom_500_ms_after_arrival": {
+        "along_mm": 1007.0,
+        "cross_left_positive_mm": 27.8,
+        "yaw_left_positive_deg": -29.51
+      }
+    },
+    {
+      "cmd_id": 10,
+      "start_ms": 234100,
+      "end_ms": 239900,
+      "duration_s": 5.8,
+      "end_state": "ARRIVED",
+      "fault": 0,
+      "wheel_frames": 58,
+      "start_pose": [
+        0,
+        -1,
+        1637
+      ],
+      "targets_mmps_left_right": [
+        180,
+        180
+      ],
+      "mean_speed_1_to_4s_mmps_left_right": [
+        182.37,
+        190.17
+      ],
+      "left_minus_right_mmps": -7.8,
+      "mean_pwm_1_to_4s_percent_left_right": [
+        36.55,
+        31.79
+      ],
+      "odom_at_arrival": {
+        "along_mm": 993.3,
+        "cross_left_positive_mm": 153.6,
+        "yaw_left_positive_deg": 6.36
+      },
+      "odom_500_ms_after_arrival": {
+        "along_mm": 1025.7,
+        "cross_left_positive_mm": 157.5,
+        "yaw_left_positive_deg": 5.56
+      }
+    },
+    {
+      "cmd_id": 11,
+      "start_ms": 243550,
+      "end_ms": 249400,
+      "duration_s": 5.85,
+      "end_state": "ARRIVED",
+      "fault": 0,
+      "wheel_frames": 58,
+      "start_pose": [
+        -225,
+        1012,
+        1732
+      ],
+      "targets_mmps_left_right": [
+        180,
+        180
+      ],
+      "mean_speed_1_to_4s_mmps_left_right": [
+        187.97,
+        187.7
+      ],
+      "left_minus_right_mmps": 0.27,
+      "mean_pwm_1_to_4s_percent_left_right": [
+        34.27,
+        34.14
+      ],
+      "odom_at_arrival": {
+        "along_mm": 1002.2,
+        "cross_left_positive_mm": 26.5,
+        "yaw_left_positive_deg": 3.67
+      },
+      "odom_500_ms_after_arrival": {
+        "along_mm": 1036.9,
+        "cross_left_positive_mm": 27.9,
+        "yaw_left_positive_deg": 2.86
+      }
+    },
+    {
+      "cmd_id": 14,
+      "start_ms": 271000,
+      "end_ms": 276750,
+      "duration_s": 5.75,
+      "end_state": "ARRIVED",
+      "fault": 0,
+      "wheel_frames": 57,
+      "start_pose": [
+        0,
+        1,
+        1572
+      ],
+      "targets_mmps_left_right": [
+        180,
+        180
+      ],
+      "mean_speed_1_to_4s_mmps_left_right": [
+        190.83,
+        181.9
+      ],
+      "left_minus_right_mmps": 8.93,
+      "mean_pwm_1_to_4s_percent_left_right": [
+        31.33,
+        36.13
+      ],
+      "odom_at_arrival": {
+        "along_mm": 991.8,
+        "cross_left_positive_mm": -134.2,
+        "yaw_left_positive_deg": -8.71
+      },
+      "odom_500_ms_after_arrival": {
+        "along_mm": 1027.8,
+        "cross_left_positive_mm": -139.2,
+        "yaw_left_positive_deg": -8.25
+      }
+    },
+    {
+      "cmd_id": 17,
+      "start_ms": 306150,
+      "end_ms": 312000,
+      "duration_s": 5.85,
+      "end_state": "ARRIVED",
+      "fault": 0,
+      "wheel_frames": 58,
+      "start_pose": [
+        0,
+        0,
+        1574
+      ],
+      "targets_mmps_left_right": [
+        180,
+        180
+      ],
+      "mean_speed_1_to_4s_mmps_left_right": [
+        185.67,
+        188.5
+      ],
+      "left_minus_right_mmps": -2.83,
+      "mean_pwm_1_to_4s_percent_left_right": [
+        34.58,
+        33.34
+      ],
+      "odom_at_arrival": {
+        "along_mm": 1005.2,
+        "cross_left_positive_mm": 57.8,
+        "yaw_left_positive_deg": 6.13
+      },
+      "odom_500_ms_after_arrival": {
+        "along_mm": 1032.2,
+        "cross_left_positive_mm": 60.7,
+        "yaw_left_positive_deg": 6.02
+      }
+    }
+  ]
+}

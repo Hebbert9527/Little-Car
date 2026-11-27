@@ -1,0 +1,135 @@
+{
+  "command_id": 8,
+  "requested_target_mm": [
+    1000,
+    1000
+  ],
+  "first_nav": {
+    "line": 79366,
+    "seq": 5912,
+    "ms": 295650,
+    "state": "TRACKING",
+    "xy_mm": [
+      0,
+      0
+    ],
+    "heading_mrad": 1569,
+    "target_mm": [
+      1000,
+      1000
+    ],
+    "waypoint": 0,
+    "fault": 0
+  },
+  "terminal_nav": {
+    "line": 80139,
+    "seq": 6122,
+    "ms": 306150,
+    "state": "FAULT",
+    "xy_mm": [
+      270,
+      982
+    ],
+    "heading_mrad": -225,
+    "target_mm": [
+      1000,
+      1000
+    ],
+    "waypoint": 25,
+    "fault": 1
+  },
+  "duration_s": 10.5,
+  "wheel_frames": 101,
+  "absolute_terminal_error_mm": 730.2,
+  "peak_forward_mean_encoder_mps": 0.2385,
+  "corner": {
+    "planned_xy_mm": [
+      0,
+      1000
+    ],
+    "first_pivot_nav": {
+      "line": 79792,
+      "seq": 6028,
+      "ms": 301450,
+      "state": "TRACKING",
+      "xy_mm": [
+        20,
+        997
+      ],
+      "heading_mrad": 1540,
+      "target_mm": [
+        1000,
+        1000
+      ],
+      "waypoint": 20,
+      "fault": 0
+    },
+    "signed_heading_change_deg_ccw_positive": -87.49,
+    "first_second_leg_forward_nav": {
+      "line": 79999,
+      "seq": 6084,
+      "ms": 304250,
+      "state": "TRACKING",
+      "xy_mm": [
+        46,
+        1011
+      ],
+      "heading_mrad": 13,
+      "target_mm": [
+        1000,
+        1000
+      ],
+      "waypoint": 21,
+      "fault": 0
+    },
+    "first_leg_max_abs_cross_mm": 23,
+    "last_prior_different_xy_ms": 301200,
+    "low_motion_observed_approx_ms": 250,
+    "first_pivot_wheel_frame": [
+      301450,
+      88,
+      -88,
+      88,
+      -88,
+      3,
+      -5,
+      400,
+      -211
+    ]
+  },
+  "post_stop_500ms_nav": {
+    "line": 80159,
+    "seq": 6132,
+    "ms": 306650,
+    "state": "FAULT",
+    "xy_mm": [
+      270,
+      982
+    ],
+    "heading_mrad": -225,
+    "target_mm": [
+      1000,
+      1000
+    ],
+    "waypoint": 25,
+    "fault": 1
+  },
+  "imu_drop_evidence": {
+    "last_valid_imu_before_fault_board_ms": 306100,
+    "fault_board_ms": 306150,
+    "imu_failed_reads_before_after": [
+      6,
+      9
+    ],
+    "i2c_timeout_count_before_after": [
+      2,
+      3
+    ],
+    "i2c_recoveries_before_after": [
+      2,
+      3
+    ],
+    "imu_calibrated_at_307000": false,
+    "imu_calibrated_at_309000": true
+  }
+}

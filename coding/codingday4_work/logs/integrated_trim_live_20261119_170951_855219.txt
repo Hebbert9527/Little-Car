@@ -1,0 +1,153 @@
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.18.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 0674FF545155657067032031
+ST-LINK FW  : V2J47M34
+Board       : --
+Voltage     : 3.22V
+SWD freq    : 4000 KHz
+Connect mode: Hot Plug
+Reset mode  : Software reset
+Device ID   : 0x421
+Revision ID : Rev A
+Device name : STM32F446xx
+Flash size  : 512 KBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : 0x90
+
+
+Reading 32-bit memory content
+  Size          : 16 Bytes
+  Address:      : 0x20001D18
+
+0x20001D18 : 00000000 00000000 000013D0 00000000
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x20001E0C
+
+0x20001E0C : 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x20001E10
+
+0x20001E10 : 0000001D
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x20001E18
+
+0x20001E18 : 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x20001E14
+
+0x20001E14 : 00000096
+
+
+
+Reading 32-bit memory content
+  Size          : 20 Bytes
+  Address:      : 0x20000078
+
+0x20000078 : 00000002 00000066 00000000 00000062
+0x20000088 : 00000001
+
+
+
+Reading 32-bit memory content
+  Size          : 40 Bytes
+  Address:      : 0x20000010
+
+0x20000010 : 00010101 3D8B4396 3D8B4396 3E333333
+0x20000020 : 44C2EE66 44C33333 00000001 00000001
+0x20000030 : 00000001 3FC90FDB
+
+
+
+Reading 32-bit memory content
+  Size          : 44 Bytes
+  Address:      : 0x200019AC
+
+0x200019AC : 00000000 00000000 00000000 00000000
+0x200019BC : 00000000 00000000 00000000 00000000
+0x200019CC : 00000000 3FC90FDB 00000001
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x20001A44
+
+0x20001A44 : 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x20001A40
+
+0x20001A40 : 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 52 Bytes
+  Address:      : 0x20001D28
+
+0x20001D28 : 000001FD 000001BE 0000003F 000001BE
+0x20001D38 : 000001BE 00000000 00000000 00000003
+0x20001D48 : 00000000 00000002 0000002E 00000001
+0x20001D58 : 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x20002854
+
+0x20002854 : 000013DB
+
+
+
+Reading 32-bit memory content
+  Size          : 48 Bytes
+  Address:      : 0x40000400
+
+0x40000400 : 00000201 00000000 00000003 00000000
+0x40000410 : 00000001 00000000 0000F1F1 00000000
+0x40000420 : 00000011 00000000 00000000 0000FFFF
+
+Reading 32-bit memory content
+  Size          : 48 Bytes
+  Address:      : 0x40010400
+
+0x40010400 : 00000201 00000000 00000003 00000000
+0x40010410 : 00000001 00000000 0000F1F1 00000000
+0x40010420 : 00000011 00000000 00000000 0000FFFF
+
+Reading 32-bit memory content
+  Size          : 8 Bytes
+  Address:      : 0x40000834
+
+0x40000834 : 00000000 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 8 Bytes
+  Address:      : 0x40001834
+
+0x40001834 : 00000000 00000000
+
+

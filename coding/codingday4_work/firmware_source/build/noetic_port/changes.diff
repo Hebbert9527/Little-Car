@@ -1,0 +1,862 @@
+--- before/week4/Src/w4_control.c
++++ week4/Src/w4_control.c
+@@ -26,6 +26,9 @@
+ static uint32_t controller_id;
+ static float segment_x,segment_y,final_heading,forward_speed;
+ static W4Pid heading_pid;
++#ifdef W4_MAZE
++static bool maze_loaded;
++#endif
+ static float stall_time[2],distance_travelled;
+ #ifdef W4_REAR_FORWARD
+ W4StraightCalibration w4_straight_cal={false,{0.3099f,0.3559f}};
+@@ -60,6 +63,10 @@
+     uint32_t k=W4Port_Lock(); w4_nav.state=s; w4_nav.fault=fault; W4Port_Unlock(k);
+ }
+ static void stop_control(void) {
++#ifdef W4_MAZE
++    maze_loaded=false;
++    W4Noetic_Reset();
++#endif
+     have_wp=false; arriving=missing=settling_goal=stopping_at_corner=false;
+     alignment=ALIGNED; forward_speed=0.0f;
+ #ifdef W4_DUAL_ENCODER
+@@ -205,17 +212,53 @@
+     if(now-command_since>120000) { fault(2); return; }
+ #ifdef W4_MAZE
+     bool maze=W4Maze_Active(n.cmd_id);
+-    if(maze && n.state==W4_TRACKING) {
++    if(maze) {
+         if(!sensors) { fault(1); return; }
+         if(!W4Maze_Fresh(now)) { fault(9); return; }
+         if(W4Maze_LegBlocked()) {
+             stop_control();
+-            if(wheels_still(vl,vr)) {
+-                segment_x=n.pose.x_m; segment_y=n.pose.y_m;
++            if(n.state==W4_TRACKING && wheels_still(vl,vr)) {
+                 W4Maze_NextLeg(); state(W4_PLANNING,0);
+             }
++            /* Planning clears the latch only after publishing a valid new route. */
++            if(n.state==W4_TRACKING) return;
++        }
++        if(!maze_loaded) {
++            if(!W4Maze_LoadRoute(n.cmd_id,&n.pose)) {
++                W4Motor_Stop();
++                if(!missing) { missing=true; missing_since=now; }
++                if(now-missing_since>2000U) fault(4);
++                return;
++            }
++            maze_loaded=true; missing=false; settling_goal=false;
++            state(W4_TRACKING,0);
++        }
++        float speed_limit=fminf(w4_config.max_v,0.18f);
++#ifdef W4_REAR_FORWARD
++        speed_limit=fminf(cruise(speed_limit,dt),0.18f);
++#endif
++        W4NoeticCommand command=W4Maze_Track(&n.pose,speed_limit,dt);
++        if(!command.valid) { fault(11); return; }
++        k=W4Port_Lock(); w4_nav.wp_index=(uint16_t)command.index; W4Port_Unlock(k);
++        if(command.reached || settling_goal) {
++            W4Motor_Stop();
++            stall_time[0]=stall_time[1]=0;
++            if(!settling_goal || !wheels_still(vl,vr)) arrival_since=now;
++            settling_goal=true;
++            if(now-arrival_since>=200U) {
++                if(command.reached) { stop_control(); state(W4_ARRIVED,0); }
++                else settling_goal=false;
++            }
+             return;
+         }
++        float turn=command.w*w4_config.track_m*0.5f;
++        float left=command.v-turn,right=command.v+turn;
++        float peak=fmaxf(fabsf(left),fabsf(right));
++        if(peak>w4_config.max_wheel) {
++            left*=w4_config.max_wheel/peak; right*=w4_config.max_wheel/peak;
++        }
++        drive_wheels(left,right,vl,vr,dt,now,begin,command.v>0);
++        return;
+     }
+ #endif
+     if(!sensors && n.state==W4_TRACKING) { fault(1); return; }
+@@ -228,9 +271,6 @@
+             /* A waypoint for this command proves the planner accepted it.
+                Until then it may still reject missing calibration or pose. */
+             if(!sensors) { fault(1); return; }
+-#ifdef W4_MAZE
+-            if(maze && !W4Maze_Fresh(now)) { fault(9); return; }
+-#endif
+             if(!isfinite(next.x_m)||!isfinite(next.y_m)) { fault(3); return; }
+             wp=next; have_wp=true; missing=false;
+             if(wp.index==W4_DISTANCE_WAYPOINT) {
+@@ -310,32 +350,6 @@
+     }
+     float dx=wp.x_m-n.pose.x_m,dy=wp.y_m-n.pose.y_m,d=hypotf(dx,dy);
+     float tol=wp.last?w4_config.position_tol:0.008f;
+-#ifdef W4_MAZE
+-    /* Short legs need tighter position tracking to preserve obstacle clearance. */
+-    if(maze && !W4Maze_FinalLeg()) tol=fminf(tol,0.025f);
+-    if(maze && (d<tol || settling_goal)) {
+-        /* MAZE specifies a position only. Stop before choosing the next leg,
+-           without pivoting back to the incoming leg's heading. */
+-        W4Motor_Stop();
+-        forward_speed=0.0f;
+-        W4Pid_Reset(&heading_pid);
+-        stall_time[0]=stall_time[1]=0.0f;
+-        if(!settling_goal || !wheels_still(vl,vr)) arrival_since=now;
+-        settling_goal=true;
+-        if(now-arrival_since<200U) return;
+-        if(d>=tol) {
+-            settling_goal=false;
+-            return;
+-        }
+-        stop_control();
+-        if(W4Maze_FinalLeg()) state(W4_ARRIVED,0);
+-        else {
+-            segment_x=n.pose.x_m; segment_y=n.pose.y_m;
+-            W4Maze_NextLeg(); state(W4_PLANNING,0);
+-        }
+-        return;
+-    }
+-#endif
+     float desired=atan2f(dy,dx);
+     float c=cosf(final_heading),s=sinf(final_heading);
+     float goal_dx=n.target_x-wp.x_m,goal_dy=n.target_y-wp.y_m;
+@@ -374,17 +388,6 @@
+     bool recover_point=wp.last&&to_waypoint<0.02f&&d>=tol;
+ #ifdef W4_REAR_FORWARD
+     speed_limit=cruise(speed_limit,dt);
+-#ifdef W4_MAZE
+-    if(maze) speed_limit=fminf(speed_limit,0.18f);
+-#endif
+-#endif
+-#ifdef W4_MAZE
+-    /* Keep the lookahead on the executable segment. An aim beyond a short
+-       endpoint delays cross-track correction until it becomes a sharp pivot. */
+-    if(maze) {
+-        lookahead=fminf(0.18f,to_waypoint);
+-        desired=W4Wrap(final_heading-atan2f(cross_track,lookahead));
+-    } else
+ #endif
+     if(!recover_point) desired=W4Wrap(final_heading-atan2f(cross_track,lookahead));
+     if(!wp.last&&!corner&&(d<tol||to_waypoint<=tol)) {
+@@ -433,23 +436,10 @@
+     /* Coast measurements showed the corner approach needed more room to slow. */
+     float braking_gain=final_leg?0.8f:0.30f;
+     float braking_speed=sqrtf(braking_gain*fmaxf(0.0f,remaining-stop_margin));
+-#ifdef W4_MAZE
+-    if(maze) braking_speed=sqrtf(0.30f*fmaxf(0.0f,remaining-tol));
+-#endif
+     float approach=fminf(speed_limit,fmaxf(0.065f,braking_speed));
+     float forward_factor=cosf(fminf(fabsf(error),0.55f));
+     float v=(settling_goal||d<tol||(final_leg&&fabsf(error)>0.50f))?
+         0.0f:approach*forward_factor;
+-#ifdef W4_MAZE
+-    if(maze) {
+-        /* A 0.70 rad correction near a waypoint previously reduced the mean
+-           request to 0.015 m/s, below loaded breakaway speed. Keep a usable
+-           cruise request through the turn and retain the acceleration ramp. */
+-        float turn_scale=fminf(1.0f,fmaxf(0.0f,(0.85f-fabsf(error))/0.65f));
+-        v=fmaxf(fminf(speed_limit,0.065f),approach*turn_scale);
+-        v=forward_speed+fmaxf(-0.60f*dt,fminf(0.45f*dt,v-forward_speed));
+-    } else
+-#endif
+     v=fminf(v,fmaxf(0.075f,forward_speed+0.45f*dt));
+     forward_speed=v;
+ #if defined(W4_REAR_FORWARD) && !defined(W4_DISABLE_STRAIGHT_CORRECTION)
+@@ -474,11 +464,7 @@
+     float l=v-turn_speed,r=v+turn_speed;
+     float peak=fmaxf(fabsf(l),fabsf(r));
+     if(peak>w4_config.max_wheel) { l*=w4_config.max_wheel/peak; r*=w4_config.max_wheel/peak; }
+-    bool loaded_forward=false;
+-#ifdef W4_MAZE
+-    loaded_forward=maze && v>0;
+-#endif
+-    drive_wheels(l,r,vl,vr,dt,now,begin,loaded_forward);
++    drive_wheels(l,r,vl,vr,dt,now,begin,false);
+ }
+ void W4Control_Step(uint32_t now) {
+     uint32_t begin=W4Port_Micros();
+--- before/week4/Src/w4_maze.c
++++ week4/Src/w4_maze.c
+@@ -1,6 +1,9 @@
+ #ifdef W4_MAZE
+ #include "w4_maze.h"
+ #include "w4_rtos.h"
++#include "w4_noetic_motion.h"
++#include "planner_algo.h"
++#include "path_smoother.h"
+ #include <math.h>
+ #include <stdlib.h>
+ #include <string.h>
+@@ -27,9 +30,21 @@
+ static volatile bool fresh,need_leg,blocked,final_leg;
+ static int8_t grid[CELLS];
+ static uint8_t hit_scans[CELLS];
+-static float offset_x,offset_y,leg_x,leg_y;
+-static int16_t first_leg[CELLS],cost[CELLS];
+-static uint8_t closed[CELLS],wall[CELLS];
++static float offset_x,offset_y;
++static uint8_t wall[CELLS];
++PlannerMemoryPool g_mem_pool;
++static uint8_t planner_grid[MAX_MAP_BYTES];
++static ServerMap planner_map={planner_grid,CELL_M,WIDTH};
++static Point2D raw_path[MAX_PATH_LEN],previous_path[MAX_PATH_LEN],route[MAX_PATH_LEN];
++static unsigned previous_len,route_len;
++static volatile bool route_ready;
++static uint32_t plan_stamp;
++static volatile unsigned route_index;
++static Point2D track_aim;
++static bool aim_valid;
++static float route_offset_x,route_offset_y;
++static unsigned route_number;
++
+ static Ray reference[BEAMS];
+ static unsigned reference_count;
+ static float ref_x,ref_y,ref_heading;
+@@ -43,10 +58,10 @@
+ bool W4Maze_Fresh(uint32_t now) { return fresh && scan_epoch==epoch && now-last_scan<=450U; }
+ bool W4Maze_LegBlocked(void) { return blocked; }
+ bool W4Maze_FinalLeg(void) { return final_leg; }
+-void W4Maze_NextLeg(void) { blocked=false; need_leg=true; }
+-void W4Maze_Begin(uint32_t id) { active=id; ack_pending=true; W4Maze_NextLeg(); }
++void W4Maze_NextLeg(void) { route_ready=false; need_leg=true; }
++void W4Maze_Begin(uint32_t id) { active=id; ack_pending=true; blocked=false; previous_len=0; route_number=0; W4Maze_NextLeg(); }
+ /* Called by the control task when the odometry origin changes. */
+-void W4Maze_Reset(void) { ++epoch; active=0; fresh=false; }
++void W4Maze_Reset(void) { ++epoch; active=0; fresh=false; route_ready=false; aim_valid=false; }
+ 
+ void W4Maze_Point(float angle,float mm,unsigned quality,bool start,uint32_t now) {
+     static uint32_t scan_start;
+@@ -180,72 +195,89 @@
+     return true;
+ }
+ 
+-static int manhattan(int a,int b) {
+-    return abs(a%WIDTH-b%WIDTH)+abs(a/WIDTH-b/WIDTH);
+-}
+-static float cell_center(int coordinate_index) {
+-    return (coordinate_index-CENTER)*CELL_M;
+-}
+-
+-/* Seed A* only with executable, observed first legs. The remaining route
+-   can cross unknown cells at a penalty and is replanned after each stop. */
+-static bool plan(float x,float y,float gx,float gy,float *nx,float *ny,bool *last) {
+-    const float max_leg=0.46f;
+-    int start=index_at(x,y),goal=index_at(gx,gy);
+-    if(!free_cell(start) || goal<0 || wall[goal]) return false;
+-    if(hypotf(gx-x,gy-y)<=max_leg && clear_line(x,y,gx,gy)) {
+-        *nx=gx; *ny=gy; *last=true;
+-        return true;
+-    }
+-
+-    if(start==goal) return false;
+-
+-    memset(cost,0x7f,sizeof cost);
+-    memset(closed,0,sizeof closed);
+-    closed[start]=1;
+-    int radius=(int)ceilf(max_leg/CELL_M);
+-    for(int row=start/WIDTH-radius;row<=start/WIDTH+radius;++row) {
+-        for(int col=start%WIDTH-radius;col<=start%WIDTH+radius;++col) {
+-            int i=cell(col,row);
+-            if(i==start || !free_cell(i)) continue;
+-            float cx=cell_center(col),cy=cell_center(row);
+-            float distance=hypotf(cx-x,cy-y);
+-            if(distance<0.075f || distance>max_leg || !clear_line(x,y,cx,cy)) continue;
+-            cost[i]=manhattan(start,i);
+-            first_leg[i]=(int16_t)i;
+-        }
+-    }
+-
+-    const int dx[]={0,0,-1,1},dy[]={1,-1,0,0};
+-    for(;;) {
+-        int best=-1,score=32767,first_distance=-1;
+-        for(int i=0;i<CELLS;++i) {
+-            if(closed[i] || cost[i]>=0x7f7f) continue;
+-            int f=cost[i]+manhattan(i,goal);
+-            int leg_distance=manhattan(start,first_leg[i]);
+-            if(f<score || (f==score && leg_distance>first_distance)) {
+-                best=i; score=f; first_distance=leg_distance;
+-            }
+-        }
+-        if(best<0) return false;
+-        if(best==goal) {
+-            int leg=first_leg[best];
+-            *nx=cell_center(leg%WIDTH);
+-            *ny=cell_center(leg/WIDTH);
+-            *last=false;
+-            return true;
+-        }
+-        closed[best]=1;
+-        for(int direction=0;direction<4;++direction) {
+-            int n=cell(best%WIDTH+dx[direction],best/WIDTH+dy[direction]);
+-            if(n<0 || wall[n] || closed[n]) continue;
+-            int next_cost=cost[best]+(grid[n]<0?1:5);
+-            if(next_cost<cost[n]) {
+-                cost[n]=next_cost;
+-                first_leg[n]=first_leg[best];
+-            }
+-        }
+-    }
++/* NoeticMaze uses positive, x-major planner coordinates; Week4 retains
++   its centered y-major telemetry map and +Y initial heading. */
++static const float planner_origin=(CENTER+0.5f)*CELL_M;
++static bool collision_line(Point2D a,Point2D b) {
++    return bresenham_line_check(&planner_map,a,b,PHYSICAL_RADIUS,0.0f,false);
++}
++static bool route_safe(const Point2D *p,unsigned count) {
++    if(count<2 || count>MAX_PATH_LEN) return false;
++    for(unsigned i=1;i<count;++i)
++        if(!isfinite(p[i].x)||!isfinite(p[i].y)||collision_line(p[i-1],p[i])) return false;
++    return true;
++}
++static bool plan(float x,float y,float gx,float gy) {
++    memset(planner_grid,0,sizeof planner_grid);
++    for(int row=0;row<WIDTH;++row) for(int col=0;col<WIDTH;++col) {
++        int i=cell(col,row);
++        set_grid_val(&planner_map,col,row,(grid[i]>0||hit_scans[i])?1:grid[i]<0?2:0);
++    }
++    Point2D start={x+planner_origin,y+planner_origin};
++    Point2D goal={gx+planner_origin,gy+planner_origin};
++    int count=astar_plan(&planner_map,start,goal,previous_path,(int)previous_len,false,raw_path);
++    if(count<2 || !route_safe(raw_path,(unsigned)count)) return false;
++    memcpy(previous_path,raw_path,(size_t)count*sizeof(Point2D));
++    previous_len=(unsigned)count;
++    int smooth=double_smooth_path(&planner_map,raw_path,count,SAFE_SMOOTH_RAD,false,raw_path);
++    int length=generate_safe_corner_path(&planner_map,raw_path,smooth,0.5f,0.05f,false,route);
++    /* Upstream bounded buffers can truncate a long path: never call that arrival.
++       Check the endpoint and every connecting segment; fall back to raw A*. */
++    if(length<2 || hypotf(route[length-1].x-goal.x,route[length-1].y-goal.y)>0.001f ||
++       !route_safe(route,(unsigned)length)) {
++        length=(int)previous_len;
++        memcpy(route,previous_path,previous_len*sizeof(Point2D));
++    }
++    if(length<2 || !route_safe(route,(unsigned)length)) return false;
++    route_len=(unsigned)length;
++    route_offset_x=offset_x; route_offset_y=offset_y;
++    for(unsigned i=0;i<route_len;++i) {
++        route[i].x-=planner_origin+route_offset_x;
++        route[i].y-=planner_origin+route_offset_y;
++    }
++    return true;
++}
++bool W4Maze_LoadRoute(uint32_t id,const W4Pose *pose) {
++    if(!W4Maze_Active(id)||!route_ready) return false;
++    /* The path task cannot overwrite route until control requests a new plan. */
++    W4Noetic_Load(route,route_len,pose);
++    route_index=0; aim_valid=false;
++    return true;
++}
++W4NoeticCommand W4Maze_Track(const W4Pose *pose,float speed,float dt) {
++    W4NoeticCommand cmd=W4Noetic_Step(pose,speed,dt);
++    uint32_t key=W4Port_Lock();
++    track_aim=cmd.lookahead; aim_valid=cmd.valid; route_index=cmd.index;
++    W4Port_Unlock(key);
++    return cmd;
++}
++unsigned W4Maze_RouteCount(void) { return route_ready?route_len:0; }
++/* A full route is retained between scans. Only a newly blocked route requests
++   replanning; ordinary intermediate points never stop or restart the motors. */
++static bool remaining_blocked(const W4Pose *pose) {
++    uint32_t key=W4Port_Lock();
++    unsigned first=route_index+1;
++    bool have_aim=aim_valid;
++    Point2D aim=track_aim;
++    W4Port_Unlock(key);
++    Point2D a={pose->x_m+offset_x,pose->y_m+offset_y};
++    float checked=0;
++    for(unsigned i=first;i<route_len;++i) {
++        Point2D b={route[i].x+offset_x,route[i].y+offset_y};
++        float length=hypotf(b.x-a.x,b.y-a.y);
++        int steps=1+(int)ceilf(length/0.025f);
++        for(int j=0;j<=steps;++j) {
++            float f=(float)j/steps;
++            int index=index_at(a.x+f*(b.x-a.x),a.y+f*(b.y-a.y));
++            if(index<0 || wall[index]) return true;
++            /* Unknown space may guide A*, but is never executable near the car. */
++            if(checked+f*length<0.28f && !free_cell(index)) return true;
++        }
++        checked+=length; a=b;
++    }
++    if(have_aim && !clear_line(pose->x_m+offset_x,pose->y_m+offset_y,
++                                aim.x+offset_x,aim.y+offset_y)) return true;
++    return false;
+ }
+ void W4Maze_Poll(const W4NavSnapshot *n) {
+     static uint32_t map_epoch;
+@@ -254,6 +286,7 @@
+         memset(grid,0,sizeof grid); memset(wall,0,sizeof wall);
+         memset(hit_scans,0,sizeof hit_scans);
+         offset_x=offset_y=0; reference_count=0; map_epoch=version;
++        previous_len=0; route_ready=false; aim_valid=false;
+     }
+     uint32_t key=W4Port_Lock();
+     bool got=ready;
+@@ -279,16 +312,31 @@
+         }
+         inflate();
+         scan_epoch=version; last_scan=working.stamp; fresh=true;
+-        if(W4Maze_Active(n->cmd_id) && n->state==W4_TRACKING &&
+-           !clear_line(n->pose.x_m+offset_x,n->pose.y_m+offset_y,
+-                       leg_x+offset_x,leg_y+offset_y)) blocked=true;
++        if(W4Maze_Active(n->cmd_id) && n->state==W4_TRACKING && route_ready &&
++           remaining_blocked(&n->pose)) blocked=true;
+     }
+     if(W4Maze_Fresh(W4Port_Millis())) publish_row(version);
++    static uint32_t last_marker;
++    uint32_t marker_now=W4Port_Millis();
++    if(n->state==W4_TRACKING && W4Maze_Active(n->cmd_id) && marker_now-last_marker>=100U) {
++        key=W4Port_Lock();
++        Point2D aim=track_aim; bool have_aim=aim_valid;
++        W4Port_Unlock(key);
++        if(have_aim) {
++            char line[96];
++            int len=snprintf(line,sizeof line,"D,%lu,MAZE_LEG,%lu,%ld,%ld\n",
++                (unsigned long)marker_now,(unsigned long)n->cmd_id,
++                lroundf(aim.x*1000),lroundf(aim.y*1000));
++            if(len>0 && len<(int)sizeof line) W4Telemetry_SubmitLine(line,(uint16_t)len);
++        }
++        last_marker=marker_now;
++    }
+     if(!W4Maze_Active(n->cmd_id)||n->state!=W4_PLANNING||!need_leg) return;
+-    float nx=0,ny=0; bool last=false;
+-    bool valid=W4Maze_Fresh(W4Port_Millis());
++    uint32_t now=W4Port_Millis();
++    if(!ack_pending && now-plan_stamp<300U) return;
++    bool valid=W4Maze_Fresh(now);
+     bool ok=valid && plan(n->pose.x_m+offset_x,n->pose.y_m+offset_y,
+-                         n->target_x,n->target_y,&nx,&ny,&last);
++                         n->target_x,n->target_y);
+     key=W4Port_Lock();
+     if(valid && !W4Maze_Fresh(W4Port_Millis())) { valid=false; ok=false; }
+     if(!need_leg || w4_stop_pending || w4_nav.state!=W4_PLANNING ||
+@@ -299,18 +347,13 @@
+         W4Ack(n->cmd_id,"REJECTED",valid?"NO_CLEAR_PATH":"SCAN_STALE");
+         return;
+     }
+-    leg_x=nx-offset_x; leg_y=ny-offset_y;
+-    final_leg=last; blocked=false;
+-    W4Waypoint wp={.cmd_id=n->cmd_id,.last=1,.x_m=leg_x,.y_m=leg_y};
++    final_leg=true; blocked=false; route_index=0; aim_valid=false;
++    route_ready=true; need_leg=false; plan_stamp=now; ++route_number;
+     W4Port_Unlock(key);
+-    if(osMessageQueuePut(Q_Path,&wp,0,0)==osOK) {
+-        need_leg=false;
+-        char line[96];
+-        int len=snprintf(line,sizeof line,"D,%lu,MAZE_LEG,%lu,%ld,%ld\n",
+-                         (unsigned long)W4Port_Millis(),(unsigned long)wp.cmd_id,
+-                         lroundf(wp.x_m*1000),lroundf(wp.y_m*1000));
+-        if(len>0 && len<(int)sizeof line) W4Telemetry_SubmitLine(line,(uint16_t)len);
+-        if(ack_pending) { W4Ack(n->cmd_id,"OK","MAZE_ACCEPTED"); ack_pending=false; }
+-    }
++    char line[96];
++    int len=snprintf(line,sizeof line,"D,%lu,MAZE_ROUTE,%lu,%u,%u\n",
++        (unsigned long)now,(unsigned long)n->cmd_id,route_number,route_len);
++    if(len>0 && len<(int)sizeof line) W4Telemetry_SubmitLine(line,(uint16_t)len);
++    if(ack_pending) { W4Ack(n->cmd_id,"OK","MAZE_ACCEPTED"); ack_pending=false; }
+ }
+ #endif
+--- before/week4/Inc/w4_maze.h
++++ week4/Inc/w4_maze.h
+@@ -1,7 +1,8 @@
+ #ifndef W4_MAZE_H
+ #define W4_MAZE_H
+ #include "w4_nav.h"
+-/* Path task owns mapping/planning. Control owns stopping and leg completion. */
++#include "w4_noetic_motion.h"
++/* Path task owns mapping/full-route planning; control owns tracking/stopping. */
+ void W4Maze_Point(float angle,float mm,unsigned quality,bool start,uint32_t now);
+ void W4Maze_Poll(const W4NavSnapshot *nav);
+ void W4Maze_Begin(uint32_t id);
+@@ -11,4 +12,7 @@
+ bool W4Maze_LegBlocked(void);
+ bool W4Maze_FinalLeg(void);
+ void W4Maze_NextLeg(void);
++bool W4Maze_LoadRoute(uint32_t id,const W4Pose *pose);
++W4NoeticCommand W4Maze_Track(const W4Pose *pose,float speed,float dt);
++unsigned W4Maze_RouteCount(void);
+ #endif
+--- before/tests/navigation/test_maze.c
++++ tests/navigation/test_maze.c
+@@ -11,6 +11,7 @@
+ extern uint16_t test_left_count,test_right_count;
+ extern float test_heading,test_gyro;
+ extern float test_pwm_l,test_pwm_r;
++extern bool test_imu_valid;
+ 
+ static void send(const char *s) {
+     while(*s) W4Bt_OnByteISR((uint8_t)*s++);
+@@ -49,14 +50,19 @@
+     }
+     W4Path_Poll();
+ }
++volatile unsigned maze_test_tick,maze_test_stage;
++typedef struct { unsigned ticks; float x,y,clearance; unsigned state,fault,replans; } TestOutcome;
++volatile TestOutcome maze_outcomes[6];
++
+ static void drive_room(bool with_board) {
+     for(unsigned i=0;i<4;++i) room_scan(with_board);
+     send(with_board?"MAZE,0,1.05\n":"MAZE,0,0.65\n");
+     W4Path_Poll(); W4Path_Poll();
+     assert(strstr(test_ack,"MAZE_ACCEPTED"));
+-    float counts_l=test_left_count,counts_r=test_right_count,vl=0,vr=0;
++    float counts_l=test_left_count,counts_r=test_right_count,vl=0,vr=0,min_clearance=10;
+     bool went_around=false;
+     for(unsigned tick=0;tick<4000 && w4_nav.state!=W4_ARRIVED;++tick) {
++        maze_test_tick=tick;
+         vl+=0.08f*(copysignf(1.65f*fmaxf(0,fabsf(test_pwm_l)-0.08f),test_pwm_l)-vl);
+         vr+=0.08f*(copysignf(1.34f*fmaxf(0,fabsf(test_pwm_r)-0.08f),test_pwm_r)-vr);
+         counts_l+=vl*.01f*w4_config.cpr_r/(W4_PI*w4_config.diameter_r_m);
+@@ -69,17 +75,19 @@
+         if(with_board) {
+             float side=fmaxf(0,fabsf(w4_nav.pose.x_m)-0.20f);
+             float ahead=w4_nav.pose.y_m-0.55f;
++            min_clearance=fminf(min_clearance,hypotf(side,ahead));
+             assert(hypotf(side,ahead)>=0.17f);
+             if(fabsf(ahead)<0.10f && fabsf(w4_nav.pose.x_m)>=0.37f)
+                 went_around=true;
+         }
+         W4Path_Poll();
+-        assert(w4_nav.state!=W4_FAULT);
++        assert(w4_nav.fault!=1); assert(w4_nav.fault!=5); assert(w4_nav.fault!=9); assert(w4_nav.fault!=10); assert(w4_nav.fault!=11); assert(w4_nav.state!=W4_FAULT);
+     }
+     float goal_y=with_board?1.05f:0.65f;
+     assert(w4_nav.state==W4_ARRIVED && hypotf(w4_nav.pose.x_m,w4_nav.pose.y_m-goal_y)<0.08f);
+     if(with_board) assert(went_around);
+     assert(test_pwm_l==0 && test_pwm_r==0);
++    maze_outcomes[with_board?1:0]=(TestOutcome){maze_test_tick,w4_nav.pose.x_m,w4_nav.pose.y_m,with_board?min_clearance:0,w4_nav.state,w4_nav.fault,0};
+     if(with_board) return;
+     send("MAZE,0,0.9\n"); W4Path_Poll(); W4Path_Poll();
+     for(unsigned t=0;t<50;++t) { test_ms+=10; W4Control_Step(test_ms); W4Path_Poll(); }
+@@ -91,125 +99,148 @@
+     test_gyro=0;
+     send("RESET\n"); W4Control_Step(test_ms); W4Path_Poll();
+ }
+-static W4Waypoint start_open_leg(const char *command) {
++static void test_route_contract(void) {
++    reset_run(); scan(false); scan(false);
++    send("MAZE,0,0.8\n"); W4Path_Poll(); W4Path_Poll();
++    assert(strstr(test_ack,"MAZE_ACCEPTED"));
++    assert(W4Maze_RouteCount()>2);
++    assert(W4Maze_FinalLeg());
++    W4Waypoint unused;
++    assert(osMessageQueueGet(Q_Path,&unused,0,0)!=osOK);
++    unsigned id=w4_nav.cmd_id;
++    test_ms+=10; W4Control_Step(test_ms);
++    send("GOTO,1,1\n");
++    assert(strstr(test_ack,"BUSY,NAV_ACTIVE") && w4_nav.cmd_id==id);
++    /* Crossing intermediate points must keep the full route active. */
++    for(unsigned i=1;i<=6;++i) {
++        w4_nav.pose.y_m=0.1f*i;
++        test_ms+=10; W4Control_Step(test_ms);
++        assert(w4_nav.state==W4_TRACKING);
++    }
++    send("STOP\n"); W4Control_Step(test_ms); W4Path_Poll();
++    assert(w4_nav.state==W4_STOPPED && test_pwm_l==0 && test_pwm_r==0);
++}
++static void test_goal_xy_only(void) {
++    reset_run(); scan(false); scan(false);
++    send("MAZE,0,0.3\n"); W4Path_Poll(); W4Path_Poll();
++    test_ms+=10; W4Control_Step(test_ms);
++    w4_nav.pose.y_m=0.29f;
++    test_heading=0.25f;
++    for(unsigned tick=0;tick<23;++tick) {
++        test_ms+=10; W4Control_Step(test_ms);
++        assert(test_pwm_l==0 && test_pwm_r==0);
++    }
++    assert(w4_nav.state==W4_ARRIVED);
++}
++/* Ray-cast two poles or alternating maze walls; integrate unequal loaded
++   wheel responses using the unchanged production motor controller. */
++typedef struct { float ax,ay,bx,by; } TestWall;
++static const TestWall maze_walls[]={{-1.2f,0.50f,0.10f,0.50f},{-0.10f,1.10f,1.2f,1.10f}};
++static float wall_clearance(float x,float y,TestWall b) {
++    float vx=b.bx-b.ax,vy=b.by-b.ay;
++    float t=fmaxf(0,fminf(1,((x-b.ax)*vx+(y-b.ay)*vy)/(vx*vx+vy*vy)));
++    return hypotf(x-b.ax-t*vx,y-b.ay-t*vy);
++}
++static void course_scan(unsigned course,bool obstacles) {
++    float x=w4_nav.pose.x_m,y=w4_nav.pose.y_m;
++    for(int deg=0;deg<360;deg+=3) {
++        float angle=w4_nav.pose.theta_rad-deg*W4_PI/180;
++        float c=cosf(angle),d=sinf(angle);
++        float distance=fminf((copysignf(1.8f,c)-x)/c,(copysignf(2.1f,d)-y)/d);
++        if(obstacles) for(unsigned i=0;i<2;++i) {
++            if(course==1) {
++                float cx=i?0.06f:-0.06f,cy=i?1.10f:0.50f;
++                float vx=cx-x,vy=cy-y,along=vx*c+vy*d;
++                float disc=0.06f*0.06f-(vx*vx+vy*vy-along*along);
++                if(disc>=0 && along>0) distance=fminf(distance,along-sqrtf(disc));
++            } else {
++                TestWall b=maze_walls[i];
++                if(fabsf(d)>0.0001f) {
++                    float t=(b.ay-y)/d,hx=x+t*c;
++                    if(t>0 && hx>=b.ax && hx<=b.bx) distance=fminf(distance,t);
++                }
++            }
++        }
++        W4Maze_Point((float)deg,1000*distance,12,deg==0,test_ms);
++    }
++    W4Path_Poll();
++}
++static void drive_course(unsigned course,bool dynamic) {
+     reset_run();
+-    scan(false); scan(false);
+-    send(command); W4Path_Poll(); W4Path_Poll();
+-    assert(strstr(test_ack,"MAZE_ACCEPTED"));
+-    W4Waypoint next;
+-    assert(osMessageQueueGet(Q_Path,&next,0,0)==osOK);
+-    assert(osMessageQueuePut(Q_Path,&next,0,0)==osOK);
+-    test_ms+=10; W4Control_Step(test_ms);
+-    return next;
+-}
+-static void place(float x,float y,float heading) {
+-    w4_nav.pose.x_m=x; w4_nav.pose.y_m=y; w4_nav.pose.theta_rad=heading;
+-    test_heading=W4Wrap(heading-w4_config.imu_offset_rad);
+-}
+-static void test_maze_handoff(void) {
+-    /* Both intermediate and final XY goals accept a stopped chassis with a
+-       heading offset. They must never drive a pivot to restore the old line. */
+-    for(unsigned final=0;final<2;++final) {
+-        W4Waypoint next=start_open_leg(final?"MAZE,0,0.3\n":"MAZE,0,0.8\n");
+-        assert(W4Maze_FinalLeg()==(final!=0));
+-        place(next.x_m,next.y_m-0.01f,W4_PI/2+0.25f);
+-        for(unsigned tick=0;tick<22;++tick) {
+-            test_ms+=10; W4Control_Step(test_ms);
+-            assert(test_pwm_l==0 && test_pwm_r==0);
+-        }
+-        assert(w4_nav.state==(final?W4_ARRIVED:W4_PLANNING));
+-    }
+-}
+-static void test_maze_turn_threshold(void) {
+-    (void)start_open_leg("MAZE,0,0.8\n");
+-    uint32_t cmd=w4_nav.cmd_id;
+-    send("GOTO,1,1\n");
+-    assert(strstr(test_ack,"BUSY,NAV_ACTIVE"));
+-    assert(w4_nav.cmd_id==cmd && W4Maze_Active(cmd));
+-    long previous_mean=0;
+-    for(unsigned tick=0;tick<30;++tick) {
+-        /* Fluctuation around the old 0.50 rad pivot threshold. */
+-        float error=tick%2?0.52f:0.48f;
+-        place(0,0.1f,W4_PI/2-error);
++    for(unsigned i=0;i<4;++i) course_scan(course,!dynamic);
++    send("MAZE,0,1.65\n"); W4Path_Poll(); W4Path_Poll();
++    assert(strstr(test_ack,"MAZE_ACCEPTED"));
++    float counts_l=test_left_count,counts_r=test_right_count,vl=0,vr=0,min_distance=10;
++    unsigned replans=0,previous_state=W4_PLANNING;
++    for(unsigned tick=0;tick<11000 && w4_nav.state!=W4_ARRIVED;++tick) {
++        maze_test_tick=tick;
++        vl+=0.08f*(copysignf(1.65f*fmaxf(0,fabsf(test_pwm_l)-0.08f),test_pwm_l)-vl);
++        vr+=0.08f*(copysignf(1.34f*fmaxf(0,fabsf(test_pwm_r)-0.08f),test_pwm_r)-vr);
++        counts_l+=vl*.01f*w4_config.cpr_r/(W4_PI*w4_config.diameter_r_m);
++        counts_r+=vr*.01f*w4_config.cpr_l/(W4_PI*w4_config.diameter_l_m);
++        test_left_count=(uint16_t)lroundf(counts_l); test_right_count=(uint16_t)lroundf(counts_r);
++        test_gyro=(vr-vl)/w4_config.track_m; test_heading=W4Wrap(test_heading+.01f*test_gyro);
+         test_ms+=10; W4Control_Step(test_ms);
+-        char line[160]; unsigned long ms,id; long left,right;
+-        assert(W4Motor_FormatDiagnostics(line,sizeof line));
+-        assert(sscanf(line,"D,%lu,WHEEL,%lu,%ld,%ld",&ms,&id,&left,&right)==4);
+-        assert(left>0 && right>0);
+-        long mean=(left+right)/2;
+-        if(tick>0) assert(labs(mean-previous_mean)<=7);
+-        previous_mean=mean;
+-        if(tick%10==0) scan(false);
+-    }
+-    /* The former 0.85 rad threshold must not stop the moving chassis. */
+-    for(unsigned tick=0;tick<30;++tick) {
+-        float error=tick%2?0.90f:0.80f;
+-        place(0,0.1f,W4_PI/2-error);
+-        test_ms+=10; W4Control_Step(test_ms);
+-        char line[160]; unsigned long ms,id; long left,right;
+-        assert(W4Motor_FormatDiagnostics(line,sizeof line));
+-        assert(sscanf(line,"D,%lu,WHEEL,%lu,%ld,%ld",&ms,&id,&left,&right)==4);
+-        assert(left>0 && right>0);
+-        assert((left+right)/2>=64);
+-        if(tick%10==0) scan(false);
+-    }
+-    /* Ground commands 10/15 stopped 26-30 mm before the waypoint with 0.70 rad
+-       heading error. Both old requests (2/29 mm/s) were below useful drive. */
+-    for(unsigned tick=0;tick<40;++tick) {
+-        float error=tick<20?0.70f:-0.70f;
+-        place(0,tick<20?0.374f:0.370f,W4_PI/2-error);
+-        test_ms+=10; W4Control_Step(test_ms);
+-        char line[160]; unsigned long ms,id; long left,right;
+-        assert(W4Motor_FormatDiagnostics(line,sizeof line));
+-        assert(sscanf(line,"D,%lu,WHEEL,%lu,%ld,%ld",&ms,&id,&left,&right)==4);
+-        assert((left+right)/2>=64);
+-        assert(w4_nav.state==W4_TRACKING);
+-        if(tick%10==0) scan(false);
+-    }
+-    send("STOP\n"); test_ms+=10; W4Control_Step(test_ms); W4Path_Poll();
+-    assert(w4_nav.state==W4_STOPPED && test_pwm_l==0 && test_pwm_r==0);
++        if(tick%20==0) course_scan(course,!dynamic||tick>=20);
++        if(!dynamic||tick>=20) for(unsigned i=0;i<2;++i) {
++            float distance=course==1?
++                hypotf(w4_nav.pose.x_m-(i?0.06f:-0.06f),w4_nav.pose.y_m-(i?1.10f:0.50f))-0.06f:
++                wall_clearance(w4_nav.pose.x_m,w4_nav.pose.y_m,maze_walls[i]);
++            min_distance=fminf(distance,min_distance);
++            assert(distance>=0.17f);
++        }
++        W4Path_Poll();
++        if(previous_state==W4_TRACKING && w4_nav.state==W4_PLANNING) ++replans;
++        previous_state=w4_nav.state;
++        assert(w4_nav.fault!=5); assert(w4_nav.fault!=9); assert(w4_nav.fault!=10); assert(w4_nav.fault!=11);
++        assert(w4_nav.state!=W4_FAULT);
++    }
++    assert(w4_nav.state==W4_ARRIVED);
++    assert(hypotf(w4_nav.pose.x_m,w4_nav.pose.y_m-1.65f)<0.08f);
++    assert(test_pwm_l==0 && test_pwm_r==0);
++    if(dynamic) assert(replans>0);
++    maze_outcomes[dynamic?4:course+1]=(TestOutcome){maze_test_tick,w4_nav.pose.x_m,w4_nav.pose.y_m,min_distance,w4_nav.state,w4_nav.fault,replans};
++}
++static void test_planner_edges(void) {
++    reset_run(); scan(false); scan(false);
++    /* Same-cell endpoints must retain the exact goal, not replace it with start. */
++    send("MAZE,0.01,0.04\n"); W4Path_Poll(); W4Path_Poll();
++    assert(strstr(test_ack,"MAZE_ACCEPTED"));
++    test_ms+=10; W4Control_Step(test_ms);
++    for(unsigned i=0;i<22;++i) { test_ms+=10; W4Control_Step(test_ms); }
++    assert(w4_nav.state==W4_ARRIVED);
++    reset_run();
++    for(unsigned i=0;i<4;++i) room_scan(true);
++    send("MAZE,0,0.55\n"); W4Path_Poll(); W4Path_Poll();
++    assert(w4_nav.state==W4_FAULT && w4_nav.fault==10);
++    assert(test_pwm_l==0 && test_pwm_r==0);
++    reset_run(); scan(false); scan(false);
++    send("MAZE,0,0.8\n"); W4Path_Poll(); W4Path_Poll();
++    test_ms+=10; W4Control_Step(test_ms);
++    test_imu_valid=false;
++    test_ms+=10; W4Control_Step(test_ms);
++    assert(w4_nav.state==W4_FAULT && w4_nav.fault==1);
++    assert(test_pwm_l==0 && test_pwm_r==0);
++    test_imu_valid=true;
+ }
+ 
+ int main(void) {
+     test_ms=100;
+-    W4Calibration_Apply(); W4Nav_Init();
+-    assert(W4HardwareReady());
++    W4Calibration_Apply(); W4Nav_Init(); assert(W4HardwareReady());
+     send("MAZE,0,0.8\n"); W4Path_Poll(); W4Path_Poll();
+     assert(w4_nav.state==W4_FAULT && w4_nav.fault==9);
+-    scan(false); scan(false);
+-    assert(W4Maze_Fresh(test_ms));
+-    send("MAZE,0,0.8\n"); W4Path_Poll(); W4Path_Poll();
+-    assert(strstr(test_ack,"MAZE_ACCEPTED"));
+-    W4Waypoint wp;
+-    assert(osMessageQueueGet(Q_Path,&wp,0,0)==osOK);
+-    assert(wp.y_m>0.25f && wp.y_m<0.47f && fabsf(wp.x_m)<0.01f);
+-    assert(!W4Maze_FinalLeg());
+-    w4_nav.state=W4_TRACKING;
+-    scan(true); scan(true);
+-    assert(W4Maze_LegBlocked());
+-    w4_nav.state=W4_PLANNING;
+-    W4Maze_NextLeg(); W4Path_Poll();
+-    assert(osMessageQueueGet(Q_Path,&wp,0,0)==osOK);
+-    assert(fabsf(wp.x_m)>0.1f); /* detour */
+-    assert(!W4Maze_LegBlocked());
+-    /* A stopped chassis at successive segment ends must reach the absolute
+-       goal via free cells. STOP always bypasses the planner. */
+-    for(int step=0;!W4Maze_FinalLeg() && step<20;++step) {
+-        w4_nav.pose.x_m=wp.x_m; w4_nav.pose.y_m=wp.y_m;
+-        W4Maze_NextLeg(); W4Path_Poll();
+-        assert(osMessageQueueGet(Q_Path,&wp,0,0)==osOK);
+-    }
+-    assert(W4Maze_FinalLeg() && fabsf(wp.y_m-0.8f)<0.01f);
+-    send("STOP\n"); W4Control_Step(test_ms); W4Path_Poll();
+-    assert(w4_nav.state==W4_STOPPED && test_pwm_l==0 && test_pwm_r==0);
+-    assert(!W4Maze_Fresh(test_ms+451));
+-    send("RESET\n"); W4Control_Step(test_ms); W4Path_Poll();
+-    assert(!W4Maze_Fresh(test_ms));
+-    drive_room(false);
+-    test_gyro=0;
+-    send("RESET\n"); W4Control_Step(test_ms); W4Path_Poll();
+-    drive_room(true);
+-    test_maze_handoff();
+-    test_maze_turn_threshold();
++#ifdef TEST_DYNAMIC_ONLY
++    maze_test_stage=7; drive_course(1,true);
+     return 0;
+-}
++#endif
++    maze_test_stage=1; test_route_contract();
++    maze_test_stage=2; reset_run(); drive_room(false);
++    maze_test_stage=3; reset_run(); drive_room(true);
++    maze_test_stage=4; test_goal_xy_only();
++    maze_test_stage=5; drive_course(1,false);
++    maze_test_stage=6; drive_course(2,false);
++    maze_test_stage=7; drive_course(1,true);
++    maze_test_stage=8; test_planner_edges();
++    reset_run(); assert(!W4Maze_Fresh(test_ms));
++    return 0;
++}
+--- before/../run_cortex_tests.py
++++ ../run_cortex_tests.py
+@@ -6,6 +6,7 @@
+ import struct
+ import subprocess
+ import sys
++import os
+ 
+ ROOT=Path(__file__).resolve().parent/"firmware_source"
+ sys.path.insert(0,r"C:\Users\Hebert\Documents\ChatGPT\嵌入式开发\week3_refactor_work\test_vendor")
+@@ -33,7 +34,28 @@
+     uc.emu_start(symbols["test_entry"]|1,0,count=instruction_limit)
+     if not finished:raise AssertionError("Instruction limit reached")
+     result=struct.unpack("<I",uc.mem_read(symbols["test_result"],4))[0]
++    if "maze_outcomes" in symbols:
++        import json
++        rows=[]
++        for i,name in enumerate(["open","board","poles","maze","dynamic","unused"]):
++            row=struct.unpack("<IfffIII",uc.mem_read(symbols["maze_outcomes"]+28*i,28))
++            rows.append(dict(zip(["ticks","x","y","min_clearance","state","fault","replans"],row),scenario=name))
++        path.with_suffix(".outcomes.json").write_text(json.dumps(rows,indent=2))
++
+     if result:
++        import json
++        debug={}
++        for name,fmt,size in [("w4_nav","<IIffIIIfffI",44),("maze_test_tick","<I",4),("maze_test_stage","<I",4),
++                              ("test_pwm_l","<f",4),("test_pwm_r","<f",4)]:
++            if name in symbols: debug[name]=struct.unpack(fmt,uc.mem_read(symbols[name],size))
++        for name,fmt in [("offset_x","<f"),("offset_y","<f"),("route_len","<I"),("previous_len","<I"),("s_progress_s_m","<f"),("route_index","<I"),("route_number","<I")]:
++            if name in symbols: debug[name]=struct.unpack(fmt,uc.mem_read(symbols[name],4))[0]
++        for name,count in [("route",debug.get("route_len",0)),("previous_path",debug.get("previous_len",0))]:
++            if name in symbols: debug[name]=[struct.unpack("<ff",uc.mem_read(symbols[name]+8*i,8)) for i in range(count)]
++        for name in ["grid","wall","hit_scans"]:
++            if name in symbols: debug[name]=list(uc.mem_read(symbols[name],2401))
++        path.with_suffix(".debug.json").write_text(json.dumps(debug))
++        print(json.dumps({k:v for k,v in debug.items() if k not in ["grid","wall","hit_scans","route","previous_path"]}),flush=True)
+         def cstring(addr):
+             pointer=struct.unpack("<I",uc.mem_read(addr,4))[0]
+             return bytes(uc.mem_read(pointer,256)).split(b"\0")[0].decode(errors="replace") if pointer else ""
+@@ -74,11 +96,17 @@
+     cases.append(("navigation_rear_no_straight_correction",dual,
+                   ["-DW4_DUAL_ENCODER","-DW4_REAR_FORWARD","-DW4_WHEEL_DIAGNOSTICS",
+                    "-DW4_DISABLE_STRAIGHT_CORRECTION"],False))
+-    cases.append(("navigation_maze",["tests/navigation/test_maze.c",*dual[1:],"week4/Src/w4_maze.c"],
++    cases.append(("navigation_maze",["tests/navigation/test_maze.c",*dual[1:],"week4/Src/w4_maze.c", *[f"week4/Src/w4_noetic_{name}.c" for name in ("planner_algo","priority_queue","path_smoother","motion")]],
+                   ["-DW4_DUAL_ENCODER","-DW4_CALIBRATED","-DW4_REAR_FORWARD","-DW4_MAZE","-DW4_WHEEL_DIAGNOSTICS"],False))
++    cases.append(("noetic_planner",["tests/navigation/test_noetic_planner.c",
++        *[f"week4/Src/w4_noetic_{name}.c" for name in ("planner_algo","priority_queue","path_smoother")]],["-DW4_MAZE"],False))
++    if len(sys.argv)>1:
++        cases=[case for case in cases if case[0] in sys.argv[1:]]
++        if not cases: raise SystemExit('No matching test cases')
+     for name,sources,defines,sensor in cases:
+         target=out/(name+".elf")
+-        args=[str(GCC),"-mcpu=cortex-m4","-mthumb","-mfloat-abi=soft","-std=c11","-O2" if name=="navigation_maze" else "-O0","-g","-Wall","-Wextra","-Werror","-ffunction-sections","-fdata-sections","-nostartfiles","--specs=nano.specs","--specs=nosys.specs","-Tbuild/cortex_tests/test.ld","-Wl,--gc-sections",*defines]
++        args=[str(GCC),"-mcpu=cortex-m4","-mthumb","-mfloat-abi=soft","-std=c11","-O2" if name in ("navigation_maze","noetic_planner") else "-O0","-g","-Wall","-Wextra","-Werror","-ffunction-sections","-fdata-sections","-nostartfiles","--specs=nano.specs","--specs=nosys.specs","-Tbuild/cortex_tests/test.ld","-Wl,--gc-sections",*defines]
++        if name=='navigation_maze' and os.environ.get('W4_TEST_DYNAMIC_ONLY'): args.append('-DTEST_DYNAMIC_ONLY')
+         if sensor:args += ["-include","tests/sensors/mock/stm32f4xx_hal.h","-Itests/sensors/mock"]
+         args += ["-Iweek4/Inc","-IMiddlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2",*sources,"build/cortex_tests/entry.c","-lm","-o",str(target)]
+         run=subprocess.run(args,cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
+@@ -86,9 +114,9 @@
+         if run.returncode:
+             print(run.stdout.decode(errors="replace"));run.check_returncode()
+         # Dual navigation runs three full coordinate routes and loaded motor dynamics.
+-        budget = 4_000_000_000 if name=="navigation_maze" else 200_000_000 if name.startswith("navigation_") else 50_000_000
++        budget = 12_000_000_000 if name=="navigation_maze" else 300_000_000 if name=="noetic_planner" else 200_000_000 if name.startswith("navigation_") else 50_000_000
+         emulate(target, budget)
+-        print("PASS",name,flush=True)
++        print("PASS",name+(" (dynamic scenario only)" if name=="navigation_maze" and os.environ.get("W4_TEST_DYNAMIC_ONLY") else ""),flush=True)
+     print(f"{len(cases)} Cortex-M4 software regressions passed. Not hardware or RTOS timing tests.",flush=True)
+ 
+ if __name__=="__main__":main()

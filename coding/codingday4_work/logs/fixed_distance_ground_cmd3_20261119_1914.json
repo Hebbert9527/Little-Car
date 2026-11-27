@@ -1,0 +1,32 @@
+{
+  "source": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\live_20261119_175346_685.bin",
+  "command_id": 3,
+  "command_distance_m": 1.4,
+  "fault_frame": "N,5685,284300,3,FAULT,691,867,336,3,1400,0,5",
+  "stop_ack": "A,4,STOPPED,STOP_LATCHED",
+  "track_width_m": 0.175,
+  "wheel_diameter_m": 0.068,
+  "wheel_data_samples": 68,
+  "analysis_start_ms": 278500,
+  "analysis_end_ms": 281500,
+  "analysis_samples": 30,
+  "heading_delta_deg": -46.3522856260836,
+  "kinematic_right_minus_left_distance_m": -0.141575,
+  "kinematic_right_minus_left_mps": -0.047191666666666666,
+  "kinematic_right_minus_left_rpm": -13.254330040138285,
+  "encoder_speed_mps_left_right": [
+    0.2542666666666667,
+    0.20943333333333333
+  ],
+  "encoder_right_minus_left_rpm": -12.591964615211728,
+  "pwm_left_right": [
+    0.4,
+    0.4
+  ],
+  "straight_at_observed_mean_mps_per_wheel": 0.23185,
+  "turns_per_meter": 4.681027737996922,
+  "counts_per_meter_logical_left_right": [
+    7309.8929156559925,
+    7299.8287060193
+  ]
+}

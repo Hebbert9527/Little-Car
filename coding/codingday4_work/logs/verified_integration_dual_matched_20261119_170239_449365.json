@@ -1,0 +1,11 @@
+{
+  "hex_sha256": "9319621da4454946492092cd56ed925a699d1d83ac39450a0c0101f99e47b290",
+  "elf_sha256": "c5e8da530845a7b459f954f2fb81269c5b34abef7947dd2a8757410f60c0bcd2",
+  "build": "integration_dual_matched",
+  "serial": "0674FF545155657067032031",
+  "hex": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\build\\integration_dual_matched\\Week4_Integrated.hex",
+  "elf": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\build\\integration_dual_matched\\Week4_Integrated.elf",
+  "log": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\flash_integration_dual_matched_20261119_170239_449365.txt",
+  "verified": true,
+  "reset": true
+}

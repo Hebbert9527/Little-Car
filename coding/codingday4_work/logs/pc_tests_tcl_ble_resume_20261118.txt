@@ -1,0 +1,22 @@
+test_explicit_missing_compiler_is_clear (test_build.BuildTests.test_explicit_missing_compiler_is_clear) ... ok
+test_search_supports_standalone_arm_layout (test_build.BuildTests.test_search_supports_standalone_arm_layout) ... ok
+test_point_and_imu_have_independent_sequences (test_monitor.IntegratedSequenceTests.test_point_and_imu_have_independent_sequences) ... ok
+test_ble_connection_error_remains_visible_during_retry (test_monitor.MonitorTests.test_ble_connection_error_remains_visible_during_retry) ... ok
+test_commands_are_not_queued_while_disconnected (test_monitor.MonitorTests.test_commands_are_not_queued_while_disconnected) ... ok
+test_demo_needs_no_optional_packages (test_monitor.MonitorTests.test_demo_needs_no_optional_packages) ... ok
+test_independent_sequence_spaces_and_latest_state (test_monitor.MonitorTests.test_independent_sequence_spaces_and_latest_state) ... ok
+test_schedule_and_bus_diagnostic_fields (test_protocol.DiagnosticTests.test_schedule_and_bus_diagnostic_fields) ... ok
+test_task_frames_keep_each_task (test_protocol.DiagnosticTests.test_task_frames_keep_each_task) ... ok
+test_command_coordinates_match_firmware_two_metre_bounds (test_protocol.FirmwareBoundsTests.test_command_coordinates_match_firmware_two_metre_bounds) ... ok
+test_command_encoding (test_protocol.ProtocolTests.test_command_encoding) ... ok
+test_diagnostics_are_preserved_without_guessing_schema (test_protocol.ProtocolTests.test_diagnostics_are_preserved_without_guessing_schema) ... ok
+test_fragmentation_and_recovery (test_protocol.ProtocolTests.test_fragmentation_and_recovery) ... ok
+test_invalid_navigation (test_protocol.ProtocolTests.test_invalid_navigation) ... ok
+test_navigation_and_ack (test_protocol.ProtocolTests.test_navigation_and_ack) ... ok
+test_sequences_wrap (test_protocol.ProtocolTests.test_sequences_wrap) ... ok
+test_rounded_pi_heading_is_valid (test_protocol.RoundedImuTests.test_rounded_pi_heading_is_valid) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.554s
+
+OK

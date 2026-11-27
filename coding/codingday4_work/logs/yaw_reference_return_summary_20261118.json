@@ -1,0 +1,71 @@
+{
+  "logs": [
+    "yaw_ref_return_trace_20261118_203511.json",
+    "yaw_ref_return_trace_20261118_203517.json",
+    "yaw_ref_return_trace_20261118_203524.json",
+    "yaw_ref_return_trace_20261118_203530.json",
+    "yaw_ref_return_trace_20261118_203536.json",
+    "yaw_ref_return_trace_20261118_203543.json",
+    "yaw_ref_return_trace_20261118_203549.json",
+    "yaw_ref_return_trace_20261118_203555.json",
+    "yaw_ref_return_trace_20261118_203602.json",
+    "yaw_ref_return_trace_20261118_203608.json"
+  ],
+  "sample_ms": [
+    537992,
+    544422,
+    550862,
+    557322,
+    563772,
+    570232,
+    576692,
+    583202,
+    589642,
+    596102
+  ],
+  "unwrapped_heading_deg": [
+    -148.581790525058,
+    -149.48366236344484,
+    -150.36994771014568,
+    -151.24770898076235,
+    -152.1329697990877,
+    -153.25743750252525,
+    -223.33776384082802,
+    -244.68832046926258,
+    -245.83674847630851,
+    -246.93285723431217
+  ],
+  "static_before_rate_dps": -0.14268094688337318,
+  "static_after_rate_dps": -0.16967627832873866,
+  "local_return_observed_deg": -91.43088296673733,
+  "local_return_interval_s": 12.969999999999999,
+  "local_return_linear_drift_adjusted_deg": -89.40524636123678,
+  "drift_adjustment_note": "Offline estimate assuming drift changes linearly between neighboring stationary segments; not a firmware scale calibration or instrumented angle certification.",
+  "raw_z_min_dps": -29.473281860351562,
+  "raw_z_max_dps": 0.5038167834281921,
+  "failures": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+  ],
+  "configurations": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "all_pwm_zero": true
+}

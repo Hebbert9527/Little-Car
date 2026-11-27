@@ -1,0 +1,16 @@
+{
+  "log": "ble_stop_locked_20261118.bin",
+  "acks": [
+    {
+      "cmd_id": 1,
+      "status": "STOPPED",
+      "reason": "STOP_LATCHED"
+    }
+  ],
+  "navigation_states": [
+    "IDLE",
+    "STOPPED"
+  ],
+  "bad_lines": 0,
+  "note": "STOP sent while motor power disconnected and motion calibration locked. This validates BLE command/ACK delivery, not powered emergency-stop braking."
+}

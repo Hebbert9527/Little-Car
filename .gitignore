@@ -1,0 +1,19 @@
+# Python虚拟环境
+**/.venv/
+**/venv/
+**/env/
+
+# Python运行缓存
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+
+# 运行时环境和缓存
+**/.runtime/
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+
+# 系统文件
+.DS_Store
+Thumbs.db

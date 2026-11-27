@@ -1,0 +1,43 @@
+{
+  "source": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\live_20261119_175346_685.bin",
+  "firmware": "integration_dual_rear_fixed_018_trim",
+  "cmd_id": 8,
+  "command_distance_m": 1,
+  "wheel_speed_target_mps": 0.18,
+  "acks": [
+    "A,7,OK,RESET_PENDING",
+    "A,8,OK,PATH_ACCEPTED"
+  ],
+  "start_ms": 351850,
+  "arrival_ms": 357600,
+  "duration_s": 5.75,
+  "fault": 0,
+  "wheel_samples": 58,
+  "wheel_average_1_to_4s_mmps_left_right": [
+    187.94,
+    183.55
+  ],
+  "pwm_average_1_to_4s_percent_left_right": [
+    34.07,
+    35.23
+  ],
+  "counts_at_40pct_1_to_4s_left_right": [
+    0,
+    0
+  ],
+  "arrival_odometry": {
+    "forward_mm": 1000.03,
+    "cross_left_positive_mm": -31.2
+  },
+  "arrival_heading_left_positive_deg": -3.5,
+  "estimated_left_minus_right_travel_mm": 10.67,
+  "odometry_500ms_after_arrival": {
+    "forward_mm": 1034.03,
+    "cross_left_positive_mm": -33.18
+  },
+  "user_reported_caster_cross_error_cm": 4.2,
+  "prior_user_reported_caster_cross_error_cm": 12.5,
+  "absolute_improvement_cm": 8.3,
+  "relative_improvement_percent": 66.4,
+  "physical_cross_track_goal_cm": 3.0
+}

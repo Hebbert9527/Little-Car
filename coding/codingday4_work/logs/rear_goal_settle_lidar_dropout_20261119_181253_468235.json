@@ -1,0 +1,82 @@
+[
+  {
+    "tick_ms": 239341,
+    "p_frames_attempted": 1697,
+    "dma": {
+      "state": 8,
+      "ht_count": 854,
+      "tc_count": 853,
+      "last_half_interval_ms": 50,
+      "min_half_interval_ms": 49,
+      "halves_delivered": 1697,
+      "bytes_delivered": 2121236,
+      "max_batch_ms": 1,
+      "max_copy_ms": 0,
+      "max_queue_age_ms": 1,
+      "overruns": 10,
+      "bad_descriptors": 6,
+      "descriptor_timeouts": 0,
+      "stream_timeouts": 36,
+      "hal_busy": 0,
+      "hal_failures": 0,
+      "uart_errors": 0,
+      "last_uart_error": 0,
+      "rx_stops": 0,
+      "abort_timeouts": 0,
+      "retries": 41,
+      "stream_breaks": 36,
+      "dropped_blocks": 10,
+      "sequence_gaps": 0,
+      "queue_errors": 0,
+      "state_name": "RETRY_DELAY"
+    },
+    "parser": {
+      "points_emitted": 357494,
+      "bad_header_windows": 17,
+      "bad_angle_windows": 3,
+      "zero_distance_records": 66742,
+      "resync_bytes_discarded": 20,
+      "stream_resets": 52
+    }
+  },
+  {
+    "tick_ms": 240662,
+    "p_frames_attempted": 1697,
+    "dma": {
+      "state": 5,
+      "ht_count": 854,
+      "tc_count": 853,
+      "last_half_interval_ms": 50,
+      "min_half_interval_ms": 49,
+      "halves_delivered": 1697,
+      "bytes_delivered": 2121236,
+      "max_batch_ms": 1,
+      "max_copy_ms": 0,
+      "max_queue_age_ms": 1,
+      "overruns": 10,
+      "bad_descriptors": 6,
+      "descriptor_timeouts": 0,
+      "stream_timeouts": 36,
+      "hal_busy": 0,
+      "hal_failures": 0,
+      "uart_errors": 0,
+      "last_uart_error": 0,
+      "rx_stops": 0,
+      "abort_timeouts": 0,
+      "retries": 42,
+      "stream_breaks": 36,
+      "dropped_blocks": 10,
+      "sequence_gaps": 0,
+      "queue_errors": 0,
+      "state_name": "WAIT_DESCRIPTOR"
+    },
+    "parser": {
+      "points_emitted": 357494,
+      "bad_header_windows": 17,
+      "bad_angle_windows": 3,
+      "zero_distance_records": 66742,
+      "resync_bytes_discarded": 20,
+      "stream_resets": 52
+    }
+  }
+]

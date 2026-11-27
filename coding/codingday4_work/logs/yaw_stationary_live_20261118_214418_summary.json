@@ -1,0 +1,386 @@
+{
+  "bytes": 128818,
+  "sha256": "8a53b0fc24b8f0a2872780e113b8cad6182f89e68c3607da704c6269434c2d93",
+  "frames": 3904,
+  "bad_lines": 0,
+  "trailing_partial_bytes": 0,
+  "counts": {
+    "Point": 1213,
+    "Imu": 1223,
+    "Navigation": 1223,
+    "Diagnostic": 244,
+    "Ack": 1
+  },
+  "streams": {
+    "lidar": {
+      "count": 1213,
+      "first": {
+        "seq": 20114,
+        "ms": 1010118,
+        "angle_cdeg": 25950,
+        "distance_mm": 557,
+        "quality": 52,
+        "new_scan": false
+      },
+      "last": {
+        "seq": 21326,
+        "ms": 1071247,
+        "angle_cdeg": 8800,
+        "distance_mm": 10031,
+        "quality": 16,
+        "new_scan": true
+      },
+      "duration_s": 61.129,
+      "frames_per_s": 19.826923391516303,
+      "missing": 0,
+      "duplicates": 0,
+      "out_of_order": 0,
+      "resets": 0
+    },
+    "imu": {
+      "count": 1223,
+      "first": {
+        "seq": 20069,
+        "ms": 1010150,
+        "heading_cdeg": -7145,
+        "gz_cdps": -10
+      },
+      "last": {
+        "seq": 21291,
+        "ms": 1071250,
+        "heading_cdeg": -7386,
+        "gz_cdps": -8
+      },
+      "duration_s": 61.1,
+      "frames_per_s": 20.0,
+      "missing": 0,
+      "duplicates": 0,
+      "out_of_order": 0,
+      "resets": 0
+    },
+    "nav": {
+      "count": 1223,
+      "first": {
+        "seq": 20202,
+        "ms": 1010150,
+        "cmd_id": 0,
+        "state": "IDLE",
+        "x_mm": 0,
+        "y_mm": 0,
+        "theta_mrad": 1571,
+        "target_x_mm": 0,
+        "target_y_mm": 0,
+        "waypoint": 0,
+        "fault": 0
+      },
+      "last": {
+        "seq": 21424,
+        "ms": 1071250,
+        "cmd_id": 1,
+        "state": "IDLE",
+        "x_mm": 0,
+        "y_mm": 0,
+        "theta_mrad": 1571,
+        "target_x_mm": 0,
+        "target_y_mm": 1400,
+        "waypoint": 0,
+        "fault": 0
+      },
+      "duration_s": 61.1,
+      "frames_per_s": 20.0,
+      "missing": 0,
+      "duplicates": 0,
+      "out_of_order": 0,
+      "resets": 0
+    }
+  },
+  "diagnostics": {
+    "B": {
+      "count": 61,
+      "first": [
+        "1011000",
+        "101102",
+        "20220",
+        "0",
+        "3",
+        "121321",
+        "0",
+        "0"
+      ],
+      "last": [
+        "1071000",
+        "107102",
+        "21420",
+        "0",
+        "3",
+        "128521",
+        "0",
+        "0"
+      ]
+    },
+    "S": {
+      "count": 61,
+      "first": [
+        "1011000",
+        "101101",
+        "101089",
+        "0",
+        "11",
+        "1",
+        "2"
+      ],
+      "last": [
+        "1071000",
+        "107101",
+        "107089",
+        "0",
+        "11",
+        "1",
+        "2"
+      ]
+    },
+    "Q": {
+      "count": 61,
+      "first": [
+        "1011000",
+        "0",
+        "8",
+        "0",
+        "8",
+        "0",
+        "64",
+        "0",
+        "0"
+      ],
+      "last": [
+        "1071000",
+        "0",
+        "8",
+        "0",
+        "8",
+        "0",
+        "64",
+        "0",
+        "0"
+      ]
+    },
+    "T": {
+      "count": 61,
+      "first": [
+        "1011000",
+        "2",
+        "W4BleRx",
+        "33",
+        "1536",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "1372"
+      ],
+      "last": [
+        "1071000",
+        "6",
+        "W4Oled",
+        "8",
+        "1536",
+        "21420",
+        "50806",
+        "5951",
+        "816",
+        "0",
+        "788"
+      ]
+    }
+  },
+  "tasks": {
+    "2": {
+      "ms": "1067000",
+      "id": "2",
+      "name": "W4BleRx",
+      "priority": "33",
+      "stack_bytes": "1536",
+      "wakes": "22",
+      "max_period_us": "732",
+      "max_elapsed_us": "20",
+      "max_jitter_us": "0",
+      "deadline_misses": "0",
+      "min_free_stack_bytes": "1192"
+    },
+    "3": {
+      "ms": "1068000",
+      "id": "3",
+      "name": "W4Lidar",
+      "priority": "32",
+      "stack_bytes": "2048",
+      "wakes": "65099",
+      "max_period_us": "21031",
+      "max_elapsed_us": "1318",
+      "max_jitter_us": "0",
+      "deadline_misses": "0",
+      "min_free_stack_bytes": "1208"
+    },
+    "4": {
+      "ms": "1069001",
+      "id": "4",
+      "name": "W4Path",
+      "priority": "24",
+      "stack_bytes": "2048",
+      "wakes": "97182",
+      "max_period_us": "11332",
+      "max_elapsed_us": "40",
+      "max_jitter_us": "0",
+      "deadline_misses": "0",
+      "min_free_stack_bytes": "1352"
+    },
+    "5": {
+      "ms": "1070000",
+      "id": "5",
+      "name": "W4BleTx",
+      "priority": "16",
+      "stack_bytes": "2048",
+      "wakes": "21400",
+      "max_period_us": "50323",
+      "max_elapsed_us": "128",
+      "max_jitter_us": "323",
+      "deadline_misses": "0",
+      "min_free_stack_bytes": "876"
+    },
+    "6": {
+      "ms": "1071000",
+      "id": "6",
+      "name": "W4Oled",
+      "priority": "8",
+      "stack_bytes": "1536",
+      "wakes": "21420",
+      "max_period_us": "50806",
+      "max_elapsed_us": "5951",
+      "max_jitter_us": "816",
+      "deadline_misses": "0",
+      "min_free_stack_bytes": "788"
+    },
+    "0": {
+      "ms": "1065000",
+      "id": "0",
+      "name": "W4Control",
+      "priority": "40",
+      "stack_bytes": "2048",
+      "wakes": "106501",
+      "max_period_us": "10009",
+      "max_elapsed_us": "20",
+      "max_jitter_us": "9",
+      "deadline_misses": "0",
+      "min_free_stack_bytes": "1560"
+    },
+    "1": {
+      "ms": "1066000",
+      "id": "1",
+      "name": "W4Imu",
+      "priority": "34",
+      "stack_bytes": "1536",
+      "wakes": "106590",
+      "max_period_us": "10007",
+      "max_elapsed_us": "2141",
+      "max_jitter_us": "1545",
+      "deadline_misses": "0",
+      "min_free_stack_bytes": "980"
+    }
+  },
+  "acks": [
+    {
+      "cmd_id": 1,
+      "status": "REJECTED",
+      "reason": "HARDWARE_NOT_READY"
+    }
+  ],
+  "nav_states": [
+    "IDLE"
+  ],
+  "nav_faults": [
+    0
+  ],
+  "lidar": {
+    "distance_min_mm": 352,
+    "distance_max_mm": 11221,
+    "angle_min_deg": 0.11,
+    "angle_max_deg": 359.86,
+    "ten_degree_bins": 36,
+    "new_scan_frames": 599
+  },
+  "heading_observation": {
+    "duration_s": 61.1,
+    "first_deg": -71.45,
+    "last_deg": -73.86000000000124,
+    "unwrapped_change_deg": -2.410000000001233,
+    "linear_slope_deg_s": -0.03873860787018076,
+    "mean_compensated_gz_deg_s": -0.03878168438266558,
+    "max_abs_compensated_gz_deg_s": 0.24,
+    "caution": "Angular change includes any actual body motion; only call this drift if stationary was separately confirmed."
+  },
+  "imu_sampling": {
+    "first": {
+      "ms": 1011000,
+      "timer_triggers": 101101,
+      "completed": 101089,
+      "failed": 0,
+      "sem_coalesced": 11,
+      "calibrated": 1,
+      "oled_status": 2
+    },
+    "last": {
+      "ms": 1071000,
+      "timer_triggers": 107101,
+      "completed": 107089,
+      "failed": 0,
+      "sem_coalesced": 11,
+      "calibrated": 1,
+      "oled_status": 2
+    },
+    "duration_s": 60.0,
+    "delta": {
+      "timer_triggers": 6000,
+      "completed": 6000,
+      "failed": 0,
+      "sem_coalesced": 0,
+      "calibrated": 0,
+      "oled_status": 0
+    }
+  },
+  "shared_i2c": {
+    "first": {
+      "ms": 1011000,
+      "imu_acquisitions": 101102,
+      "oled_acquisitions": 20220,
+      "imu_max_wait_ticks": 0,
+      "oled_max_hold_ticks": 3,
+      "completed": 121321,
+      "timeouts": 0,
+      "recoveries": 0
+    },
+    "last": {
+      "ms": 1071000,
+      "imu_acquisitions": 107102,
+      "oled_acquisitions": 21420,
+      "imu_max_wait_ticks": 0,
+      "oled_max_hold_ticks": 3,
+      "completed": 128521,
+      "timeouts": 0,
+      "recoveries": 0
+    },
+    "duration_s": 60.0,
+    "delta": {
+      "imu_acquisitions": 6000,
+      "oled_acquisitions": 1200,
+      "imu_max_wait_ticks": 0,
+      "oled_max_hold_ticks": 0,
+      "completed": 7200,
+      "timeouts": 0,
+      "recoveries": 0
+    }
+  },
+  "source": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\logs\\gui_continuous_20261118_214018.bin",
+  "log": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\logs\\yaw_stationary_live_20261118_214418.bin",
+  "source_offset": 396810,
+  "discarded_prefix_bytes": 0
+}

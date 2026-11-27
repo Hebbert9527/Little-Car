@@ -1,0 +1,1 @@
+GUI +/-5m preview passed: saved walls, fault status, goal selection without send, both views.

@@ -1,0 +1,44 @@
+{
+  "source": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\live_20261119_175346_685.bin",
+  "firmware": "integration_dual_rear_fixed_018_trim_v2",
+  "command_id": 3,
+  "command_distance_m": 1,
+  "wheel_speed_target_mps": 0.18,
+  "track_start_ms": 126650,
+  "arrival_ms": 132450,
+  "duration_s": 5.8,
+  "fault": 0,
+  "wheel_samples": 57,
+  "wheel_average_1_to_4s_mmps_left_right": [
+    186.93,
+    186.13
+  ],
+  "pwm_average_1_to_4s_percent_left_right": [
+    34.32,
+    34.39
+  ],
+  "telemetry_frame_counts": {
+    "A": 1,
+    "I": 127,
+    "N": 127,
+    "P": 127,
+    "D": 57,
+    "B": 6,
+    "S": 6,
+    "Q": 6,
+    "T": 6
+  },
+  "odometry_at_pwm_cutoff": {
+    "forward_mm": 1002.0,
+    "cross_left_positive_mm": -5.2,
+    "heading_left_positive_deg": -0.57,
+    "geometry_left_minus_right_travel_mm": 1.75
+  },
+  "odometry_500ms_after_arrival": {
+    "forward_mm": 1041.01,
+    "cross_left_positive_mm": -6.17,
+    "heading_left_positive_deg": -0.86,
+    "geometry_left_minus_right_travel_mm": 2.62
+  },
+  "user_reported_caster_measurement": null
+}

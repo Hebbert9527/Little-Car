@@ -1,0 +1,63 @@
+{
+  "command_id": 4,
+  "requested_target_mm": [
+    0,
+    1001
+  ],
+  "first_nav": {
+    "line": 71862,
+    "seq": 3641,
+    "ms": 182100,
+    "state": "TRACKING",
+    "xy_mm": [
+      0,
+      1
+    ],
+    "heading_mrad": 1550,
+    "target_mm": [
+      0,
+      1001
+    ],
+    "waypoint": 0,
+    "fault": 0
+  },
+  "terminal_nav": {
+    "line": 72228,
+    "seq": 3740,
+    "ms": 187050,
+    "state": "ARRIVED",
+    "xy_mm": [
+      -19,
+      999
+    ],
+    "heading_mrad": 1658,
+    "target_mm": [
+      0,
+      1001
+    ],
+    "waypoint": 0,
+    "fault": 0
+  },
+  "duration_s": 4.95,
+  "wheel_frames": 49,
+  "absolute_terminal_error_mm": 19.1,
+  "peak_forward_mean_encoder_mps": 0.2505,
+  "corner": null,
+  "post_stop_500ms_nav": {
+    "line": 72258,
+    "seq": 3750,
+    "ms": 187550,
+    "state": "ARRIVED",
+    "xy_mm": [
+      -24,
+      1064
+    ],
+    "heading_mrad": 1641,
+    "target_mm": [
+      0,
+      1001
+    ],
+    "waypoint": 0,
+    "fault": 0
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "source": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\live_20261119_175346_685.bin",
+  "capture": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\goal_settle_ground_cmd3_20261119_1814.bin",
+  "build": "integration_dual_rear_goal_settle",
+  "command_id": 3,
+  "start_ms": 308700,
+  "arrived_ms": 324700,
+  "duration_s": 16.0,
+  "max_lateral_mm": -93,
+  "max_lateral_at_y_mm": 722,
+  "arrival_xy_mm": [
+    48,
+    1397
+  ],
+  "radial_goal_error_mm": 48.1,
+  "arrival_fault": 0,
+  "peak_500ms_mps": 0.25,
+  "frames": {
+    "N": 321,
+    "D": 158,
+    "P": 318,
+    "I": 320,
+    "B": 16,
+    "S": 16,
+    "Q": 16,
+    "T": 16
+  },
+  "wheel_samples": 158,
+  "terminal_pivot_samples": 86,
+  "terminal_pivot_direction_flips": 0,
+  "selected_forward_samples": 67,
+  "selected_forward_saturation_400_left_right": [
+    57,
+    30
+  ]
+}

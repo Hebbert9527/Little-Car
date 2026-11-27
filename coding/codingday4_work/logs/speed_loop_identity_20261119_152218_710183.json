@@ -1,0 +1,34 @@
+{
+  "time_beijing": "20261119_152218_710183",
+  "hex_sha256": "49c7ecf21c5afb47a77f959509fb5f0556a130b6739dcd159322ef76327d4f93",
+  "elf_sha256": "0ec76ab122381600d754a5880b583c07882e3b3b0711497828b607cbc00ee97e",
+  "mismatches": 0,
+  "valid_hex_bytes": 39608,
+  "identity_source": null,
+  "readings_sequential": true,
+  "diagnostic_address": "0x20000514",
+  "diagnostic": {
+    "request": 0,
+    "state": 0,
+    "last_side": 0,
+    "start_ms": 0,
+    "stop_ms": 0,
+    "left_start": 0,
+    "left_stop": 0,
+    "right_start": 0,
+    "right_stop": 0,
+    "left_ccr_before_stop": 0,
+    "right_ccr_before_stop": 0,
+    "completed": 0
+  },
+  "fault": {
+    "W4FaultCode": 0,
+    "W4FaultDetail": 0
+  },
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ]
+}

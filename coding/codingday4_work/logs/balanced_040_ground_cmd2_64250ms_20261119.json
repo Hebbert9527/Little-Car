@@ -1,0 +1,40 @@
+{
+  "boot_epoch": 1,
+  "cmd_id": 2,
+  "distance_m": 1.4,
+  "start_ms": 64250,
+  "end_ms": 70750,
+  "state": "ARRIVED",
+  "duration_s": 6.5,
+  "fault": 0,
+  "wheel_frames": 65,
+  "arrival": {
+    "along_mm": 1398.02,
+    "cross_left_positive_mm": -2.69,
+    "heading_left_positive_deg": 5.96
+  },
+  "maximum_absolute_cross_mm": 20.86,
+  "post_stop_500ms": {
+    "along_mm": 1466.99,
+    "cross_left_positive_mm": 5.57,
+    "heading_left_positive_deg": 6.7
+  },
+  "coast_forward_mm": 68.97,
+  "cruise_1_to_4s": {
+    "frames": 30,
+    "mean_encoder_mmps_left_right": [
+      222.1,
+      214.07
+    ],
+    "mean_pwm_percent_left_right": [
+      39.62,
+      37.17
+    ],
+    "pwm_at_least_40_percent_left_right": [
+      21,
+      6
+    ]
+  },
+  "mean_commanded_speed_mmps": 400.0,
+  "peak_measured_mean_wheel_speed_mmps": 259.5
+}

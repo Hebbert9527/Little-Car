@@ -1,0 +1,15 @@
+{
+  "backup_bytes": 524288,
+  "backup_sha256": "8a7842bb4757abfb6f0b6e3c636efaeaea4f6ae88463c5b59495b6e190c6bc3a",
+  "old_hex_bytes_compared": 97708,
+  "mismatches": 0,
+  "board_version": "maze_continuous",
+  "pwm_preflight": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "flashed": false,
+  "status": "Flash write blocked by automatic approval review; explicit user authorization requested."
+}

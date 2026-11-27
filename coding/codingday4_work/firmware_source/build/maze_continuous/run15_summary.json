@@ -1,0 +1,34 @@
+{
+  "command": 15,
+  "target_m": [
+    0,
+    2
+  ],
+  "last_pose_m": [
+    0.305,
+    0.681
+  ],
+  "last_leg_m": [
+    0.3,
+    0.711
+  ],
+  "distance_to_leg_mm": 30.4138126514911,
+  "error_deg": 40.61955664809008,
+  "last_state": "TRACKING",
+  "faults": [
+    0
+  ],
+  "stationary_ms_before_stop": 8050,
+  "near_stop_left_request_mm_s": [
+    2,
+    2
+  ],
+  "near_stop_right_request_mm_s": [
+    24,
+    26
+  ],
+  "imu_failures_first": 61,
+  "imu_failures_last": 61,
+  "terminal": "N,24281,1214100,0,STOPPED,305,681,1027,0,2000,0,0",
+  "raw": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\maze_stop_cmd15_20261127.bin"
+}

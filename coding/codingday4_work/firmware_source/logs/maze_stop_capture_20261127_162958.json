@@ -1,0 +1,10 @@
+{
+  "source": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\maze_detour_live_20261127_154624.bin",
+  "raw": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\maze_stop_capture_20261127_162958.bin",
+  "armed_beijing": "20261127_162958",
+  "command": 15,
+  "terminal": "N,24281,1214100,0,STOPPED,305,681,1027,0,2000,0,0",
+  "start_offset": 6405269,
+  "start_ms": 1194935,
+  "end_offset": 7035824
+}

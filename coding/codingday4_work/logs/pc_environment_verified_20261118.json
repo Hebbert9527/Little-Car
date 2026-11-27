@@ -1,0 +1,19 @@
+{
+  "python": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.venv\\Scripts\\python.exe",
+  "prefix": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.venv",
+  "tempfile": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\tmp",
+  "versions": {
+    "matplotlib": "3.11.2",
+    "bleak": "3.1.0",
+    "pyserial": "3.5",
+    "numpy": "2.3.5",
+    "pillow": "13.0.0",
+    "python-dateutil": "4.0.0",
+    "winrt-runtime": "4.2.0"
+  },
+  "installed_modules": {
+    "matplotlib": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.venv\\Lib\\site-packages\\matplotlib\\__init__.py",
+    "bleak": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.venv\\Lib\\site-packages\\bleak\\__init__.py",
+    "serial": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.venv\\Lib\\site-packages\\serial\\__init__.py"
+  }
+}

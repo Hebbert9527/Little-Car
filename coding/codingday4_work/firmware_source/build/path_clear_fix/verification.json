@@ -1,0 +1,150 @@
+{
+  "hex_sha256": "e6382fcb3e66cc32b7a0974e795f0b7a0b38c277effc975617a5126e4ffc5a59",
+  "elf_sha256": "406b510ca1e261cdd48ea703db5b26f2398b3782b57e6b6918e5a66e082927e6",
+  "verified_hex_bytes": 105444,
+  "mismatches": 0,
+  "software_regressions": 15,
+  "pc_regressions": 32,
+  "motion_test_after_flash": false,
+  "startup": {
+    "xTickCount": [
+      4339
+    ],
+    "xMinimumEverFreeBytesRemaining": [
+      9216
+    ],
+    "xFreeBytesRemaining": [
+      9216
+    ],
+    "w4_nav": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1070141403,
+      1
+    ],
+    "W4Imu_Counters": [
+      435,
+      424,
+      11,
+      424,
+      424,
+      0,
+      0,
+      3,
+      0,
+      19,
+      176,
+      0,
+      0
+    ],
+    "W4Threads": [
+      536968088,
+      536969736,
+      536971384,
+      536973544,
+      536975704,
+      536977864,
+      536979512
+    ],
+    "W4FaultCode": [
+      0
+    ],
+    "imu_snapshot": [
+      0,
+      0,
+      4342,
+      0
+    ],
+    "imu_status": {
+      "valid": 0,
+      "calibrated": 0,
+      "xy_bias_warning": 0,
+      "sample_ms": 4342
+    },
+    "pwm": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "postflash_health": {
+    "xTickCount": [
+      24522
+    ],
+    "xMinimumEverFreeBytesRemaining": [
+      9216
+    ],
+    "xFreeBytesRemaining": [
+      9216
+    ],
+    "w4_nav": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      24520,
+      3037885954,
+      3109504114,
+      1070073386,
+      1
+    ],
+    "W4Imu_Counters": [
+      2453,
+      2442,
+      11,
+      2442,
+      2442,
+      0,
+      0,
+      4,
+      0,
+      28,
+      200,
+      0,
+      11
+    ],
+    "W4Threads": [
+      536968088,
+      536969736,
+      536971384,
+      536973544,
+      536975704,
+      536977864,
+      536979512
+    ],
+    "W4FaultCode": [
+      0
+    ],
+    "imu_snapshot": [
+      3154436432,
+      3129094011,
+      24522,
+      65793
+    ],
+    "imu_status": {
+      "valid": 1,
+      "calibrated": 1,
+      "xy_bias_warning": 1,
+      "sample_ms": 24522
+    },
+    "pwm": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "retry_wait_test_seconds": 2.8,
+  "full_regression_log": "regressions_final.txt",
+  "retry_regression_log": "retry_final.txt"
+}

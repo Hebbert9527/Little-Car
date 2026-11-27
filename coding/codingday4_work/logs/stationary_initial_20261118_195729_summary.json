@@ -1,0 +1,37 @@
+{
+  "file": "C:\\Users\\Hebert\\Documents\\ChatGPT\\\u5d4c\u5165\u5f0f\u5f00\u53d1\\codingday4_work\\logs\\stationary_initial_20261118_195729.jsonl",
+  "samples": 12,
+  "elapsed_s": 7.76,
+  "counter_deltas": {
+    "timer_triggers": 776,
+    "sem_released": 776,
+    "sem_coalesced": 0,
+    "acquired": 776,
+    "completed": 776,
+    "failed": 0,
+    "max_wait_ms": 0,
+    "max_process_ms": 0,
+    "rejected_intervals": 0,
+    "calibration_motion": 776,
+    "calibration_samples": 0,
+    "init_failures": 0,
+    "max_sample_interval_ms": 0
+  },
+  "completed_hz": 100.0,
+  "gyro_dps_mean": [
+    5.510178117048346,
+    14.447837150127226,
+    -0.9128498727735369
+  ],
+  "gyro_dps_sd": [
+    0.46810348733147994,
+    0.07881695492139652,
+    0.052126164155971426
+  ],
+  "accel_g_mean": [
+    0.020751953125,
+    0.01739501953125,
+    1.0283610026041667
+  ],
+  "note": "Sparse non-atomic SWD reads. Do not treat noise statistics as coherent 100Hz samples."
+}

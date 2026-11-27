@@ -1,0 +1,1 @@
+{'status': 'BLE C4:25:01:17:00:02', 'connected': True, 'frames': 365, 'bytes': 12290, 'bad': 0, 'missing': 0, 'display_drops': 0}

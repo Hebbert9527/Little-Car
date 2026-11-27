@@ -1,0 +1,20 @@
+{
+  "diameter_l_m": 0.06800000369548798,
+  "diameter_r_m": 0.06800000369548798,
+  "track_m": 0.17499999701976776,
+  "cpr_l": 391.1499938964844,
+  "cpr_r": 391.1499938964844,
+  "encoder_sign_l": 1,
+  "encoder_sign_r": 1,
+  "imu_sign": 1,
+  "imu_offset_rad": 1.5707963705062866,
+  "ready_flags": [
+    0,
+    0,
+    0
+  ],
+  "config_address": "0x20000010",
+  "config_size": 104,
+  "hex_sha256": "2fbd76d74446bd76ef534455a224eb0c7a9b7daff3df92bcd2885960e2b35ff5",
+  "elf_sha256": "8822848ddd2a599368f7a8093baaf5266c50986cc0a65a3531225804abab122b"
+}

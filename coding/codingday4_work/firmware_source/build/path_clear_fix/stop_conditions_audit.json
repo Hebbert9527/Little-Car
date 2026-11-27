@@ -1,0 +1,46 @@
+{
+  "week4/Src/w4_control.c": {
+    "sha256": "8b0160312ee0bdf25335813271863ee4c030361a94d3673a0d2ebc9c5d60936e",
+    "matches_flashed_source_manifest": true
+  },
+  "week4/Src/w4_pose_single.c": {
+    "sha256": "394c1ca2b9de7a76f5b875a8874fa40f66486e21e88975c7406e818afa4ce92c",
+    "matches_flashed_source_manifest": true
+  },
+  "week4/Src/w4_maze.c": {
+    "sha256": "1a7bff0a59273a07b280c8c4f20f7342efcf612fc5dc96ca4fb4400b54bbc44c",
+    "matches_flashed_source_manifest": true
+  },
+  "week4/Src/w4_noetic_motion.c": {
+    "sha256": "f14e2cab48e475d0bc27854bb7eb905c08f7a355dc9b78ffed99d54020436153",
+    "matches_flashed_source_manifest": true
+  },
+  "week4/Src/w4_noetic_planner_algo.c": {
+    "sha256": "23b2c392d8f01b3beb2feac301533b4950410dbbbaddd76b3667d89bd9ad19f2",
+    "matches_flashed_source_manifest": true
+  },
+  "week4/Src/w4_bt_rx.c": {
+    "sha256": "25bb39a199cf2463dc7b4769a95762fd24ada20592162c8194b8bb91e845dd26",
+    "matches_flashed_source_manifest": true
+  },
+  "week4/Src/w4_path.c": {
+    "sha256": "104d02ac72f8d06041f3225a90d9a1784087b6b5f48aca714a3dc0a620a42c66",
+    "matches_flashed_source_manifest": true
+  },
+  "week4/Src/w4_common.c": {
+    "sha256": "10ab40c1a97538edea40776fb4a171e9b2b81b22033eebaadc39526913b353b7",
+    "matches_flashed_source_manifest": true
+  },
+  "week4/Src/w4_fault.c": {
+    "sha256": "1d35aebaddb4689ad7a1e29774c1699bb3b0c317063e79eaf9922ed660bfc0aa",
+    "matches_flashed_source_manifest": true
+  },
+  "week4/Src/w4_motor.c": {
+    "sha256": "db34990b906bf9af0f71eb171c99ba4002b20733b9ca91c4f9ec8cdc4405d6cf",
+    "matches_flashed_source_manifest": true
+  },
+  "week4/Inc/planner_config.h": {
+    "sha256": "c7f1be0e3d2c002f84c300f0f2af40ee998f5402abf7a4cd646d6744c48cbcb5",
+    "matches_flashed_source_manifest": true
+  }
+}

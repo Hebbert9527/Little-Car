@@ -1,0 +1,34 @@
+{
+  "hex_sha256": "309b21a22f8e073c0e940af2c33503bd6f13072a6ae069a9b3039055a00d8e8d",
+  "elf_sha256": "478d593d20877ad893cf983c739c0387c6396d69da9bdb0cbe61653e2e965969",
+  "build": "integration_dual_rear_fixed_018_trim_v2",
+  "serial": "0674FF545155657067032031",
+  "hex": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\build\\integration_dual_rear_fixed_018_trim_v2\\Week4_Integrated.hex",
+  "elf": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\build\\integration_dual_rear_fixed_018_trim_v2\\Week4_Integrated.elf",
+  "log": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\flash_integration_dual_rear_fixed_018_trim_v2_20261119_195513_252566.txt",
+  "verified": true,
+  "reset": true,
+  "checked_hex_bytes": 88372,
+  "mismatches": 0,
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "calibration_flags": [
+    1,
+    1,
+    1
+  ],
+  "nav_state": 0,
+  "mcu_fault": 0,
+  "tick_ms": 812,
+  "max_v_mps": 0.5,
+  "max_wheel_mps": 0.59,
+  "pwm_limit": 0.4,
+  "fixed_distance_feedforward_at_018_left_right_percent": [
+    30.99,
+    35.59
+  ]
+}

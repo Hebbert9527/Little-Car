@@ -1,0 +1,1 @@
+BLE attempt 1: connecting to C4:25:01:17:00:02

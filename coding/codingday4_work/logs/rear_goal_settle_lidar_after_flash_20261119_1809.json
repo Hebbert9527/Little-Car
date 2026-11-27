@@ -1,0 +1,40 @@
+{
+  "tick_ms": 48554,
+  "p_frames_attempted": 267,
+  "dma": {
+    "state": 6,
+    "ht_count": 134,
+    "tc_count": 134,
+    "last_half_interval_ms": 50,
+    "min_half_interval_ms": 49,
+    "halves_delivered": 266,
+    "bytes_delivered": 332493,
+    "max_batch_ms": 1,
+    "max_copy_ms": 0,
+    "max_queue_age_ms": 1,
+    "overruns": 2,
+    "bad_descriptors": 2,
+    "descriptor_timeouts": 0,
+    "stream_timeouts": 6,
+    "hal_busy": 0,
+    "hal_failures": 0,
+    "uart_errors": 0,
+    "last_uart_error": 0,
+    "rx_stops": 0,
+    "abort_timeouts": 0,
+    "retries": 8,
+    "stream_breaks": 6,
+    "dropped_blocks": 2,
+    "sequence_gaps": 0,
+    "queue_errors": 0,
+    "state_name": "STREAM"
+  },
+  "parser": {
+    "points_emitted": 56313,
+    "bad_header_windows": 4,
+    "bad_angle_windows": 0,
+    "zero_distance_records": 10433,
+    "resync_bytes_discarded": 4,
+    "stream_resets": 10
+  }
+}

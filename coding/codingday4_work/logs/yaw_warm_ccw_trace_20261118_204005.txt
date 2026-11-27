@@ -1,0 +1,101 @@
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.18.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 0674FF545155657067032031
+ST-LINK FW  : V2J47M34
+Board       : --
+Voltage     : 3.22V
+SWD freq    : 4000 KHz
+Connect mode: Hot Plug
+Reset mode  : Software reset
+Device ID   : 0x421
+Revision ID : Rev A
+Device name : STM32F446xx
+Flash size  : 512 KBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : 0x90
+
+
+UPLOADING ...
+  File          : D:\EMBEGGed\week4codingday\coding\codingday4_work\logs\yaw_warm_ccw_trace_20261118_204005.bin
+  Size          : 172 Bytes
+  Address:      : 0x20001B88
+Read progress:
+�������������������������������������������������� 0%�������������������������������������������������� 100%
+Data read successfully
+Time elapsed during read operation is: 00:00:00.001
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x20001B98
+
+0x20001B98 : 0000003A
+
+
+
+Reading 32-bit memory content
+  Size          : 16 Bytes
+  Address:      : 0x20001CC8
+
+0x20001CC8 : 3EA78EEF 3E7CD012 00023B74 00010101
+
+Reading 32-bit memory content
+  Size          : 52 Bytes
+  Address:      : 0x20001CD8
+
+0x20001CD8 : 00003927 0000391C 0000000B 0000391C
+0x20001CE8 : 0000391B 00000000 00000000 00000003
+0x20001CF8 : 00000000 00000007 000000C8 00000000
+0x20001D08 : 0000000A
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x200019F4
+
+0x200019F4 : 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x200019F0
+
+0x200019F0 : 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x20002814
+
+0x20002814 : 00023B80
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x20000010
+
+0x20000010 : 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 8 Bytes
+  Address:      : 0x40000834
+
+0x40000834 : 00000000 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 8 Bytes
+  Address:      : 0x40001834
+
+0x40001834 : 00000000 00000000
+
+

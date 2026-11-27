@@ -1,0 +1,96 @@
+{
+  "time_beijing": "2026-11-18T22:03:38.892835+08:00",
+  "phases": {
+    "gpio_left_baseline": {
+      "log": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\logs\\gpio_left_baseline_20261118_215619.json",
+      "valid_samples": 54,
+      "sample_span_s": 11.780999999999949,
+      "read_errors": 0,
+      "candidate_input_changes": {},
+      "known_input_changes": {
+        "PA10": 23,
+        "PB8": 8,
+        "PB9": 10,
+        "PC10": 4
+      },
+      "pwm_nonzero_samples": 0
+    },
+    "gpio_left_turn": {
+      "log": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\logs\\gpio_left_turn_20261118_215703.json",
+      "valid_samples": 192,
+      "sample_span_s": 44.8599999999999,
+      "read_errors": 0,
+      "candidate_input_changes": {},
+      "known_input_changes": {
+        "PA10": 86,
+        "PB8": 32,
+        "PB9": 52
+      },
+      "pwm_nonzero_samples": 0
+    },
+    "gpio_left_confirm": {
+      "log": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\logs\\gpio_left_confirm_20261118_215925.json",
+      "valid_samples": 316,
+      "sample_span_s": 71.17200000000003,
+      "read_errors": 0,
+      "candidate_input_changes": {},
+      "known_input_changes": {
+        "PA10": 126,
+        "PB8": 51,
+        "PB9": 71,
+        "PC10": 12
+      },
+      "pwm_nonzero_samples": 0
+    },
+    "gpio_right_control": {
+      "log": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\logs\\gpio_right_control_20261118_220111.json",
+      "valid_samples": 275,
+      "sample_span_s": 61.983999999999924,
+      "read_errors": 0,
+      "candidate_input_changes": {},
+      "known_input_changes": {
+        "PA7": 50,
+        "PA10": 107,
+        "PB8": 50,
+        "PB9": 46,
+        "PC10": 6
+      },
+      "pwm_nonzero_samples": 0
+    }
+  },
+  "right_control": {
+    "before": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\logs\\encoder_right_control_before_20261118_220110.json",
+    "after": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\logs\\encoder_right_control_after_20261118_220214.json",
+    "encoder_before": {
+      "edge_count": 2,
+      "capture_count": 1,
+      "invalid_count": 0,
+      "overcapture_count": 0,
+      "overflow_count": 31145
+    },
+    "encoder_after": {
+      "edge_count": 2176,
+      "capture_count": 2174,
+      "invalid_count": 1,
+      "overcapture_count": 0,
+      "overflow_count": 32145
+    },
+    "edge_delta": 2174,
+    "fault": 0,
+    "calibration_flags": 0,
+    "pwm": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "conclusion": "Right PA7 capture works. Left signal pin is not defined in searched source/backups and was not identified among sampled candidate digital inputs. Independent left speed is not yet measured.",
+  "limitations": [
+    "Sparse GPIO changes are not pulse counts or RPM.",
+    "GPIO ports D/H clocks remain disabled; no configuration was changed.",
+    "Analog-mode PA0 digital input is not sampled as a candidate.",
+    "No observed input activity does not establish absence, wrong wiring, sensor failure, or power fault."
+  ],
+  "next": "User to trace left encoder output signal to its actual MCU/adapter label; keep motor power disconnected."
+}

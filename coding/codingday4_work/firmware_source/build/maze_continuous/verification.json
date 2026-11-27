@@ -1,0 +1,62 @@
+{
+  "hex_sha256": "947a389da866831f5a3c15774a5be8e4e3a4e4a1abba90b5f0ea8b4841d1ba48",
+  "elf_sha256": "73b1f9909053fb5720b362ac7aa4a005c5938cb7c642b43f813c31db96b7c993",
+  "verified_hex_bytes": 97708,
+  "mismatches": 0,
+  "software_regressions": 14,
+  "motion_test_after_flash": false,
+  "startup": {
+    "xTickCount": [
+      4142
+    ],
+    "w4_nav": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      4140,
+      0,
+      0,
+      1070142246,
+      1
+    ],
+    "W4Imu_Counters": [
+      415,
+      404,
+      11,
+      404,
+      404,
+      0,
+      0,
+      3,
+      0,
+      0,
+      200,
+      0,
+      10
+    ],
+    "W4FaultCode": [
+      0
+    ],
+    "imu_snapshot": [
+      952934835,
+      3121168560,
+      4142,
+      65793
+    ],
+    "imu_status": {
+      "valid": 1,
+      "calibrated": 1,
+      "xy_bias_warning": 1,
+      "sample_ms": 4142
+    },
+    "pwm": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

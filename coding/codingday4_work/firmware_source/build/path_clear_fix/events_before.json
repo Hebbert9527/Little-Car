@@ -1,0 +1,154 @@
+[
+  {
+    "seq": 10653,
+    "ms": 532706,
+    "cmd_id": 0,
+    "state": "IDLE",
+    "x_mm": 0,
+    "y_mm": 0,
+    "theta_mrad": 1581,
+    "target_x_mm": 0,
+    "target_y_mm": 0,
+    "waypoint": 0,
+    "fault": 0
+  },
+  {
+    "cmd_id": 1,
+    "status": "OK",
+    "reason": "RESET_PENDING"
+  },
+  {
+    "seq": 11316,
+    "ms": 565850,
+    "cmd_id": 0,
+    "state": "STOPPED",
+    "x_mm": 0,
+    "y_mm": 0,
+    "theta_mrad": 1571,
+    "target_x_mm": 0,
+    "target_y_mm": 0,
+    "waypoint": 0,
+    "fault": 0
+  },
+  {
+    "cmd_id": 2,
+    "status": "OK",
+    "reason": "RESET_PENDING"
+  },
+  {
+    "cmd_id": 3,
+    "status": "OK",
+    "reason": "MAZE_ACCEPTED"
+  },
+  {
+    "seq": 11691,
+    "ms": 584604,
+    "cmd_id": 3,
+    "state": "PLANNING",
+    "x_mm": 0,
+    "y_mm": 0,
+    "theta_mrad": 1569,
+    "target_x_mm": 0,
+    "target_y_mm": 1300,
+    "waypoint": 0,
+    "fault": 0
+  },
+  {
+    "seq": 11692,
+    "ms": 584650,
+    "cmd_id": 3,
+    "state": "TRACKING",
+    "x_mm": 0,
+    "y_mm": 0,
+    "theta_mrad": 1569,
+    "target_x_mm": 0,
+    "target_y_mm": 1300,
+    "waypoint": 0,
+    "fault": 0
+  },
+  {
+    "seq": 11832,
+    "ms": 591650,
+    "cmd_id": 3,
+    "state": "PLANNING",
+    "x_mm": -395,
+    "y_mm": 417,
+    "theta_mrad": 2206,
+    "target_x_mm": 0,
+    "target_y_mm": 1300,
+    "waypoint": 0,
+    "fault": 0
+  },
+  {
+    "seq": 11838,
+    "ms": 591950,
+    "cmd_id": 3,
+    "state": "TRACKING",
+    "x_mm": -395,
+    "y_mm": 417,
+    "theta_mrad": 2208,
+    "target_x_mm": 0,
+    "target_y_mm": 1300,
+    "waypoint": 0,
+    "fault": 0
+  },
+  {
+    "seq": 11871,
+    "ms": 593600,
+    "cmd_id": 3,
+    "state": "PLANNING",
+    "x_mm": -479,
+    "y_mm": 507,
+    "theta_mrad": 2379,
+    "target_x_mm": 0,
+    "target_y_mm": 1300,
+    "waypoint": 0,
+    "fault": 0
+  },
+  {
+    "cmd_id": 3,
+    "status": "REJECTED",
+    "reason": "NO_CLEAR_PATH"
+  },
+  {
+    "seq": 11872,
+    "ms": 593650,
+    "cmd_id": 3,
+    "state": "FAULT",
+    "x_mm": -479,
+    "y_mm": 507,
+    "theta_mrad": 2378,
+    "target_x_mm": 0,
+    "target_y_mm": 1300,
+    "waypoint": 0,
+    "fault": 10
+  },
+  {
+    "cmd_id": 4,
+    "status": "OK",
+    "reason": "RESET_PENDING"
+  },
+  {
+    "seq": 12360,
+    "ms": 618050,
+    "cmd_id": 0,
+    "state": "STOPPED",
+    "x_mm": 0,
+    "y_mm": 0,
+    "theta_mrad": 1570,
+    "target_x_mm": 0,
+    "target_y_mm": 0,
+    "waypoint": 0,
+    "fault": 0
+  },
+  {
+    "cmd_id": 5,
+    "status": "OK",
+    "reason": "RESET_PENDING"
+  },
+  {
+    "cmd_id": 6,
+    "status": "OK",
+    "reason": "RESET_PENDING"
+  }
+]

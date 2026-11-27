@@ -1,0 +1,44 @@
+{
+  "sample_ms": 107952,
+  "valid": 0,
+  "calibrated": 0,
+  "window_ms": [
+    100112,
+    105102
+  ],
+  "mean_accel_g": [
+    0.26538825035095215,
+    0.022867674008011818,
+    0.9896920919418335
+  ],
+  "mean_gyro_deg_s": [
+    5.878155708312988,
+    14.89804458618164,
+    -1.2949622869491577
+  ],
+  "std_accel_g": [
+    0.0024802522245917303,
+    0.0027012067858236686,
+    0.006098110274684347
+  ],
+  "std_gyro_deg_s": [
+    0.10952972816820199,
+    0.1810055287449034,
+    0.04891725283586258
+  ],
+  "counters": {
+    "timer_triggers": 10796,
+    "sem_released": 10785,
+    "sem_coalesced": 11,
+    "acquired": 10785,
+    "completed": 10785,
+    "failed": 0,
+    "max_wait_ms": 0,
+    "max_process_ms": 3,
+    "rejected_intervals": 0,
+    "calibration_motion": 10716,
+    "calibration_samples": 0,
+    "init_failures": 0,
+    "max_sample_interval_ms": 0
+  }
+}

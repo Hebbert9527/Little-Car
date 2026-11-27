@@ -1,0 +1,20 @@
+{
+  "nav_state": 0,
+  "nav_fault": 0,
+  "mcu_fault": 0,
+  "tick": 43848,
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "imu": {
+    "valid": 1,
+    "calibrated": 1,
+    "xy_bias": 1,
+    "sample_ms": 43842,
+    "completed": 4246,
+    "failed": 6
+  }
+}

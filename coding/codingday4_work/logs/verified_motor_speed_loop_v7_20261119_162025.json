@@ -1,0 +1,20 @@
+{
+  "time_beijing": "20261119_162025",
+  "serial": "0674FF545155657067032031",
+  "hex": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\build\\motor_speed_loop_v7\\Week4_Integrated.hex",
+  "elf": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\build\\motor_speed_loop_v7\\Week4_Integrated.elf",
+  "hex_sha256": "c161a01311271e7182ce93b22caf8056718c321d424297b9e9f8c46b5f92eac4",
+  "elf_sha256": "a5477a9357cf666f50736171bd94d7f22a732fc076d7c6740206133f4d87850b",
+  "log": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\flash_motor_speed_loop_v7_20261119_162025.txt",
+  "verified": true,
+  "reset": true,
+  "motor_power_disconnected": true,
+  "max_pwm_percent": 60,
+  "steady_pwm_percent": 40,
+  "startup_window_ms": 1000,
+  "speed_pulse_ms": 5000,
+  "cpr_left": 1559.45,
+  "cpr_right": 1561.6,
+  "kp": 0.002,
+  "ki": 0.008
+}

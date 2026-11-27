@@ -1,0 +1,112 @@
+SUMMARY D:\EMBEGGed\week4codingday\coding\codingday4_work\logs\ble_gui_verified_20261118_214635_summary.json
+{
+  "bytes": 692885,
+  "frames": 21508,
+  "bad_lines": 1,
+  "counts": {
+    "Imu": 6730,
+    "Navigation": 6730,
+    "Point": 6703,
+    "Diagnostic": 1344,
+    "Ack": 1
+  },
+  "streams": {
+    "lidar": {
+      "count": 6703,
+      "first": {
+        "seq": 16184,
+        "ms": 813252,
+        "angle_cdeg": 18467,
+        "distance_mm": 1447,
+        "quality": 31,
+        "new_scan": false
+      },
+      "last": {
+        "seq": 22886,
+        "ms": 1149672,
+        "angle_cdeg": 16809,
+        "distance_mm": 3801,
+        "quality": 31,
+        "new_scan": true
+      },
+      "duration_s": 336.42,
+      "frames_per_s": 19.921526663099694,
+      "missing": 0,
+      "duplicates": 0,
+      "out_of_order": 0,
+      "resets": 0
+    },
+    "imu": {
+      "count": 6730,
+      "first": {
+        "seq": 15269,
+        "ms": 770150,
+        "heading_cdeg": -5271,
+        "gz_cdps": -4
+      },
+      "last": {
+        "seq": 22860,
+        "ms": 1149700,
+        "heading_cdeg": -7646,
+        "gz_cdps": -2
+      },
+      "duration_s": 379.55,
+      "frames_per_s": 17.728889474377553,
+      "missing": 862,
+      "duplicates": 0,
+      "out_of_order": 0,
+      "resets": 0
+    },
+    "nav": {
+      "count": 6730,
+      "first": {
+        "seq": 16264,
+        "ms": 813250,
+        "cmd_id": 0,
+        "state": "IDLE",
+        "x_mm": 0,
+        "y_mm": 0,
+        "theta_mrad": 1571,
+        "target_x_mm": 0,
+        "target_y_mm": 0,
+        "waypoint": 0,
+        "fault": 0
+      },
+      "last": {
+        "seq": 22993,
+        "ms": 1149700,
+        "cmd_id": 1,
+        "state": "IDLE",
+        "x_mm": 0,
+        "y_mm": 0,
+        "theta_mrad": 1571,
+        "target_x_mm": 0,
+        "target_y_mm": 1400,
+        "waypoint": 0,
+        "fault": 0
+      },
+      "duration_s": 336.45,
+      "frames_per_s": 20.0,
+      "missing": 0,
+      "duplicates": 0,
+      "out_of_order": 0,
+      "resets": 0
+    }
+  },
+  "nav_states": [
+    "IDLE"
+  ],
+  "nav_faults": [
+    0
+  ],
+  "heading_observation": {
+    "duration_s": 379.55,
+    "first_deg": -52.71,
+    "last_deg": -76.46000000000633,
+    "unwrapped_change_deg": -23.75000000000633,
+    "linear_slope_deg_s": -0.0548186800718123,
+    "mean_compensated_gz_deg_s": -0.06414561664190194,
+    "max_abs_compensated_gz_deg_s": 27.69,
+    "caution": "Angular change includes any actual body motion; only call this drift if stationary was separately confirmed."
+  }
+}

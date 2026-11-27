@@ -1,0 +1,43 @@
+{
+  "time_beijing": "20261119_155732_929171",
+  "hex_sha256": "3ec5fdd52f5cce2ac047b5d6bd738de47713dc6c109a85427000a9f995eff8a8",
+  "elf_sha256": "7be9930a35e41334918809b497c6cef92d41298384b1e5230284400186799793",
+  "mismatches": 0,
+  "valid_hex_bytes": null,
+  "identity_source": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\speed_v3_pre_90_20261119_155726_998620_20261119_155727_076456.json",
+  "readings_sequential": true,
+  "diagnostic_address": "0x2000051c",
+  "diagnostic": {
+    "request": 0,
+    "state": 2,
+    "last_side": 3,
+    "start_ms": 158861,
+    "stop_ms": 159861,
+    "left_start": 0,
+    "left_stop": 0,
+    "right_start": 0,
+    "right_stop": 1556,
+    "left_ccr_before_stop": 1800,
+    "right_ccr_before_stop": 1797,
+    "completed": 2
+  },
+  "fault": {
+    "W4FaultCode": 0,
+    "W4FaultDetail": 0
+  },
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "speed_summary": {
+    "target_rpm": 90.0,
+    "samples": 19,
+    "fault": 2,
+    "trace": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\speed_v3_post_90_20261119_155726_998620_20261119_155732_929171_speed.json",
+    "settled_samples": 0,
+    "kp": 0.0020000000949949026,
+    "ki": 0.00800000037997961
+  }
+}

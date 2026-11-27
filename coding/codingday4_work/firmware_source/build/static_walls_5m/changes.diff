@@ -1,0 +1,808 @@
+--- before/README_handoff.md
++++ README_handoff.md
+@@ -1,6 +1,6 @@
+ # Coding Day 4 当前进度与聊天交接
+ 
+-最后保存于 2026-11-27。已完成 NoeticMaze 规划/平滑/连续跟踪移植、15 项 Cortex-M4 回归、21 项 PC 回归及完整构建，最新见第 63 节。移植版源码和固件位于活动工程，已烧录并独立读回校验；最新板上状态见第 64 节。
++最后保存于 2026-11-27。最新为第67节：静态墙保留至 RESET、±5米目标、5×5米前端，已烧录并独立读回校验，15项Cortex-M4和28项PC回归通过。
+ 
+ **当前聊天入口：`D:\EMBEGGed\week4codingday\coding\coding(1)\coding\README.md`。** 本次操作使用该目录的活动工程及日志。早期记录中的其他绝对路径、串口和硬件状态仅供历史参考，当前接续见第 63 节，第 44 至 61 节保留历史实车结果。第22至43节保留整车联调记录。
+ 
+@@ -909,4 +909,37 @@
+ 命令4在208300ms、命令7在291250ms、命令9在319300ms报FAULT 1。故障前后IMU failed分别48→51、57→60、60→63，I2C timeout/recovery增长；IMU有效I帧约中断2.65秒，之后恢复。故障前地图M帧仍在更新，故障后短暂发布旧扫描后停止。
+ 因果链为传感器链路中断导致控制FAULT 1，fault()将pose.valid清零，恢复后的IMU不能自动恢复丢失的世界位姿，建图停止。该锁定需要重新物理定位后RESET，不能只放宽传感器门槛或使用无效位姿继续走。底层I2C中断的电气/驱动根因尚未确定。
+ 已修复前端：不再因1秒超时清空历史墙图，而是淡色保留并显示过期/冻结状态；导航FAULT优先显示实际故障及原因；原pose age改为telemetry age，避免把持续N遥测误认为定位有效；命令反馈移到输入框下方，避免错误提示藏在窗口底部。RESET、重启和地图epoch变化仍清空旧图。
+-PC回归23项通过，离线故障布局已验证，预览build/map_fault/frozen_map_preview.png。仅更新前端，未重启现有监控、未烧录固件或发送运动命令。此次修复是显示与诊断改进，不代表IMU/I2C中断及实车停车已解决。+PC回归23项通过，离线故障布局已验证，预览build/map_fault/frozen_map_preview.png。仅更新前端，未重启现有监控、未烧录固件或发送运动命令。此次修复是显示与诊断改进，不代表IMU/I2C中断及实车停车已解决。
++
++## 67. 2026-11-27 静态墙保留、RESET重建与±5米范围（当前版本）
++
++用户要求参考 NoeticMaze，解决墙图消失，允许每轴 -5～+5 米坐标，默认前端5×5米；随后明确接入主板并授权随时烧录，要求RESET删除原有墙体后更新。当前活动工程仍是 codingday4_work/firmware_source。
++
++### 最终行为
++
++- 确认过的墙保留至RESET或主板重启；后续自由射线不再擦掉墙。近距离仍需连续三圈确认，既有弱回波过滤保留。静态墙策略也会保留已确认的假墙，场景改变需RESET。
++- RESET成功后，主板新epoch清空墙格、确认记录、ICP参考及旧路径，重新采集。前端同步清图和轨迹，并丢弃排队中的旧epoch地图行，防止旧墙再次出现。RESET仍要求停车和有效IMU；拒绝时不会清图。
++- 缓存墙图不再随IMU/地图超时消失或变淡，固件在扫描暂停时也持续发送；独立传递真实扫描年龄，缓存发送不冒充新扫描。新增墙行优先发送，与全图轮询交替，50ms最多一行。
++- MAZE/GOTO输入每轴支持[-5,5]米，包括八个边界方向，仍是RESET原点下绝对坐标。地图107×107、10cm分辨率，覆盖±5米并留避障边界；保留原电机参数、直行补偿、STOP和IMU/雷达停车保护。
++- 前端默认5×5米（±2.5），右上View +/-5 m切换完整范围；点击左图只选目标，Send才发送。兼容旧49格M帧；新帧含cell_mm、center、scan_age_ms，详见README_PC.md。
++
++### 实现与验证
++
++参考 https://github.com/StarDust-XCHH/NoeticMaze 及固定提交 f869723cec2ebecf77fdf6442a664b6b0ba5e7c4。上游 App/algorithmBrain/Src/map_core.c 仍有自由射线更新，永久墙为本次用户要求的本车策略。现有移植的A*、平滑和连续跟踪继续使用。
++
++为了适配128KiB RAM，墙状态/确认合为单字节，膨胀图位压缩、前驱4bit存储，MAZE RTOS heap从48KiB改为32KiB；任务栈不变，实机剩余heap9216字节。初试20cm粗网格在交错墙模型失败，已撤回；交付版仍10cm，全部回归通过。
++
++15项Cortex-M4回归通过，覆盖墙持久化、RESET清图、扫描过期保护、八个±5米边界目标、原GOTO、STOP、传感器及五组闭环场景。场景最低离障：单挡板0.294m、双桩0.313m、交错墙0.276m、新障碍0.275m，均到达并零PWM。28项PC回归通过，含RESET旧版本屏障、版本回绕、坐标边界、旧新遥测兼容。离线GUI验证点击选点不发指令、视野切换及故障时墙保留。
++
++### 已烧录与运行
++
++构建70源文件，text103920/data908/bss127104字节；链接检查通过，保留既有裸机/HAL警告。固件build/static_walls_5m/Week4_Integrated.hex已获用户明确授权后烧录，编程器校验成功；独立读回104828个有效HEX字节差异0。
++
++HEX SHA256：214761291d140017c9af2a2c242619a90eb6fadb9bd636cff90a2b7d7aff80b2。
++ELF SHA256：4296eb1d76b500fb48df84f9a8f215679406d9cfde3dd9492dff340edb2f1d9c。
++
++启动IDLE、故障0、四路PWM0、七任务均创建、IMU valid/calibrated=1；启动heap余量9216字节。151.7s只读检查墙格735、扫描年龄约61ms、PWM0；IMU累计失败377，故间歇I2C问题未解决，不能以保留墙图宣称可无有效定位继续运动。
++
++新版监控已重启，蓝牙前3次尝试失败、第4次订阅成功。保存遥测快照时收到4598个M帧，107行齐全、1706个墙格，末帧IDLE/fault0，未发运动命令。跨失败重连的原始拼接数据有2条坏行，不宣称全段零错误。日志logs/static_walls_5m_20261127.bin，连接状态build/static_walls_5m/gui_stderr.txt。
++
++全部构建、备份、读回、启动检查、测试日志在build/static_walls_5m。前端RESET队列屏障是烧录后的纯PC补充，无需重烧固件。未进行新的带动力验收，也没有自动发送RESET/MAZE/GOTO；RESET清旧墙已由生产C仿真和PC回归验证。
+--- before/README_PC.md
++++ README_PC.md
+@@ -67,6 +67,14 @@
+ 
+ ## 迷宫导航
+ 
+-加载迷宫固件后，停车并完成 IMU 标定，RESET 建立新地图。监控左图的灰色方块是主板上报的墙体。MAZE,0,1 表示 RESET 坐标系中的 (0, 1) 米；MAZE,0.7,1 会以同一坐标系为目标。两个轴均限 ±2 米。主板返回 MAZE_ACCEPTED 后开始执行，STOP 沿用既有停车入口。GOTO 保留定长和旧坐标测试语义。
++加载迷宫固件后，停车并完成 IMU 标定，RESET 建立新地图。监控左图的灰色方块是主板上报的墙体。MAZE,0,1 表示 RESET 坐标系中的 (0, 1) 米；MAZE,0.7,1 会以同一坐标系为目标。两个轴均限 ±5 米（包括边界，坐标是 RESET 原点的绝对坐标）。主板返回 MAZE_ACCEPTED 后开始执行，STOP 沿用既有停车入口。GOTO 保留定长和旧坐标测试语义。
+ 
+-地图每行含 49 个字符，M 帧依次传地图版本、行号、地图相对里程计的平移量（毫米，X/Y）和栅格。井号表示占用，点表示已观测自由，问号表示未知。每 100 毫秒最多发布一行，整图显示约需 4.9 秒，板上规划直接使用当前地图。FAULT 9 对应扫描超时，FAULT 10 表示当前地图无法给出已观测可行路段。
++当前地图为 107×107、每格 0.1 米，覆盖 ±5 米目标并保留边界避障余量。新 M 帧格式为 `M,epoch,row,dx_mm,dy_mm,cell_mm,center,scan_age_ms,cells`，当前 cell_mm=100、center=53，每行 107 个字符。井号为确认墙，点为已观测自由，问号为未知。scan_age_ms=4294967295 表示本版本还没有有效扫描。前端兼容旧固件 49 字符的 M 帧。
++
++确认墙不再被后续自由射线擦除；断流时继续发送缓存地图，但扫描年龄继续增加，不会伪造扫描新鲜度。每 50 ms 最多发送一行，新确认墙所在行与全图轮询交替发送；无新增墙时一轮约 5.35 秒，持续新增墙时全图兜底约 10.7 秒，链路丢包可能延长。板上规划直接使用本地地图，不等前端传完。
++
++默认两图显示 5×5 米区域（±2.5 米）；右上角 `View +/-5 m` 展示完整目标范围及边界余量。点击左图只填入 MAZE 坐标，按 Send 才发送。MAZE/GOTO 均接受每轴 [-5,5] 米，实际执行仍要求有效定位和可通行路线。
++
++正常运行及 IMU/蓝牙断流时保留已确认墙；RESET 成功后同时清空旧墙和轨迹，从新扫描重新建图，丢弃排队的旧地图版本。主板重启同样建立新图。RESET 需要停车且 IMU 有效；拒绝 RESET 时保留旧图并显示 ACK 原因。环境或起点改变时请 RESET，因为已确认的误墙也会保留到重置。
++
++FAULT 1 为传感器/定位失效，FAULT 9 为真实扫描过期，FAULT 10 为没有可通行路线。右侧原始点云仍可出现而左图不建新墙，因为世界地图需要有效位姿。保留墙图没有取消这些运动保护。
+--- before/pc\monitor.py
++++ pc\monitor.py
+@@ -13,6 +13,56 @@
+ import sys
+ from protocol import Point, Imu, Navigation, Ack, Diagnostic, StreamDecoder, SequenceTracker, radar_world_axes, command
+ 
++class MapHistory:
++    """Keep confirmed walls for an epoch; transport updates never erase them."""
++    def __init__(self):
++        self.clear()
++
++    def clear(self):
++        self.rows={}
++        self.epoch=None
++        self.cell_m=.1
++        self.center=24
++        self.dx=self.dy=0.0
++        self.scan_time=None
++        self.awaiting_new_epoch=False
++
++    def reset_pending(self):
++        # ACK can overtake a cached map row in the transport queue. Keep the
++        # previous epoch as a barrier until the control task resets the map.
++        previous=self.epoch
++        self.clear()
++        self.epoch=previous
++        self.awaiting_new_epoch=True
++
++    def update(self, frame, received):
++        version,row,dx,dy,*payload=frame.fields
++        if self.epoch is not None:
++            delta=(int(version)-int(self.epoch)) & 0xffffffff
++            if delta>=0x80000000 or (delta==0 and self.awaiting_new_epoch):
++                return
++        cell_m,center,scan_time=.1,24,received
++        if len(payload)==4:
++            cell_mm,center,age,cells=payload
++            cell_m,center= int(cell_mm)/1000,int(center)
++            scan_time=None if int(age)==0xffffffff else received-int(age)/1000
++        else:
++            cells=payload[0]
++        if (version,cell_m,center)!=(self.epoch,self.cell_m,self.center):
++            self.clear()
++            self.epoch,self.cell_m,self.center=version,cell_m,center
++        row=int(row)
++        old=self.rows.get(row,'?'*len(cells))
++        self.rows[row]=''.join('#' if before=='#' else new for before,new in zip(old,cells))
++        self.dx,self.dy=int(dx)/1000,int(dy)/1000
++        self.scan_time=scan_time
++
++    def occupied(self):
++        return [((col-self.center)*self.cell_m-self.dx,
++                 (row-self.center)*self.cell_m-self.dy)
++                for row,cells in self.rows.items() for col,c in enumerate(cells) if c=='#']
++
++
+ def map_display_status(nav, imu_fresh, map_time, now):
+     """A frozen map is historical evidence, never permission to navigate."""
+     age = None if map_time is None else max(0.0, now-map_time)
+@@ -23,12 +73,12 @@
+                   10: 'no clear path', 11: 'path projection invalid'}.get(nav.fault, 'navigation stopped')
+         return False, f'FAULT {nav.fault}: {reason} | map frozen'
+     if not imu_fresh:
+-        return False, 'IMU unavailable | last map frozen'
++        return False, 'IMU unavailable | saved walls retained'
+     if age is None:
+-        return False, 'Waiting for first grid'
++        return False, 'No mapped scan yet | valid pose / IMU needed'
+     if not fresh:
+-        return False, f'Grid stale ({age:.1f}s) | last map frozen'
+-    return True, 'Pose / path / target (metres)'
++        return False, f'Scan age {age:.1f}s | saved walls retained'
++    return True, 'Persistent walls / path / target (metres)'
+ 
+ 
+ class RunHistory:
+@@ -200,10 +250,7 @@
+     radar.set_ylabel('World Y / m (relative to C1)')
+     ray_heading,=radar.plot([],[],'r-',lw=2)
+     walls=nav.scatter([],[],s=16,marker='s',color='.35',label='C1 occupied cells')
+-    map_rows={}
+-    map_epoch=None
+-    map_dx=map_dy=0.0
+-    map_time=None
++    map_history=MapHistory()
+     planned,=nav.plot([],[],'g--',label='next MAZE leg')
+     next_leg=None
+     path,=nav.plot([],[],'b-',label='current run odometry')
+@@ -217,7 +264,7 @@
+     title=fig.text(.07,.94,'DEMO - synthetic data' if args.demo else 'Week4 live telemetry',fontsize=16)
+     status=fig.text(.07,.89,'Waiting for frames',fontsize=10)
+     details=fig.text(.07,.26,'',fontsize=7.5,family='monospace',va='top')
+-    feedback=fig.text(.07,.275,'Maze navigation: MAZE,x,y (metres). Also accepts GOTO, STOP and RESET.',fontsize=9)
++    feedback=fig.text(.07,.275,'MAZE,x,y: X/Y each -5 to +5 m. Click map to select; Send to run.',fontsize=9)
+     entry=TextBox(fig.add_axes([.16,.30,.5,.045]),'Command ',initial='MAZE,0,1.3')
+     send=Button(fig.add_axes([.68,.30,.09,.045]),'Send')
+     stop_button=Button(fig.add_axes([.79,.30,.09,.045]),'STOP')
+@@ -245,6 +292,26 @@
+     fig.canvas.mpl_connect('key_press_event', submit_on_enter)
+     stop_button.on_clicked(lambda _:submit('STOP'))
+     reset.on_clicked(lambda _:submit('RESET'))
++    view_button=Button(fig.add_axes([.85,.94,.13,.035]),'View +/-5 m')
++    full_view=False
++    def toggle_view(_):
++        nonlocal full_view
++        full_view=not full_view
++        half=5.5 if full_view else args.range_m
++        for ax in (nav,radar): ax.set(xlim=(-half,half),ylim=(-half,half))
++        view_button.label.set_text('View 5 x 5 m' if full_view else 'View +/-5 m')
++        fig.canvas.draw_idle()
++    view_button.on_clicked(toggle_view)
++    def select_goal(event):
++        toolbar=getattr(fig.canvas.manager,'toolbar',None)
++        if event.inaxes!=nav or event.button!=1 or (toolbar and toolbar.mode): return
++        if event.xdata is None or event.ydata is None: return
++        x,y=round(event.xdata,2),round(event.ydata,2)
++        if abs(x)>5 or abs(y)>5:
++            feedback.set_text('Target outside X/Y +/-5 m'); return
++        entry.set_val(f'MAZE,{x:.2f},{y:.2f}')
++        feedback.set_text(f'Selected ({x:.2f}, {y:.2f}) m; press Send to run')
++    fig.canvas.mpl_connect('button_press_event',select_goal)
+     history=RunHistory()
+     points=deque(maxlen=3000)
+     latest_nav=latest_imu=None
+@@ -252,7 +319,7 @@
+     boot_epoch=receiver.boot_epoch
+     started=time.monotonic()
+     def update(_):
+-        nonlocal latest_nav,latest_imu,nav_time,imu_time,boot_epoch,map_epoch,map_dx,map_dy,map_time,next_leg
++        nonlocal latest_nav,latest_imu,nav_time,imu_time,boot_epoch,next_leg
+         now=time.monotonic()
+         with receiver.lock:
+             current_epoch=receiver.boot_epoch
+@@ -261,9 +328,7 @@
+             boot_epoch=current_epoch
+             history.clear()
+             next_leg=None
+-            map_rows.clear()
+-            map_time=None
+-            map_dx=map_dy=0.0
++            map_history.clear()
+             points.clear()
+             latest_nav=latest_imu=None
+             nav_time=imu_time=None
+@@ -278,9 +343,10 @@
+             elif isinstance(frame,Ack):
+                 history.update(frame)
+                 if frame.status=='OK' and frame.reason=='RESET_PENDING':
+-                    map_rows.clear()
++                    map_history.reset_pending()
++                    feedback.set_text('RESET accepted: old walls cleared; rebuilding map')
+                     points.clear()
+-                    map_time=None
++                    next_leg=None
+                 if frame.status=='OK' and frame.reason.startswith('SPEED_MMPS_'):
+                     value=frame.reason.removeprefix('SPEED_MMPS_')
+                     if value.isdigit() and len(value)<=3:
+@@ -293,26 +359,18 @@
+                 except ValueError:
+                     next_leg=None
+             elif isinstance(frame,Diagnostic) and frame.kind=='M':
+-                version,row,dx,dy,cells=frame.fields
+-                if version!=map_epoch:
+-                    map_rows.clear()
+-                    map_epoch=version
+-                map_rows[int(row)]=cells
+-                map_time=received
+-                map_dx,map_dy=int(dx)/1000,int(dy)/1000
++                map_history.update(frame, received)
+             elif isinstance(frame,Point):
+                 theta=latest_nav.theta_mrad/1000 if latest_nav else math.pi/2
+                 points.append((received,*radar_world_axes(frame.angle_cdeg,frame.distance_mm,theta)))
+             elif isinstance(frame,Imu): latest_imu,imu_time=frame,received
+         while points and now-points[0][0]>3: points.popleft()
+         imu_fresh=imu_time is not None and now-imu_time<0.8
+-        map_fresh, map_title = map_display_status(latest_nav, imu_fresh, map_time, now)
++        map_fresh, map_title = map_display_status(latest_nav, imu_fresh, map_history.scan_time, now)
+         # Keep historical cells on sensor/transport failure; clear only on
+         # explicit RESET, reboot or a new map epoch (handled above).
+-        walls.set_alpha(1.0 if map_fresh else .35)
+-        walls.set_offsets([[(col-24)*.1-map_dx,(row-24)*.1-map_dy]
+-                          for row,cells in map_rows.items() for col,c in enumerate(cells) if c=='#']
+-                         or [[math.nan,math.nan]])
++        walls.set_alpha(1.0)
++        walls.set_offsets(map_history.occupied() or [[math.nan,math.nan]])
+         nav.set_title(map_title, color='black' if map_fresh else 'darkred', fontsize=10)
+         radar.set_title('LiDAR / world axes (metres)' if imu_fresh else
+                         'LiDAR / last heading (IMU unavailable)')
+@@ -358,7 +416,7 @@
+     ap.add_argument('--ble-response',action='store_true',help='BLE write with response (module dependent)')
+     ap.add_argument('--log',help='append raw LF telemetry bytes')
+     ap.add_argument('--duration',type=float,default=0)
+-    ap.add_argument('--range-m',type=float,default=2)
++    ap.add_argument('--range-m',type=float,default=2.5,help='initial half-width in metres; default view is 5 x 5 m')
+     ap.add_argument('--headless',action='store_true')
+     ap.add_argument('--command',action='append',default=[],help='send once after connection; may repeat')
+     args=ap.parse_args(argv)
+--- before/pc\protocol.py
++++ pc\protocol.py
+@@ -90,9 +90,9 @@
+             return f'CAL,{left:.4f},{right:.4f}\n'.encode('ascii')
+     if len(parts) == 3 and parts[0] in ('GOTO','MAZE'):
+         x, y = float(parts[1]), float(parts[2])
+-        if math.isfinite(x) and math.isfinite(y) and abs(x) <= 2 and abs(y) <= 2:
++        if math.isfinite(x) and math.isfinite(y) and abs(x) <= 5 and abs(y) <= 5:
+             return f'{parts[0]},{x:.6f},{y:.6f}\n'.encode('ascii')
+-    raise ValueError('use MAZE,x,y or GOTO,x,y (metres, +/-2), STOP or RESET')
++    raise ValueError('use MAZE,x,y or GOTO,x,y (metres, X/Y each +/-5), STOP or RESET')
+ 
+ 
+ def parse_line(line: bytes) -> Point | Imu | Navigation | Ack | Diagnostic:
+@@ -109,11 +109,17 @@
+                           _number(parts[10], 0, 65535), _number(parts[11], 0, U32_MAX))
+     if len(parts) == 4 and parts[0] == b'A' and parts[2] and parts[3]:
+         return Ack(_number(parts[1], 0, U32_MAX), parts[2].decode(), parts[3].decode())
+-    if len(parts)==6 and parts[0]==b'M':
++    if len(parts) in (6,9) and parts[0]==b'M':
+         _number(parts[1],0,U32_MAX)
+-        _number(parts[2],0,48)
++        width=49
++        if len(parts)==9:
++            _number(parts[5],1,1000)  # millimetres per cell
++            center=_number(parts[6],1,127)
++            width=2*center+1
++            _number(parts[7],0,U32_MAX)  # source scan age, U32_MAX means no scan
++        _number(parts[2],0,width-1)
+         for offset in parts[3:5]: _number(offset,I32_MIN,I32_MAX,True)
+-        if len(parts[5])!=49 or any(c not in b'#.?' for c in parts[5]):
++        if len(parts[-1])!=width or any(c not in b'#.?' for c in parts[-1]):
+             raise ValueError('invalid occupancy row')
+         return Diagnostic('M',tuple(p.decode() for p in parts[1:]))
+     if len(parts) >= 2 and parts[0] in (b'D', b'T', b'B', b'S', b'Q'):
+--- before/tests\navigation\mock_port.c
++++ tests\navigation\mock_port.c
+@@ -16,6 +16,7 @@
+ void W4Runtime_Begin(W4TaskId id,uint32_t release) { (void)id; (void)release; }
+ void W4Runtime_End(W4TaskId id,uint32_t deadline) { (void)id; (void)deadline; }
+ char test_ack[96];
++char test_map[192];
+ osStatus_t osMessageQueuePut(osMessageQueueId_t q,const void *p,uint8_t pri,uint32_t wait) {
+     (void)pri;(void)wait; Queue *x=q;
+     if(x->count==x->cap) return osErrorResource;
+@@ -56,6 +57,10 @@
+     *p=(W4ImuSample){test_ms,test_heading,test_gyro,test_imu_valid,1}; return test_imu_valid;
+ }
+ bool W4Telemetry_SubmitLine(const char *p,uint16_t n) {
++    if(n>1 && p[0]=='M' && p[1]==',') {
++        if(n>=sizeof test_map) return false;
++        memcpy(test_map,p,n); test_map[n]=0; return true;
++    }
+     if(n>=sizeof test_ack) return false;
+     memcpy(test_ack,p,n); test_ack[n]=0; return true;
+ }
+--- before/tests\navigation\test_maze.c
++++ tests\navigation\test_maze.c
+@@ -1,6 +1,8 @@
+ #include "w4_maze.h"
+ #include "w4_rtos.h"
+ #include "w4_integration.h"
++#include "planner_config.h"
++extern char test_map[192];
+ #include <assert.h>
+ #include <math.h>
+ #include <string.h>
+@@ -224,6 +226,55 @@
+     test_imu_valid=true;
+ }
+ 
++
++static char mapped_cell(unsigned wanted_row,unsigned wanted_col) {
++    for(unsigned i=0;i<2*MAX_GRID_SIZE+1;++i) {
++        test_ms+=100; W4Control_Step(test_ms); W4Path_Poll();
++        unsigned long version,age; unsigned row,res,center;
++        long dx,dy; char cells[MAX_GRID_SIZE+1];
++        int n=sscanf(test_map,"M,%lu,%u,%ld,%ld,%u,%u,%lu,%107s",
++                     &version,&row,&dx,&dy,&res,&center,&age,cells);
++        assert(n==8 && res==100 && center==MAX_GRID_SIZE/2);
++        if(row==wanted_row) return cells[wanted_col];
++    }
++    assert(0); return '?';
++}
++static void test_persistent_walls(void) {
++    reset_run();
++    for(unsigned i=0;i<5;++i) scan(true);
++    assert(mapped_cell(MAX_GRID_SIZE/2+3,MAX_GRID_SIZE/2)=='#');
++    // Many clear rays used to decrement this confirmed wall back to free.
++    for(unsigned i=0;i<20;++i) scan(false);
++    assert(mapped_cell(MAX_GRID_SIZE/2+3,MAX_GRID_SIZE/2)=='#');
++    assert(!W4Maze_Fresh(test_ms)); // Cached telemetry must not refresh scans.
++    test_imu_valid=false; test_ms+=10; W4Control_Step(test_ms);
++    assert(mapped_cell(MAX_GRID_SIZE/2+3,MAX_GRID_SIZE/2)=='#');
++    assert(test_pwm_l==0 && test_pwm_r==0);
++    test_imu_valid=true; reset_run();
++    assert(mapped_cell(MAX_GRID_SIZE/2+3,MAX_GRID_SIZE/2)=='?');
++}
++static void open_scan(void) {
++    for(int angle=0;angle<360;angle+=3)
++        W4Maze_Point((float)angle,6500,12,angle==0,test_ms);
++    W4Path_Poll();
++}
++static void test_five_metre_targets(void) {
++    const char *goals[]={"MAZE,0,5\n","MAZE,5,0\n","MAZE,-5,0\n","MAZE,0,-5\n",
++                         "MAZE,5,5\n","MAZE,-5,5\n","MAZE,5,-5\n","MAZE,-5,-5\n"};
++    W4Command c;
++    assert(W4ParseCommand("MAZE,5,-5",&c) && c.x_m==5 && c.y_m==-5);
++    assert(!W4ParseCommand("MAZE,5.01,0",&c));
++    assert(!W4ParseCommand("MAZE,0,-5.01",&c));
++    for(unsigned i=0;i<sizeof goals/sizeof goals[0];++i) {
++        reset_run(); open_scan(); open_scan();
++        send(goals[i]); W4Path_Poll(); W4Path_Poll();
++        assert(strstr(test_ack,"MAZE_ACCEPTED"));
++        assert(W4Maze_RouteCount()>=2);
++        assert(W4Maze_LoadRoute(w4_nav.cmd_id,&w4_nav.pose));
++    }
++    reset_run();
++}
++
+ int main(void) {
+     test_ms=100;
+     W4Calibration_Apply(); W4Nav_Init(); assert(W4HardwareReady());
+@@ -241,6 +292,8 @@
+     maze_test_stage=6; drive_course(2,false);
+     maze_test_stage=7; drive_course(1,true);
+     maze_test_stage=8; test_planner_edges();
++    maze_test_stage=9; test_persistent_walls();
++    maze_test_stage=10; test_five_metre_targets();
+     reset_run(); assert(!W4Maze_Fresh(test_ms));
+     return 0;
+ }
+--- before/tests\navigation\test_nav.c
++++ tests\navigation\test_nav.c
+@@ -23,6 +23,10 @@
+  w4_config.encoder_sign_l=w4_config.encoder_sign_r=1;
+ }
+ int main(void) {
++ W4Command bounds;
++ CHECK(W4ParseCommand("GOTO,5,-5",&bounds) && bounds.x_m==5 && bounds.y_m==-5);
++ CHECK(!W4ParseCommand("GOTO,5.001,0",&bounds));
++ CHECK(!W4ParseCommand("GOTO,0,-5.001",&bounds));
+  test_ms=100; W4Nav_Init();
+  /* Control can run before the planner has checked the calibration gate. */
+  send("GOTO,0,1.4\n");
+--- before/tests\pc\test_monitor.py
++++ tests\pc\test_monitor.py
+@@ -116,4 +116,72 @@
+         self.assertIn('3.0s',m.map_display_status(None,True,97,100)[1])
+         self.assertTrue(m.map_display_status(None,True,99.9,100)[0])
+         self.assertFalse(m.map_display_status(None,False,99.9,100)[0])
+-        self.assertIn('first grid',m.map_display_status(None,True,None,100)[1])
++        self.assertIn('No mapped scan',m.map_display_status(None,True,None,100)[1])
++
++class PersistentMapTests(unittest.TestCase):
++    def test_saved_walls_survive_clear_rows_and_sensor_loss(self):
++        import monitor as m
++        from protocol import parse_line
++        history=m.MapHistory()
++        history.update(parse_line(b'M,1,53,0,0,100,53,0,'+b'.'*53+b'#'+b'.'*53),100)
++        self.assertEqual(history.occupied(),[(0.0,0.0)])
++        # The transport is current, but the source scan is ten seconds old.
++        history.update(parse_line(b'M,1,53,0,0,100,53,10000,'+b'.'*107),110)
++        self.assertEqual(history.occupied(),[(0.0,0.0)])
++        self.assertFalse(m.map_display_status(None,True,history.scan_time,110)[0])
++        self.assertFalse(m.map_display_status(None,False,history.scan_time,110)[0])
++        history.update(parse_line(b'M,2,53,0,0,100,53,4294967295,'+b'?'*107),111)
++        self.assertFalse(history.occupied())
++        self.assertIsNone(history.scan_time)
++
++    def test_extended_geometry_and_old_firmware(self):
++        import monitor as m
++        from protocol import parse_line
++        history=m.MapHistory()
++        history.update(parse_line(b'M,1,103,10,-20,100,53,0,'+b'.'*103+b'#...'),100)
++        self.assertEqual(history.occupied(),[(4.99,5.02)])
++        history.clear()
++        self.assertFalse(history.occupied())
++        history.update(parse_line(b'M,1,24,0,0,'+b'.'*24+b'#'+b'.'*24),100)
++        self.assertEqual(history.occupied(),[(0.0,0.0)])
++
++    def test_new_map_rows_reject_bad_geometry(self):
++        from protocol import parse_line
++        good=b'M,1,54,0,0,200,27,123,'+b'.'*55
++        self.assertEqual(parse_line(good).fields[-1],'.'*55)
++        for bad in (good[:-1],good.replace(b',54,',b',55,'),
++                    good.replace(b',200,',b',0,'),good.replace(b',123,',b',-1,')):
++            with self.assertRaises(ValueError): parse_line(bad)
++
++class ResetMapTests(unittest.TestCase):
++    def test_reset_discards_queued_old_rows_then_rebuilds(self):
++        import monitor as m
++        from protocol import parse_line
++        history=m.MapHistory()
++        def row(epoch,wall):
++            return parse_line(f'M,{epoch},53,0,0,100,53,0,'.encode()+b'.'*53+wall+b'.'*53)
++        history.update(row(7,b'#'),100)
++        history.reset_pending()
++        self.assertFalse(history.occupied())
++        history.update(row(7,b'#'),101)  # queued before RESET
++        self.assertFalse(history.occupied())
++        history.update(row(8,b'.'),102)
++        self.assertFalse(history.occupied())
++        history.update(row(7,b'#'),103)  # late old version must not return
++        self.assertFalse(history.occupied())
++        history.update(row(8,b'#'),104)
++        self.assertEqual(history.occupied(),[(0.0,0.0)])
++
++    def test_epoch_wrap_and_reboot(self):
++        import monitor as m
++        from protocol import parse_line
++        history=m.MapHistory()
++        def row(epoch):
++            return parse_line(f'M,{epoch},53,0,0,100,53,0,'.encode()+b'#'*107)
++        history.update(row(4294967295),100)
++        history.reset_pending()
++        history.update(row(0),101)
++        self.assertEqual(len(history.occupied()),107)
++        history.clear()  # reboot permits an unrelated version
++        history.update(row(0),102)
++        self.assertEqual(len(history.occupied()),107)
+--- before/tests\pc\test_protocol.py
++++ tests\pc\test_protocol.py
+@@ -66,9 +66,12 @@
+         self.assertEqual(set(r.tasks),{'1','2'})
+ 
+ class FirmwareBoundsTests(unittest.TestCase):
+-    def test_command_coordinates_match_firmware_two_metre_bounds(self):
+-        with self.assertRaises(ValueError): p.command('GOTO,2.01,0')
+-        self.assertEqual(p.command('GOTO,2,-2'),b'GOTO,2.000000,-2.000000\n')
++    def test_command_coordinates_match_firmware_five_metre_bounds(self):
++        for verb in ('GOTO','MAZE'):
++            for x,y in ((5,-5),(-5,5),(0,5),(5,5)):
++                self.assertEqual(p.command(f'{verb},{x},{y}'),f'{verb},{x:.6f},{y:.6f}\n'.encode())
++            for x,y in ((5.001,0),(0,-5.001),(float('nan'),0)):
++                with self.assertRaises(ValueError): p.command(f'{verb},{x},{y}')
+ 
+ 
+ 
+--- before/third_party\NoeticMaze\PORTING.md
++++ third_party\NoeticMaze\PORTING.md
+@@ -30,7 +30,7 @@
+ 
+ ## 必要适配
+ 
+-1. 本车居中 49×49、0.1 m 地图转换为上游正坐标 x-major 格式；输出回到本车里程计坐标。初始朝向仍 +Y，指令范围仍 [-2,2] m。
++1. 本车居中 107×107、0.1 m 地图转换为上游正坐标 x-major 格式；输出回到本车里程计坐标。初始朝向仍 +Y，指令范围为 [-5,5] m。
+ 2. 航向增益使用原 w4_config.heading_kp=2.0，角速度上限原 max_w=1.0 rad/s；MAZE 保持原 0.18 m/s 上限和 0.45 m/s² 加速斜坡。上游 0.90 增益在双桩模型出现跟踪滞后，未交付该中间版本。
+ 3. 硬避障 0.20 m；平滑曲线按 0.30 m 留跟踪余量。安全平滑失败时回退完整 A* 路径，并检查连接线和终点。
+ 4. 保留弧长最大推进量、0.18 m 前视和方向切换滞回；航向角速度由 deg/s 转 rad/s。
+@@ -83,3 +83,10 @@
+ | 途中出现双桩 | 13.10 s | 0.275 m | 1 |
+ 
+ 原始数据及固件哈希见 build/noetic_port/scenarios.json、verification.json。
++
++
++## 2026-11-27 静态墙与5米范围更新
++
++最新构建和烧录为 build/static_walls_5m，最新状态以主 README 第67节为准。保留上游规划/跟踪与本车底层接口；静态墙按用户要求锁存至 RESET，并持续发送缓存图。上游 map_core.c 的射线遍历仍调用 MAP_FREE 更新，因此“确认墙不再擦除”是本车静态环境策略，不声称是上游原样实现。
++
++为保留10cm精度，扩大为107×107，并将自由/占用/确认状态合并为每格1字节，膨胀图压为位图，A*前驱压为4bit。MAZE 构建 RTOS heap 为32KiB，实机启动余量9216字节，7任务均已创建；其他构建仍48KiB。遥测单行容量192字节。八个边界方向、RESET、断流、新障碍与原有闭环场景通过回归，未进行新的带动力试验。
+--- before/week4\Inc\FreeRTOSConfig.h
++++ week4\Inc\FreeRTOSConfig.h
+@@ -68,7 +68,12 @@
+ #define configTICK_RATE_HZ                       ((TickType_t)1000)
+ #define configMAX_PRIORITIES                     ( 56 )
+ #define configMINIMAL_STACK_SIZE                 ((uint16_t)256)
++#ifdef W4_MAZE
++/* Fixed task/queue allocation fits in 32 KiB; check free heap after boot. */
++#define configTOTAL_HEAP_SIZE                    ((size_t)32768)
++#else
+ #define configTOTAL_HEAP_SIZE                    ((size_t)49152)
++#endif
+ #define configMAX_TASK_NAME_LEN                  ( 16 )
+ #define configUSE_TRACE_FACILITY                 1
+ #define configUSE_16_BIT_TICKS                   0
+--- before/week4\Inc\planner_config.h
++++ week4\Inc\planner_config.h
+@@ -38,10 +38,10 @@
+ // ==========================================
+ // 【嵌入式预备修改】：静态内存池宏定义与分配
+ // ==========================================
+-#define MAX_GRID_SIZE 49                           // Week4 centered map, 49 x 49 cells
+-#define MAX_CELLS (MAX_GRID_SIZE * MAX_GRID_SIZE)  // 2401
++#define MAX_GRID_SIZE 107                          // 10 cm cells, +/-5 m targets plus boundary clearance
++#define MAX_CELLS (MAX_GRID_SIZE * MAX_GRID_SIZE)  // 11449
+ 
+-// 【修复】：明确 4bit/cell 打包大小 (2401 * 4bit = 1201 Bytes)
++// 【修复】：明确 4bit/cell 打包大小 (11449 * 4bit = 5725 Bytes)
+ #define MAX_MAP_BYTES (((MAX_CELLS * 4) + 7) / 8)
+ 
+ #define MAX_PQ_SIZE 2500                           // 优先队列最大容量
+--- before/week4\Src\w4_bt_rx.c
++++ week4\Src\w4_bt_rx.c
+@@ -27,7 +27,7 @@
+         while(*q>='0'&&*q<='9') { ++q; ++digits; } if(!digits) return false;
+     }
+     char *end; float v=strtof(s,&end);
+-    if(end!=q||!isfinite(v)||fabsf(v)>2) return false;
++    if(end!=q||!isfinite(v)||fabsf(v)>5) return false;
+     *out=v; *p=q; return true;
+ }
+ bool W4ParseCommand(const char *s,W4Command *c) {
+--- before/week4\Src\w4_integration.c
++++ week4\Src\w4_integration.c
+@@ -45,7 +45,7 @@
+  * Telemetry mailbox: many producers (LiDAR/RX/Path/TX tasks), one consumer
+  * (W4BluetoothTxTask). A by-value CMSIS queue is the protected mailbox.
+  * -------------------------------------------------------------------------*/
+-#define TX_LINE_MAX   160U
++#define TX_LINE_MAX   192U
+ #define TX_MBOX_DEPTH 24U
+ static osMessageQueueId_t s_tx_mbox;
+ static uint32_t s_tx_dropped, s_tx_errors, s_tx_sent;
+--- before/week4\Src\w4_maze.c
++++ week4\Src\w4_maze.c
+@@ -9,9 +9,9 @@
+ #include <string.h>
+ #include <stdio.h>
+ 
+-enum { WIDTH=49, CENTER=24, CELLS=WIDTH*WIDTH, BEAMS=120, CLEARANCE=2 };
+-enum { NEAR_HIT_SCANS=3, HIT_THIS_SCAN=0x80 };
+-#define CELL_M 0.10f
++enum { WIDTH=MAX_GRID_SIZE, CENTER=WIDTH/2, CELLS=WIDTH*WIDTH, BEAMS=120, CLEARANCE=2 };
++enum { NEAR_HIT_SCANS=3, FREE=1, OCCUPIED=2, COUNT_SHIFT=2, COUNT_MASK=12, HIT_THIS_SCAN=16 };
++#define CELL_M PLANNER_MAP_RES
+ /* C1 Standard Scan angles increase clockwise viewed from above. */
+ #ifndef W4_C1_ANGLE_SIGN
+ #define W4_C1_ANGLE_SIGN (-1)
+@@ -28,10 +28,13 @@
+ static bool synchronized,ready,ack_pending;
+ static volatile uint32_t epoch,scan_epoch,active,last_scan;
+ static volatile bool fresh,need_leg,blocked,final_leg;
+-static int8_t grid[CELLS];
+-static uint8_t hit_scans[CELLS];
++/* One byte per cell: free/occupied flags, 2-bit confirmation count, scan hit. */
++static uint8_t grid[CELLS];
++static uint8_t changed_rows[(WIDTH+7)/8];
+ static float offset_x,offset_y;
+-static uint8_t wall[CELLS];
++static uint8_t wall[(CELLS+7)/8];
++static bool wall_at(int i) { return (wall[i/8] & (1U<<(i%8)))!=0; }
++static bool occupied(int i) { return (grid[i] & (OCCUPIED|COUNT_MASK))!=0; }
+ PlannerMemoryPool g_mem_pool;
+ static uint8_t planner_grid[MAX_MAP_BYTES];
+ static ServerMap planner_map={planner_grid,CELL_M,WIDTH};
+@@ -49,7 +52,7 @@
+ static unsigned reference_count;
+ static float ref_x,ref_y,ref_heading;
+ 
+-static int coordinate(float v) { return CENTER+(int)floorf(v/CELL_M+0.5f); }
++static int coordinate(float v) { return CENTER+(int)floorf(v/CELL_M+0.50001f); }
+ static int cell(int x,int y) {
+     return x>=0 && x<WIDTH && y>=0 && y<WIDTH ? y*WIDTH+x : -1;
+ }
+@@ -140,7 +143,8 @@
+         int i=cell(x,y);
+         if(i<0) break;
+         if(x==ex && y==ey) break;
+-        if(grid[i]>-8) --grid[i];
++        /* Static environment: confirmed walls stay occupied until RESET. */
++        grid[i]|=FREE; /* OCCUPIED is never cleared by a ray. */
+         int twice=2*err;
+         if(twice>=dy) { err+=dy; x+=sx; }
+         if(twice<=dx) { err+=dx; y+=sy; }
+@@ -150,33 +154,50 @@
+ static void publish_row(uint32_t version) {
+     static unsigned row;
+     static uint32_t sent;
++    static unsigned priority_cursor;
++    static bool priority_turn;
+     uint32_t now=W4Port_Millis();
+-    if(now-sent<100U) return;
+-    char line[100],cells[WIDTH+1];
++    if(now-sent<50U) return;
++    unsigned selected=row;
++    /* New walls get priority; alternate with a full sweep so dropped rows and
++       reconnects are repaired even while new walls are being discovered. */
++    if(priority_turn) for(unsigned j=0;j<WIDTH;++j) {
++        unsigned candidate=(priority_cursor+j)%WIDTH;
++        if(changed_rows[candidate/8] & (1U<<(candidate%8))) { selected=candidate; break; }
++    }
++    char line[192],cells[WIDTH+1];
+     for(unsigned x=0;x<WIDTH;++x) {
+-        int value=grid[row*WIDTH+x];
+-        cells[x]=value>0?'#':value<0 && !hit_scans[row*WIDTH+x]?'.':'?';
++        int value=grid[selected*WIDTH+x];
++        cells[x]=(value&OCCUPIED)?'#':(value&FREE) && !(value&COUNT_MASK)?'.':'?';
+     }
+     cells[WIDTH]=0;
+-    int len=snprintf(line,sizeof line,"M,%lu,%u,%ld,%ld,%s\n",
+-        (unsigned long)version,row,lroundf(offset_x*1000),lroundf(offset_y*1000),cells);
+-    if(len>0 && len<(int)sizeof line && W4Telemetry_SubmitLine(line,(uint16_t)len))
+-        row=(row+1)%WIDTH;
++    /* Scan age is independent of transport age: cached rows do not make a
++       stale scan usable by the controller or appear live on the PC. */
++    uint32_t age=fresh && scan_epoch==version ? now-last_scan : UINT32_MAX;
++    int len=snprintf(line,sizeof line,"M,%lu,%u,%ld,%ld,%u,%u,%lu,%s\n",
++        (unsigned long)version,selected,lroundf(offset_x*1000),lroundf(offset_y*1000),
++        (unsigned)lroundf(CELL_M*1000),CENTER,(unsigned long)age,cells);
++    if(len>0 && len<(int)sizeof line && W4Telemetry_SubmitLine(line,(uint16_t)len)) {
++        changed_rows[selected/8]&=(uint8_t)~(1U<<(selected%8));
++        if(selected==row) row=(row+1)%WIDTH;
++        priority_cursor=(selected+1)%WIDTH;
++        priority_turn=!priority_turn;
++    }
+     sent=now;
+ }
+ static void inflate(void) {
+     memset(wall,0,sizeof wall);
+-    for(int i=0;i<CELLS;++i) if(grid[i]>0 || hit_scans[i]) {
++    for(int i=0;i<CELLS;++i) if(occupied(i)) {
+         for(int dy=-CLEARANCE;dy<=CLEARANCE;++dy)
+             for(int dx=-CLEARANCE;dx<=CLEARANCE;++dx) {
+                 if(dx*dx+dy*dy>CLEARANCE*CLEARANCE) continue;
+                 int n=cell(i%WIDTH+dx,i/WIDTH+dy);
+-                if(n>=0) wall[n]=1;
++                if(n>=0) wall[n/8]|=(uint8_t)(1U<<(n%8));
+             }
+     }
+ }
+ static bool free_cell(int i) {
+-    return i>=0 && !wall[i] && grid[i]<0;
++    return i>=0 && !wall_at(i) && (grid[i]&FREE);
+ }
+ 
+ static bool clear_line(float x,float y,float gx,float gy) {
+@@ -211,7 +232,7 @@
+     memset(planner_grid,0,sizeof planner_grid);
+     for(int row=0;row<WIDTH;++row) for(int col=0;col<WIDTH;++col) {
+         int i=cell(col,row);
+-        set_grid_val(&planner_map,col,row,(grid[i]>0||hit_scans[i])?1:grid[i]<0?2:0);
++        set_grid_val(&planner_map,col,row,occupied(i)?1:(grid[i]&FREE)?2:0);
+     }
+     Point2D start={x+planner_origin,y+planner_origin};
+     Point2D goal={gx+planner_origin,gy+planner_origin};
+@@ -269,7 +290,7 @@
+         for(int j=0;j<=steps;++j) {
+             float f=(float)j/steps;
+             int index=index_at(a.x+f*(b.x-a.x),a.y+f*(b.y-a.y));
+-            if(index<0 || wall[index]) return true;
++            if(index<0 || wall_at(index)) return true;
+             /* Unknown space may guide A*, but is never executable near the car. */
+             if(checked+f*length<0.28f && !free_cell(index)) return true;
+         }
+@@ -284,7 +305,7 @@
+     uint32_t version=epoch;
+     if(map_epoch!=version) {
+         memset(grid,0,sizeof grid); memset(wall,0,sizeof wall);
+-        memset(hit_scans,0,sizeof hit_scans);
++        memset(changed_rows,0,sizeof changed_rows);
+         offset_x=offset_y=0; reference_count=0; map_epoch=version;
+         previous_len=0; route_ready=false; aim_valid=false;
+     }
+@@ -300,22 +321,29 @@
+             const Ray *ray=&working.ray[j];
+             int i=index_at(ray->x+offset_x,ray->y+offset_y);
+             if(i<0) continue;
+-            if(!ray->near) hit_scans[i]=HIT_THIS_SCAN|NEAR_HIT_SCANS;
+-            else hit_scans[i]|=HIT_THIS_SCAN;
++            if(!ray->near) grid[i]|=COUNT_MASK;
++            grid[i]|=HIT_THIS_SCAN;
+         }
+         for(int i=0;i<CELLS;++i) {
+-            if(!(hit_scans[i]&HIT_THIS_SCAN)) { hit_scans[i]=0; continue; }
+-            unsigned count=(hit_scans[i]&~HIT_THIS_SCAN)+1U;
+-            hit_scans[i]=count>=NEAR_HIT_SCANS?NEAR_HIT_SCANS:count;
+-            if(hit_scans[i]==NEAR_HIT_SCANS && grid[i]<9)
+-                grid[i]=grid[i]<1?2:grid[i]+1;
++            unsigned count=(grid[i]&COUNT_MASK)>>COUNT_SHIFT;
++            bool hit=(grid[i]&HIT_THIS_SCAN)!=0;
++            grid[i]&=(FREE|OCCUPIED);
++            if(!hit) continue;
++            if(count<NEAR_HIT_SCANS) ++count;
++            grid[i]|=(uint8_t)(count<<COUNT_SHIFT);
++            if(count==NEAR_HIT_SCANS && !(grid[i]&OCCUPIED)) {
++                grid[i]|=OCCUPIED;
++                unsigned row=(unsigned)i/WIDTH;
++                changed_rows[row/8]|=(uint8_t)(1U<<(row%8));
++            }
+         }
+         inflate();
+         scan_epoch=version; last_scan=working.stamp; fresh=true;
+         if(W4Maze_Active(n->cmd_id) && n->state==W4_TRACKING && route_ready &&
+            remaining_blocked(&n->pose)) blocked=true;
+     }
+-    if(W4Maze_Fresh(W4Port_Millis())) publish_row(version);
++    /* Keep serving the persistent map even while IMU/LiDAR are recovering. */
++    publish_row(version);
+     static uint32_t last_marker;
+     uint32_t marker_now=W4Port_Millis();
+     if(n->state==W4_TRACKING && W4Maze_Active(n->cmd_id) && marker_now-last_marker>=100U) {
+--- before/week4\Src\w4_noetic_planner_algo.c
++++ week4\Src\w4_noetic_planner_algo.c
+@@ -14,7 +14,15 @@
+ 
+ // 2. A* 算法静态内存
+ static uint16_t s_g_score[MAX_CELLS];
+-static uint8_t s_came_from_dir[MAX_CELLS];
++/* Eight directions and sentinel 15 fit in four bits per node. */
++static uint8_t s_came_from_dir[(MAX_CELLS+1)/2];
++static uint8_t predecessor(int i) {
++    return (s_came_from_dir[i/2]>>((i&1)*4))&15U;
++}
++static void set_predecessor(int i,uint8_t direction) {
++    unsigned shift=(i&1)*4;
++    s_came_from_dir[i/2]=(s_came_from_dir[i/2]&~(15U<<shift))|(direction<<shift);
++}
+ 
+ #define COLLISION_COST 0xFFFF
+ 
+@@ -104,7 +112,7 @@
+     // 【核心优化 2】：利用 32 位总线宽度成倍加速 16 位数组的初始化
+     memset(s_g_score, 0xff, sizeof(s_g_score));
+ 
+-    memset(s_came_from_dir, 255, num_cells);
++    memset(s_came_from_dir, 255, (num_cells+1)/2);
+     clear_all_affinity(map);
+ 
+     if (prev_path && prev_path_len > 0) {
+@@ -162,12 +170,12 @@
+         if (abs(curr_x - search_target_x) <= ASTAR_GOAL_TOL_GRIDS && abs(curr_y - search_target_y) <= ASTAR_GOAL_TOL_GRIDS) {
+             int cx = curr_x, cy = curr_y;
+ 
+-            while(s_came_from_dir[cx * map->grid_size + cy] != 255) {
++            while(predecessor(cx * map->grid_size + cy) != 15) {
+                 if (path_len >= MAX_PATH_LEN - 1) return 0;
+                 out_path[path_len].x = (cx + 0.5f) * grid_res;
+                 out_path[path_len].y = (cy + 0.5f) * grid_res;
+                 path_len++;
+-                uint8_t dir = s_came_from_dir[cx * map->grid_size + cy];
++                uint8_t dir = predecessor(cx * map->grid_size + cy);
+                 cx -= dx[dir]; cy -= dy[dir];
+             }
+             if (path_len < MAX_PATH_LEN && cx == search_start_x && cy == search_start_y) {
+@@ -207,7 +215,7 @@
+             uint16_t tg = (tg_32 > MAX_COST_INF) ? MAX_COST_INF : (uint16_t)tg_32;
+ 
+             if (tg < s_g_score[n_idx]) {
+-                s_came_from_dir[n_idx] = i;
++                set_predecessor(n_idx, (uint8_t)i);
+                 s_g_score[n_idx] = tg;
+ 
+                 // 【核心优化 4】：无分支（Branchless）启发式函数计算，避免流水线清空

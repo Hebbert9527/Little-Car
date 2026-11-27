@@ -1,0 +1,30 @@
+{
+  "time_beijing": "20261119_161014_638649",
+  "identity": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\logs\\speed_loop_v4_identity_20261119_160656_264282.json",
+  "hex_sha256": "077e5123875e675c69e12c3319098cc1ff675ae581e913d3c600ebe063dbfeee",
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "note": "Sequential register reads; signed delta requires a second sample and <32768 counts between reads.",
+  "right": {
+    "counter": 2382,
+    "cr1": "0x211",
+    "smcr": "0x3",
+    "ccmr1": "0xf1f1",
+    "ccer": "0x11",
+    "arr": 65535,
+    "encoder_mode_verified": true
+  },
+  "left": {
+    "counter": 1591,
+    "cr1": "0x211",
+    "smcr": "0x3",
+    "ccmr1": "0xf1f1",
+    "ccer": "0x11",
+    "arr": 65535,
+    "encoder_mode_verified": true
+  }
+}

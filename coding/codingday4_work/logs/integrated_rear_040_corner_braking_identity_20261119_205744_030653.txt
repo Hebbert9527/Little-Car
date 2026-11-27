@@ -1,0 +1,83 @@
+      -------------------------------------------------------------------
+                       STM32CubeProgrammer v2.18.0                  
+      -------------------------------------------------------------------
+
+ST-LINK SN  : 0674FF545155657067032031
+ST-LINK FW  : V2J47M34
+Board       : --
+Voltage     : 3.22V
+SWD freq    : 4000 KHz
+Connect mode: Hot Plug
+Reset mode  : Software reset
+Device ID   : 0x421
+Revision ID : Rev A
+Device name : STM32F446xx
+Flash size  : 512 KBytes
+Device type : MCU
+Device CPU  : Cortex-M4
+BL Version  : 0x90
+
+
+UPLOADING ...
+  File          : D:\EMBEGGed\week4codingday\coding\coding(1)\coding\codingday4_work\logs\integrated_rear_040_corner_braking_identity_20261119_205744_030653_flash.bin
+  Size          : 90004 Bytes
+  Address:      : 0x8000000
+Read progress:
+北北北北北北北北北北北北北北北北北北北北北北北北北 0%
+圹圹圹圹圹圹圹圹圹圹圹圹圹圹圹圹圹圹圹圹圹圹圹圹圹 100%
+Data read successfully
+Time elapsed during read operation is: 00:00:00.591
+
+Reading 32-bit memory content
+  Size          : 8 Bytes
+  Address:      : 0x40000834
+
+0x40000834 : 00000000 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 8 Bytes
+  Address:      : 0x40001834
+
+0x40001834 : 00000000 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 104 Bytes
+  Address:      : 0x20000010
+
+0x20000010 : 00010101 3D8B4396 3D8B4396 3E333333
+0x20000020 : 44C33333 44C2EE66 FFFFFFFF FFFFFFFF
+0x20000030 : 00000001 3FC90FDB 3F800000 40000000
+0x20000040 : 00000000 3F800000 00000000 40000000
+0x20000050 : 00000000 3D4CCCCD 3ECCCCCD 3F800000
+0x20000060 : 3EFAE148 3ECCCCCD 3D4CCCCD 3DB2B8C3
+0x20000070 : 3D4CCCCD 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x200019AC
+
+0x200019AC : 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x20001A68
+
+0x20001A68 : 00000000
+
+
+
+Reading 32-bit memory content
+  Size          : 4 Bytes
+  Address:      : 0x200028BC
+
+0x200028BC : 00000332
+
+

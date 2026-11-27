@@ -1,0 +1,30 @@
+{
+  "time_beijing": "20261118_230330_360936",
+  "identity": "logs\\board_identity_20261118_225828_793926.json",
+  "hex_sha256": "4f8575440c16a29e9f8cee3e130ba8acfcbdf73d026dc2e786ee1191fd1c34d3",
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "note": "Sequential register reads; signed delta requires a second sample and <32768 counts between reads.",
+  "right": {
+    "counter": 9,
+    "cr1": "0x201",
+    "smcr": "0x3",
+    "ccmr1": "0xf1f1",
+    "ccer": "0x11",
+    "arr": 65535,
+    "encoder_mode_verified": true
+  },
+  "left": {
+    "counter": 65381,
+    "cr1": "0x211",
+    "smcr": "0x3",
+    "ccmr1": "0xf1f1",
+    "ccer": "0x11",
+    "arr": 65535,
+    "encoder_mode_verified": true
+  }
+}

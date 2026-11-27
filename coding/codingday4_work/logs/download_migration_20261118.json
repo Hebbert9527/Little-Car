@@ -1,0 +1,1075 @@
+{
+  "Ownership": "Task-only pip downloads from the two identified creation-time windows; no older or unrelated C directories moved.",
+  "SourceRoot": "C:\\Users\\Hebert\\AppData\\Local\\Temp",
+  "DestinationRoot": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118",
+  "Status": "copied_hash_verified_and_removed_from_C",
+  "DirectoryCount": 88,
+  "Bytes": 25388483.0,
+  "Items": [
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-build-tracker-eebfe1wl",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-build-tracker-eebfe1wl",
+      "Created": "2026-11-18T21:02:37",
+      "Files": []
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-build-tracker-orm89yhg",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-build-tracker-orm89yhg",
+      "Created": "2026-11-18T20:47:12",
+      "Files": []
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-ephem-wheel-cache-97t66ygk",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-ephem-wheel-cache-97t66ygk",
+      "Created": "2026-11-18T20:47:12",
+      "Files": []
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-ephem-wheel-cache-sqe4zzig",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-ephem-wheel-cache-sqe4zzig",
+      "Created": "2026-11-18T21:02:37",
+      "Files": []
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-install-4s0e_8t7",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-install-4s0e_8t7",
+      "Created": "2026-11-18T20:47:12",
+      "Files": []
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-install-x22okt3o",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-install-x22okt3o",
+      "Created": "2026-11-18T21:02:37",
+      "Files": []
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-_a081pqz",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-_a081pqz",
+      "Created": "2026-11-18T21:02:45",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 1963,
+          "Sha256": "903e86c0f9fa0485bcef9a01a1138919032fd67dd4885ae859891281b7df1446"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-2khzoa80",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-2khzoa80",
+      "Created": "2026-11-18T21:02:45",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 2566,
+          "Sha256": "4ee3319229868e8fe6cf5cf8da5157c6749fd6bd09f7f2f01f58a67166be0777"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-2tmcv_i7",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-2tmcv_i7",
+      "Created": "2026-11-18T20:48:59",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 1358,
+          "Sha256": "8173da8700dd125e60c9caf7663d02ee3318851ee60d387b2b080f23a74a86a8"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-3mvziebc",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-3mvziebc",
+      "Created": "2026-11-18T20:47:47",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 142576,
+          "Sha256": "7382b1e9edaa1a2766b381ca2bc6d07acd150c96ca2bacc00dafa8d2631dea91"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-61o78n0u",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-61o78n0u",
+      "Created": "2026-11-18T20:48:51",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 2428,
+          "Sha256": "427885b96323b12834a5166d7cc579c3939a94f35e59874b7a198b2929c3817a"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-74ejpi_3",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-74ejpi_3",
+      "Created": "2026-11-18T21:02:45",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 1941,
+          "Sha256": "339384a7181227b8f12dd3d6ea61ebd12affeec7eed5bbda9ddb82a15586f9cf"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-7x6r2v5a",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-7x6r2v5a",
+      "Created": "2026-11-18T21:02:46",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 1778,
+          "Sha256": "8884e6fd29623550457f05ad639532649f2bb5b609d2e52406f4d49819b4c9f4"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-81tgenr7",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-81tgenr7",
+      "Created": "2026-11-18T20:48:57",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 1826,
+          "Sha256": "0aab70596648292626bebf3ace27f32aa650588c058c6e4f9ca00319b1cb52c6"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-9uwt7708",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-9uwt7708",
+      "Created": "2026-11-18T21:02:43",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 4697,
+          "Sha256": "f1c32dfd1ea70bee76c3c8bd55fa46f64da9c1bf2e3c49f2c5da6deec7af5352"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-a6cgd1jt",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-a6cgd1jt",
+      "Created": "2026-11-18T21:02:44",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 142576,
+          "Sha256": "7382b1e9edaa1a2766b381ca2bc6d07acd150c96ca2bacc00dafa8d2631dea91"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-a8f17m61",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-a8f17m61",
+      "Created": "2026-11-18T20:48:58",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 2100,
+          "Sha256": "b0fdb4b353e7c421fd2644cfe917000c97dd922b677525e7371ff5c0ff3caa69"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-a9tqs0v9",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-a9tqs0v9",
+      "Created": "2026-11-18T21:02:46",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 1826,
+          "Sha256": "0aab70596648292626bebf3ace27f32aa650588c058c6e4f9ca00319b1cb52c6"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-ag_cag6t",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-ag_cag6t",
+      "Created": "2026-11-18T20:47:32",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 3779,
+          "Sha256": "23289e19b76f1e01394227696e6af2b6cd1ce79e89731209bf9195148b18ed36"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-b23z369c",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-b23z369c",
+      "Created": "2026-11-18T20:48:47",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 1963,
+          "Sha256": "903e86c0f9fa0485bcef9a01a1138919032fd67dd4885ae859891281b7df1446"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-b4oec0mj",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-b4oec0mj",
+      "Created": "2026-11-18T21:02:46",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 2100,
+          "Sha256": "b0fdb4b353e7c421fd2644cfe917000c97dd922b677525e7371ff5c0ff3caa69"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-bg2igplo",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-bg2igplo",
+      "Created": "2026-11-18T20:48:45",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 7341,
+          "Sha256": "39adffb0c736bb6b6839f89fd158bb9b9ad54a3a795e0ea2ea53e79e1f821907"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-c1yujb29",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-c1yujb29",
+      "Created": "2026-11-18T21:02:43",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 3756,
+          "Sha256": "40450acd747b288a5db999c435e1e921ffee0a38c7884a80cd46934c8004568f"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-cu3u9dgh",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-cu3u9dgh",
+      "Created": "2026-11-18T21:02:43",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 3779,
+          "Sha256": "23289e19b76f1e01394227696e6af2b6cd1ce79e89731209bf9195148b18ed36"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-dkb39vyw",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-dkb39vyw",
+      "Created": "2026-11-18T20:48:20",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 3544,
+          "Sha256": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-dxfl70bd",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-dxfl70bd",
+      "Created": "2026-11-18T20:48:48",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 2566,
+          "Sha256": "4ee3319229868e8fe6cf5cf8da5157c6749fd6bd09f7f2f01f58a67166be0777"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-fg3s051e",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-fg3s051e",
+      "Created": "2026-11-18T21:02:45",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 5857,
+          "Sha256": "f2ca34052d720622d300023472ef8ae94fe5b57d69acbb28a8667f6dd0e13497"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-fmx8amjp",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-fmx8amjp",
+      "Created": "2026-11-18T20:47:26",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 80264,
+          "Sha256": "e5f532226d1025af2dd15ff951df27391f66d46403b8244ea61e6b8eb3e4d806"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-fxcq327k",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-fxcq327k",
+      "Created": "2026-11-18T20:48:53",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 2458,
+          "Sha256": "7986255ac351f67ee980b9b2f7db290e94ce6017e3a128b5fe165f2ad62eb7c9"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-hbagrpni",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-hbagrpni",
+      "Created": "2026-11-18T20:48:59",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 3310,
+          "Sha256": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-ixeoryj4",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-ixeoryj4",
+      "Created": "2026-11-18T21:02:43",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 80264,
+          "Sha256": "e5f532226d1025af2dd15ff951df27391f66d46403b8244ea61e6b8eb3e4d806"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-ki4woe15",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-ki4woe15",
+      "Created": "2026-11-18T21:02:45",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 2279,
+          "Sha256": "8007a4bdd7d7dfddf35efd25007ca815f246c17b2359e87b6d9bca9102d2c70b"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-m7bg7etb",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-m7bg7etb",
+      "Created": "2026-11-18T20:47:56",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 5250,
+          "Sha256": "4e635948bf0b496e7e1bf6b8f7f577504670453459bd98e8dcfb0b919257d476"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-nghj733o",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-nghj733o",
+      "Created": "2026-11-18T20:47:26",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 1650,
+          "Sha256": "42a8ab7e94ef0b7baa7e94cdac65d6b9254c608476f630120c990007bf472943"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-nmm1o82k",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-nmm1o82k",
+      "Created": "2026-11-18T20:48:50",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 2279,
+          "Sha256": "8007a4bdd7d7dfddf35efd25007ca815f246c17b2359e87b6d9bca9102d2c70b"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-oqmc506a",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-oqmc506a",
+      "Created": "2026-11-18T20:48:42",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 9300,
+          "Sha256": "140f39cb31ec9b46109828a6286f034a4848621263d6aab38d2f142083dd06c5"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-p_apeclf",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-p_apeclf",
+      "Created": "2026-11-18T20:47:32",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 3756,
+          "Sha256": "40450acd747b288a5db999c435e1e921ffee0a38c7884a80cd46934c8004568f"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-petvo6mc",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-petvo6mc",
+      "Created": "2026-11-18T21:02:45",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 2428,
+          "Sha256": "427885b96323b12834a5166d7cc579c3939a94f35e59874b7a198b2929c3817a"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-td2jsjyg",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-td2jsjyg",
+      "Created": "2026-11-18T20:48:54",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 1941,
+          "Sha256": "339384a7181227b8f12dd3d6ea61ebd12affeec7eed5bbda9ddb82a15586f9cf"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-twua333v",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-twua333v",
+      "Created": "2026-11-18T20:48:19",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 6635,
+          "Sha256": "b184c8d5951f32a8b8b080ff80744e0b80523783061402446a5dcaf52dc40bff"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-uia5j94m",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-uia5j94m",
+      "Created": "2026-11-18T21:02:45",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 2458,
+          "Sha256": "7986255ac351f67ee980b9b2f7db290e94ce6017e3a128b5fe165f2ad62eb7c9"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-uo8c2dtm",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-uo8c2dtm",
+      "Created": "2026-11-18T21:02:43",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 1650,
+          "Sha256": "42a8ab7e94ef0b7baa7e94cdac65d6b9254c608476f630120c990007bf472943"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-w4q32j4h",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-w4q32j4h",
+      "Created": "2026-11-18T20:47:28",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 4697,
+          "Sha256": "f1c32dfd1ea70bee76c3c8bd55fa46f64da9c1bf2e3c49f2c5da6deec7af5352"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-wxd2epz_",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-wxd2epz_",
+      "Created": "2026-11-18T20:48:44",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 5857,
+          "Sha256": "f2ca34052d720622d300023472ef8ae94fe5b57d69acbb28a8667f6dd0e13497"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-ylr7q091",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-ylr7q091",
+      "Created": "2026-11-18T20:48:57",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 1778,
+          "Sha256": "8884e6fd29623550457f05ad639532649f2bb5b609d2e52406f4d49819b4c9f4"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-metadata-zjs0tcq8",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-metadata-zjs0tcq8",
+      "Created": "2026-11-18T21:02:44",
+      "Files": [
+        {
+          "Relative": "METADATA",
+          "Length": 5250,
+          "Sha256": "4e635948bf0b496e7e1bf6b8f7f577504670453459bd98e8dcfb0b919257d476"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-_6gho7gz",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-_6gho7gz",
+      "Created": "2026-11-18T20:47:26",
+      "Files": [
+        {
+          "Relative": "pyserial-3.5-py2.py3-none-any.whl.metadata",
+          "Length": 1650,
+          "Sha256": "42a8ab7e94ef0b7baa7e94cdac65d6b9254c608476f630120c990007bf472943"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-_jz3_96_",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-_jz3_96_",
+      "Created": "2026-11-18T21:02:46",
+      "Files": [
+        {
+          "Relative": "matplotlib-3.11.2-cp312-cp312-win_amd64.whl",
+          "Length": 3670016,
+          "Sha256": "765b90944d5b2dcb8b97daf7e2a58021f1998344867b3900a8f947af6190004b"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-00dcv4m8",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-00dcv4m8",
+      "Created": "2026-11-18T21:02:44",
+      "Files": [
+        {
+          "Relative": "pyparsing-3.3.3-py3-none-any.whl.metadata",
+          "Length": 5857,
+          "Sha256": "f2ca34052d720622d300023472ef8ae94fe5b57d69acbb28a8667f6dd0e13497"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-0j0tqdr_",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-0j0tqdr_",
+      "Created": "2026-11-18T21:02:45",
+      "Files": [
+        {
+          "Relative": "winrt_runtime-4.2.0-cp312-cp312-win_amd64.whl.metadata",
+          "Length": 1963,
+          "Sha256": "903e86c0f9fa0485bcef9a01a1138919032fd67dd4885ae859891281b7df1446"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-0jp_zm5y",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-0jp_zm5y",
+      "Created": "2026-11-18T20:48:41",
+      "Files": [
+        {
+          "Relative": "pillow-13.0.0-cp312-cp312-win_amd64.whl.metadata",
+          "Length": 9300,
+          "Sha256": "140f39cb31ec9b46109828a6286f034a4848621263d6aab38d2f142083dd06c5"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-0ucz7r1a",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-0ucz7r1a",
+      "Created": "2026-11-18T21:02:46",
+      "Files": [
+        {
+          "Relative": "winrt_windows_storage_streams-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 2100,
+          "Sha256": "b0fdb4b353e7c421fd2644cfe917000c97dd922b677525e7371ff5c0ff3caa69"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-2ip6ty_8",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-2ip6ty_8",
+      "Created": "2026-11-18T21:02:43",
+      "Files": [
+        {
+          "Relative": "cycler-0.12.1-py3-none-any.whl.metadata",
+          "Length": 3779,
+          "Sha256": "23289e19b76f1e01394227696e6af2b6cd1ce79e89731209bf9195148b18ed36"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-4_bpmcf6",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-4_bpmcf6",
+      "Created": "2026-11-18T20:47:21",
+      "Files": [
+        {
+          "Relative": "matplotlib-3.11.2-cp312-cp312-win_amd64.whl.metadata",
+          "Length": 80264,
+          "Sha256": "e5f532226d1025af2dd15ff951df27391f66d46403b8244ea61e6b8eb3e4d806"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-4a2emzs8",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-4a2emzs8",
+      "Created": "2026-11-18T20:48:54",
+      "Files": [
+        {
+          "Relative": "winrt_windows_devices_radios-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 1941,
+          "Sha256": "339384a7181227b8f12dd3d6ea61ebd12affeec7eed5bbda9ddb82a15586f9cf"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-6utay3yd",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-6utay3yd",
+      "Created": "2026-11-18T20:48:55",
+      "Files": [
+        {
+          "Relative": "winrt_windows_foundation-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 1778,
+          "Sha256": "8884e6fd29623550457f05ad639532649f2bb5b609d2e52406f4d49819b4c9f4"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-8785edib",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-8785edib",
+      "Created": "2026-11-18T21:02:45",
+      "Files": [
+        {
+          "Relative": "winrt_windows_devices_bluetooth_advertisement-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 2279,
+          "Sha256": "8007a4bdd7d7dfddf35efd25007ca815f246c17b2359e87b6d9bca9102d2c70b"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-8e0cuu3_",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-8e0cuu3_",
+      "Created": "2026-11-18T20:48:47",
+      "Files": [
+        {
+          "Relative": "winrt_runtime-4.2.0-cp312-cp312-win_amd64.whl.metadata",
+          "Length": 1963,
+          "Sha256": "903e86c0f9fa0485bcef9a01a1138919032fd67dd4885ae859891281b7df1446"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-9gjkhct3",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-9gjkhct3",
+      "Created": "2026-11-18T20:47:56",
+      "Files": [
+        {
+          "Relative": "kiwisolver-1.5.1-cp312-cp312-win_amd64.whl.metadata",
+          "Length": 5250,
+          "Sha256": "4e635948bf0b496e7e1bf6b8f7f577504670453459bd98e8dcfb0b919257d476"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-9twx_h6w",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-9twx_h6w",
+      "Created": "2026-11-18T21:02:45",
+      "Files": [
+        {
+          "Relative": "winrt_windows_devices_bluetooth-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 2566,
+          "Sha256": "4ee3319229868e8fe6cf5cf8da5157c6749fd6bd09f7f2f01f58a67166be0777"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-ae97qp2y",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-ae97qp2y",
+      "Created": "2026-11-18T21:02:43",
+      "Files": [
+        {
+          "Relative": "matplotlib-3.11.2-cp312-cp312-win_amd64.whl.metadata",
+          "Length": 80264,
+          "Sha256": "e5f532226d1025af2dd15ff951df27391f66d46403b8244ea61e6b8eb3e4d806"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-ao295p4g",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-ao295p4g",
+      "Created": "2026-11-18T20:48:44",
+      "Files": [
+        {
+          "Relative": "python_dateutil-4.0.0-py3-none-any.whl.metadata",
+          "Length": 7341,
+          "Sha256": "39adffb0c736bb6b6839f89fd158bb9b9ad54a3a795e0ea2ea53e79e1f821907"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-aqdrn5ic",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-aqdrn5ic",
+      "Created": "2026-11-18T21:02:46",
+      "Files": [
+        {
+          "Relative": "winrt_windows_foundation-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 1778,
+          "Sha256": "8884e6fd29623550457f05ad639532649f2bb5b609d2e52406f4d49819b4c9f4"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-bixxhsn4",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-bixxhsn4",
+      "Created": "2026-11-18T20:47:32",
+      "Files": [
+        {
+          "Relative": "contourpy-1.4.0-cp312-cp312-win_amd64.whl.metadata",
+          "Length": 3756,
+          "Sha256": "40450acd747b288a5db999c435e1e921ffee0a38c7884a80cd46934c8004568f"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-bn6kp1jn",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-bn6kp1jn",
+      "Created": "2026-11-18T20:48:51",
+      "Files": [
+        {
+          "Relative": "winrt_windows_devices_bluetooth_genericattributeprofile-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 2428,
+          "Sha256": "427885b96323b12834a5166d7cc579c3939a94f35e59874b7a198b2929c3817a"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-c8g7_fl_",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-c8g7_fl_",
+      "Created": "2026-11-18T21:02:45",
+      "Files": [
+        {
+          "Relative": "winrt_windows_devices_radios-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 1941,
+          "Sha256": "339384a7181227b8f12dd3d6ea61ebd12affeec7eed5bbda9ddb82a15586f9cf"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-cew2fek4",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-cew2fek4",
+      "Created": "2026-11-18T20:47:32",
+      "Files": [
+        {
+          "Relative": "cycler-0.12.1-py3-none-any.whl.metadata",
+          "Length": 3779,
+          "Sha256": "23289e19b76f1e01394227696e6af2b6cd1ce79e89731209bf9195148b18ed36"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-fusecrd9",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-fusecrd9",
+      "Created": "2026-11-18T20:48:59",
+      "Files": [
+        {
+          "Relative": "tzdata-2026.6-py2.py3-none-any.whl.metadata",
+          "Length": 1358,
+          "Sha256": "8173da8700dd125e60c9caf7663d02ee3318851ee60d387b2b080f23a74a86a8"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-ih90f6cr",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-ih90f6cr",
+      "Created": "2026-11-18T20:48:48",
+      "Files": [
+        {
+          "Relative": "winrt_windows_devices_bluetooth-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 2566,
+          "Sha256": "4ee3319229868e8fe6cf5cf8da5157c6749fd6bd09f7f2f01f58a67166be0777"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-j7rgy29u",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-j7rgy29u",
+      "Created": "2026-11-18T21:02:44",
+      "Files": [
+        {
+          "Relative": "fonttools-4.68.0-cp312-cp312-win_amd64.whl.metadata",
+          "Length": 142576,
+          "Sha256": "7382b1e9edaa1a2766b381ca2bc6d07acd150c96ca2bacc00dafa8d2631dea91"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-k_r6hatz",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-k_r6hatz",
+      "Created": "2026-11-18T21:02:45",
+      "Files": [
+        {
+          "Relative": "winrt_windows_devices_enumeration-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 2458,
+          "Sha256": "7986255ac351f67ee980b9b2f7db290e94ce6017e3a128b5fe165f2ad62eb7c9"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-kykw1286",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-kykw1286",
+      "Created": "2026-11-18T20:48:18",
+      "Files": [
+        {
+          "Relative": "numpy-2.5.5-cp312-cp312-win_amd64.whl.metadata",
+          "Length": 6635,
+          "Sha256": "b184c8d5951f32a8b8b080ff80744e0b80523783061402446a5dcaf52dc40bff"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-lo5qk2u8",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-lo5qk2u8",
+      "Created": "2026-11-18T20:47:28",
+      "Files": [
+        {
+          "Relative": "bleak-3.1.0-py3-none-any.whl.metadata",
+          "Length": 4697,
+          "Sha256": "f1c32dfd1ea70bee76c3c8bd55fa46f64da9c1bf2e3c49f2c5da6deec7af5352"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-ngu4uzx5",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-ngu4uzx5",
+      "Created": "2026-11-18T20:48:57",
+      "Files": [
+        {
+          "Relative": "winrt_windows_foundation_collections-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 1826,
+          "Sha256": "0aab70596648292626bebf3ace27f32aa650588c058c6e4f9ca00319b1cb52c6"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-nhisg9_2",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-nhisg9_2",
+      "Created": "2026-11-18T20:48:49",
+      "Files": [
+        {
+          "Relative": "winrt_windows_devices_bluetooth_advertisement-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 2279,
+          "Sha256": "8007a4bdd7d7dfddf35efd25007ca815f246c17b2359e87b6d9bca9102d2c70b"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-nnve_qhh",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-nnve_qhh",
+      "Created": "2026-11-18T21:02:44",
+      "Files": [
+        {
+          "Relative": "kiwisolver-1.5.1-cp312-cp312-win_amd64.whl.metadata",
+          "Length": 5250,
+          "Sha256": "4e635948bf0b496e7e1bf6b8f7f577504670453459bd98e8dcfb0b919257d476"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-p_13a4q2",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-p_13a4q2",
+      "Created": "2026-11-18T20:48:53",
+      "Files": [
+        {
+          "Relative": "winrt_windows_devices_enumeration-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 2458,
+          "Sha256": "7986255ac351f67ee980b9b2f7db290e94ce6017e3a128b5fe165f2ad62eb7c9"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-q6m5d60g",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-q6m5d60g",
+      "Created": "2026-11-18T21:02:43",
+      "Files": [
+        {
+          "Relative": "contourpy-1.4.0-cp312-cp312-win_amd64.whl.metadata",
+          "Length": 3756,
+          "Sha256": "40450acd747b288a5db999c435e1e921ffee0a38c7884a80cd46934c8004568f"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-qd0dyzmx",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-qd0dyzmx",
+      "Created": "2026-11-18T20:47:42",
+      "Files": [
+        {
+          "Relative": "fonttools-4.68.0-cp312-cp312-win_amd64.whl.metadata",
+          "Length": 142576,
+          "Sha256": "7382b1e9edaa1a2766b381ca2bc6d07acd150c96ca2bacc00dafa8d2631dea91"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-qun2lzl0",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-qun2lzl0",
+      "Created": "2026-11-18T20:48:20",
+      "Files": [
+        {
+          "Relative": "packaging-26.3-py3-none-any.whl.metadata",
+          "Length": 3544,
+          "Sha256": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-rj34mixl",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-rj34mixl",
+      "Created": "2026-11-18T20:48:43",
+      "Files": [
+        {
+          "Relative": "pyparsing-3.3.3-py3-none-any.whl.metadata",
+          "Length": 5857,
+          "Sha256": "f2ca34052d720622d300023472ef8ae94fe5b57d69acbb28a8667f6dd0e13497"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-ttfpyfow",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-ttfpyfow",
+      "Created": "2026-11-18T21:02:43",
+      "Files": [
+        {
+          "Relative": "pyserial-3.5-py2.py3-none-any.whl.metadata",
+          "Length": 1650,
+          "Sha256": "42a8ab7e94ef0b7baa7e94cdac65d6b9254c608476f630120c990007bf472943"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-wdcyj43d",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-wdcyj43d",
+      "Created": "2026-11-18T20:48:59",
+      "Files": [
+        {
+          "Relative": "typing_extensions-4.16.0-py3-none-any.whl.metadata",
+          "Length": 3310,
+          "Sha256": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-xc75tzl9",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-xc75tzl9",
+      "Created": "2026-11-18T21:02:45",
+      "Files": [
+        {
+          "Relative": "winrt_windows_devices_bluetooth_genericattributeprofile-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 2428,
+          "Sha256": "427885b96323b12834a5166d7cc579c3939a94f35e59874b7a198b2929c3817a"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-xry4hefe",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-xry4hefe",
+      "Created": "2026-11-18T20:48:58",
+      "Files": [
+        {
+          "Relative": "winrt_windows_storage_streams-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 2100,
+          "Sha256": "b0fdb4b353e7c421fd2644cfe917000c97dd922b677525e7371ff5c0ff3caa69"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-y6acou39",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-y6acou39",
+      "Created": "2026-11-18T21:02:46",
+      "Files": [
+        {
+          "Relative": "winrt_windows_foundation_collections-4!10.0.28000.2957-py3-none-any.whl.metadata",
+          "Length": 1826,
+          "Sha256": "0aab70596648292626bebf3ace27f32aa650588c058c6e4f9ca00319b1cb52c6"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-yil0s8pz",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-yil0s8pz",
+      "Created": "2026-11-18T20:48:59",
+      "Files": [
+        {
+          "Relative": "bleak-3.1.0-py3-none-any.whl",
+          "Length": 176301,
+          "Sha256": "3cb08e03039f6e477c276252540416b287d4e3de63a86732780ff93a2f6e73ef"
+        },
+        {
+          "Relative": "contourpy-1.4.0-cp312-cp312-win_amd64.whl",
+          "Length": 234083,
+          "Sha256": "6e697d94e69f499ff6bebb899cae97a58d5d14f0e1fe9568b43a0248d2f9af8c"
+        },
+        {
+          "Relative": "cycler-0.12.1-py3-none-any.whl",
+          "Length": 8321,
+          "Sha256": "85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30"
+        },
+        {
+          "Relative": "fonttools-4.68.0-cp312-cp312-win_amd64.whl",
+          "Length": 2533508,
+          "Sha256": "fedc183bdbc3fdbfbdca26e0e04566d089cbb404712509a4e824608e9304cc77"
+        },
+        {
+          "Relative": "kiwisolver-1.5.1-cp312-cp312-win_amd64.whl",
+          "Length": 70748,
+          "Sha256": "06a6917674de9e0fe3f66f5430787f59a9f2ddb64af9b714eaec547e29ef5c19"
+        },
+        {
+          "Relative": "matplotlib-3.11.2-cp312-cp312-win_amd64.whl",
+          "Length": 6006528,
+          "Sha256": "c53b58afff41f88a558e57b9e952204171d7d16e3fa8e0e1f39a9def9368b347"
+        },
+        {
+          "Relative": "numpy-2.5.5-cp312-cp312-win_amd64.whl",
+          "Length": 6093909,
+          "Sha256": "7090a81bfe6d2b0749efdcb775ddb8a27c4af9885b13095bf292ad40e4d06c3f"
+        },
+        {
+          "Relative": "packaging-26.3-py3-none-any.whl",
+          "Length": 129956,
+          "Sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+        },
+        {
+          "Relative": "pillow-13.0.0-cp312-cp312-win_amd64.whl",
+          "Length": 5242880,
+          "Sha256": "6dd8acce993fc71719b9757ad9af4dc3cc90671be964ff361ca241014aa4ded0"
+        },
+        {
+          "Relative": "pyserial-3.5-py2.py3-none-any.whl",
+          "Length": 90585,
+          "Sha256": "c4451db6ba391ca6ca299fb3ec7bae67a5c55dde170964c7a14ceefec02f2cf0"
+        }
+      ]
+    },
+    {
+      "Source": "C:\\Users\\Hebert\\AppData\\Local\\Temp\\pip-unpack-z_d42_1m",
+      "Destination": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\pip-recovered\\c_temp_20261118\\pip-unpack-z_d42_1m",
+      "Created": "2026-11-18T21:02:43",
+      "Files": [
+        {
+          "Relative": "bleak-3.1.0-py3-none-any.whl.metadata",
+          "Length": 4697,
+          "Sha256": "f1c32dfd1ea70bee76c3c8bd55fa46f64da9c1bf2e3c49f2c5da6deec7af5352"
+        }
+      ]
+    }
+  ]
+}

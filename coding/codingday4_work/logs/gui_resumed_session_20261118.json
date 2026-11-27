@@ -1,0 +1,11 @@
+{
+  "pid": 11076,
+  "time_beijing": "20261118_213409",
+  "log": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\logs\\gui_resumed_20261118_213409.bin",
+  "stderr": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\logs\\gui_resumed_20261118_213409_stderr.txt",
+  "stdout": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\logs\\gui_resumed_20261118_213409_stdout.txt",
+  "duration_s": 90,
+  "mode": "Live BLE GUI, no initial command",
+  "TCL_LIBRARY": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\tcl\\tcl8.6",
+  "TK_LIBRARY": "D:\\EMBEGGed\\week4codingday\\coding\\codingday4_work\\firmware_source\\.runtime\\tcl\\tk8.6"
+}

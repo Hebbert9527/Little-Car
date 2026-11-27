@@ -1,0 +1,906 @@
+{
+  "target_rpm": 90.0,
+  "fault": 0,
+  "samples": [
+    {
+      "elapsed_ms": 50,
+      "left_delta": 8,
+      "right_delta": 5,
+      "left_rpm": 2.053190231323242,
+      "right_rpm": 1.278281807899475,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 100,
+      "left_delta": 23,
+      "right_delta": 17,
+      "left_rpm": 7.2717156410217285,
+      "right_rpm": 5.198346138000488,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 150,
+      "left_delta": 35,
+      "right_delta": 29,
+      "left_rpm": 13.830517768859863,
+      "right_rpm": 10.879598617553711,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 200,
+      "left_delta": 46,
+      "right_delta": 39,
+      "left_rpm": 21.02618980407715,
+      "right_rpm": 17.223663330078125,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 250,
+      "left_delta": 55,
+      "right_delta": 48,
+      "left_rpm": 28.133142471313477,
+      "right_rpm": 23.753948211669922,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 300,
+      "left_delta": 65,
+      "right_delta": 56,
+      "left_rpm": 35.437599182128906,
+      "right_rpm": 30.152721405029297,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 350,
+      "left_delta": 72,
+      "right_delta": 63,
+      "left_rpm": 42.10377883911133,
+      "right_rpm": 36.208168029785156,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 400,
+      "left_delta": 80,
+      "right_delta": 69,
+      "left_rpm": 48.60108947753906,
+      "right_rpm": 41.77906799316406,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 450,
+      "left_delta": 86,
+      "right_delta": 76,
+      "left_rpm": 54.4725227355957,
+      "right_rpm": 47.282596588134766,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 500,
+      "left_delta": 92,
+      "right_delta": 80,
+      "left_rpm": 59.92670440673828,
+      "right_rpm": 51.9742431640625,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 550,
+      "left_delta": 98,
+      "right_delta": 85,
+      "left_rpm": 65.10271453857422,
+      "right_rpm": 56.380287170410156,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 600,
+      "left_delta": 103,
+      "right_delta": 90,
+      "left_rpm": 69.83663177490234,
+      "right_rpm": 60.59593200683594,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 650,
+      "left_delta": 107,
+      "right_delta": 93,
+      "left_rpm": 74.01917266845703,
+      "right_rpm": 64.17333221435547,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 700,
+      "left_delta": 111,
+      "right_delta": 98,
+      "left_rpm": 77.8341293334961,
+      "right_rpm": 67.8365478515625,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 750,
+      "left_delta": 115,
+      "right_delta": 100,
+      "left_rpm": 81.4040298461914,
+      "right_rpm": 70.79000091552734,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 800,
+      "left_delta": 119,
+      "right_delta": 104,
+      "left_rpm": 84.81056213378906,
+      "right_rpm": 73.78160095214844,
+      "left_pwm": 0.4000000059604645,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 850,
+      "left_delta": 121,
+      "right_delta": 106,
+      "left_rpm": 87.59487915039062,
+      "right_rpm": 76.28730773925781,
+      "left_pwm": 0.3957723081111908,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 900,
+      "left_delta": 125,
+      "right_delta": 109,
+      "left_rpm": 90.4776840209961,
+      "right_rpm": 78.7247543334961,
+      "left_pwm": 0.38981562852859497,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 950,
+      "left_delta": 128,
+      "right_delta": 112,
+      "left_rpm": 93.16950225830078,
+      "right_rpm": 81.11668395996094,
+      "left_pwm": 0.3831641674041748,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 1000,
+      "left_delta": 129,
+      "right_delta": 113,
+      "left_rpm": 95.22069549560547,
+      "right_rpm": 82.96696472167969,
+      "left_pwm": 0.3769735097885132,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 1050,
+      "left_delta": 132,
+      "right_delta": 116,
+      "left_rpm": 97.35810089111328,
+      "right_rpm": 84.96745300292969,
+      "left_pwm": 0.36975547671318054,
+      "right_pwm": 0.4000000059604645
+    },
+    {
+      "elapsed_ms": 1100,
+      "left_delta": 132,
+      "right_delta": 118,
+      "left_rpm": 98.78304290771484,
+      "right_rpm": 86.81242370605469,
+      "left_pwm": 0.36339235305786133,
+      "right_pwm": 0.39765021204948425
+    },
+    {
+      "elapsed_ms": 1150,
+      "left_delta": 134,
+      "right_delta": 119,
+      "left_rpm": 100.24629974365234,
+      "right_rpm": 88.29805755615234,
+      "left_pwm": 0.3563673198223114,
+      "right_pwm": 0.39535969495773315
+    },
+    {
+      "elapsed_ms": 1200,
+      "left_delta": 134,
+      "right_delta": 121,
+      "left_rpm": 101.2218017578125,
+      "right_rpm": 89.79979705810547,
+      "left_pwm": 0.3499276041984558,
+      "right_pwm": 0.39243629574775696
+    },
+    {
+      "elapsed_ms": 1250,
+      "left_delta": 135,
+      "right_delta": 122,
+      "left_rpm": 102.1287841796875,
+      "right_rpm": 91.05661010742188,
+      "left_pwm": 0.3432621359825134,
+      "right_pwm": 0.38950005173683167
+    },
+    {
+      "elapsed_ms": 1300,
+      "left_delta": 135,
+      "right_delta": 124,
+      "left_rpm": 102.73344421386719,
+      "right_rpm": 92.40579986572266,
+      "left_pwm": 0.3369594216346741,
+      "right_pwm": 0.3858393132686615
+    },
+    {
+      "elapsed_ms": 1350,
+      "left_delta": 135,
+      "right_delta": 124,
+      "left_rpm": 103.13655090332031,
+      "right_rpm": 93.30525970458984,
+      "left_pwm": 0.33089858293533325,
+      "right_pwm": 0.3827183246612549
+    },
+    {
+      "elapsed_ms": 1400,
+      "left_delta": 134,
+      "right_delta": 125,
+      "left_rpm": 103.14863586425781,
+      "right_rpm": 94.16055297851562,
+      "left_pwm": 0.3256149888038635,
+      "right_pwm": 0.37934350967407227
+    },
+    {
+      "elapsed_ms": 1450,
+      "left_delta": 135,
+      "right_delta": 125,
+      "left_rpm": 103.41334533691406,
+      "right_rpm": 94.73075103759766,
+      "left_pwm": 0.31972023844718933,
+      "right_pwm": 0.3763108253479004
+    },
+    {
+      "elapsed_ms": 1500,
+      "left_delta": 133,
+      "right_delta": 126,
+      "left_rpm": 103.07652282714844,
+      "right_rpm": 95.36653900146484,
+      "left_pwm": 0.315163254737854,
+      "right_pwm": 0.3728926181793213
+    },
+    {
+      "elapsed_ms": 1550,
+      "left_delta": 133,
+      "right_delta": 126,
+      "left_rpm": 102.85197448730469,
+      "right_rpm": 95.79039764404297,
+      "left_pwm": 0.3104715645313263,
+      "right_pwm": 0.3697287440299988
+    },
+    {
+      "elapsed_ms": 1600,
+      "left_delta": 133,
+      "right_delta": 126,
+      "left_rpm": 102.7022705078125,
+      "right_rpm": 96.07296752929688,
+      "left_pwm": 0.30569005012512207,
+      "right_pwm": 0.36673441529273987
+    },
+    {
+      "elapsed_ms": 1650,
+      "left_delta": 131,
+      "right_delta": 126,
+      "left_rpm": 102.08917236328125,
+      "right_rpm": 96.2613525390625,
+      "left_pwm": 0.30208057165145874,
+      "right_pwm": 0.3638531267642975
+    },
+    {
+      "elapsed_ms": 1700,
+      "left_delta": 131,
+      "right_delta": 126,
+      "left_rpm": 101.6804428100586,
+      "right_rpm": 96.3869400024414,
+      "left_pwm": 0.29822587966918945,
+      "right_pwm": 0.3610471487045288
+    },
+    {
+      "elapsed_ms": 1750,
+      "left_delta": 131,
+      "right_delta": 126,
+      "left_rpm": 101.40795135498047,
+      "right_rpm": 96.47066497802734,
+      "left_pwm": 0.2942076623439789,
+      "right_pwm": 0.3582914471626282
+    },
+    {
+      "elapsed_ms": 1800,
+      "left_delta": 129,
+      "right_delta": 126,
+      "left_rpm": 100.71299743652344,
+      "right_rpm": 96.52648162841797,
+      "left_pwm": 0.2913123667240143,
+      "right_pwm": 0.3555692136287689
+    },
+    {
+      "elapsed_ms": 1850,
+      "left_delta": 128,
+      "right_delta": 126,
+      "left_rpm": 99.9930419921875,
+      "right_rpm": 96.56369018554688,
+      "left_pwm": 0.28875505924224854,
+      "right_pwm": 0.35286930203437805
+    },
+    {
+      "elapsed_ms": 1900,
+      "left_delta": 128,
+      "right_delta": 125,
+      "left_rpm": 99.51307678222656,
+      "right_rpm": 96.33283996582031,
+      "left_pwm": 0.2859097719192505,
+      "right_pwm": 0.3507978618144989
+    },
+    {
+      "elapsed_ms": 1950,
+      "left_delta": 126,
+      "right_delta": 125,
+      "left_rpm": 98.67980194091797,
+      "right_rpm": 96.17893981933594,
+      "left_pwm": 0.2841044068336487,
+      "right_pwm": 0.34863409399986267
+    },
+    {
+      "elapsed_ms": 2000,
+      "left_delta": 125,
+      "right_delta": 124,
+      "left_rpm": 97.86763000488281,
+      "right_rpm": 95.82068634033203,
+      "left_pwm": 0.2825816869735718,
+      "right_pwm": 0.34702232480049133
+    },
+    {
+      "elapsed_ms": 2050,
+      "left_delta": 125,
+      "right_delta": 124,
+      "left_rpm": 97.32618713378906,
+      "right_rpm": 95.58184814453125,
+      "left_pwm": 0.280734121799469,
+      "right_pwm": 0.34526726603507996
+    },
+    {
+      "elapsed_ms": 2100,
+      "left_delta": 124,
+      "right_delta": 124,
+      "left_rpm": 96.70857238769531,
+      "right_rpm": 95.42262268066406,
+      "left_pwm": 0.27928590774536133,
+      "right_pwm": 0.343416690826416
+    },
+    {
+      "elapsed_ms": 2150,
+      "left_delta": 123,
+      "right_delta": 123,
+      "left_rpm": 96.0401840209961,
+      "right_rpm": 95.0608139038086,
+      "left_pwm": 0.27820658683776855,
+      "right_pwm": 0.34211599826812744
+    },
+    {
+      "elapsed_ms": 2200,
+      "left_delta": 122,
+      "right_delta": 123,
+      "left_rpm": 95.33794403076172,
+      "right_rpm": 94.81961059570312,
+      "left_pwm": 0.27747592329978943,
+      "right_pwm": 0.34067052602767944
+    },
+    {
+      "elapsed_ms": 2250,
+      "left_delta": 121,
+      "right_delta": 122,
+      "left_rpm": 94.6131362915039,
+      "right_rpm": 94.40315246582031,
+      "left_pwm": 0.2770802676677704,
+      "right_pwm": 0.33974218368530273
+    },
+    {
+      "elapsed_ms": 2300,
+      "left_delta": 121,
+      "right_delta": 121,
+      "left_rpm": 94.12992858886719,
+      "right_rpm": 93.86985778808594,
+      "left_pwm": 0.27639469504356384,
+      "right_pwm": 0.3392608165740967
+    },
+    {
+      "elapsed_ms": 2350,
+      "left_delta": 120,
+      "right_delta": 121,
+      "left_rpm": 93.55113983154297,
+      "right_rpm": 93.51432800292969,
+      "left_pwm": 0.27613183856010437,
+      "right_pwm": 0.3385661542415619
+    },
+    {
+      "elapsed_ms": 2400,
+      "left_delta": 120,
+      "right_delta": 120,
+      "left_rpm": 93.165283203125,
+      "right_rpm": 93.02165222167969,
+      "left_pwm": 0.2756374180316925,
+      "right_pwm": 0.3383428454399109
+    },
+    {
+      "elapsed_ms": 2450,
+      "left_delta": 118,
+      "right_delta": 121,
+      "left_rpm": 92.39474487304688,
+      "right_rpm": 92.94886016845703,
+      "left_pwm": 0.2762205898761749,
+      "right_pwm": 0.3373088836669922
+    },
+    {
+      "elapsed_ms": 2500,
+      "left_delta": 119,
+      "right_delta": 119,
+      "left_rpm": 92.13770294189453,
+      "right_rpm": 92.3890151977539,
+      "left_pwm": 0.2758796215057373,
+      "right_pwm": 0.33747297525405884
+    },
+    {
+      "elapsed_ms": 2550,
+      "left_delta": 118,
+      "right_delta": 120,
+      "left_rpm": 91.7096939086914,
+      "right_rpm": 92.27144622802734,
+      "left_pwm": 0.27605172991752625,
+      "right_pwm": 0.3367995321750641
+    },
+    {
+      "elapsed_ms": 2600,
+      "left_delta": 117,
+      "right_delta": 118,
+      "left_rpm": 91.1677017211914,
+      "right_rpm": 91.68174743652344,
+      "left_pwm": 0.2766686677932739,
+      "right_pwm": 0.3373062312602997
+    },
+    {
+      "elapsed_ms": 2650,
+      "left_delta": 117,
+      "right_delta": 119,
+      "left_rpm": 90.8063735961914,
+      "right_rpm": 91.54427337646484,
+      "left_pwm": 0.27706873416900635,
+      "right_pwm": 0.3369634747505188
+    },
+    {
+      "elapsed_ms": 2700,
+      "left_delta": 116,
+      "right_delta": 118,
+      "left_rpm": 90.30884552001953,
+      "right_rpm": 91.19696807861328,
+      "left_pwm": 0.2779402732849121,
+      "right_pwm": 0.3371793031692505
+    },
+    {
+      "elapsed_ms": 2750,
+      "left_delta": 116,
+      "right_delta": 118,
+      "left_rpm": 89.97715759277344,
+      "right_rpm": 90.9654312133789,
+      "left_pwm": 0.27861279249191284,
+      "right_pwm": 0.33725619316101074
+    },
+    {
+      "elapsed_ms": 2800,
+      "left_delta": 116,
+      "right_delta": 117,
+      "left_rpm": 89.75603485107422,
+      "right_rpm": 90.555419921875,
+      "left_pwm": 0.27915260195732117,
+      "right_pwm": 0.3378540277481079
+    },
+    {
+      "elapsed_ms": 2850,
+      "left_delta": 115,
+      "right_delta": 118,
+      "left_rpm": 89.35196685791016,
+      "right_rpm": 90.53773498535156,
+      "left_pwm": 0.2802199721336365,
+      "right_pwm": 0.3376743197441101
+    },
+    {
+      "elapsed_ms": 2900,
+      "left_delta": 116,
+      "right_delta": 117,
+      "left_rpm": 89.33924102783203,
+      "right_rpm": 90.2702865600586,
+      "left_pwm": 0.28050971031188965,
+      "right_pwm": 0.3381010890007019
+    },
+    {
+      "elapsed_ms": 2950,
+      "left_delta": 115,
+      "right_delta": 117,
+      "left_rpm": 89.07410430908203,
+      "right_rpm": 90.09198760986328,
+      "left_pwm": 0.2814103662967682,
+      "right_pwm": 0.33842092752456665
+    },
+    {
+      "elapsed_ms": 3000,
+      "left_delta": 115,
+      "right_delta": 116,
+      "left_rpm": 88.89734649658203,
+      "right_rpm": 89.71746826171875,
+      "left_pwm": 0.28220492601394653,
+      "right_pwm": 0.33928295969963074
+    },
+    {
+      "elapsed_ms": 3050,
+      "left_delta": 115,
+      "right_delta": 117,
+      "left_rpm": 88.77951049804688,
+      "right_rpm": 89.72344207763672,
+      "left_pwm": 0.28292882442474365,
+      "right_pwm": 0.3393816351890564
+    },
+    {
+      "elapsed_ms": 3100,
+      "left_delta": 116,
+      "right_delta": 117,
+      "left_rpm": 88.95760345458984,
+      "right_rpm": 89.72742462158203,
+      "left_pwm": 0.2829895615577698,
+      "right_pwm": 0.33948269486427307
+    },
+    {
+      "elapsed_ms": 3150,
+      "left_delta": 115,
+      "right_delta": 116,
+      "left_rpm": 88.8196792602539,
+      "right_rpm": 89.47442626953125,
+      "left_pwm": 0.28373754024505615,
+      "right_pwm": 0.34019893407821655
+    },
+    {
+      "elapsed_ms": 3200,
+      "left_delta": 115,
+      "right_delta": 117,
+      "left_rpm": 88.72772979736328,
+      "right_rpm": 89.56141662597656,
+      "left_pwm": 0.2844303548336029,
+      "right_pwm": 0.34020039439201355
+    },
+    {
+      "elapsed_ms": 3250,
+      "left_delta": 115,
+      "right_delta": 116,
+      "left_rpm": 88.66642761230469,
+      "right_rpm": 89.36375427246094,
+      "left_pwm": 0.28508639335632324,
+      "right_pwm": 0.34085023403167725
+    },
+    {
+      "elapsed_ms": 3300,
+      "left_delta": 115,
+      "right_delta": 117,
+      "left_rpm": 88.62556457519531,
+      "right_rpm": 89.48763275146484,
+      "left_pwm": 0.2857179045677185,
+      "right_pwm": 0.34080737829208374
+    },
+    {
+      "elapsed_ms": 3350,
+      "left_delta": 115,
+      "right_delta": 117,
+      "left_rpm": 88.59832000732422,
+      "right_rpm": 89.57022094726562,
+      "left_pwm": 0.28633302450180054,
+      "right_pwm": 0.34081414341926575
+    },
+    {
+      "elapsed_ms": 3400,
+      "left_delta": 115,
+      "right_delta": 117,
+      "left_rpm": 88.58015441894531,
+      "right_rpm": 89.62527465820312,
+      "left_pwm": 0.28693729639053345,
+      "right_pwm": 0.34085389971733093
+    },
+    {
+      "elapsed_ms": 3450,
+      "left_delta": 115,
+      "right_delta": 116,
+      "left_rpm": 88.56804656982422,
+      "right_rpm": 89.40632629394531,
+      "left_pwm": 0.28753429651260376,
+      "right_pwm": 0.3415292799472809
+    },
+    {
+      "elapsed_ms": 3500,
+      "left_delta": 116,
+      "right_delta": 117,
+      "left_rpm": 88.8166275024414,
+      "right_rpm": 89.5160140991211,
+      "left_pwm": 0.2875105142593384,
+      "right_pwm": 0.3415035009384155
+    },
+    {
+      "elapsed_ms": 3550,
+      "left_delta": 115,
+      "right_delta": 117,
+      "left_rpm": 88.72569274902344,
+      "right_rpm": 89.58914184570312,
+      "left_pwm": 0.28820207715034485,
+      "right_pwm": 0.34152159094810486
+    },
+    {
+      "elapsed_ms": 3600,
+      "left_delta": 116,
+      "right_delta": 118,
+      "left_rpm": 88.92172241210938,
+      "right_rpm": 89.89354705810547,
+      "left_pwm": 0.28824132680892944,
+      "right_pwm": 0.34095537662506104
+    },
+    {
+      "elapsed_ms": 3650,
+      "left_delta": 116,
+      "right_delta": 117,
+      "left_rpm": 89.05240631103516,
+      "right_rpm": 89.84082794189453,
+      "left_pwm": 0.28835901618003845,
+      "right_pwm": 0.3411244750022888
+    },
+    {
+      "elapsed_ms": 3700,
+      "left_delta": 116,
+      "right_delta": 117,
+      "left_rpm": 89.13953399658203,
+      "right_rpm": 89.80567932128906,
+      "left_pwm": 0.2885289490222931,
+      "right_pwm": 0.3412725031375885
+    },
+    {
+      "elapsed_ms": 3750,
+      "left_delta": 117,
+      "right_delta": 117,
+      "left_rpm": 89.45426177978516,
+      "right_rpm": 89.7822494506836,
+      "left_pwm": 0.28811779618263245,
+      "right_pwm": 0.3414064645767212
+    },
+    {
+      "elapsed_ms": 3800,
+      "left_delta": 116,
+      "right_delta": 117,
+      "left_rpm": 89.40743255615234,
+      "right_rpm": 89.76663208007812,
+      "left_pwm": 0.2884484827518463,
+      "right_pwm": 0.34153103828430176
+    },
+    {
+      "elapsed_ms": 3850,
+      "left_delta": 116,
+      "right_delta": 117,
+      "left_rpm": 89.37621307373047,
+      "right_rpm": 89.75621795654297,
+      "left_pwm": 0.2887604236602783,
+      "right_pwm": 0.3416493833065033
+    },
+    {
+      "elapsed_ms": 3900,
+      "left_delta": 117,
+      "right_delta": 117,
+      "left_rpm": 89.61205291748047,
+      "right_rpm": 89.74927520751953,
+      "left_pwm": 0.288443922996521,
+      "right_pwm": 0.34176355600357056
+    },
+    {
+      "elapsed_ms": 3950,
+      "left_delta": 117,
+      "right_delta": 117,
+      "left_rpm": 89.76927947998047,
+      "right_rpm": 89.74464416503906,
+      "left_pwm": 0.2882217466831207,
+      "right_pwm": 0.34187495708465576
+    },
+    {
+      "elapsed_ms": 4000,
+      "left_delta": 116,
+      "right_delta": 118,
+      "left_rpm": 89.61744689941406,
+      "right_rpm": 89.9972152709961,
+      "left_pwm": 0.28867846727371216,
+      "right_pwm": 0.34137094020843506
+    },
+    {
+      "elapsed_ms": 4050,
+      "left_delta": 117,
+      "right_delta": 117,
+      "left_rpm": 89.77287292480469,
+      "right_rpm": 89.90994262695312,
+      "left_pwm": 0.2884584367275238,
+      "right_pwm": 0.3415815234184265
+    },
+    {
+      "elapsed_ms": 4100,
+      "left_delta": 117,
+      "right_delta": 117,
+      "left_rpm": 89.8764877319336,
+      "right_rpm": 89.85176086425781,
+      "left_pwm": 0.28830063343048096,
+      "right_pwm": 0.3417571485042572
+    },
+    {
+      "elapsed_ms": 4150,
+      "left_delta": 118,
+      "right_delta": 118,
+      "left_rpm": 90.20221710205078,
+      "right_rpm": 90.0686264038086,
+      "left_pwm": 0.28756827116012573,
+      "right_pwm": 0.34129598736763
+    },
+    {
+      "elapsed_ms": 4200,
+      "left_delta": 117,
+      "right_delta": 117,
+      "left_rpm": 90.1627197265625,
+      "right_rpm": 89.95755004882812,
+      "left_pwm": 0.2875821888446808,
+      "right_pwm": 0.34153512120246887
+    },
+    {
+      "elapsed_ms": 4250,
+      "left_delta": 117,
+      "right_delta": 118,
+      "left_rpm": 90.13639068603516,
+      "right_rpm": 90.13915252685547,
+      "left_pwm": 0.287580281496048,
+      "right_pwm": 0.3411162495613098
+    },
+    {
+      "elapsed_ms": 4300,
+      "left_delta": 118,
+      "right_delta": 117,
+      "left_rpm": 90.37548065185547,
+      "right_rpm": 90.00456237792969,
+      "left_pwm": 0.2869519293308258,
+      "right_pwm": 0.34138360619544983
+    },
+    {
+      "elapsed_ms": 4350,
+      "left_delta": 117,
+      "right_delta": 118,
+      "left_rpm": 90.27822875976562,
+      "right_rpm": 90.17049407958984,
+      "left_pwm": 0.28703510761260986,
+      "right_pwm": 0.3409835398197174
+    },
+    {
+      "elapsed_ms": 4400,
+      "left_delta": 118,
+      "right_delta": 117,
+      "left_rpm": 90.47003936767578,
+      "right_rpm": 90.02545928955078,
+      "left_pwm": 0.28646349906921387,
+      "right_pwm": 0.34126341342926025
+    },
+    {
+      "elapsed_ms": 4450,
+      "left_delta": 118,
+      "right_delta": 118,
+      "left_rpm": 90.59791564941406,
+      "right_rpm": 90.1844253540039,
+      "left_pwm": 0.2859686017036438,
+      "right_pwm": 0.3408716917037964
+    },
+    {
+      "elapsed_ms": 4500,
+      "left_delta": 118,
+      "right_delta": 118,
+      "left_rpm": 90.68316650390625,
+      "right_rpm": 90.2904052734375,
+      "left_pwm": 0.28552478551864624,
+      "right_pwm": 0.34054359793663025
+    },
+    {
+      "elapsed_ms": 4550,
+      "left_delta": 118,
+      "right_delta": 117,
+      "left_rpm": 90.73999786376953,
+      "right_rpm": 90.10540008544922,
+      "left_pwm": 0.28511518239974976,
+      "right_pwm": 0.3408714532852173
+    },
+    {
+      "elapsed_ms": 4600,
+      "left_delta": 118,
+      "right_delta": 118,
+      "left_rpm": 90.77788543701172,
+      "right_rpm": 90.23771667480469,
+      "left_pwm": 0.2847282290458679,
+      "right_pwm": 0.3405117392539978
+    },
+    {
+      "elapsed_ms": 4650,
+      "left_delta": 117,
+      "right_delta": 118,
+      "left_rpm": 90.54650115966797,
+      "right_rpm": 90.325927734375,
+      "left_pwm": 0.2849723994731903,
+      "right_pwm": 0.3402049243450165
+    },
+    {
+      "elapsed_ms": 4700,
+      "left_delta": 118,
+      "right_delta": 117,
+      "left_rpm": 90.64888763427734,
+      "right_rpm": 90.12908172607422,
+      "left_pwm": 0.28450807929039,
+      "right_pwm": 0.34054696559906006
+    },
+    {
+      "elapsed_ms": 4750,
+      "left_delta": 118,
+      "right_delta": 118,
+      "left_rpm": 90.71714782714844,
+      "right_rpm": 90.25350952148438,
+      "left_pwm": 0.284084677696228,
+      "right_pwm": 0.34019672870635986
+    },
+    {
+      "elapsed_ms": 4800,
+      "left_delta": 118,
+      "right_delta": 118,
+      "left_rpm": 90.76265716552734,
+      "right_rpm": 90.33645629882812,
+      "left_pwm": 0.28368860483169556,
+      "right_pwm": 0.3398962616920471
+    },
+    {
+      "elapsed_ms": 4850,
+      "left_delta": 118,
+      "right_delta": 118,
+      "left_rpm": 90.7929916381836,
+      "right_rpm": 90.39175415039062,
+      "left_pwm": 0.28331074118614197,
+      "right_pwm": 0.3396289646625519
+    },
+    {
+      "elapsed_ms": 4900,
+      "left_delta": 118,
+      "right_delta": 118,
+      "left_rpm": 90.81321716308594,
+      "right_rpm": 90.42861938476562,
+      "left_pwm": 0.28294500708580017,
+      "right_pwm": 0.3393837809562683
+    },
+    {
+      "elapsed_ms": 4950,
+      "left_delta": 118,
+      "right_delta": 117,
+      "left_rpm": 90.82669830322266,
+      "right_rpm": 90.19754028320312,
+      "left_pwm": 0.28258734941482544,
+      "right_pwm": 0.3397669196128845
+    },
+    {
+      "elapsed_ms": 5000,
+      "left_delta": 118,
+      "right_delta": 118,
+      "left_rpm": 90.83568572998047,
+      "right_rpm": 90.29914855957031,
+      "left_pwm": 0.28223511576652527,
+      "right_pwm": 0.33944404125213623
+    }
+  ]
+}

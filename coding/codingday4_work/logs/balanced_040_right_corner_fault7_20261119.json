@@ -1,0 +1,59 @@
+{
+  "source": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\live_20261119_204527_981.bin",
+  "runs": [
+    {
+      "cmd_id": 10,
+      "start_ms": 357400,
+      "end_ms": 360750,
+      "fault": 7,
+      "corner_xy_mm": [
+        0,
+        700
+      ],
+      "fault_xy_mm": [
+        -98,
+        666
+      ],
+      "corner_error_mm": 103.73,
+      "pivot_command_sample_count": 0,
+      "last_positive_drive_sample": [
+        360650,
+        223,
+        110,
+        276,
+        57,
+        233,
+        211,
+        387,
+        77
+      ]
+    },
+    {
+      "cmd_id": 12,
+      "start_ms": 406900,
+      "end_ms": 410950,
+      "fault": 7,
+      "corner_xy_mm": [
+        0,
+        700
+      ],
+      "fault_xy_mm": [
+        1,
+        728
+      ],
+      "corner_error_mm": 28.02,
+      "pivot_command_sample_count": 0,
+      "last_positive_drive_sample": [
+        410350,
+        136,
+        140,
+        136,
+        140,
+        236,
+        232,
+        185,
+        204
+      ]
+    }
+  ]
+}

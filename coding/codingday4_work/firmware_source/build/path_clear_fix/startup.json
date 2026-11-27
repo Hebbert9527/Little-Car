@@ -1,0 +1,69 @@
+{
+  "xTickCount": [
+    4339
+  ],
+  "xMinimumEverFreeBytesRemaining": [
+    9216
+  ],
+  "xFreeBytesRemaining": [
+    9216
+  ],
+  "w4_nav": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1070141403,
+    1
+  ],
+  "W4Imu_Counters": [
+    435,
+    424,
+    11,
+    424,
+    424,
+    0,
+    0,
+    3,
+    0,
+    19,
+    176,
+    0,
+    0
+  ],
+  "W4Threads": [
+    536968088,
+    536969736,
+    536971384,
+    536973544,
+    536975704,
+    536977864,
+    536979512
+  ],
+  "W4FaultCode": [
+    0
+  ],
+  "imu_snapshot": [
+    0,
+    0,
+    4342,
+    0
+  ],
+  "imu_status": {
+    "valid": 0,
+    "calibrated": 0,
+    "xy_bias_warning": 0,
+    "sample_ms": 4342
+  },
+  "pwm": [
+    0,
+    0,
+    0,
+    0
+  ]
+}
