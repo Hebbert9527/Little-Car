@@ -12,16 +12,61 @@
 
 #include "priority_queue.h"
 
-// 2. A* 算法静态内存
-static uint16_t s_g_score[MAX_CELLS];
-/* Eight directions and sentinel 15 fit in four bits per node. */
-static uint8_t s_came_from_dir[(MAX_CELLS+1)/2];
-static uint8_t predecessor(int i) {
-    return (s_came_from_dir[i/2]>>((i&1)*4))&15U;
+/* Bounded sparse A*: full 10.65 m map without a 90 KB dense cost array.
+   Slot packs cell index (low 16) and g cost (high 16); 0xffff means unused.
+   Scratch is shared only with scan flags in the serial W4PathTask. */
+uint32_t w4_planner_nodes[PLANNER_NODE_SLOTS];
+static uint8_t directions[(PLANNER_NODE_SLOTS+1)/2];
+/* Coarse 4x4-cell (20 cm) obstacle presence bitmap: lets evaluate_node_cost()
+   skip empty open space in ~9 bit-checks instead of scanning 13x13=169 cells. */
+enum { BLOCK_SHIFT=2, BLOCK_DIM=(MAX_GRID_SIZE+3)>>BLOCK_SHIFT, BLOCK_BYTES=(BLOCK_DIM*BLOCK_DIM+7)/8 };
+static uint8_t blocked_blocks[BLOCK_BYTES];
+static int s_block_dim;
+static inline bool block_has_obstacle(int bx,int by) {
+    unsigned idx=(unsigned)(bx*s_block_dim+by);
+    return (blocked_blocks[idx>>3] & (1U<<(idx&7U)))!=0;
 }
-static void set_predecessor(int i,uint8_t direction) {
-    unsigned shift=(i&1)*4;
-    s_came_from_dir[i/2]=(s_came_from_dir[i/2]&~(15U<<shift))|(direction<<shift);
+static void build_blocked_blocks(ServerMap *map,bool is_return) {
+    int gs=map->grid_size;
+    s_block_dim=(gs+3)>>BLOCK_SHIFT;
+    int bytes=(s_block_dim*s_block_dim+7)/8;
+    memset(blocked_blocks,0,(size_t)bytes);
+    for(int x=0;x<gs;++x) {
+        int bx=x>>BLOCK_SHIFT;
+        int row_base=x*gs;
+        for(int y=0;y<gs;++y) {
+            uint8_t s=map_state(map,row_base+y);
+            if(s>=4 || (is_return && s!=1)) {
+                unsigned bidx=(unsigned)(bx*s_block_dim+(y>>BLOCK_SHIFT));
+                blocked_blocks[bidx>>3]|=(uint8_t)(1U<<(bidx&7U));
+            }
+        }
+    }
+}
+static int node_slot(unsigned idx,bool create) {
+    unsigned slot=(idx*2654435761U)%PLANNER_NODE_SLOTS;
+    for(unsigned n=0;n<PLANNER_NODE_SLOTS;++n) {
+        unsigned key=w4_planner_nodes[slot]&65535U;
+        if(key==idx) return (int)slot;
+        if(key==65535U) {
+            if(create) w4_planner_nodes[slot]=0xffff0000U|idx;
+            return create?(int)slot:-1;
+        }
+        if(++slot==PLANNER_NODE_SLOTS) slot=0;
+    }
+    return -1;
+}
+static unsigned node_cost(int slot) { return slot<0?65535U:w4_planner_nodes[slot]>>16; }
+static void node_set_cost(int slot,unsigned cost) {
+    w4_planner_nodes[slot]=(w4_planner_nodes[slot]&65535U)|(cost<<16);
+}
+static uint8_t predecessor(int i) {
+    int slot=node_slot((unsigned)i,false);
+    return slot<0?15:(directions[slot/2]>>((slot&1)*4))&15U;
+}
+static void set_predecessor(int slot,uint8_t dir) {
+    unsigned shift=(slot&1)*4;
+    directions[slot/2]=(directions[slot/2]&~(15U<<shift))|(dir<<shift);
 }
 
 #define COLLISION_COST 0xFFFF
@@ -49,54 +94,111 @@ static inline int radius_to_grid_sq(float radius, float inv_res, int *out_cell_r
 
 // 对外的单一物理碰撞检查（原版逻辑优化）
 bool check_collision(ServerMap* map, Point2D pos, float radius, bool is_return) {
-    float inv_res = 1.0f / map->res; // 优化：FPU 乘法代替除法
-    int cell_r = 0;
-    int cell_r_sq = radius_to_grid_sq(radius, inv_res, &cell_r);
-    int cx = (int)floorf(pos.x * inv_res);
-    int cy = (int)floorf(pos.y * inv_res);
+    if(!map || !map->grid || !isfinite(pos.x) || !isfinite(pos.y) ||
+       !isfinite(radius) || radius<0 || map->res<=0) return true;
+    float inv_res=1.0f/map->res, rsq=radius*radius;
+    int cx=(int)floorf(pos.x*inv_res),cy=(int)floorf(pos.y*inv_res);
+    if(cx<0 || cy<0 || cx>=map->grid_size || cy>=map->grid_size) return true;
+    /* Actual sub-cell position, not a rounded target cell. Wall samples remain
+       at cell centres; do not add an extra entire cell of target clearance. */
+    int reach=(int)ceilf(radius*inv_res)+1;
+    for(int x=cx-reach;x<=cx+reach;++x) for(int y=cy-reach;y<=cy+reach;++y) {
+        float dx=(x+0.5f)*map->res-pos.x,dy=(y+0.5f)*map->res-pos.y;
+        if(dx*dx+dy*dy>rsq+1e-7f) continue;
+        if(x<0 || y<0 || x>=map->grid_size || y>=map->grid_size) return true;
+        uint8_t v=get_grid_val(map,x,y);
+        if(v==1 || (is_return && v==0)) return true;
+    }
+    return get_grid_val(map,cx,cy)==1;
+}
 
-    if (cx < 0 || cx >= map->grid_size || cy < 0 || cy >= map->grid_size) return true;
-
-    for (int i = -cell_r; i <= cell_r; i++) {
-        for (int j = -cell_r; j <= cell_r; j++) {
-            if (i*i + j*j <= cell_r_sq) {
-                int nx = cx + i, ny = cy + j;
-                if (nx >= 0 && nx < map->grid_size && ny >= 0 && ny < map->grid_size) {
-                    uint8_t val = get_grid_val(map, nx, ny);
-                    if (val == 1 || (is_return && val == 0)) return true;
-                } else return true;
+/* Fast hard-only collision check using the coarse 4x4 obstacle bitmap
+   (used for diagonal corner-cutting prevention instead of full L3 scan). */
+static inline bool is_hard_blocked(ServerMap *map,int cx,int cy,bool is_return,int r_phys2,int r_phys_g) {
+    int gs=map->grid_size;
+    if(cx<r_phys_g || cx>=gs-r_phys_g || cy<r_phys_g || cy>=gs-r_phys_g) {
+        for(int i=-r_phys_g;i<=r_phys_g;++i) {
+            for(int j=-r_phys_g;j<=r_phys_g;++j) {
+                if(i*i+j*j>r_phys2) continue;
+                int nx=cx+i,ny=cy+j;
+                if(nx<0 || nx>=gs || ny<0 || ny>=gs) return true;
+                uint8_t s=map_state(map,nx*gs+ny);
+                if(s>=4 || (is_return && s!=1)) return true;
+            }
+        }
+        return false;
+    }
+    int x_min=cx-r_phys_g, x_max=cx+r_phys_g;
+    int y_min=cy-r_phys_g, y_max=cy+r_phys_g;
+    int bx0=x_min>>BLOCK_SHIFT, bx1=x_max>>BLOCK_SHIFT;
+    int by0=y_min>>BLOCK_SHIFT, by1=y_max>>BLOCK_SHIFT;
+    for(int bx=bx0;bx<=bx1;++bx) {
+        for(int by=by0;by<=by1;++by) {
+            if(!block_has_obstacle(bx,by)) continue;
+            int x0=bx<<BLOCK_SHIFT; if(x0<x_min) x0=x_min;
+            int x1=((bx+1)<<BLOCK_SHIFT)-1; if(x1>x_max) x1=x_max;
+            int y0=by<<BLOCK_SHIFT; if(y0<y_min) y0=y_min;
+            int y1=((by+1)<<BLOCK_SHIFT)-1; if(y1>y_max) y1=y_max;
+            for(int nx=x0;nx<=x1;++nx) {
+                int di=nx-cx, di2=di*di, row_base=nx*gs;
+                for(int ny=y0;ny<=y1;++ny) {
+                    int dj=ny-cy;
+                    if(di2+dj*dj>r_phys2) continue;
+                    uint8_t s=map_state(map,row_base+ny);
+                    if(s>=4 || (is_return && s!=1)) return true;
+                }
             }
         }
     }
     return false;
 }
 
-// 【核心优化 1】：单次遍历评估节点总代价（将4次重复扫描合并为1次纯整数扫描）
+// 【核心优化 1】：粗块位图加速的单次节点代价评估（空旷区 ~9 次位检查直接返回 0）
 static inline uint16_t evaluate_node_cost(ServerMap* map, int cx, int cy, bool is_return,
                                           int r_phys2, int r_l12, int r_l22, int r_l32, int max_r) {
+    int gs = map->grid_size;
+    int x_min = cx - max_r, x_max = cx + max_r;
+    int y_min = cy - max_r, y_max = cy + max_r;
+
+    /* Map border within hard clearance radius is an immediate collision. */
+    if (cx < max_r || cx >= gs - max_r || cy < max_r || cy >= gs - max_r) {
+        if (cx * cx <= r_phys2 || (gs - 1 - cx) * (gs - 1 - cx) <= r_phys2 ||
+            cy * cy <= r_phys2 || (gs - 1 - cy) * (gs - 1 - cy) <= r_phys2) {
+            int dx_edge = (cx < gs - 1 - cx) ? (cx + 1) : (gs - cx);
+            int dy_edge = (cy < gs - 1 - cy) ? (cy + 1) : (gs - cy);
+            if (dx_edge * dx_edge <= r_phys2 || dy_edge * dy_edge <= r_phys2) return COLLISION_COST;
+        }
+        if (x_min < 0) x_min = 0;
+        if (x_max >= gs) x_max = gs - 1;
+        if (y_min < 0) y_min = 0;
+        if (y_max >= gs) y_max = gs - 1;
+    }
+
+    int bx0 = x_min >> BLOCK_SHIFT, bx1 = x_max >> BLOCK_SHIFT;
+    int by0 = y_min >> BLOCK_SHIFT, by1 = y_max >> BLOCK_SHIFT;
     uint16_t max_penalty = 0;
 
-    for (int i = -max_r; i <= max_r; i++) {
-        for (int j = -max_r; j <= max_r; j++) {
-            int d2 = i*i + j*j;
-            if (d2 > r_l32) continue; // 超出最大膨胀半径直接跳过
-
-            int nx = cx + i;
-            int ny = cy + j;
-
-            // 越界视为障碍物
-            if (nx < 0 || nx >= map->grid_size || ny < 0 || ny >= map->grid_size) {
-                if (d2 <= r_phys2) return COLLISION_COST;
-                continue;
-            }
-
-            uint8_t val = get_grid_val(map, nx, ny);
-            if (val == 1 || (is_return && val == 0)) {
-                if (d2 <= r_phys2) return COLLISION_COST; // 致命碰撞
-                // 分级膨胀惩罚获取最高值
-                else if (d2 <= r_l12) { if (max_penalty < INFLATE_L1_PENALTY_INT) max_penalty = INFLATE_L1_PENALTY_INT; }
-                else if (d2 <= r_l22) { if (max_penalty < INFLATE_L2_PENALTY_INT) max_penalty = INFLATE_L2_PENALTY_INT; }
-                else if (d2 <= r_l32) { if (max_penalty < INFLATE_L3_PENALTY_INT) max_penalty = INFLATE_L3_PENALTY_INT; }
+    for (int bx = bx0; bx <= bx1; ++bx) {
+        for (int by = by0; by <= by1; ++by) {
+            if (!block_has_obstacle(bx, by)) continue;
+            int x0 = bx << BLOCK_SHIFT; if (x0 < x_min) x0 = x_min;
+            int x1 = ((bx + 1) << BLOCK_SHIFT) - 1; if (x1 > x_max) x1 = x_max;
+            int y0 = by << BLOCK_SHIFT; if (y0 < y_min) y0 = y_min;
+            int y1 = ((by + 1) << BLOCK_SHIFT) - 1; if (y1 > y_max) y1 = y_max;
+            for (int nx = x0; nx <= x1; ++nx) {
+                int di = nx - cx, di2 = di * di, row_base = nx * gs;
+                for (int ny = y0; ny <= y1; ++ny) {
+                    int dj = ny - cy;
+                    int d2 = di2 + dj * dj;
+                    if (d2 > r_l32) continue;
+                    uint8_t s = map_state(map, row_base + ny);
+                    if (s >= 4 || (is_return && s != 1)) {
+                        if (d2 <= r_phys2) return COLLISION_COST;
+                        else if (d2 <= r_l12) { if (max_penalty < INFLATE_L1_PENALTY_INT) max_penalty = INFLATE_L1_PENALTY_INT; }
+                        else if (d2 <= r_l22) { if (max_penalty < INFLATE_L2_PENALTY_INT) max_penalty = INFLATE_L2_PENALTY_INT; }
+                        else { if (max_penalty < INFLATE_L3_PENALTY_INT) max_penalty = INFLATE_L3_PENALTY_INT; }
+                    }
+                }
             }
         }
     }
@@ -104,7 +206,7 @@ static inline uint16_t evaluate_node_cost(ServerMap* map, int cx, int cy, bool i
 }
 
 // ---------------- A* 算法主干 ----------------
-int astar_plan(ServerMap* map, Point2D start, Point2D goal, Point2D* prev_path, int prev_path_len, bool is_return, Point2D* out_path) {
+static int search_window(ServerMap* map, Point2D start, Point2D goal, Point2D* prev_path, int prev_path_len, bool is_return, Point2D* out_path, float margin) {
     failure_reason=NULL;
     if(!map || !map->grid || !out_path || map->grid_size<=0 ||
        map->grid_size>MAX_GRID_SIZE || !isfinite(map->res) || map->res<=0 ||
@@ -130,13 +232,13 @@ int astar_plan(ServerMap* map, Point2D start, Point2D goal, Point2D* prev_path, 
     if (get_grid_val(map, start_grid_x, start_grid_y) == 1) return failed("START_BLOCKED");
     if (!is_return && check_collision(map,goal,PHYSICAL_RADIUS,is_return)) return failed("GOAL_BLOCKED");
     if (is_return && get_grid_val(map, goal_grid_x, goal_grid_y) == 1) return failed("GOAL_BLOCKED");
-    bool start_in_clearance = check_collision(map, start, PHYSICAL_RADIUS, is_return);
-    int num_cells = map->grid_size * map->grid_size;
+    bool start_in_clearance = check_collision(map, start, PATH_CLEARANCE_RADIUS, is_return);
+
 
     // 【核心优化 2】：利用 32 位总线宽度成倍加速 16 位数组的初始化
-    memset(s_g_score, 0xff, sizeof(s_g_score));
+    memset(w4_planner_nodes,0xff,sizeof w4_planner_nodes);
 
-    memset(s_came_from_dir, 255, (num_cells+1)/2);
+    memset(directions,255,sizeof directions);
     clear_all_affinity(map);
 
     if (prev_path && prev_path_len > 0) {
@@ -161,12 +263,17 @@ int astar_plan(ServerMap* map, Point2D start, Point2D goal, Point2D* prev_path, 
 
     // 【核心优化 3】：在外部一次性计算所有碰撞与膨胀的精确网格平方半径，彻底剔除内部 Float 计算
     int r_phys_g = 0, r_l3_g = 0;
-    int r_phys2 = radius_to_grid_sq(PHYSICAL_RADIUS, inv_res, &r_phys_g);
+    int r_phys2 = radius_to_grid_sq(PATH_CLEARANCE_RADIUS, inv_res, &r_phys_g);
     int r_l12   = radius_to_grid_sq(INFLATE_L1_RAD, inv_res, NULL);
     int r_l22   = radius_to_grid_sq(INFLATE_L2_RAD, inv_res, NULL);
     int r_l32   = radius_to_grid_sq(INFLATE_L3_RAD, inv_res, &r_l3_g);
     int max_r   = r_l3_g;
 
+    int pad=(int)ceilf(margin*inv_res);
+    int min_x=(start_grid_x<goal_grid_x?start_grid_x:goal_grid_x)-pad;
+    int max_x=(start_grid_x>goal_grid_x?start_grid_x:goal_grid_x)+pad;
+    int min_y=(start_grid_y<goal_grid_y?start_grid_y:goal_grid_y)-pad;
+    int max_y=(start_grid_y>goal_grid_y?start_grid_y:goal_grid_y)+pad;
     int search_start_x = goal_grid_x;
     int search_start_y = goal_grid_y;
     int search_target_x = start_grid_x;
@@ -176,7 +283,7 @@ int astar_plan(ServerMap* map, Point2D start, Point2D goal, Point2D* prev_path, 
     pq_init(&pq);
 
     int search_start_idx = search_start_x * map->grid_size + search_start_y;
-    s_g_score[search_start_idx] = 0;
+    node_set_cost(node_slot((unsigned)search_start_idx,true),0);
     if (!pq_push(&pq, search_start_idx, 0)) {
         return failed("PLANNER_QUEUE_FULL");
     }
@@ -191,6 +298,16 @@ int astar_plan(ServerMap* map, Point2D start, Point2D goal, Point2D* prev_path, 
     while (pq_pop(&pq, &curr_idx, &curr_f)) {
         int curr_x = curr_idx / map->grid_size;
         int curr_y = curr_idx % map->grid_size;
+
+        /* Skip stale duplicate heap entries so nodes are never re-expanded. */
+        unsigned curr_g = node_cost(node_slot(curr_idx, false));
+        int ch_dx = abs(curr_x - search_target_x);
+        int ch_dy = abs(curr_y - search_target_y);
+        int cmin_d = (ch_dx < ch_dy) ? ch_dx : ch_dy;
+        int cmax_d = (ch_dx > ch_dy) ? ch_dx : ch_dy;
+        uint32_t exp_f = curr_g + (uint32_t)(14 * cmin_d + 10 * (cmax_d - cmin_d)) + 1U;
+        if (exp_f > 65535U) exp_f = 65535U;
+        if (curr_f > (uint16_t)exp_f) continue;
 
         if (abs(curr_x - search_target_x) <= ASTAR_GOAL_TOL_GRIDS && abs(curr_y - search_target_y) <= ASTAR_GOAL_TOL_GRIDS) {
             int cx = curr_x, cy = curr_y;
@@ -215,17 +332,17 @@ int astar_plan(ServerMap* map, Point2D start, Point2D goal, Point2D* prev_path, 
         for (int i=0; i<8; i++) {
             int nx = curr_x + dx[i], ny = curr_y + dy[i];
 
+            if(nx<min_x || nx>max_x || ny<min_y || ny>max_y) continue;
             // 【修复 1】：第一步先做严格的地图边界检查，防止生成非法的 n_idx 导致内存越界
             if (nx < 0 || nx >= map->grid_size || ny < 0 || ny >= map->grid_size) {
                 continue;
             }
 
             /* Reject diagonal corner cutting before accepting a predecessor.
-               Otherwise the final segment validator can reject a route even
-               when a legal orthogonal route exists. */
+               Use hard-only radius check (r_phys_g) instead of full L3 scan. */
             if(i>=4 &&
-               (evaluate_node_cost(map,curr_x+dx[i],curr_y,is_return,r_phys2,r_l12,r_l22,r_l32,max_r)==COLLISION_COST ||
-                evaluate_node_cost(map,curr_x,curr_y+dy[i],is_return,r_phys2,r_l12,r_l22,r_l32,max_r)==COLLISION_COST))
+               (is_hard_blocked(map,curr_x+dx[i],curr_y,is_return,r_phys2,r_phys_g) ||
+                is_hard_blocked(map,curr_x,curr_y+dy[i],is_return,r_phys2,r_phys_g)))
                 continue;
             // 剔除邻居越界检查（已并入 evaluate_node_cost 处理）
             uint16_t penalty = evaluate_node_cost(map, nx, ny, is_return, r_phys2, r_l12, r_l22, r_l32, max_r);
@@ -244,12 +361,15 @@ int astar_plan(ServerMap* map, Point2D start, Point2D goal, Point2D* prev_path, 
             int32_t step_cost_calc = (int32_t)move_costs[i] + penalty - discount;
             uint16_t actual_step_cost = (step_cost_calc < 1) ? 1 : (uint16_t)step_cost_calc;
 
-            uint32_t tg_32 = (uint32_t)s_g_score[curr_idx] + actual_step_cost;
+            uint32_t tg_32 = curr_g + actual_step_cost;
             uint16_t tg = (tg_32 > MAX_COST_INF) ? MAX_COST_INF : (uint16_t)tg_32;
 
-            if (tg < s_g_score[n_idx]) {
-                set_predecessor(n_idx, (uint8_t)i);
-                s_g_score[n_idx] = tg;
+            int slot=node_slot((unsigned)n_idx,false);
+            if (tg < node_cost(slot)) {
+                if(slot<0) slot=node_slot((unsigned)n_idx,true);
+                if(slot<0) return failed("PLANNER_NODE_FULL");
+                set_predecessor(slot,(uint8_t)i);
+                node_set_cost(slot,tg);
 
                 // 【核心优化 4】：无分支（Branchless）启发式函数计算，避免流水线清空
                 int h_dx = abs(nx - search_target_x);
@@ -270,4 +390,21 @@ int astar_plan(ServerMap* map, Point2D start, Point2D goal, Point2D* prev_path, 
     return path_len;
 }
 
+/* Preserve global-route preference first; if capacity is exhausted, try local windows.
+   Large soft wall penalties must not exhaust RAM
+   exploring the whole map before considering a perfectly safe narrow corridor.
+   Widen on failure, never change clearance, occupancy, or the requested goal. */
+int astar_plan(ServerMap *map,Point2D start,Point2D goal,Point2D *prev,int prev_len,
+               bool returning,Point2D *out) {
+    if(map && map->grid && map->grid_size>0 && map->grid_size<=MAX_GRID_SIZE)
+        build_blocked_blocks(map,returning);
+    const float margins[]={20.0f,0.75f,1.50f};
+    for(unsigned i=0;i<sizeof margins/sizeof margins[0];++i) {
+        int n=search_window(map,start,goal,prev,prev_len,returning,out,margins[i]);
+        if(n || !failure_reason) return n;
+        if(strcmp(failure_reason,"NO_ROUTE") && strcmp(failure_reason,"PLANNER_NODE_FULL") &&
+           strcmp(failure_reason,"PLANNER_QUEUE_FULL")) return 0;
+    }
+    return 0;
+}
 #endif

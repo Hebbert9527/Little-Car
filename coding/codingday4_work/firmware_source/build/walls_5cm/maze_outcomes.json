@@ -1,0 +1,62 @@
+[
+  {
+    "ticks": 502,
+    "x": -0.00046833170927129686,
+    "y": 0.609135627746582,
+    "min_clearance": 0.0,
+    "state": 3,
+    "fault": 0,
+    "replans": 0,
+    "scenario": "open"
+  },
+  {
+    "ticks": 963,
+    "x": -0.03536023199558258,
+    "y": 1.030145287513733,
+    "min_clearance": 0.2510830760002136,
+    "state": 3,
+    "fault": 0,
+    "replans": 0,
+    "scenario": "board"
+  },
+  {
+    "ticks": 1186,
+    "x": 0.029258238151669502,
+    "y": 1.621272325515747,
+    "min_clearance": 0.23312115669250488,
+    "state": 3,
+    "fault": 0,
+    "replans": 0,
+    "scenario": "poles"
+  },
+  {
+    "ticks": 1506,
+    "x": -0.0306970477104187,
+    "y": 1.622913122177124,
+    "min_clearance": 0.22104483842849731,
+    "state": 3,
+    "fault": 0,
+    "replans": 0,
+    "scenario": "maze"
+  },
+  {
+    "ticks": 1259,
+    "x": 0.02742750383913517,
+    "y": 1.6190540790557861,
+    "min_clearance": 0.19372451305389404,
+    "state": 3,
+    "fault": 0,
+    "replans": 0,
+    "scenario": "dynamic"
+  },
+  {
+    "ticks": 0,
+    "x": 0.0,
+    "y": 0.0,
+    "min_clearance": 0.0,
+    "state": 0,
+    "fault": 0,
+    "replans": 0,
+    "scenario": "unused"
+  }
+]

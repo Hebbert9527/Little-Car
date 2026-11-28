@@ -15,40 +15,32 @@ typedef struct {
 
 extern ServerMap g_map;
 
-// 优化 1：无分支 (Branchless) 读取网格状态
-static inline uint8_t get_grid_val(ServerMap* map, int x, int y) {
-    int idx = x * map->grid_size + y;
-    uint8_t shift = (idx & 1) << 2; // 如果是奇数移4位，偶数移0位
-    return (map->grid[idx >> 1] >> shift) & 0x03;
+/* Shared persistent map: x-major, one nibble/cell. Low 3 bits:
+   0 unknown, 1 free, 2/3 unconfirmed hits, 4/5/6 confirmed wall
+   (two/one/zero clearing scans). Bit 3 is temporary route affinity.
+   Planner access never destroys mapping evidence. */
+static inline uint8_t map_state(ServerMap *map,int idx) {
+    return (map->grid[idx/2]>>((idx&1)*4))&7U;
 }
-
-// 优化 2：无分支掩码写入，精准保留亲和力等其他位
-static inline void set_grid_val(ServerMap* map, int x, int y, uint8_t val) {
-    int idx = x * map->grid_size + y;
-    int byte_idx = idx >> 1;
-    uint8_t shift = (idx & 1) << 2;
-    uint8_t mask = ~(0x03 << shift); // 偶数为0xFC，奇数为0xCF
-
-    // 一次性清除旧状态，并写入新状态，不影响周边Bit
-    map->grid[byte_idx] = (map->grid[byte_idx] & mask) | ((val & 0x03) << shift);
+static inline void map_set_state(ServerMap *map,int idx,uint8_t state) {
+    unsigned shift=(idx&1)*4;
+    map->grid[idx/2]=(map->grid[idx/2]&~(7U<<shift))|((state&7U)<<shift);
 }
-
-// 优化 3：无分支获取亲和力
-static inline bool has_affinity(ServerMap* map, int idx) {
-    uint8_t shift = ((idx & 1) << 2) + 2; // 偶数取Bit2，奇数取Bit6
-    return (map->grid[idx >> 1] >> shift) & 0x01;
+static inline uint8_t get_grid_val(ServerMap *map,int x,int y) {
+    uint8_t s=map_state(map,x*map->grid_size+y);
+    return s>=4?1:s==1?2:0;
 }
-
-static inline void set_affinity(ServerMap* map, int idx) {
-    uint8_t shift = ((idx & 1) << 2) + 2;
-    map->grid[idx >> 1] |= (1 << shift);
+static inline void set_grid_val(ServerMap *map,int x,int y,uint8_t val) {
+    map_set_state(map,x*map->grid_size+y,val==1?6:val==2?1:0);
 }
-
-// 优化 4：利用 32-bit (Word) 宽度进行内存批量擦除，提升4倍速度
-static inline void clear_all_affinity(ServerMap* map) {
-    int bytes = (map->grid_size * map->grid_size + 1) / 2;
-    for (int i = 0; i < bytes; ++i) map->grid[i] &= 0x33;
-
+static inline bool has_affinity(ServerMap *map,int idx) {
+    return (map->grid[idx/2]&(8U<<((idx&1)*4)))!=0;
+}
+static inline void set_affinity(ServerMap *map,int idx) {
+    map->grid[idx/2]|=8U<<((idx&1)*4);
+}
+static inline void clear_all_affinity(ServerMap *map) {
+    for(int i=0;i<(map->grid_size*map->grid_size+1)/2;++i) map->grid[i]&=0x77;
 }
 
 /**

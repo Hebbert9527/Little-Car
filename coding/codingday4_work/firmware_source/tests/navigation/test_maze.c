@@ -3,7 +3,7 @@
 #include "w4_integration.h"
 #include "planner_config.h"
 #include "planner_algo.h"
-extern char test_map[192];
+extern char test_map[288];
 #include <assert.h>
 #include <math.h>
 #include <string.h>
@@ -297,9 +297,9 @@ static char mapped_cell(unsigned wanted_row,unsigned wanted_col) {
         test_ms+=100; W4Control_Step(test_ms); W4Path_Poll();
         unsigned long version,age; unsigned row,res,center;
         long dx,dy; char cells[MAX_GRID_SIZE+1];
-        int n=sscanf(test_map,"M,%lu,%u,%ld,%ld,%u,%u,%lu,%107s",
+        int n=sscanf(test_map,"M,%lu,%u,%ld,%ld,%u,%u,%lu,%213s",
                      &version,&row,&dx,&dy,&res,&center,&age,cells);
-        assert(n==8 && res==100 && center==MAX_GRID_SIZE/2);
+        assert(n==8 && res==50 && center==MAX_GRID_SIZE/2);
         if(row==wanted_row) return cells[wanted_col];
     }
     assert(0); return '?';
@@ -312,29 +312,29 @@ static void open_scan(void) {
 static void test_persistent_walls(void) {
     reset_run();
     for(unsigned i=0;i<5;++i) { test_ms+=100; W4Control_Step(test_ms); scan(true); }
-    assert(mapped_cell(MAX_GRID_SIZE/2+3,MAX_GRID_SIZE/2)=='#');
+    assert(mapped_cell(MAX_GRID_SIZE/2+7,MAX_GRID_SIZE/2)=='#');
     /* 1-2 transient pass-through scans must NOT erase a confirmed wall;
        >=3 sustained pass-through scans MUST erode ghost '#' layers back to '.'
        so drifted walls never thicken into multi-cell slabs. */
     reset_run();
     for(unsigned i=0;i<4;++i) { test_ms+=100; W4Control_Step(test_ms); scan(true); }
     for(unsigned i=0;i<2;++i) { test_ms+=100; W4Control_Step(test_ms); scan(false); }
-    assert(mapped_cell(MAX_GRID_SIZE/2+3,MAX_GRID_SIZE/2)=='#');
+    assert(mapped_cell(MAX_GRID_SIZE/2+7,MAX_GRID_SIZE/2)=='#');
     reset_run();
     for(unsigned i=0;i<4;++i) { test_ms+=100; W4Control_Step(test_ms); scan(true); }
     for(unsigned i=0;i<5;++i) { test_ms+=100; W4Control_Step(test_ms); scan(false); }
-    assert(mapped_cell(MAX_GRID_SIZE/2+3,MAX_GRID_SIZE/2)=='.');
-    assert(mapped_cell(MAX_GRID_SIZE/2+18,MAX_GRID_SIZE/2)=='#');
+    assert(mapped_cell(MAX_GRID_SIZE/2+7,MAX_GRID_SIZE/2)=='.');
+    assert(mapped_cell(MAX_GRID_SIZE/2+36,MAX_GRID_SIZE/2)=='#');
     /* Occluded walls behind a closer obstacle (rays stop at +3 and never pass
        through +18) and walls during IMU dropout must remain '#' permanently. */
     for(unsigned i=0;i<20;++i) { test_ms+=100; W4Control_Step(test_ms); scan(true); }
-    assert(mapped_cell(MAX_GRID_SIZE/2+18,MAX_GRID_SIZE/2)=='#');
+    assert(mapped_cell(MAX_GRID_SIZE/2+36,MAX_GRID_SIZE/2)=='#');
     assert(!W4Maze_Fresh(test_ms)); // Cached telemetry must not refresh scans.
     test_imu_valid=false; test_ms+=10; W4Control_Step(test_ms);
-    assert(mapped_cell(MAX_GRID_SIZE/2+18,MAX_GRID_SIZE/2)=='#');
+    assert(mapped_cell(MAX_GRID_SIZE/2+36,MAX_GRID_SIZE/2)=='#');
     assert(test_pwm_l==0 && test_pwm_r==0);
     test_imu_valid=true; reset_run();
-    assert(mapped_cell(MAX_GRID_SIZE/2+3,MAX_GRID_SIZE/2)=='?');
+    assert(mapped_cell(MAX_GRID_SIZE/2+7,MAX_GRID_SIZE/2)=='?');
     /* Stationary ZUPT: residual gyro bias (<1.2 deg/s) with zero wheel counts
        must not rotate pose or thicken far walls while parked. */
     reset_run();
@@ -348,24 +348,24 @@ static void test_persistent_walls(void) {
     }
     test_gyro=0.0f;
     assert(fabsf(W4Wrap(w4_nav.pose.theta_rad-parked_theta))<0.001f);
-    assert(mapped_cell(MAX_GRID_SIZE/2+18,MAX_GRID_SIZE/2)=='#');
-    assert(mapped_cell(MAX_GRID_SIZE/2+17,MAX_GRID_SIZE/2)=='.');
-    assert(mapped_cell(MAX_GRID_SIZE/2+19,MAX_GRID_SIZE/2)!='#');
+    assert(mapped_cell(MAX_GRID_SIZE/2+36,MAX_GRID_SIZE/2)=='#');
+    assert(mapped_cell(MAX_GRID_SIZE/2+35,MAX_GRID_SIZE/2)=='.');
+    assert(mapped_cell(MAX_GRID_SIZE/2+37,MAX_GRID_SIZE/2)!='#');
     /* Far-range (>1 m, here 1.8 m) hits must also require 3 consecutive scans
        instead of freezing permanently on a single scan. */
     reset_run();
     for(unsigned i=0;i<3;++i) { test_ms+=100; W4Control_Step(test_ms); scan(false); }
-    assert(mapped_cell(MAX_GRID_SIZE/2+18,MAX_GRID_SIZE/2)!='#');
+    assert(mapped_cell(MAX_GRID_SIZE/2+36,MAX_GRID_SIZE/2)!='#');
     /* Two far hits followed by a clear scan must reset the confirmation streak. */
     reset_run();
     for(unsigned i=0;i<2;++i) { test_ms+=100; W4Control_Step(test_ms); scan(false); }
     for(unsigned i=0;i<2;++i) { test_ms+=100; W4Control_Step(test_ms); open_scan(); }
     for(unsigned i=0;i<3;++i) { test_ms+=100; W4Control_Step(test_ms); scan(false); }
-    assert(mapped_cell(MAX_GRID_SIZE/2+18,MAX_GRID_SIZE/2)!='#');
+    assert(mapped_cell(MAX_GRID_SIZE/2+36,MAX_GRID_SIZE/2)!='#');
     /* Three consecutive far-range hits confirm the wall as '#'. */
     reset_run();
     for(unsigned i=0;i<4;++i) { test_ms+=100; W4Control_Step(test_ms); scan(false); }
-    assert(mapped_cell(MAX_GRID_SIZE/2+18,MAX_GRID_SIZE/2)=='#');
+    assert(mapped_cell(MAX_GRID_SIZE/2+36,MAX_GRID_SIZE/2)=='#');
 }
 static void wait_with_scans(unsigned ticks) {
     for(unsigned i=0;i<ticks;++i) {
@@ -503,6 +503,58 @@ static void test_narrow_and_near_wall(void) {
     assert(w4_nav.state==W4_ARRIVED && hypotf(w4_nav.pose.x_m,w4_nav.pose.y_m-0.95f)<0.08f);
     assert(test_pwm_l==0 && test_pwm_r==0);
 }
+static void test_goal_ghost_recovery(void) {
+    reset_run();
+    for(unsigned i=0;i<5;++i) { test_ms+=100; W4Control_Step(test_ms); room_scan(true); }
+    send("MAZE,0,0.55\n"); W4Path_Poll(); W4Path_Poll();
+    assert(strstr(test_ack,"WAIT,GOAL_BLOCKED"));
+    unsigned id=w4_nav.cmd_id;
+    /* A real wall persists and keeps the motors off. */
+    for(unsigned i=0;i<10;++i) {
+        test_ms+=100; W4Control_Step(test_ms); room_scan(true);
+        assert(w4_nav.state==W4_PLANNING && test_pwm_l==0 && test_pwm_r==0);
+    }
+    /* Clear evidence removes a false layer; resume the SAME requested goal.
+       Never erase a goal neighbourhood or silently move the destination. */
+    for(unsigned i=0;i<12 && w4_nav.state!=W4_TRACKING;++i) {
+        test_ms+=100; W4Control_Step(test_ms); room_scan(false); W4Path_Poll();
+    }
+    assert(w4_nav.state==W4_TRACKING && w4_nav.cmd_id==id);
+    assert(w4_nav.target_x==0 && w4_nav.target_y==0.55f && w4_nav.fault==0);
+    reset_run();
+}
+/* A far wall shifted by exactly one 5 cm cell used to retain its foreground
+   layer forever: trace() excluded the entire final neighbour of a far hit. */
+static void far_plane_scan(float distance) {
+    for(int deg=0;deg<360;deg+=3) {
+        float a=deg*W4_PI/180.0f;
+        float d=cosf(a)>0.3f?distance/cosf(a):6.5f;
+        W4Maze_Point((float)deg,d*1000,12,deg==0,test_ms);
+    }
+    W4Path_Poll();
+}
+static void test_adjacent_far_ghost(void) {
+    reset_run();
+    for(unsigned i=0;i<5;++i) { test_ms+=100; W4Control_Step(test_ms); far_plane_scan(1.75f); }
+    assert(mapped_cell(MAX_GRID_SIZE/2+35,MAX_GRID_SIZE/2)=='#');
+    for(unsigned i=0;i<8;++i) { test_ms+=100; W4Control_Step(test_ms); far_plane_scan(1.80f); }
+    assert(mapped_cell(MAX_GRID_SIZE/2+35,MAX_GRID_SIZE/2)=='.');
+    assert(mapped_cell(MAX_GRID_SIZE/2+36,MAX_GRID_SIZE/2)=='#');
+    /* Non-consecutive pass-through (interrupted by an occluded/missed-beam scan)
+       must NOT reset ghost erosion back to full strength. */
+    reset_run();
+    for(unsigned i=0;i<4;++i) { test_ms+=100; W4Control_Step(test_ms); scan(true); }
+    assert(mapped_cell(MAX_GRID_SIZE/2+7,MAX_GRID_SIZE/2)=='#');
+    /* 1 pass-through (6->5), then a scan missing bin 0 (must stay 5, not reset to 6),
+       then 2 more pass-throughs (5->4->1) must clear the ghost cell. */
+    test_ms+=100; W4Control_Step(test_ms); scan(false);
+    for(int deg=3;deg<360;deg+=3)
+        W4Maze_Point((float)deg,1800.0f,12,deg==3,test_ms);
+    W4Path_Poll();
+    for(unsigned i=0;i<2;++i) { test_ms+=100; W4Control_Step(test_ms); scan(false); }
+    assert(mapped_cell(MAX_GRID_SIZE/2+7,MAX_GRID_SIZE/2)=='.');
+    reset_run();
+}
 static void test_five_metre_targets(void) {
     const char *goals[]={"MAZE,0,5\n","MAZE,5,0\n","MAZE,-5,0\n","MAZE,0,-5\n",
                          "MAZE,5,5\n","MAZE,-5,5\n","MAZE,5,-5\n","MAZE,-5,-5\n"};
@@ -522,6 +574,9 @@ static void test_five_metre_targets(void) {
     reset_run();
 }
 
+#ifndef TEST_STAGE
+#define TEST_STAGE 0
+#endif
 int main(void) {
     test_ms=100;
     W4Calibration_Apply(); W4Nav_Init(); assert(W4HardwareReady());
@@ -530,26 +585,28 @@ int main(void) {
     assert(strstr(test_ack,"MAZE_ACCEPTED") && w4_nav.fault==0);
     reset_run();
 #ifdef TEST_RETRY_ONLY
-    maze_test_stage=11; test_retry_contract();
+    if(TEST_STAGE==0 || TEST_STAGE==11) { maze_test_stage=11; test_retry_contract(); }
     return 0;
 #endif
 #ifdef TEST_DYNAMIC_ONLY
-    maze_test_stage=7; drive_course(1,true);
+    if(TEST_STAGE==0 || TEST_STAGE==7) { maze_test_stage=7; drive_course(1,true); }
     return 0;
 #endif
-    maze_test_stage=1; test_route_contract();
-    maze_test_stage=2; reset_run(); drive_room(false);
-    maze_test_stage=3; reset_run(); drive_room(true);
-    maze_test_stage=4; test_goal_xy_only();
-    maze_test_stage=5; drive_course(1,false);
-    maze_test_stage=6; drive_course(2,false);
-    maze_test_stage=7; drive_course(1,true);
-    maze_test_stage=8; test_planner_edges();
-    maze_test_stage=9; test_persistent_walls();
-    maze_test_stage=10; test_five_metre_targets();
-    maze_test_stage=11; test_retry_contract();
-    maze_test_stage=12; test_return_to_start();
-    maze_test_stage=13; test_narrow_and_near_wall();
+    if(TEST_STAGE==0 || TEST_STAGE==1) { maze_test_stage=1; test_route_contract(); }
+    if(TEST_STAGE==0 || TEST_STAGE==2) { maze_test_stage=2; reset_run(); drive_room(false); }
+    if(TEST_STAGE==0 || TEST_STAGE==3) { maze_test_stage=3; reset_run(); drive_room(true); }
+    if(TEST_STAGE==0 || TEST_STAGE==4) { maze_test_stage=4; test_goal_xy_only(); }
+    if(TEST_STAGE==0 || TEST_STAGE==5) { maze_test_stage=5; drive_course(1,false); }
+    if(TEST_STAGE==0 || TEST_STAGE==6) { maze_test_stage=6; drive_course(2,false); }
+    if(TEST_STAGE==0 || TEST_STAGE==7) { maze_test_stage=7; drive_course(1,true); }
+    if(TEST_STAGE==0 || TEST_STAGE==8) { maze_test_stage=8; test_planner_edges(); }
+    if(TEST_STAGE==0 || TEST_STAGE==9) { maze_test_stage=9; test_persistent_walls(); }
+    if(TEST_STAGE==0 || TEST_STAGE==10) { maze_test_stage=10; test_five_metre_targets(); }
+    if(TEST_STAGE==0 || TEST_STAGE==11) { maze_test_stage=11; test_retry_contract(); }
+    if(TEST_STAGE==0 || TEST_STAGE==12) { maze_test_stage=12; test_return_to_start(); }
+    if(TEST_STAGE==0 || TEST_STAGE==13) { maze_test_stage=13; test_narrow_and_near_wall(); }
+    if(TEST_STAGE==0 || TEST_STAGE==14) { maze_test_stage=14; test_goal_ghost_recovery(); }
+    if(TEST_STAGE==0 || TEST_STAGE==15) { maze_test_stage=15; test_adjacent_far_ghost(); }
     reset_run(); assert(!W4Maze_Fresh(test_ms));
     return 0;
 }

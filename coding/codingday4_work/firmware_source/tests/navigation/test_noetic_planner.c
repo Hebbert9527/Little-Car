@@ -7,10 +7,10 @@
 PlannerMemoryPool g_mem_pool;
 static uint8_t cells[MAX_MAP_BYTES];
 static Point2D path[MAX_PATH_LEN],smoothed[MAX_PATH_LEN];
-static ServerMap map={cells,0.1f,MAX_GRID_SIZE};
+static ServerMap map={cells,0.1f,107};
 static void clear_map(void) {
     memset(cells,0,sizeof cells);
-    for(int x=0;x<MAX_GRID_SIZE;++x) for(int y=0;y<MAX_GRID_SIZE;++y)
+    for(int x=0;x<map.grid_size;++x) for(int y=0;y<map.grid_size;++y)
         set_grid_val(&map,x,y,2);
 }
 static void validate(unsigned n,Point2D start,Point2D goal) {
@@ -37,7 +37,7 @@ int main(void) {
     a=(Point2D){2.45f,0.55f}; b=(Point2D){2.45f,2.45f};
     n=astar_plan(&map,a,b,0,0,false,path);
     validate((unsigned)n,a,b);
-    for(int x=35;x<MAX_GRID_SIZE;++x) set_grid_val(&map,x,15,1);
+    for(int x=35;x<map.grid_size;++x) set_grid_val(&map,x,15,1);
     assert(astar_plan(&map,a,b,0,0,false,path)==0);
     /* Exact 14.1 cm (r_sq=2 on 10 cm grid) collision radius:
        orthogonal 10 cm (d^2=1) and diagonal 14.1 cm (d^2=2) must collide,
@@ -99,6 +99,31 @@ int main(void) {
     for(int y=25;y<=34;++y) { set_grid_val(&map,16,y,1); set_grid_val(&map,24,y,1); }
     assert(astar_plan(&map,a,b,0,0,false,path)==0);
     assert(strcmp(W4Planner_FailureReason(),"NO_ROUTE")==0);
+    /* 5 cm fine map: sweep all sub-cell phases along a continuous wall.
+       A goal 16 cm away remains clear across negative/positive ICP offsets;
+       <=14 cm still fails, with the original endpoint preserved. */
+    map.res=0.05f; map.grid_size=MAX_GRID_SIZE;
+    for(int phase=0;phase<40;++phase) {
+        clear_map();
+        for(int y=10;y<80;++y) set_grid_val(&map,40,y,1);
+        float wall_x=40.5f*map.res;
+        a=(Point2D){wall_x-0.8f,1.0f};
+        b=(Point2D){wall_x-0.151f-0.001f*phase,2.0f};
+        n=astar_plan(&map,a,b,0,0,false,path); validate((unsigned)n,a,b);
+        b.x=wall_x-0.14f+0.0002f*phase;
+        assert(astar_plan(&map,a,b,0,0,false,path)==0);
+        assert(strcmp(W4Planner_FailureReason(),"GOAL_BLOCKED")==0);
+    }
+    /* Genuine wall in goal cell still blocks. Affinity clearing must preserve
+       every evidence state, including wall erosion and tentative hits. */
+    for(unsigned state=0;state<=6;++state) {
+        map_set_state(&map,123,(uint8_t)state); set_affinity(&map,123);
+        clear_all_affinity(&map);
+        assert(map_state(&map,123)==state && !has_affinity(&map,123));
+    }
+    clear_map(); set_grid_val(&map,40,40,1);
+    assert(astar_plan(&map,(Point2D){1,1},(Point2D){2.025f,2.025f},0,0,false,path)==0);
+    assert(strcmp(W4Planner_FailureReason(),"GOAL_BLOCKED")==0);
     /* Heap capacity fails explicitly and never overwrites the shared pool. */
     PriorityQueue q; pq_init(&q);
     for(unsigned i=0;i<MAX_PQ_SIZE;++i) assert(pq_push(&q,(uint16_t)i,(uint16_t)(MAX_PQ_SIZE-i)));

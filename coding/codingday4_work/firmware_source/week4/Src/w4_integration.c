@@ -45,8 +45,8 @@ void App_OnLidarPoint(float angle_deg, float distance_mm, uint8_t quality, bool 
  * Telemetry mailbox: many producers (LiDAR/RX/Path/TX tasks), one consumer
  * (W4BluetoothTxTask). A by-value CMSIS queue is the protected mailbox.
  * -------------------------------------------------------------------------*/
-#define TX_LINE_MAX   192U
-#define TX_MBOX_DEPTH 24U
+#define TX_LINE_MAX   288U
+#define TX_MBOX_DEPTH 18U
 static osMessageQueueId_t s_tx_mbox;
 static uint32_t s_tx_dropped, s_tx_errors, s_tx_sent;
 static uint32_t s_p_seq, s_i_seq;

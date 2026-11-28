@@ -1,0 +1,220 @@
+{
+  "source": "D:\\EMBEGGed\\week4codingday\\coding\\coding(1)\\coding\\codingday4_work\\firmware_source\\logs\\live_20261128_161507_165.bin",
+  "bytes": 1537175,
+  "sha256": "dffe9ba9c4693679ad221c3e6eb51b3825f429b567b5dba664a6214496f4a203",
+  "target_m": [
+    -1.3,
+    2.45
+  ],
+  "ack_counts": {
+    "A,1,OK,RESET_PENDING": 1,
+    "A,2,OK,RESET_PENDING": 1,
+    "A,3,OK,RESET_PENDING": 1,
+    "A,4,OK,MAZE_ACCEPTED": 1,
+    "A,4,WAIT,GOAL_BLOCKED": 21,
+    "A,4,OK,MAZE_RESUMED": 1,
+    "A,5,STOPPED,STOP_LATCHED": 1
+  },
+  "state_changes": [
+    {
+      "ms": 36650,
+      "cmd": 0,
+      "state": "IDLE",
+      "pose_mm": [
+        0,
+        -11
+      ],
+      "theta_mrad": 1358,
+      "fault": 0
+    },
+    {
+      "ms": 43850,
+      "cmd": 0,
+      "state": "STOPPED",
+      "pose_mm": [
+        0,
+        0
+      ],
+      "theta_mrad": 1571,
+      "fault": 0
+    },
+    {
+      "ms": 229873,
+      "cmd": 4,
+      "state": "PLANNING",
+      "pose_mm": [
+        0,
+        0
+      ],
+      "theta_mrad": 1571,
+      "fault": 0
+    },
+    {
+      "ms": 229900,
+      "cmd": 4,
+      "state": "TRACKING",
+      "pose_mm": [
+        0,
+        0
+      ],
+      "theta_mrad": 1571,
+      "fault": 0
+    },
+    {
+      "ms": 257550,
+      "cmd": 4,
+      "state": "PLANNING",
+      "pose_mm": [
+        -1244,
+        2896
+      ],
+      "theta_mrad": -2108,
+      "fault": 0
+    },
+    {
+      "ms": 277150,
+      "cmd": 4,
+      "state": "TRACKING",
+      "pose_mm": [
+        -1249,
+        2888
+      ],
+      "theta_mrad": -2600,
+      "fault": 0
+    },
+    {
+      "ms": 283450,
+      "cmd": 0,
+      "state": "STOPPED",
+      "pose_mm": [
+        -1072,
+        2718
+      ],
+      "theta_mrad": 2234,
+      "fault": 0
+    }
+  ],
+  "events": [
+    {
+      "ms_at_previous_nav": 43800,
+      "frame": "A,1,OK,RESET_PENDING"
+    },
+    {
+      "ms_at_previous_nav": 150700,
+      "frame": "A,2,OK,RESET_PENDING"
+    },
+    {
+      "ms_at_previous_nav": 225553,
+      "frame": "A,3,OK,RESET_PENDING"
+    },
+    {
+      "ms_at_previous_nav": 229800,
+      "frame": "A,4,OK,MAZE_ACCEPTED"
+    },
+    {
+      "ms_at_previous_nav": 251450,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 252650,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 253850,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 255100,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 256300,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 257500,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 258750,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 259950,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 261200,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 262400,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 263600,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 264850,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 266050,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 267300,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 268500,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 269750,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 270950,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 272200,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 273400,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 274650,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 275850,
+      "frame": "A,4,WAIT,GOAL_BLOCKED"
+    },
+    {
+      "ms_at_previous_nav": 277050,
+      "frame": "A,4,OK,MAZE_RESUMED"
+    },
+    {
+      "ms_at_previous_nav": 283400,
+      "frame": "A,5,STOPPED,STOP_LATCHED"
+    }
+  ],
+  "wait_count": 21,
+  "stopped_planning_ms": 19600,
+  "wait_reporting_ms": 25600,
+  "scan_age_range_during_pause_ms": [
+    3,
+    141
+  ],
+  "limitations": [
+    "Map rows are asynchronous; no atomic board-map snapshot was logged.",
+    "P telemetry is downsampled and cannot exactly replay the full onboard scans.",
+    "GOAL_BLOCKED covers safety clearance as well as literal target-cell occupancy.",
+    "Observed mapped wall layers do not prove the physical wall position."
+  ]
+}

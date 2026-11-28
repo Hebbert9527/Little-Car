@@ -19,6 +19,15 @@ class ProtocolTests(unittest.TestCase):
         self.assertEqual(p.parse_line(row).fields[:4], ('2','48','-15','22'))
         for invalid in (row[:-1], row.replace(b'48',b'49'), row+b'x'):
             with self.assertRaises(ValueError): p.parse_line(invalid)
+    def test_full_five_cm_row_fragmentation(self):
+        row=b'M,4294967295,212,-40,40,50,106,4294967295,'+b'.'*212+b'#\n'
+        decoder=p.StreamDecoder()
+        frames=[]
+        for i in range(0,len(row),17): frames.extend(decoder.feed(row[i:i+17]))
+        self.assertEqual(decoder.bad_lines,0)
+        self.assertEqual(len(frames),1)
+        self.assertEqual(len(frames[0].fields[-1]),213)
+
     def test_navigation_and_ack(self):
         frame = p.parse_line(b'N,3,50,9,TRACKING,100,-200,1571,400,500,2,0')
         self.assertEqual((frame.x_mm, frame.y_mm, frame.target_y_mm), (100, -200, 500))

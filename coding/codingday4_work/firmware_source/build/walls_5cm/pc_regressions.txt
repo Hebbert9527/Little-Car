@@ -1,0 +1,40 @@
+test_explicit_missing_compiler_is_clear (test_build.BuildTests.test_explicit_missing_compiler_is_clear) ... ok
+test_search_supports_standalone_arm_layout (test_build.BuildTests.test_search_supports_standalone_arm_layout) ... ok
+test_fault_ten_does_not_claim_live_map_is_frozen (test_monitor.FaultExplanationTests.test_fault_ten_does_not_claim_live_map_is_frozen) ... ok
+test_stall_is_not_reported_as_map_failure (test_monitor.FaultExplanationTests.test_stall_is_not_reported_as_map_failure) ... ok
+test_navigation_reboot_allows_delayed_imu_and_clears_old_state (test_monitor.IntegratedSequenceTests.test_navigation_reboot_allows_delayed_imu_and_clears_old_state) ... ok
+test_point_and_imu_have_independent_sequences (test_monitor.IntegratedSequenceTests.test_point_and_imu_have_independent_sequences) ... ok
+test_fault_remains_frozen_after_imu_recovers (test_monitor.MapStatusTests.test_fault_remains_frozen_after_imu_recovers) ... ok
+test_stale_and_recovered_grid (test_monitor.MapStatusTests.test_stale_and_recovered_grid) ... ok
+test_ble_connection_error_remains_visible_during_retry (test_monitor.MonitorTests.test_ble_connection_error_remains_visible_during_retry) ... ok
+test_commands_are_not_queued_while_disconnected (test_monitor.MonitorTests.test_commands_are_not_queued_while_disconnected) ... ok
+test_demo_needs_no_optional_packages (test_monitor.MonitorTests.test_demo_needs_no_optional_packages) ... ok
+test_independent_sequence_spaces_and_latest_state (test_monitor.MonitorTests.test_independent_sequence_spaces_and_latest_state) ... ok
+test_extended_geometry_and_old_firmware (test_monitor.PersistentMapTests.test_extended_geometry_and_old_firmware) ... ok
+test_new_map_rows_reject_bad_geometry (test_monitor.PersistentMapTests.test_new_map_rows_reject_bad_geometry) ... ok
+test_saved_walls_survive_clear_rows_and_sensor_loss (test_monitor.PersistentMapTests.test_saved_walls_survive_clear_rows_and_sensor_loss) ... ok
+test_old_wait_ack_does_not_override_new_command (test_monitor.ReplanningStatusTests.test_old_wait_ack_does_not_override_new_command) ... ok
+test_wait_and_resume_keep_command_identity (test_monitor.ReplanningStatusTests.test_wait_and_resume_keep_command_identity) ... ok
+test_epoch_wrap_and_reboot (test_monitor.ResetMapTests.test_epoch_wrap_and_reboot) ... ok
+test_reset_discards_queued_old_rows_then_rebuilds (test_monitor.ResetMapTests.test_reset_discards_queued_old_rows_then_rebuilds) ... ok
+test_map_history_tracks_free_floor_and_walls (test_monitor.ReturnAndFreeMapTests.test_map_history_tracks_free_floor_and_walls) ... ok
+test_run_history_keeps_outbound_and_return_paths_until_reset (test_monitor.ReturnAndFreeMapTests.test_run_history_keeps_outbound_and_return_paths_until_reset) ... ok
+test_reset_and_new_command_do_not_join_paths (test_monitor.RunHistoryTests.test_reset_and_new_command_do_not_join_paths) ... ok
+test_schedule_and_bus_diagnostic_fields (test_protocol.DiagnosticTests.test_schedule_and_bus_diagnostic_fields) ... ok
+test_task_frames_keep_each_task (test_protocol.DiagnosticTests.test_task_frames_keep_each_task) ... ok
+test_command_coordinates_match_firmware_five_metre_bounds (test_protocol.FirmwareBoundsTests.test_command_coordinates_match_firmware_five_metre_bounds) ... ok
+test_command_encoding (test_protocol.ProtocolTests.test_command_encoding) ... ok
+test_diagnostics_are_preserved_without_guessing_schema (test_protocol.ProtocolTests.test_diagnostics_are_preserved_without_guessing_schema) ... ok
+test_fragmentation_and_recovery (test_protocol.ProtocolTests.test_fragmentation_and_recovery) ... ok
+test_full_five_cm_row_fragmentation (test_protocol.ProtocolTests.test_full_five_cm_row_fragmentation) ... ok
+test_invalid_navigation (test_protocol.ProtocolTests.test_invalid_navigation) ... ok
+test_maze_command_and_map_row (test_protocol.ProtocolTests.test_maze_command_and_map_row) ... ok
+test_navigation_and_ack (test_protocol.ProtocolTests.test_navigation_and_ack) ... ok
+test_radar_uses_map_heading_and_right_side (test_protocol.ProtocolTests.test_radar_uses_map_heading_and_right_side) ... ok
+test_sequences_wrap (test_protocol.ProtocolTests.test_sequences_wrap) ... ok
+test_rounded_pi_heading_is_valid (test_protocol.RoundedImuTests.test_rounded_pi_heading_is_valid) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 0.384s
+
+OK

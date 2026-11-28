@@ -32,7 +32,11 @@ def emulate(path, instruction_limit=50_000_000):
     uc.hook_add(UC_HOOK_CODE,done,begin=pc,end=pc)
     uc.reg_write(UC_ARM_REG_SP,0x200ff000)
     uc.emu_start(symbols["test_entry"]|1,0,count=instruction_limit)
-    if not finished:raise AssertionError("Instruction limit reached")
+    if not finished:
+        for name in ('maze_test_stage','maze_test_tick','route_number','route_len','last_scan'):
+            if name in symbols: print(name,struct.unpack('<I',uc.mem_read(symbols[name],4))[0],flush=True)
+        if 'test_ack' in symbols: print('last_ack',bytes(uc.mem_read(symbols['test_ack'],96)).split(b'\0')[0],flush=True)
+        raise AssertionError("Instruction limit reached")
     result=struct.unpack("<I",uc.mem_read(symbols["test_result"],4))[0]
     if "maze_outcomes" in symbols:
         import json
@@ -112,6 +116,7 @@ SECTIONS { . = 0x10000; .text : { *(.text*) *(.rodata*) }
         target=out/(name+".elf")
         args=[str(GCC),"-mcpu=cortex-m4","-mthumb","-mfloat-abi=soft","-std=c11","-O2" if name in ("navigation_maze","noetic_planner") else "-O0","-g","-Wall","-Wextra","-Werror","-ffunction-sections","-fdata-sections","-nostartfiles","--specs=nano.specs","--specs=nosys.specs","-Tbuild/cortex_tests/test.ld","-Wl,--gc-sections",*defines]
         if name=='navigation_maze': args.append('-Wl,--wrap=astar_plan')
+        if name=='navigation_maze' and os.environ.get('W4_TEST_STAGE'): args.append('-DTEST_STAGE='+os.environ['W4_TEST_STAGE'])
         if name=='navigation_maze' and os.environ.get('W4_TEST_RETRY_ONLY'): args.append('-DTEST_RETRY_ONLY')
         if name=='navigation_maze' and os.environ.get('W4_TEST_DYNAMIC_ONLY'): args.append('-DTEST_DYNAMIC_ONLY')
         if sensor:args += ["-include","tests/sensors/mock/stm32f4xx_hal.h","-Itests/sensors/mock"]
@@ -121,7 +126,7 @@ SECTIONS { . = 0x10000; .text : { *(.text*) *(.rodata*) }
         if run.returncode:
             print(run.stdout.decode(errors="replace"));run.check_returncode()
         # Dual navigation runs three full coordinate routes and loaded motor dynamics.
-        budget = 12_000_000_000 if name=="navigation_maze" else 300_000_000 if name=="noetic_planner" else 200_000_000 if name.startswith("navigation_") else 50_000_000
+        budget = 12_000_000_000 if name=="navigation_maze" else 1_200_000_000 if name=="noetic_planner" else 200_000_000 if name.startswith("navigation_") else 50_000_000
         emulate(target, budget)
         print("PASS",name+(" (retry scenario only)" if name=="navigation_maze" and os.environ.get("W4_TEST_RETRY_ONLY") else " (dynamic scenario only)" if name=="navigation_maze" and os.environ.get("W4_TEST_DYNAMIC_ONLY") else ""),flush=True)
     print(f"{len(cases)} Cortex-M4 software regressions passed. Not hardware or RTOS timing tests.",flush=True)

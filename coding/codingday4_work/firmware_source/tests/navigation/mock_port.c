@@ -16,7 +16,7 @@ int w4_single_cmd_dir;
 void W4Runtime_Begin(W4TaskId id,uint32_t release) { (void)id; (void)release; }
 void W4Runtime_End(W4TaskId id,uint32_t deadline) { (void)id; (void)deadline; }
 char test_ack[96];
-char test_map[192];
+char test_map[288];
 osStatus_t osMessageQueuePut(osMessageQueueId_t q,const void *p,uint8_t pri,uint32_t wait) {
     (void)pri;(void)wait; Queue *x=q;
     if(x->count==x->cap) return osErrorResource;

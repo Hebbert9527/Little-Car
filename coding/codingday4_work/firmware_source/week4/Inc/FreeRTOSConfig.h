@@ -69,8 +69,8 @@
 #define configMAX_PRIORITIES                     ( 56 )
 #define configMINIMAL_STACK_SIZE                 ((uint16_t)256)
 #ifdef W4_MAZE
-/* Fixed task/queue allocation fits in 32 KiB; check free heap after boot. */
-#define configTOTAL_HEAP_SIZE                    ((size_t)32768)
+/* Fixed task/queue allocation (~23.5 KiB) fits in 28 KiB with >4.5 KiB free heap. */
+#define configTOTAL_HEAP_SIZE                    ((size_t)28672)
 #else
 #define configTOTAL_HEAP_SIZE                    ((size_t)49152)
 #endif

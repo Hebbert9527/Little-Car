@@ -76,9 +76,10 @@ class MapHistory:
 
 PLANNER_REASONS={
     'START_BLOCKED':'start within wall clearance',
-    'GOAL_BLOCKED':'target within wall clearance',
+    'GOAL_BLOCKED':'target occupied or closer than 15 cm to mapped wall; retrying',
     'NO_ROUTE':'no connected route',
     'PLANNER_QUEUE_FULL':'planner queue capacity exceeded',
+    'PLANNER_NODE_FULL':'planner explored-node capacity exceeded',
     'PATH_TOO_LONG':'route exceeds buffer',
     'PATH_COLLISION':'route failed clearance check',
     'MAP_BOUNDS':'target outside map',
